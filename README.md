@@ -15,4 +15,4 @@ Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo 
   - JS: `assets/js/main.js`
   - Link para outro artigo (mesma pasta): `nome_do_artigo.html`
 
-Não usar caminhos absolutos do site (ex.: `/personal/...`) para navegação interna; usar apenas relativos. Links externos (LinkedIn, GitHub, etc.) permanecem absolutos. Canonical e og:url/og:image, quando usados, devem apontar para a URL canônica do matriz (https://caracore.com.br/personal/...).
+Não usar caminhos absolutos do site (ex.: `/personal/...`) para navegação interna; usar apenas relativos. Links externos (LinkedIn, GitHub, etc.) permanecem absolutos. Canonical e og:url/og:image, quando usados, devem apontar para a URL canônica do matriz (https://personal.caracore.com.br//...).
