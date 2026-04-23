@@ -5,9 +5,22 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[A Ressaca da IA em 2026: Por que a Ficha Finalmente Caiu para o ROI da Inteligência Artificial]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial.html</link>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial.html</guid>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Episódio 03: O "Kit Chinês": Nova Dependência ou Oportunidade?]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_23_serie_brasil_sdk_soberania_ep03.html</link>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_23_serie_brasil_sdk_soberania_ep03.html</guid>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Na Minha Torre: Um Engenheiro no Localhost.]]></title>
