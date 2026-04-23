@@ -628,18 +628,35 @@ body {
 /* === IMAGENS PROFISSIONAIS === */
 
 /* === IMAGEM PRINCIPAL DO ARTIGO === */
+.hero-image-frame {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
 .hero-image {
     width: 100%;
     max-width: 800px;
     height: auto;
     aspect-ratio: 16 / 9;
     display: block;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto;
     border-radius: 8px;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
     border-right: 3px solid var(--primary-color);
     object-fit: cover;
+}
+
+.hero-image-caption {
+    width: 100%;
+    max-width: 720px;
+    margin: 0.85rem auto 0 auto;
+    padding: 0 1rem;
+    color: var(--text-light);
+    text-align: center;
+    font-size: 0.98rem;
+    font-style: italic;
+    line-height: 1.45;
 }
 
 /* Variante para evitar corte mantendo 16:9 */
@@ -995,6 +1012,16 @@ body {
     
     .hero-image {
         max-width: 100%;
+    }
+
+    .hero-image-frame {
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-image-caption {
+        width: 100%;
+        padding: 0 0.75rem;
+        font-size: 0.88rem;
     }
     
     .article-content, .post-content {
