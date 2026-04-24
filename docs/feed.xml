@@ -5,10 +5,16 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 23 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
+    <item>
+      <title><![CDATA[A Era da IA "Costurada": Por que você não precisa de uma Supermáquina para o Estado da Arte]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</link>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title><![CDATA[A Ressaca da IA em 2026: Por que a Ficha Finalmente Caiu para o ROI da Inteligência Artificial]]></title>
       <link>https://personal.caracore.com.br/articles/2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial.html</link>
