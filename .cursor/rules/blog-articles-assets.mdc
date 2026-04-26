@@ -1,0 +1,27 @@
+---
+description: Blog articles — CSS, JS, and images live under docs/articles/assets
+globs: docs/articles/**/*.html
+alwaysApply: false
+---
+
+# Artigos (`docs/articles`): pasta `assets`
+
+Para **artigos novos** (e ao editar HTML em `docs/articles/`), manter artefactos e marcações assim:
+
+## Caminhos (relativos ao `.html` do artigo)
+
+- **CSS:** `assets/css/` — p.ex. `main.css`, `article.css`, `highlight.css`; folhas novas no mesmo sítio, não ao lado do HTML.
+- **JS:** `assets/js/` — p.ex. `main.js`, `article.js`.
+- **Imagens:** `assets/img/` — convenções em `docs/articles/assets/img/README.txt`.
+
+## Marcação
+
+- `<link rel="stylesheet" href="assets/css/...">` e `<script src="assets/js/...">`.
+- `og:image` com `content="assets/img/..."` alinhado ao hero quando existir.
+
+## Evitar
+
+- CSS/JS/imagens soltos na pasta `articles/` ao lado dos HTML (fora de `assets/`).
+- Blocos grandes de `<style>` ou `<script>` inline; preferir ficheiros em `assets/css` e `assets/js` (exceções mínimas documentadas no `assets/README.txt`).
+
+Referência humana: `docs/articles/assets/README.txt`.

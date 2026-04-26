@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html" />
+    <meta property="og:image" content="assets/img/2026_08_10_IMAGE_001.png" />
+    <title>Série: Recolocação e teste prático Java — Índice</title>
+    <meta name="description" content="Índice da série (7 episódios): desafio de recolocação com quatro horas de prova — API REST de veículos em Java, Spring Boot, camadas, nota sobre viabilidade do prazo e roteiro até ao README.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Java, Spring Boot, API REST, recolocação, teste prático, arquitetura, Jaraguá do Sul, Carreira">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <style>
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .episode-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .episode-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
+        }
+        .episode-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .episode-number {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .episode-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .episode-title a:hover {
+            color: var(--primary-color);
+        }
+        .episode-teaser {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .episode-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title">Série: Recolocação e teste prático Java</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-10">10/08/2026</time> — 7 episódios | Lançamentos de agosto a setembro de 2026
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <p>Entre março e abril de 2026, a recolocação bateu à porta com um teste prático exigente: construir uma API REST de cadastro de veículos em Java, com camadas claras e critérios de banca que pesam mais do que “só rodar”. Esta série transforma esse desafio — vivido no contexto de uma empresa de TI de Jaraguá do Sul, SC (identidade preservada) — em roteiro técnico em sete entregas, do PDF ao README.</p>
+                    <p>Cada episódio acompanha uma etapa da jornada: leitura do enunciado, base Spring Boot, domínio, persistência, aplicação, web/Swagger e consolidação final. O tom permanece o do blog: ensaio técnico, decisões defendíveis e trincheira de entrevista.</p>
+                    <p><strong>Nota sobre o tempo:</strong> No processo em causa foi dada uma janela de <strong>quatro horas</strong> para resolver o desafio. É factível? Para quem já domina Spring Boot, JPA, Flyway, Bean Validation e documentação OpenAPI (springdoc) e entra com um plano enxuto — <strong>sim</strong>: o enunciado em si cabe nesse tempo se se evitar ouro (auth complexo, microsserviços, “arquitetura de palco”) e se o PDF for lido antes de codar. Para quem ainda aquece a stack ou perde o início a decifrar requisitos, quatro horas tornam-se sobretudo um teste de <em>priorização</em>. Esta série desdobra o mesmo percurso em texto justamente para treinar o que, na prova, precisa caber num único bloco contínuo.</p>
+                    <p>Os esquemas abaixo seguem o <strong>modelo C4</strong> (Simon Brown), mas aparecem <em>depois</em> desta leitura inicial: primeiro o texto situa; em seguida cada figura fixa um zoom — <strong>C4</strong> contexto, <strong>C3</strong> contentores, <strong>C2</strong> componentes, <strong>C1</strong> código.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de contexto (C4)</strong>, o desafio é o sistema no meio de pessoas e do enunciado:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto do sistema</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Candidato(a)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">Enunciado PDF<br>(teste prático)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Sistema a construir:<br>API REST de veículos</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box person">Banca / avaliador(a)</span>
+                            </div>
+                            <p class="series-c4-foot">O software em caixa é o produto da entrega; pessoas e PDF são o ecossistema da recolocação.</p>
+                        </figure>
+                    </div>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de contentores (C3)</strong>, o que corre na máquina do avaliador resume-se a cliente, processo JVM e dados em memória:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Cliente HTTP<br>(navegador, Swagger UI, curl)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Contentor: aplicação<br>Spring Boot (JVM)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">Contentor: dados<br>H2 em memória</span>
+                            </div>
+                            <p class="series-c4-foot">Um processo entrega a API; o outro guarda o estado — fronteira clara para explicar em entrevista.</p>
+                        </figure>
+                    </div>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de componentes (C2)</strong>, a solução desdobra-se nas camadas que o PDF pede:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (camadas da solução)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">Web<br>REST, DTOs, OpenAPI, erros HTTP</span>
+                                    <span class="series-c4-box">Application<br>casos de uso, transações</span>
+                                    <span class="series-c4-box">Domain<br>Veículo, Marca, regras</span>
+                                    <span class="series-c4-box">Infra<br>JPA, Flyway, repositório</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Responsabilidades nomeadas — não “tudo no controller”.</p>
+                        </figure>
+                    </div>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de código (C1)</strong>, o repositório deve deixar óbvio onde mora cada responsabilidade:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código (pacotes-alvo)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft">…web<br><small>controllers, config OpenAPI</small></span>
+                                    <span class="series-c4-box soft">…application<br><small>VeiculoService</small></span>
+                                    <span class="series-c4-box soft">…domain<br><small>Veiculo, Marca</small></span>
+                                    <span class="series-c4-box soft">…infra<br><small>VeiculoJpaRepository, migrations</small></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Cada episódio aprofunda um recorte deste mapa até README e checklist.</p>
+                        </figure>
+                    </div>
+
+                    <div class="episode-grid">
+                        <div class="episode-card">
+                            <img src="assets/img/2026_08_12_IMAGE_001.png" alt="Episódio 1" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 01</div>
+                                <h3 class="episode-title"><a href="2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html">Do PDF ao plano: lendo um teste prático Java como arquiteto</a></h3>
+                                <p class="episode-teaser">Antes de controllers e entidades: transformar o enunciado em plano técnico, critérios de avaliação e arquitetura Web, Application, Domain e Infra.</p>
+                                <div class="episode-date">Lançamento: 12 de agosto de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <img src="assets/img/2026_08_19_IMAGE_001.png" alt="Episódio 2" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 02</div>
+                                <h3 class="episode-title"><a href="2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html">Preparando o terreno: Spring Boot, dependências e estrutura inicial</a></h3>
+                                <p class="episode-teaser">Dependências certas, pacotes por camada e configuração que o avaliador consegue rodar sem adivinhação.</p>
+                                <div class="episode-date">Lançamento: 19 de agosto de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <img src="assets/img/2026_08_26_IMAGE_001.png" alt="Episódio 3" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 03</div>
+                                <h3 class="episode-title"><a href="2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html">O coração da API: domínio, entidade Veículo e regras essenciais</a></h3>
+                                <p class="episode-teaser">Modelo de negócio, enum de marca, validações e DTOs como fronteira entre HTTP e domínio.</p>
+                                <div class="episode-date">Lançamento: 26 de agosto de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <img src="assets/img/2026_09_02_IMAGE_001.png" alt="Episódio 4" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 04</div>
+                                <h3 class="episode-title"><a href="2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html">Da memória ao banco: persistindo veículos com JPA, H2 e Flyway</a></h3>
+                                <p class="episode-teaser">Infraestrutura com contrato: migrations, repositório e paginação sem vazar detalhes para a web.</p>
+                                <div class="episode-date">Lançamento: 2 de setembro de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <img src="assets/img/2026_09_09_IMAGE_001.png" alt="Episódio 5" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 05</div>
+                                <h3 class="episode-title"><a href="2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html">Onde a regra acontece: services, casos de uso e separação de responsabilidades</a></h3>
+                                <p class="episode-teaser">Application layer orquestra CRUD e fluxos; o controller deixa de ser “lugar de tudo”.</p>
+                                <div class="episode-date">Lançamento: 9 de setembro de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <img src="assets/img/2026_09_16_IMAGE_001.png" alt="Episódio 6" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 06</div>
+                                <h3 class="episode-title"><a href="2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html">A porta de entrada da API: controllers simples, validação e documentação viva</a></h3>
+                                <p class="episode-teaser">REST fino, @Valid, handler de erros e OpenAPI/Swagger como bancada de testes.</p>
+                                <div class="episode-date">Lançamento: 16 de setembro de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <img src="assets/img/2026_09_23_IMAGE_001.png" alt="Episódio 7" class="episode-card-image">
+                            <div class="episode-card-content">
+                                <div class="episode-number">Episódio 07</div>
+                                <h3 class="episode-title"><a href="2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html">Fechando o teste prático: checklist final de uma API Java bem entregue</a></h3>
+                                <p class="episode-teaser">README, revisão ponta a ponta e narrativa de dois minutos para defender a solução na banca.</p>
+                                <div class="episode-date">Lançamento: 23 de setembro de 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Cronograma:</strong> 12/08, 19/08, 26/08, 02/09, 09/09, 16/09 e 23/09 de 2026.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário e empresa são tratados de forma anonimizada; o foco é engenharia de software e decisões técnicas reutilizáveis (Fiction-Based Technical Insights).</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Comece pelo <a href="2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html">primeiro episódio</a> ou volte ao <a href="../index.html">início do blog</a>.</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

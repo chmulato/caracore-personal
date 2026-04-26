@@ -1113,3 +1113,174 @@ body {
         color: #60a5fa;
     }
 }
+
+/* =============================================================================
+   Diagramas esquemáticos C4 — série Recolocação Java (C4 contexto → C1 código)
+   ============================================================================= */
+.series-c4-section {
+    margin: 2rem 0;
+    padding: 1.35rem 1.25rem 1.5rem;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    border-left: 4px solid #0f766e;
+}
+.series-c4-section > h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.15rem;
+    color: var(--text-color);
+}
+.series-c4-intro {
+    margin: 0 0 1.25rem 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+.series-c4-level {
+    margin: 1.35rem 0 0 0;
+    padding: 0;
+}
+.series-c4-level figcaption {
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #0f766e;
+    margin-bottom: 0.5rem;
+}
+.series-c4-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem 0.6rem;
+    padding: 1rem 0.75rem;
+    background: var(--background);
+    border: 1px dashed var(--border-color);
+    border-radius: 10px;
+    min-height: 4.25rem;
+}
+.series-c4-box {
+    display: inline-block;
+    padding: 0.45rem 0.65rem;
+    border-radius: 8px;
+    border: 2px solid #0f766e;
+    background: #ecfdf5;
+    color: #134e4a;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    max-width: 11rem;
+}
+.series-c4-box.soft {
+    font-weight: 500;
+    border-style: dashed;
+    border-color: #64748b;
+    background: var(--background-light);
+    color: var(--text-color);
+}
+.series-c4-box.person {
+    border-color: #2563eb;
+    background: #eff6ff;
+    color: #1e40af;
+}
+.series-c4-box.sys {
+    border-color: #0f766e;
+    background: #f0fdfa;
+    color: #134e4a;
+    font-size: 0.76rem;
+}
+.series-c4-box.store {
+    border-color: #b45309;
+    background: #fffbeb;
+    color: #92400e;
+}
+.series-c4-box.ext {
+    border-color: #7c3aed;
+    background: #f5f3ff;
+    color: #5b21b6;
+}
+.series-c4-arrow {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 700;
+    user-select: none;
+}
+.series-c4-grid4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 0.55rem;
+    width: 100%;
+    justify-items: stretch;
+}
+.series-c4-grid4 .series-c4-box,
+.series-c4-grid4 .series-c4-box.soft {
+    max-width: none;
+    width: 100%;
+}
+.series-c4-foot {
+    margin: 0.65rem 0 0 0;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.45;
+    width: 100%;
+}
+[data-theme="dark"] .series-c4-section {
+    border-left-color: #2dd4bf;
+}
+[data-theme="dark"] .series-c4-level figcaption {
+    color: #5eead4;
+}
+[data-theme="dark"] .series-c4-box {
+    background: #042f2e;
+    border-color: #14b8a6;
+    color: #ccfbf1;
+}
+[data-theme="dark"] .series-c4-box.soft {
+    background: #1f2937;
+    border-color: #64748b;
+    color: #e5e7eb;
+}
+[data-theme="dark"] .series-c4-box.person {
+    background: #1e3a5f;
+    border-color: #60a5fa;
+    color: #dbeafe;
+}
+[data-theme="dark"] .series-c4-box.store {
+    background: #422006;
+    border-color: #fbbf24;
+    color: #fef3c7;
+}
+[data-theme="dark"] .series-c4-box.ext {
+    background: #3b0764;
+    border-color: #a78bfa;
+    color: #ede9fe;
+}
+[data-theme="dark"] .series-c4-box.sys {
+    background: #134e4a;
+    color: #ccfbf1;
+}
+
+/* Bloco C4 embutido no fluxo da leitura (série Recolocação Java) */
+.series-c4-embed {
+    margin: 1.35rem 0;
+    padding: 1rem 1rem 1.1rem;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    border-left: 3px solid #0f766e;
+}
+.series-c4-embed .series-c4-level {
+    margin-top: 0.35rem;
+}
+.series-c4-lead {
+    margin: 0 0 0.45rem 0;
+    font-size: 0.93rem;
+    line-height: 1.55;
+    color: var(--text-color);
+}
+[data-theme="dark"] .series-c4-embed {
+    border-left-color: #2dd4bf;
+    background: var(--background-light);
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html" />
+    <meta property="og:image" content="assets/img/2026_08_26_IMAGE_001.png" />
+    <title>Episódio 03: Domínio e Veículo — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Terceiro episódio: modelo de domínio, enum Marca, Bean Validation, DTOs de entrada/saída e limites entre HTTP e negócio.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Domain, Java, Bean Validation, DTO, API REST">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 03: O coração da API: domínio, entidade Veículo e regras essenciais</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-26">26/08/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_08_26_IMAGE_001.png" alt="Episódio 03: Domínio" class="hero-image" />
+
+                    <h3>A API ganha assunto</h3>
+                    <p>Com o projeto criado, chegamos à parte em que a aplicação deixa de ser só dependências e passa a falar a língua do negócio. No teste da recolocação, isso é onde muitos candidatos ou brilham ou expõem acoplamento.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, o exterior só vê JSON; por baixo, o enunciado exige modelo interno coerente antes de persistir:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Cliente API</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">API de veículos</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">Regras do enunciado<br>(campos, validações)</span>
+                            </div>
+                            <p class="series-c4-foot">O “mundo exterior” só enxerga JSON; o PDF exige que o modelo interno seja coerente antes de persistir.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>O sistema deve trabalhar com cadastro de veículos. Campos obrigatórios: id, descrição, marca e modelo; opcionais: opcionais e valor. Validações com Jakarta Bean Validation. A primeira escolha é tratar <code>Veículo</code> como centro da linguagem — não apenas linha de tabela, mas conceito que a API manipula, persiste, valida e devolve.</p>
+                    <p>Em Spring Boot tradicional, a entidade pode ser anotada com JPA; o equilíbrio em teste prático é separar responsabilidades sem virar arquitetura acadêmica pesada. O essencial é que regras não fiquem no controller e o modelo seja fácil de entender.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Nos <strong>contentores (C3)</strong>, domínio e dados ainda partilham o mesmo processo — a fronteira é pacote e disciplina, não rede:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box sys">Spring Boot<br>(camadas domain + demais)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">H2<br>(ainda vazio ou mapeado)</span>
+                            </div>
+                            <p class="series-c4-foot">O domínio vive no mesmo processo; a fronteira é disciplina de pacotes, não rede.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>A entidade reflete descrição, marca, modelo, opcionais e valor. Marca como <code>enum</code> comunica decisão de modelagem, melhora documentação e reduz erro de digitação. Validações: <code>@NotBlank</code>, <code>@NotNull</code>, <code>@Positive</code>, <code>@Size</code> onde couber — contrato na borda, regras contextuais na aplicação.</p>
+                    <p>DTOs <code>CriarVeiculoRequest</code>, <code>AtualizarVeiculoRequest</code> e <code>VeiculoResponse</code> evitam expor a entidade crua e controlam o contrato HTTP. Contratos de repositório no domínio ou aplicação, com implementação na infra, reforçam o mapa em camadas pedido pelo PDF.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">As decisões traduzem-se em <strong>componentes (C2)</strong> — borda HTTP, núcleo de negócio, validação e contrato de persistência:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (domínio vs borda)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">DTOs Web<br>request / response</span>
+                                    <span class="series-c4-box">Domínio<br>Veículo, Marca</span>
+                                    <span class="series-c4-box">Validação<br>Bean Validation</span>
+                                    <span class="series-c4-box">Contrato persistência<br>interface repositório</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">DTOs ficam na borda HTTP; entidade e enum falam a língua do cadastro de veículos; validação não “vaza” para o controller como lógica procedural.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Se amanhã surgirem campos técnicos (data de criação, versão), a API não precisa expô-los automaticamente. DTOs funcionam como fronteira. A pergunta guia: se eu removesse a API HTTP, ainda entenderia o que é um veículo no sistema? Se sim, o domínio está no caminho certo.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>código (C1)</strong>, tipos e nomes estáveis são o que o avaliador abre primeiro no pacote <code>domain</code>:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código (tipos centrais)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft"><code>Veiculo</code><br><small>entidade / modelo</small></span>
+                                    <span class="series-c4-box soft"><code>Marca</code><br><small>enum</small></span>
+                                    <span class="series-c4-box soft"><code>CriarVeiculoRequest</code><br><small>+ atualizar / response</small></span>
+                                    <span class="series-c4-box soft"><code>VeiculoRepository</code><br><small>interface</small></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Abriu o pacote <code>domain</code> e reconhece o problema sem ler o controller.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da etapa</h3>
+                    <p>Sem hierarquia de value objects desnecessária: o PDF valoriza clareza. Ao final: modelo de <code>Veículo</code> claro, enum de marca, requests/responses definidos e contratos de persistência visíveis. Próximo passo: ligar o domínio a JPA, H2 e Flyway.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Explique a diferença entre contrato HTTP (DTO), conceito persistido (entidade) e regra de aplicação. O enum de marca é exemplo simples de intenção. Aceitar JPA na entidade em teste pequeno pode ser pragmático; o que não pode é HTTP mandando no modelo.</p>
+
+                    <p><strong>Reflexão final:</strong> Bons nomes não são enfeite — são parte da arquitetura legível para quem avalia em poucos minutos.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; série de insights técnicos reutilizáveis.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Episódio anterior: <a href="2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html">Spring Boot e estrutura</a> — Próximo: <a href="2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html">JPA, H2 e Flyway</a></p>
+            <p><a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

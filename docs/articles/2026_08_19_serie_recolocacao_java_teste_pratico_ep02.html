@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html" />
+    <meta property="og:image" content="assets/img/2026_08_19_IMAGE_001.png" />
+    <title>Episódio 02: Spring Boot e estrutura inicial — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Segundo episódio da série: dependências Spring Web, JPA, H2, Flyway, Validation e OpenAPI; pacotes por camada e configuração reproduzível.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Spring Boot, Java, Flyway, H2, OpenAPI, arquitetura">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 02: Preparando o terreno: Spring Boot, dependências e estrutura inicial</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-19">19/08/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_08_19_IMAGE_001.png" alt="Episódio 02: Spring Boot e estrutura" class="hero-image" />
+
+                    <h3>Depois do plano, o conforto do projeto</h3>
+                    <p>Com o mapa mental fechado no episódio anterior, a etapa seguinte no fluxo de recolocação é criar uma base que não atrapalhe o resto da solução. O avaliador não deve caçar variáveis escondidas nem adivinhar como subir a aplicação.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Esse conforto começa no <strong>contexto (C4)</strong> operacional: quem gera o projeto, o que sobe e quem valida — ainda sem falar de regra de negócio:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto (quem consome a base recém-criada)</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Dev / candidato</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">IDE + build<br>(Maven / Gradle)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Aplicação em arranque<br>(Spring Boot)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box person">Avaliador<br>(sobe e valida)</span>
+                            </div>
+                            <p class="series-c4-foot">O loop é compilar, subir, abrir Swagger e H2 — prova de que a fundação existe.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>Depois que o desafio foi lido como arquitetura e não apenas como lista de endpoints, a próxima etapa é criar a base do projeto. Essa parte parece burocrática, mas define o conforto do desenvolvimento inteiro. Um projeto bem iniciado tem dependências coerentes, configurações previsíveis e estrutura de pacotes que já comunica a intenção.</p>
+                    <p>A stack escolhida para a série é Spring Boot com Java 17 ou superior. Para atender ao enunciado, precisamos de Spring Web, Spring Data JPA, Hibernate, H2 em memória, Flyway para migrations, Jakarta Bean Validation e springdoc-openapi para Swagger. Essas peças cobrem o pedido sem inflar o escopo.</p>
+                    <p>A tentação é colocar tudo em pacotes genéricos <code>service</code>, <code>controller</code> e <code>repository</code>. Isso roda, mas não conta a história da arquitetura. Como o PDF exige camadas, a estrutura inicial precisa refletir isso: por exemplo <code>web</code>, <code>application</code>, <code>domain</code> e <code>infra</code>.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">As dependências do Initializr mapeiam direto para <strong>componentes (C2)</strong> do ecossistema Spring — cada caixa é uma escolha que se defende na banca:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (starters e responsabilidades técnicas)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">Spring Web<br>REST, MVC</span>
+                                    <span class="series-c4-box">Spring Data JPA<br>Hibernate</span>
+                                    <span class="series-c4-box">Flyway<br>migrations</span>
+                                    <span class="series-c4-box">Validation + springdoc<br>Bean Validation, OpenAPI</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Cada caixa corresponde a uma decisão no <code>pom</code> ou <code>build.gradle</code>.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>Na camada web ficam controllers, DTOs HTTP, configuração OpenAPI e handlers de erro. Na <code>application</code>, services ou casos de uso. No <code>domain</code>, entidades, enums e contratos do negócio. Na <code>infra</code>, persistência, repositórios JPA e migrations. Pastas pequenas no início já criam mapa mental consistente.</p>
+                    <p>O <code>application.yml</code> pode definir porta, datasource H2, console H2, JPA, Flyway e caminho do Swagger. Para teste prático, configuração local direta e transparente reduz atrito. H2 em memória, JDBC explícito, Flyway em <code>db/migration</code>, JPA com validação de schema contra migrations — sinal de maturidade mesmo em projeto pequeno.</p>
+                    <p>O Swagger entra cedo: quando o controller aparecer, já haverá lugar para verificar contratos sem montar requests à mão.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No mesmo processo JVM, <strong>contentores (C3)</strong> mostram onde vivem runtime, dados e documentação servida:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box sys">JVM: Spring Boot<br>(API + config)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">↔</span>
+                                <span class="series-c4-box store">H2 em memória<br>(ficheiro JDBC)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">↔</span>
+                                <span class="series-c4-box ext">springdoc / Swagger UI<br>(documentação servida)</span>
+                            </div>
+                            <p class="series-c4-foot">Flyway e OpenAPI partilham o mesmo deployável — simples para o avaliador.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Escolha nomes que falem a língua do problema: <code>VeiculoController</code>, <code>VeiculoService</code>, <code>CriarVeiculoRequest</code>, <code>VeiculoResponse</code>. Em teste prático, legibilidade é gentileza técnica.</p>
+                    <p>Nesta etapa ainda não resolvemos todas as regras. O objetivo é deixar o projeto compilando, subindo, com Swagger e H2 acessíveis e Flyway aplicando migration inicial. O que vier depois terá onde morar.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>código (C1)</strong>, a árvore de pastas e ficheiros é o primeiro “exame visual” do avaliador:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código (estrutura inicial visível)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft">src/main/java/…/<br><strong>web</strong> · <strong>application</strong></span>
+                                    <span class="series-c4-box soft">src/main/java/…/<br><strong>domain</strong> · <strong>infra</strong></span>
+                                    <span class="series-c4-box soft">src/main/resources/<br><strong>application.yml</strong></span>
+                                    <span class="series-c4-box soft">src/main/resources/<br><strong>db/migration</strong></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Config centralizada, SQL versionado e pacotes que já contam a história das camadas.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da etapa</h3>
+                    <p>Uma estrutura inicial sugere: <code>web</code> para entrada HTTP, <code>application</code> para orquestração, <code>domain</code> para modelo, <code>infra</code> para banco; migrations em <code>resources/db/migration</code>; README já com comando de execução e URLs. Isso evita crescimento desordenado e facilita explicar onde está cada responsabilidade.</p>
+                    <p>Com o terreno preparado, o próximo episódio entra no coração: domínio de veículos, enum de marca e validações.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Justifique Spring Boot pela integração natural com web, validação, JPA, H2, Flyway e OpenAPI — não só por “ser popular”. Flyway desde o início mostra schema versionado; Swagger cedo alinha documentação à implementação; setup reproduzível é competência de entrega.</p>
+
+                    <p><strong>Reflexão final:</strong> Fundação boa não atrasa: ela evita retrabalho quando a banca abrir o projeto pela primeira vez.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; série de insights técnicos reutilizáveis.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Episódio anterior: <a href="2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html">Do PDF ao plano</a> — Próximo: <a href="2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html">Domínio e entidade Veículo</a></p>
+            <p><a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

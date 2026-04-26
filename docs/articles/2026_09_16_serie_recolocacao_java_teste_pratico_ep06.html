@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html" />
+    <meta property="og:image" content="assets/img/2026_09_16_IMAGE_001.png" />
+    <title>Episódio 06: Controllers e Swagger — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Sexto episódio: REST fino, @Valid, RestControllerAdvice, HTTP 400/404 padronizados e OpenAPI como bancada de testes.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="REST, Swagger, OpenAPI, Spring MVC, validação">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 06: A porta de entrada da API: controllers simples, validação e documentação viva</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-09-16">16/09/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_09_16_IMAGE_001.png" alt="Episódio 06: Camada Web" class="hero-image" />
+
+                    <h3>A parte mais visível — e perigosa</h3>
+                    <p>A camada Web atrai responsabilidade porque é onde todo mundo testa. O PDF da jornada de recolocação foi claro: controllers sem lógica de negócio, validação de contrato na borda, delegação à aplicação.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, cliente e Swagger exercitam a mesma porta HTTP — contrato visível antes de Postman obrigatório:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Cliente + Swagger UI</span>
+                                <span class="series-c4-arrow" aria-hidden="true">⇄</span>
+                                <span class="series-c4-box sys">API de veículos<br>(HTTP)</span>
+                            </div>
+                            <p class="series-c4-foot">Quem testa não precisa de Postman obrigatório se o Swagger estiver vivo e correto.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>O controller de veículos expõe cadastrar, atualizar, consultar por id, listar com paginação e remover. Recebe requests, aplica <code>@Valid</code>, chama o service e devolve status adequados: 201 em criação, 200 em leitura/atualização, 204 em remoção quando fizer sentido, 400 em validação, 404 em ausência.</p>
+                    <p>DTOs de entrada carregam Bean Validation; falhas viram HTTP 400 com corpo padronizado via <code>@RestControllerAdvice</code> — menos duplicação, melhor experiência para quem exercita a API no Swagger.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Na borda Web, <strong>componentes (C2)</strong> separam controller fino, validação, handler global e springdoc:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">VeiculoController<br><code>@RestController</code></span>
+                                    <span class="series-c4-box">DTOs + <code>@Valid</code><br>contrato entrada</span>
+                                    <span class="series-c4-box">ApiExceptionHandler<br><code>@RestControllerAdvice</code></span>
+                                    <span class="series-c4-box">OpenAPI config<br>springdoc</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Erro 400/404 padronizado: handler global evita <code>try/catch</code> em cada método.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>Handler global trata validação, veículo não encontrado (404) e eventual 500 sem vazar stack interno. springdoc-openapi descreve parâmetros de paginação, modelos e códigos; a meta é abrir o Swagger e entender o contrato em minutos.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Swagger UI e Spring MVC partilham o mesmo deployável — <strong>contentores (C3)</strong> na cabeça de quem testa:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box ext">Swagger UI<br>(estático / gerado)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Spring MVC<br>(Tomcat embutido)</span>
+                            </div>
+                            <p class="series-c4-foot">Documentação e runtime partilham o mesmo artefacto deployável do teste.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Método de cadastro com forma mental fixa: receber request, chamar aplicação, montar response/URI, retornar. Se o método passa a checar marca, mexer em entidade ou acessar repository direto, algo escapou da camada certa.</p>
+                    <p>Teste manual: feliz + erros (campo obrigatório, valor negativo, id inexistente). Documentação visualmente revisada — quebrada ou confusa passa impressão de acabamento incompleto mesmo com código ok.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>código (C1)</strong>, verbo HTTP, DTO, delegação ao service e códigos de estado fecham a leitura vertical:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft"><code>POST/GET/PUT/DELETE</code><br><small><code>/veiculos</code> …</small></span>
+                                    <span class="series-c4-box soft"><code>CriarVeiculoRequest</code></span>
+                                    <span class="series-c4-box soft"><code>VeiculoController</code> → <code>VeiculoService</code></span>
+                                    <span class="series-c4-box soft">Respostas<br><small>201 / 200 / 204 / 400 / 404</small></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">O avaliador segue o fio: anotações de mapeamento, DTOs e delegação numa única leitura vertical.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da etapa</h3>
+                    <p>Com endpoints completos e Swagger navegável, falta consolidar entrega: README, checklist e narrativa curta para a banca — tema do fechamento da série.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Web como contrato público: HTTP, status e documentação; inteligência mora na Application. Padronizar erros atende explicitamente o pedido de 400 com mensagens apropriadas.</p>
+
+                    <p><strong>Reflexão final:</strong> Controller discreto é prova silenciosa de que as camadas anteriores fizeram o trabalho.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; série de insights técnicos reutilizáveis.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Episódio anterior: <a href="2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html">Camada de aplicação</a> — Próximo: <a href="2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html">Checklist e entrega</a></p>
+            <p><a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

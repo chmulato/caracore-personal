@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html" />
+    <meta property="og:image" content="assets/img/2026_09_09_IMAGE_001.png" />
+    <title>Episódio 05: Camada de aplicação — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Quinto episódio: services e casos de uso, transações, paginação, veículo não encontrado e controller sem virar monólito.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Application layer, Java, Spring, casos de uso, REST">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 05: Onde a regra acontece: services, casos de uso e separação de responsabilidades</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-09-09">09/09/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_09_09_IMAGE_001.png" alt="Episódio 05: Application layer" class="hero-image" />
+
+                    <h3>Onde os testes práticos perdem pontos</h3>
+                    <p>Se existe um lugar onde muitos candidatos sangram, é o controller que virou aplicação inteira: <code>if</code> acumulado, repository na face HTTP, validação espalhada. O enunciado da recolocação foi explícito: controllers simples delegando à camada de aplicação.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, a camada de aplicação é o meio entre HTTP e persistência — onde a regra evita que o controller vire monólito:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Cliente REST</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">API de veículos</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">Persistência</span>
+                            </div>
+                            <p class="series-c4-foot">A Application é o “meio” que impede o controller de virar monólito.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>A camada Application é onde vivem os casos de uso: cadastrar, atualizar, listar com paginação, obter por id e remover. Ela não precisa conhecer Swagger nem console H2; precisa executar operações do sistema de ponta a ponta.</p>
+                    <p>Um <code>VeiculoService</code> coeso pode bastar; classes por caso de uso são opcionais. O PDF menciona CQRS como opcional — a palavra-chave é opcional: não inflar para impressionar.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No mesmo artefacto Spring Boot, o pacote Application é um <strong>contentor lógico (C3)</strong> — transações e casos de uso sem novo deploy:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box sys">Spring Boot<br>(runtime JVM)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">Pacote Application<br>(casos de uso + transações)</span>
+                            </div>
+                            <p class="series-c4-foot">Um único processo; a fronteira é modularização lógica, não rede.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>Cadastro: dados já validados na borda viram nova entidade persistida. Atualização: buscar, tratar ausência, aplicar campos permitidos, salvar — isso não mora no controller nem “puro” no repository. Consulta por id: ausência vira exceção de aplicação (ex.: <code>VeiculoNaoEncontradoException</code>) que a Web traduz em 404.</p>
+                    <p>Listagem paginada: parâmetros de página e tamanho com critério; <code>@Transactional</code> em escritas, leituras read-only quando fizer sentido. Transação orbita o caso de uso, não o controller.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Essas escolhas aparecem como <strong>componentes (C2)</strong> — service, portas, mapeamento e exceções de aplicação:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">VeiculoService<br>ou casos de uso</span>
+                                    <span class="series-c4-box">Porta saída<br>repositório</span>
+                                    <span class="series-c4-box">DTO ↔ entidade<br>mapeamento fino</span>
+                                    <span class="series-c4-box">Exceções de aplicação<br>ex.: não encontrado</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Cadastrar, atualizar, listar (paginado), obter, remover — cada operação com dono explícito.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Remoção: decidir se id inexistente retorna 404 de forma consistente; evitar <code>deleteById</code> cego sem verificar existência se a API promete resposta clara. Métodos do service na ordem mental dos endpoints ajudam o avaliador a ler em sequência.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>código (C1)</strong>, nomes de negócio e <code>@Transactional</code> no lugar certo contam a história em vertical:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft"><code>cadastrar(...)</code></span>
+                                    <span class="series-c4-box soft"><code>atualizar(...)</code></span>
+                                    <span class="series-c4-box soft"><code>listar(Pageable)</code></span>
+                                    <span class="series-c4-box soft"><code>remover(id)</code> + <code>@Transactional</code></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Métodos pequenos e nomes de negócio: a banca lê como história, não como lista de <code>if</code>.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da etapa</h3>
+                    <p>Com Application sólida, os fluxos principais rodam sem que o formato HTTP seja a estrela — sinal de que a regra não depende do controller. Próximo episódio: porta HTTP fina, validação e Swagger.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Responda “onde o sistema faz o que promete?” — não no controller, não só no repository; nos casos de uso. Exceções de domínio da aplicação sem detalhe de HTTP mostram fronteira saudável.</p>
+
+                    <p><strong>Reflexão final:</strong> Service bem nomeado é cartão de visitas da arquitetura em prova de mesa.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; série de insights técnicos reutilizáveis.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Episódio anterior: <a href="2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html">JPA e Flyway</a> — Próximo: <a href="2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html">Controllers e Swagger</a></p>
+            <p><a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

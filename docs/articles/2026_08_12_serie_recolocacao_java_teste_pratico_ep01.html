@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html" />
+    <meta property="og:image" content="assets/img/2026_08_12_IMAGE_001.png" />
+    <title>Episódio 01: Do PDF ao plano — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Episódio 1 da série Recolocação Java: teste prático com janela de quatro horas — ler o PDF como arquiteto, critérios de banca e plano em camadas antes de codar.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Java, Spring Boot, teste prático, API REST, arquitetura, recolocação, carreira">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 01: Do PDF ao plano: lendo um teste prático Java como arquiteto</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-12">12/08/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_08_12_IMAGE_001.png" alt="Episódio 01: Do PDF ao plano" class="hero-image" />
+
+                    <h3>Março e abril de 2026: o desafio na mesa</h3>
+                    <p>Em março e abril de 2026, entre conversas de recolocação e triagem de oportunidades, surgiu um teste prático enviado por uma empresa de TI de Jaraguá do Sul, SC. O enunciado pedia uma API REST de cadastro e consulta de veículos — e, ao mesmo tempo, deixava claro que o que mais pesava era arquitetura, organização, separação de responsabilidades e clareza. O cenário corporativo permanece anonimizado; o que importa aqui é o mapa mental que qualquer banca espera ver.</p>
+                    <p><strong>Nota sobre o tempo:</strong> Na prova real foi dada uma janela de <strong>quatro horas</strong>. A <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">página índice da série</a> explica se isso é factível e em que condições; neste episódio o recado é direto: com prazo curto, os primeiros minutos investidos em ler o PDF — em vez de abrir o IDE às cegas — são os que mais compram margem para o resto do desafio.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de contexto (C4)</strong> do modelo C4, o teste deixa de ser “só um PDF” e aparece como sistema no meio de pessoas e critérios:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto do sistema</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Você (candidato)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">Enunciado + critérios<br>de banca (PDF)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Sistema alvo:<br>API de veículos (entrega)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box person">Avaliador(a)<br>técnico(a)</span>
+                            </div>
+                            <p class="series-c4-foot">O centro é o software a construir; PDF e pessoas definem pressão, prazo e rubrica — não são “detalhe de implementação”.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>A pressa de codar é uma armadilha elegante. Ela parece produtividade, mas muitas vezes é apenas ansiedade com sintaxe. Quando o PDF chegou, a primeira vontade natural era abrir o Spring Initializr, marcar dependências e sair criando a entidade <code>Veículo</code>. O problema é que o próprio enunciado avisava, ainda que com outras palavras, que o funcionamento da aplicação era importante, mas não era o centro da avaliação.</p>
+                    <p>O foco estava em arquitetura, organização do código, clareza, separação de responsabilidades, domínio das tecnologias e funcionamento. Essa lista muda completamente o jeito de encarar o desafio. Não estamos apenas entregando endpoints que respondem 200: estamos entregando uma pequena demonstração de como pensamos, onde colocamos as regras, como nomeamos as peças e como evitamos que uma solução simples vire um bloco único difícil de explicar.</p>
+                    <p>Neste primeiro episódio, a meta é fazer o que quase nunca aparece no commit final: ler o problema com calma. O desafio pedia Java 17 ou superior, Spring Boot ou Quarkus, OpenAPI/Swagger, API REST, JPA/Hibernate, H2 em memória, migrations com Flyway ou Liquibase e Bean Validation. Também exigia organização mínima em camadas: Web, Application, Domain e Infra. Esses nomes não são decoração: são um mapa do que a banca espera encontrar.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Quando o enunciado exige camadas, traduz-se bem para o <strong>nível de componentes (C2)</strong> — quatro responsabilidades, quatro caixas, antes de falar em classes:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (decisão de camadas)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">Web<br>contrato HTTP</span>
+                                    <span class="series-c4-box">Application<br>orquestra casos de uso</span>
+                                    <span class="series-c4-box">Domain<br>linguagem do negócio</span>
+                                    <span class="series-c4-box">Infra<br>tecnologia concreta</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">É a tradução direta do PDF: cada caixa vira pacote e limite de import no próximo passo.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>A primeira decisão foi escolher a trilha. Entre Spring Boot e Quarkus, optei por Spring Boot por uma razão pragmática: ele é familiar nesse tipo de teste, combina de forma direta com Spring Web, Spring Data JPA, Bean Validation, H2, Flyway e springdoc-openapi, e permite gastar energia no desenho da solução em vez de defender escolhas de infraestrutura.</p>
+                    <p>Essa escolha não torna Quarkus pior — em outro contexto, seria ótima. Mas para um teste cujo avaliador provavelmente quer abrir, rodar, acessar o Swagger e entender rapidamente a arquitetura, Spring Boot reduz atrito. Atrito é inimigo silencioso de boas entregas técnicas.</p>
+                    <p>A segunda decisão foi desenhar a estrutura antes de escrever classe. A camada Web ficaria responsável por HTTP: controllers, DTOs de entrada e saída, documentação OpenAPI e tratamento de erros de borda. A camada Application concentraria os casos de uso. A camada Domain guardaria o modelo de veículo, enumeradores e contratos. A camada Infra implementaria persistência, configuração do H2, migrations e adapters concretos.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Com Spring Boot escolhido, o arranque local resume-se a <strong>contentores (C3)</strong>: quem escuta HTTP, onde corre a lógica e onde ficam os dados — ainda sem entrar no detalhe de cada classe:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores (o que sobe na máquina)</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Cliente HTTP</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Spring Boot<br>(API + regras + persistência)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">H2<br>(dados em memória)</span>
+                            </div>
+                            <p class="series-c4-foot">Ainda sem classes: só o “o quê roda” e onde o estado fica — alinha a conversa com o avaliador sobre execução local.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Essa separação é simples, mas poderosa. Evita que o controller saiba demais sobre banco; evita que a entidade dependa de anotações ou objetos de transporte que só fazem sentido na API; evita que regra de negócio fique perdida em método privado de controller.</p>
+                    <p>O desafio não pedia microsserviços, mensageria, cache distribuído nem autenticação. Funcionalidades extras são bem-vindas apenas se não comprometerem simplicidade e clareza. A arquitetura precisa parecer madura, não inchada.</p>
+                    <p>Com isso, o plano de ataque fica evidente: base do projeto com dependências certas; domínio de <code>Veículo</code>; persistência com JPA, H2 e Flyway; camada de aplicação com casos de uso; por fim, endpoints, validação, erros e Swagger.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de código (C1)</strong>, o plano já pode anunciar o mapa de pastas que o avaliador vai abrir no IDE — antes do primeiro commit de domínio:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código (alvo de pastas no IDE)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft">…/web</span>
+                                    <span class="series-c4-box soft">…/application</span>
+                                    <span class="series-c4-box soft">…/domain</span>
+                                    <span class="series-c4-box soft">…/infra</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">O avaliador sabe onde encontrar controller, serviço, entidade e migration sem caçar ficheiros soltos.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da etapa</h3>
+                    <p>Vale transformar o PDF em checklist: compilar, executar, README com Swagger e H2, CRUD com paginação, HTTP 400 em validação, controllers delegando à aplicação. Quando esse checklist existe desde o primeiro dia, ele guia o desenvolvimento.</p>
+                    <p>A pergunta de fundo não será só “isso funciona?”, mas também “isso está no lugar certo?”, “alguém entenderia em cinco minutos?” e “eu defenderia isso em entrevista técnica?”. O desafio vira pequena história de engenharia: ler, decidir, construir, validar, documentar e entregar.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Mostre que o plano nasceu do enunciado: camadas, controllers simples, application, domain e infra não são capricho — são resposta ao texto do PDF. Explique o que ficou de fora (auth, mensageria…) como foco, não como lacuna de conhecimento.</p>
+                    <p>Cada episódio desta série amarra uma parte do checklist. O código deixa de ser pasta solta e passa a ser sequência de decisões — exatamente o que uma recolocação em 2026 precisa demonstrar sob pressão.</p>
+
+                    <p><strong>Reflexão final:</strong> A pausa antes do primeiro commit é vantagem competitiva silenciosa. No próximo episódio, preparamos o terreno com Spring Boot, dependências e estrutura inicial.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; conteúdo técnico reutilizável (Fiction-Based Technical Insights).</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Próximo episódio: <a href="2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html">Preparando o terreno: Spring Boot, dependências e estrutura inicial</a></p>
+            <p><a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

@@ -5,10 +5,66 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 07: Checklist final e entrega defensável]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html</link>
+      <description><![CDATA[Sétimo episódio: README, revisão ponta a ponta, checklist do PDF, extras sem inflar escopo e pitch de dois minutos para a banca.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html</guid>
+      <pubDate>Tue, 23 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 06: Controllers finos, validação e Swagger]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html</link>
+      <description><![CDATA[Sexto episódio: REST fino, @Valid, RestControllerAdvice, HTTP 400/404 padronizados e OpenAPI como bancada de testes.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html</guid>
+      <pubDate>Tue, 16 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 05: Camada de aplicação e casos de uso]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html</link>
+      <description><![CDATA[Quinto episódio: services e casos de uso, transações, paginação, veículo não encontrado e controller sem virar monólito.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html</guid>
+      <pubDate>Tue, 09 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 04: JPA, H2 e Flyway na Infra]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html</link>
+      <description><![CDATA[Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html</guid>
+      <pubDate>Tue, 02 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 03: Domínio, Veículo e validações]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html</link>
+      <description><![CDATA[Terceiro episódio: modelo de domínio, enum Marca, Bean Validation, DTOs de entrada/saída e limites entre HTTP e negócio.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html</guid>
+      <pubDate>Tue, 26 Aug 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 02: Spring Boot, dependências e estrutura inicial]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html</link>
+      <description><![CDATA[Segundo episódio da série: dependências Spring Web, JPA, H2, Flyway, Validation e OpenAPI; pacotes por camada e configuração reproduzível.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html</guid>
+      <pubDate>Tue, 19 Aug 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Recolocação Java — Episódio 01: Do PDF ao plano]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html</link>
+      <description><![CDATA[Episódio 1 da série Recolocação Java: teste prático com janela de quatro horas — ler o PDF como arquiteto, critérios de banca e plano em camadas antes de codar.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html</guid>
+      <pubDate>Tue, 12 Aug 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série: Recolocação e teste prático Java — Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html</link>
+      <description><![CDATA[Índice da série (7 episódios): desafio de recolocação com quatro horas de prova — API REST de veículos em Java, Spring Boot, camadas, nota sobre viabilidade do prazo e roteiro até ao README.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html</guid>
+      <pubDate>Sun, 10 Aug 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title><![CDATA[A Era da IA "Costurada": Por que você não precisa de uma Supermáquina para o Estado da Arte]]></title>
       <link>https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</link>

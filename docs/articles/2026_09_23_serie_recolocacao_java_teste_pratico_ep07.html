@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html" />
+    <meta property="og:image" content="assets/img/2026_09_23_IMAGE_001.png" />
+    <title>Episódio 07: Checklist e entrega — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Sétimo episódio: README, revisão ponta a ponta, checklist do PDF, extras sem inflar escopo e pitch de dois minutos para a banca.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Entrega, README, teste prático, Java, API REST">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 07: Fechando o teste prático: checklist final de uma API Java bem entregue</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-09-23">23/09/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_09_23_IMAGE_001.png" alt="Episódio 07: Entrega final" class="hero-image" />
+
+                    <h3>Quando o último endpoint não basta</h3>
+                    <p>A entrega de um teste prático não termina quando o último endpoint responde. É quando outra pessoa abre o projeto, roda, testa no Swagger, olha o H2 e entende as decisões em poucos minutos — o tipo de fechamento que fecha o arco março–abril de 2026 com dignidade técnica.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, o produto não é só bytecode: é o pacote “clonar → rodar → validar”, com README e checklist alinhados ao PDF:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Avaliador / CI</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Sistema entregue<br>(API + doc + dados)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">README + checklist<br>do PDF</span>
+                            </div>
+                            <p class="series-c4-foot">O produto final não é só bytecode: é o pacote “clonar → rodar → validar”.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>O enunciado costuma exigir compilação, execução correta e README com execução, Swagger e acesso ao banco. Na avaliação entram organização, clareza da arquitetura, separação de responsabilidades, boas práticas e código legível. Consolidação final olha funcionamento e apresentação técnica ao mesmo tempo.</p>
+                    <p>Checklist: Java 17+, Spring Boot, OpenAPI, REST, JPA/Hibernate, H2, Flyway, Bean Validation, CRUD completo, paginação, 400 em validação, controllers finos, README honesto. Cada “sim” reduz risco.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Na revisão mental, três <strong>contentores (C3)</strong> — Git, build/JVM e dados efémeros — guiam o “outro máquina” que clona o repo:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box sys">Repositório Git<br>(fonte + SQL)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Build + JVM<br>(Spring Boot)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">H2 + artefactos<br>em memória</span>
+                            </div>
+                            <p class="series-c4-foot">Três contentores lógicos na cabeça do avaliador: código, runtime e dados efémeros.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>README como conversa com o avaliador: objetivo, tecnologias, pré-requisitos, comando para subir, URLs do Swagger e do console H2, credenciais. Seção curta de arquitetura (Web, Application, Domain, Infra) e bloco de decisões técnicas (por que Spring Boot, Flyway com H2, handler global, etc.).</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">O checklist do PDF mapeia para quatro <strong>componentes (C2)</strong> — cada um com evidência no repositório:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (pilares da revisão)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">Web + OpenAPI<br>testável</span>
+                                    <span class="series-c4-box">Application<br>regras claras</span>
+                                    <span class="series-c4-box">Domain<br>modelo estável</span>
+                                    <span class="series-c4-box">Infra + Flyway<br>schema auditável</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Checklist do episódio espelha estas quatro caixas: cada uma com evidência no repo.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Rode o fluxo inteiro como primeira vez: migration aplicada, cadastro via Swagger, listagem, get por id, update, delete, casos inválidos; confirme linhas no H2. Revise pacotes por classes deslocadas (controller chamando repository direto é cheiro de alerta).</p>
+                    <p>Extras só se não quebrarem simplicidade: testes automatizados ou endpoint auxiliar podem valorizar; auth ou multi-tenancy sem necessidade podem roubar tempo na banca.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Na <strong>última milha (C1)</strong>, ficheiros e rotinas manuais provam que alguém fechou o loop antes do commit:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código (artefactos que fecham a prova)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft"><code>README.md</code><br><small>run + URLs</small></span>
+                                    <span class="series-c4-box soft"><code>pom.xml</code> / Gradle</span>
+                                    <span class="series-c4-box soft"><code>*Application.java</code></span>
+                                    <span class="series-c4-box soft">Testes manuais<br><small>Swagger + H2</small></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Última milha: o avaliador encontra comando, entrypoint e duas URLs sem perguntar no e-mail.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da série</h3>
+                    <p>A narrativa completa: ler o PDF → base Spring → domínio → persistência → aplicação → web/Swagger → README e checklist. Não é só API de veículos; é demonstração de pensamento de engenharia em escala pequena — exatamente o que processos seletivos em 2026 ainda compram quando bem feitos.</p>
+                    <p>Prepare um pitch de dois minutos: objetivo, stack, camadas, fluxo de uma requisição e como rodar. Se você explica com calma, o código costuma estar alinhado.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Entrega é competência: README ruim faz projeto bom parecer pior. Checklist liga cada item do PDF a evidência no repositório. Falhas claras e previsíveis valem mais que “nunca erro” opaco.</p>
+
+                    <p><strong>Reflexão final:</strong> Da recolocação ao commit final, o que permanece é o hábito de ler antes de codar e de entregar como quem respeita o tempo do avaliador.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; série de insights técnicos reutilizáveis (Fiction-Based Technical Insights).</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Episódio anterior: <a href="2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html">Controllers e Swagger</a> — <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

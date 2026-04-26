@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html" />
+    <meta property="og:image" content="assets/img/2026_09_02_IMAGE_001.png" />
+    <title>Episódio 04: JPA, H2 e Flyway — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="JPA, Flyway, H2, Spring Data, arquitetura em camadas">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Recolocação e teste prático Java</p>
+                    <h1 class="post-title">Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-09-02">02/09/2026</time> — 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="assets/img/2026_09_02_IMAGE_001.png" alt="Episódio 04: Persistência" class="hero-image" />
+
+                    <h3>Estado que não some quando o request termina</h3>
+                    <p>Persistência é quando a API deixa de ser demonstração de request e passa a guardar estado. H2 em memória facilita a vida do avaliador, mas o PDF também pede migrations: estrutura explícita, não improviso.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, a API deixa de ser caixa preta: estado relacional e console H2 entram na narrativa de validação:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box sys">API de veículos</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">Base relacional<br>(H2)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box person">Avaliador<br>(console SQL)</span>
+                            </div>
+                            <p class="series-c4-foot">Transparência: o avaliador confere linhas após um POST — o sistema não é uma caixa preta.</p>
+                        </figure>
+                    </div>
+
+                    <h3>O problema por trás da etapa</h3>
+                    <p>A camada Infra concentra datasource, JPA, H2, migrations e implementações de repositório. Web e Application não precisam saber se o banco é H2 ou outro mecanismo — precisam de operações confiáveis de salvar, buscar, listar e remover.</p>
+                    <p>Configurar JDBC, console H2 para inspeção, Flyway em <code>db/migration</code>, JPA validando schema contra migrations: execução previsível e mensagem clara quando algo desalinha.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">Nos <strong>contentores (C3)</strong>, Flyway e Hibernate partilham o processo; o schema é contrato versionado em SQL:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box sys">Spring Boot<br>(JPA + Flyway)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">↔</span>
+                                <span class="series-c4-box store">H2<br>(schema versionado)</span>
+                            </div>
+                            <p class="series-c4-foot">Flyway e Hibernate partilham o mesmo processo; o contrato do schema é ficheiro SQL versionado.</p>
+                        </figure>
+                    </div>
+
+                    <h3>A decisão técnica</h3>
+                    <p>A migration inicial cria tabela alinhada ao domínio: colunas coerentes com validação de entrada; tamanhos compatíveis com limites dos DTOs. Desalinhamento entre coluna e <code>@Size</code> é bug silencioso em produção e “sinal amarelo” em banca.</p>
+                    <p>Spring Data JPA pode ser usado diretamente na aplicação ou atrás de adapter fino — escolha proporcional ao tamanho do teste. Listagem paginada: <code>Pageable</code> e <code>Page</code> na consulta, com responsabilidades repartidas: Web recebe parâmetros, Application orquestra, Infra executa a query.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">A Infra decompõe-se em <strong>componentes (C2)</strong> — repositório, migrations, config e mapeamento — sem “explodir” queries no controller:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (Infra)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">VeiculoRepository<br>(Spring Data)</span>
+                                    <span class="series-c4-box">Flyway<br>V1__… .sql</span>
+                                    <span class="series-c4-box">DataSource / JPA<br>config</span>
+                                    <span class="series-c4-box">Mapeamento ORM<br>entidade ↔ tabela</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Consultas paginadas nascem aqui; a Web só repassa <code>page</code>/<code>size</code> — a query não “explode” no controller.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Implementando com critério</h3>
+                    <p>Veículo inexistente: repositório retorna vazio; a aplicação decide exceção ou resultado; a Web traduz para HTTP 404. Cada camada fala sua língua. README com URL, usuário e senha do console H2 permite ao avaliador ver linhas após um POST no Swagger — detalhe pequeno, grande confiança.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>código (C1)</strong>, migration, entidade, repositório e <code>application.yml</code> são o rasto que o avaliador segue em caso de desalinhamento DTO ↔ coluna:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Código</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft"><code>db/migration/V1__…</code></span>
+                                    <span class="series-c4-box soft"><code>VeiculoEntity</code> + <code>@Entity</code></span>
+                                    <span class="series-c4-box soft"><code>VeiculoJpaRepository</code></span>
+                                    <span class="series-c4-box soft"><code>application.yml</code><br><small>datasource + jpa + flyway</small></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Nomes e ficheiros que o avaliador procura primeiro quando suspeita de desalinhamento DTO ↔ coluna.</p>
+                        </figure>
+                    </div>
+
+                    <h3>Fechamento da etapa</h3>
+                    <p>Ao final: Flyway aplicando migration, Hibernate mapeando entidade, H2 acessível, repositórios prontos para os casos de uso. Erros de migration ou mapeamento devem aparecer cedo — melhor agora do que na hora da demo.</p>
+                    <p>No próximo episódio, damos vida aos fluxos na camada Application.</p>
+
+                    <h3>Como defender essa etapa</h3>
+                    <p>Defenda persistência como fronteira: Flyway torna schema auditável; H2 console é transparência; paginação nasce no repositório sem controller engolido por <code>Pageable</code>.</p>
+
+                    <p><strong>Reflexão final:</strong> Banco em memória não é desculpa para contrato vago — migrations são prova de maturidade.</p>
+                    <hr>
+                    <p><em><strong>Nota:</strong> Cenário anonimizado; série de insights técnicos reutilizáveis.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Episódio anterior: <a href="2026_08_26_serie_recolocacao_java_teste_pratico_ep03.html">Domínio e Veículo</a> — Próximo: <a href="2026_09_09_serie_recolocacao_java_teste_pratico_ep05.html">Camada de aplicação</a></p>
+            <p><a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>
