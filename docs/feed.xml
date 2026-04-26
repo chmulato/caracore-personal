@@ -12,7 +12,7 @@
     <item>
       <title><![CDATA[Série Recolocação Java — Episódio 07: Checklist final e entrega defensável]]></title>
       <link>https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html</link>
-      <description><![CDATA[Sétimo episódio: README, revisão ponta a ponta, checklist do PDF, extras sem inflar escopo e pitch de dois minutos para a banca.]]></description>
+      <description><![CDATA[Sétimo episódio: guia de execução (README.md), revisão ponta a ponta, checklist do PDF, extras sem inflar escopo e pitch de dois minutos para a banca.]]></description>
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html</guid>
       <pubDate>Tue, 23 Sep 2026 00:00:00 +0000</pubDate>
     </item>
@@ -61,7 +61,7 @@
     <item>
       <title><![CDATA[Série: Recolocação e teste prático Java — Índice]]></title>
       <link>https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html</link>
-      <description><![CDATA[Índice da série (7 episódios): desafio de recolocação com quatro horas de prova — API REST de veículos em Java, Spring Boot, camadas, nota sobre viabilidade do prazo e roteiro até ao README.]]></description>
+      <description><![CDATA[Índice da série (7 episódios): desafio de recolocação com quatro horas de prova — API REST de veículos em Java, Spring Boot, camadas, nota sobre viabilidade do prazo e roteiro até ao guia de execução (README.md).]]></description>
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html</guid>
       <pubDate>Sun, 10 Aug 2026 00:00:00 +0000</pubDate>
     </item>

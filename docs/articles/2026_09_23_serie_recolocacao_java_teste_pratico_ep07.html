@@ -7,9 +7,9 @@
     <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html" />
     <meta property="og:image" content="assets/img/2026_09_23_IMAGE_001.png" />
     <title>Episódio 07: Checklist e entrega — Christian Mulato Dev Blog</title>
-    <meta name="description" content="Sétimo episódio: README, revisão ponta a ponta, checklist do PDF, extras sem inflar escopo e pitch de dois minutos para a banca.">
+    <meta name="description" content="Sétimo episódio: guia de execução (README.md), revisão ponta a ponta, checklist do PDF, extras sem inflar escopo e pitch de dois minutos para a banca.">
     <meta name="author" content="Christian Mulato">
-    <meta name="keywords" content="Entrega, README, teste prático, Java, API REST">
+    <meta name="keywords" content="Entrega, guia de execução, README.md, teste prático, Java, API REST">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/article.css">
     <link rel="stylesheet" href="assets/css/highlight.css">
@@ -46,7 +46,7 @@
                     <p>A entrega de um teste prático não termina quando o último endpoint responde. É quando outra pessoa abre o projeto, roda, testa no Swagger, olha o H2 e entende as decisões em poucos minutos — o tipo de fechamento que fecha o arco março–abril de 2026 com dignidade técnica.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, o produto não é só bytecode: é o pacote “clonar → rodar → validar”, com README e checklist alinhados ao PDF:</p>
+                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, o produto não é só bytecode: é o pacote “clonar → rodar → validar”, com <strong>guia de execução</strong> em <code>README.md</code> e checklist alinhados ao PDF:</p>
                         <figure class="series-c4-level">
                             <figcaption>C4 — Contexto</figcaption>
                             <div class="series-c4-diagram">
@@ -54,15 +54,15 @@
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
                                 <span class="series-c4-box sys">Sistema entregue<br>(API + doc + dados)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
-                                <span class="series-c4-box soft">README + checklist<br>do PDF</span>
+                                <span class="series-c4-box soft">Guia de execução<br><code>README.md</code> + checklist</span>
                             </div>
                             <p class="series-c4-foot">O produto final não é só bytecode: é o pacote “clonar → rodar → validar”.</p>
                         </figure>
                     </div>
 
                     <h3>O problema por trás da etapa</h3>
-                    <p>O enunciado costuma exigir compilação, execução correta e README com execução, Swagger e acesso ao banco. Na avaliação entram organização, clareza da arquitetura, separação de responsabilidades, boas práticas e código legível. Consolidação final olha funcionamento e apresentação técnica ao mesmo tempo.</p>
-                    <p>Checklist: Java 17+, Spring Boot, OpenAPI, REST, JPA/Hibernate, H2, Flyway, Bean Validation, CRUD completo, paginação, 400 em validação, controllers finos, README honesto. Cada “sim” reduz risco.</p>
+                    <p>O enunciado costuma exigir compilação, execução correta e um <strong>guia de execução</strong> no repositório — em geral o ficheiro <code>README.md</code> — com instruções de arranque, Swagger e acesso ao banco. Na avaliação entram organização, clareza da arquitetura, separação de responsabilidades, boas práticas e código legível. Consolidação final olha funcionamento e apresentação técnica ao mesmo tempo.</p>
+                    <p>Checklist: Java 17+, Spring Boot, OpenAPI, REST, JPA/Hibernate, H2, Flyway, Bean Validation, CRUD completo, paginação, 400 em validação, controllers finos, e um <code>README.md</code> que sirva de <strong>guia de execução</strong> honesto e completo. Cada “sim” reduz risco.</p>
 
                     <div class="series-c4-embed">
                         <p class="series-c4-lead">Na revisão mental, três <strong>contentores (C3)</strong> — Git, build/JVM e dados efémeros — guiam o “outro máquina” que clona o repo:</p>
@@ -80,7 +80,7 @@
                     </div>
 
                     <h3>A decisão técnica</h3>
-                    <p>README como conversa com o avaliador: objetivo, tecnologias, pré-requisitos, comando para subir, URLs do Swagger e do console H2, credenciais. Seção curta de arquitetura (Web, Application, Domain, Infra) e bloco de decisões técnicas (por que Spring Boot, Flyway com H2, handler global, etc.).</p>
+                    <p>O <code>README.md</code> funciona como <strong>guia de execução</strong> e carta ao avaliador: objetivo, tecnologias, pré-requisitos, comando para subir, URLs do Swagger e do console H2, credenciais. Seção curta de arquitetura (Web, Application, Domain, Infra) e bloco de decisões técnicas (por que Spring Boot, Flyway com H2, handler global, etc.).</p>
 
                     <div class="series-c4-embed">
                         <p class="series-c4-lead">O checklist do PDF mapeia para quatro <strong>componentes (C2)</strong> — cada um com evidência no repositório:</p>
@@ -108,7 +108,7 @@
                             <figcaption>C1 — Código (artefactos que fecham a prova)</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
-                                    <span class="series-c4-box soft"><code>README.md</code><br><small>run + URLs</small></span>
+                                    <span class="series-c4-box soft"><code>README.md</code><br><small>guia de execução · run + URLs</small></span>
                                     <span class="series-c4-box soft"><code>pom.xml</code> / Gradle</span>
                                     <span class="series-c4-box soft"><code>*Application.java</code></span>
                                     <span class="series-c4-box soft">Testes manuais<br><small>Swagger + H2</small></span>
@@ -119,11 +119,11 @@
                     </div>
 
                     <h3>Fechamento da série</h3>
-                    <p>A narrativa completa: ler o PDF → base Spring → domínio → persistência → aplicação → web/Swagger → README e checklist. Não é só API de veículos; é demonstração de pensamento de engenharia em escala pequena — exatamente o que processos seletivos em 2026 ainda compram quando bem feitos.</p>
+                    <p>A narrativa completa: ler o PDF → base Spring → domínio → persistência → aplicação → web/Swagger → <strong>guia de execução</strong> (<code>README.md</code>) e checklist. Não é só API de veículos; é demonstração de pensamento de engenharia em escala pequena — exatamente o que processos seletivos em 2026 ainda compram quando bem feitos.</p>
                     <p>Prepare um pitch de dois minutos: objetivo, stack, camadas, fluxo de uma requisição e como rodar. Se você explica com calma, o código costuma estar alinhado.</p>
 
                     <h3>Como defender essa etapa</h3>
-                    <p>Entrega é competência: README ruim faz projeto bom parecer pior. Checklist liga cada item do PDF a evidência no repositório. Falhas claras e previsíveis valem mais que “nunca erro” opaco.</p>
+                    <p>Entrega é competência: um <strong>guia de execução</strong> fraco no <code>README.md</code> faz projeto bom parecer pior. Checklist liga cada item do PDF a evidência no repositório. Falhas claras e previsíveis valem mais que “nunca erro” opaco.</p>
 
                     <p><strong>Reflexão final:</strong> Da recolocação ao commit final, o que permanece é o hábito de ler antes de codar e de entregar como quem respeita o tempo do avaliador.</p>
                     <hr>
