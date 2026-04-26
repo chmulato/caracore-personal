@@ -46,9 +46,9 @@
                     <p>Se existe um lugar onde muitos candidatos sangram, é o controller que virou aplicação inteira: <code>if</code> acumulado, repository na face HTTP, validação espalhada. O enunciado da recolocação foi explícito: controllers simples delegando à camada de aplicação.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, a camada de aplicação é o meio entre HTTP e persistência — onde a regra evita que o controller vire monólito:</p>
+                        <p class="series-c4-lead">Na <strong>visão geral</strong>, a camada de aplicação é o meio entre HTTP e persistência — onde a regra evita que o controller vire monólito:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto</figcaption>
+                            <figcaption>Visão geral</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Cliente REST</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -65,9 +65,9 @@
                     <p>Um <code>VeiculoService</code> coeso pode bastar; classes por caso de uso são opcionais. O PDF menciona CQRS como opcional — a palavra-chave é opcional: não inflar para impressionar.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No mesmo artefacto Spring Boot, o pacote Application é um <strong>contentor lógico (C3)</strong> — transações e casos de uso sem novo deploy:</p>
+                        <p class="series-c4-lead">No mesmo artefacto Spring Boot, o pacote Application é um <strong>bloco lógico de execução</strong> — transações e casos de uso sem novo deploy:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores</figcaption>
+                            <figcaption>O que corre na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box sys">Spring Boot<br>(runtime JVM)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -82,9 +82,9 @@
                     <p>Listagem paginada: parâmetros de página e tamanho com critério; <code>@Transactional</code> em escritas, leituras read-only quando fizer sentido. Transação orbita o caso de uso, não o controller.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Essas escolhas aparecem como <strong>componentes (C2)</strong> — service, portas, mapeamento e exceções de aplicação:</p>
+                        <p class="series-c4-lead">Essas escolhas aparecem como <strong>blocos técnicos</strong> — service, portas, mapeamento e exceções de aplicação:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes</figcaption>
+                            <figcaption>Componentes da solução</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">VeiculoService<br>ou casos de uso</span>
@@ -101,9 +101,9 @@
                     <p>Remoção: decidir se id inexistente retorna 404 de forma consistente; evitar <code>deleteById</code> cego sem verificar existência se a API promete resposta clara. Métodos do service na ordem mental dos endpoints ajudam o avaliador a ler em sequência.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>código (C1)</strong>, nomes de negócio e <code>@Transactional</code> no lugar certo contam a história em vertical:</p>
+                        <p class="series-c4-lead">Na <strong>organização do código</strong>, nomes de negócio e <code>@Transactional</code> no lugar certo contam a história em vertical:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código</figcaption>
+                            <figcaption>Detalhe no código</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft"><code>cadastrar(...)</code></span>

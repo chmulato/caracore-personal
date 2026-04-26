@@ -46,9 +46,9 @@
                     <p>A entrega de um teste prático não termina quando o último endpoint responde. É quando outra pessoa abre o projeto, roda, testa no Swagger, olha o H2 e entende as decisões em poucos minutos — o tipo de fechamento que fecha o arco março–abril de 2026 com dignidade técnica.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, o produto não é só bytecode: é o pacote “clonar → rodar → validar”, com <strong>manual de arranque</strong> em <code>README.md</code> e checklist alinhados ao PDF:</p>
+                        <p class="series-c4-lead">Na <strong>visão geral</strong>, o produto não é só bytecode: é o pacote “clonar → rodar → validar”, com <strong>manual de arranque</strong> em <code>README.md</code> e checklist alinhados ao PDF:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto</figcaption>
+                            <figcaption>Visão geral</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Avaliador / CI</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -65,9 +65,9 @@
                     <p>Checklist: Java 17+, Spring Boot, OpenAPI, REST, JPA/Hibernate, H2, Flyway, Bean Validation, CRUD completo, paginação, 400 em validação, controllers finos, e um <code>README.md</code> que sirva de <strong>manual de arranque</strong> honesto e completo. Cada “sim” reduz risco.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Na revisão mental, três <strong>contentores (C3)</strong> — Git, build/JVM e dados efémeros — guiam o “outro máquina” que clona o repo:</p>
+                        <p class="series-c4-lead">Na revisão mental, três <strong>blocos de execução</strong> — Git, build/JVM e dados efémeros — guiam quem clona o repo:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores</figcaption>
+                            <figcaption>O que corre na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box sys">Repositório Git<br>(fonte + SQL)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -75,7 +75,7 @@
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
                                 <span class="series-c4-box store">H2 + artefactos<br>em memória</span>
                             </div>
-                            <p class="series-c4-foot">Três contentores lógicos na cabeça do avaliador: código, runtime e dados efémeros.</p>
+                            <p class="series-c4-foot">Três frentes lógicas na cabeça do avaliador: código, runtime e dados efémeros.</p>
                         </figure>
                     </div>
 
@@ -83,9 +83,9 @@
                     <p>O <code>README.md</code> funciona como <strong>manual de arranque</strong> e carta ao avaliador: objetivo, tecnologias, pré-requisitos, comando para subir, URLs do Swagger e do console H2, credenciais. Seção curta de arquitetura (Web, Application, Domain, Infra) e bloco de decisões técnicas (por que Spring Boot, Flyway com H2, handler global, etc.).</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">O checklist do PDF mapeia para quatro <strong>componentes (C2)</strong> — cada um com evidência no repositório:</p>
+                        <p class="series-c4-lead">O checklist do PDF mapeia para quatro <strong>pilares técnicos</strong> — cada um com evidência no repositório:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes (pilares da revisão)</figcaption>
+                            <figcaption>Pilares da revisão</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">Web + OpenAPI<br>testável</span>
@@ -103,9 +103,9 @@
                     <p>Extras só se não quebrarem simplicidade: testes automatizados ou endpoint auxiliar podem valorizar; auth ou multi-tenancy sem necessidade podem roubar tempo na banca.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Na <strong>última milha (C1)</strong>, ficheiros e rotinas manuais provam que alguém fechou o loop antes do commit:</p>
+                        <p class="series-c4-lead">Na <strong>última milha da entrega</strong>, ficheiros e rotinas manuais provam que alguém fechou o loop antes do commit:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código (artefactos que fecham a prova)</figcaption>
+                            <figcaption>Artefactos que fecham a prova</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft"><code>README.md</code><br><small>manual de arranque · run + URLs</small></span>

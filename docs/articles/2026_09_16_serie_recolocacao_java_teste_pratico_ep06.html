@@ -46,9 +46,9 @@
                     <p>A camada Web atrai responsabilidade porque é onde todo mundo testa. O PDF da jornada de recolocação foi claro: controllers sem lógica de negócio, validação de contrato na borda, delegação à aplicação.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, cliente e Swagger exercitam a mesma porta HTTP — contrato visível antes de Postman obrigatório:</p>
+                        <p class="series-c4-lead">Na <strong>visão geral</strong>, cliente e Swagger exercitam a mesma porta HTTP — contrato visível antes de Postman obrigatório:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto</figcaption>
+                            <figcaption>Visão geral</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Cliente + Swagger UI</span>
                                 <span class="series-c4-arrow" aria-hidden="true">⇄</span>
@@ -63,9 +63,9 @@
                     <p>DTOs de entrada carregam Bean Validation; falhas viram HTTP 400 com corpo padronizado via <code>@RestControllerAdvice</code> — menos duplicação, melhor experiência para quem exercita a API no Swagger.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Na borda Web, <strong>componentes (C2)</strong> separam controller fino, validação, handler global e springdoc:</p>
+                        <p class="series-c4-lead">Na borda Web, <strong>blocos técnicos</strong> separam controller fino, validação, handler global e springdoc:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes</figcaption>
+                            <figcaption>Componentes da solução</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">VeiculoController<br><code>@RestController</code></span>
@@ -82,9 +82,9 @@
                     <p>Handler global trata validação, veículo não encontrado (404) e eventual 500 sem vazar stack interno. springdoc-openapi descreve parâmetros de paginação, modelos e códigos; a meta é abrir o Swagger e entender o contrato em minutos.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Swagger UI e Spring MVC partilham o mesmo deployável — <strong>contentores (C3)</strong> na cabeça de quem testa:</p>
+                        <p class="series-c4-lead">Swagger UI e Spring MVC partilham o mesmo deployável — <strong>blocos de execução</strong> na cabeça de quem testa:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores</figcaption>
+                            <figcaption>O que corre na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box ext">Swagger UI<br>(estático / gerado)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -99,9 +99,9 @@
                     <p>Teste manual: feliz + erros (campo obrigatório, valor negativo, id inexistente). Documentação visualmente revisada — quebrada ou confusa passa impressão de acabamento incompleto mesmo com código ok.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>código (C1)</strong>, verbo HTTP, DTO, delegação ao service e códigos de estado fecham a leitura vertical:</p>
+                        <p class="series-c4-lead">Na <strong>organização do código</strong>, verbo HTTP, DTO, delegação ao service e códigos de estado fecham a leitura vertical:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código</figcaption>
+                            <figcaption>Detalhe no código</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft"><code>POST/GET/PUT/DELETE</code><br><small><code>/veiculos</code> …</small></span>

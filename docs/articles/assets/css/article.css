@@ -1115,7 +1115,7 @@ body {
 }
 
 /* =============================================================================
-   Diagramas esquemáticos C4 — série Recolocação Java (C4 contexto → C1 código)
+   Diagramas esquemáticos em série (visão geral → detalhe no código)
    ============================================================================= */
 .series-c4-section {
     margin: 2rem 0;
@@ -1262,7 +1262,7 @@ body {
     color: #ccfbf1;
 }
 
-/* Bloco C4 embutido no fluxo da leitura (série Recolocação Java) */
+/* Bloco de diagrama embutido no fluxo da leitura (séries com caixas e setas) */
 .series-c4-embed {
     margin: 1.35rem 0;
     padding: 1rem 1rem 1.1rem;

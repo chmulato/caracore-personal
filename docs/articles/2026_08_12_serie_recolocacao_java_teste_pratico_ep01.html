@@ -47,9 +47,9 @@
                     <p><strong>Nota sobre o tempo:</strong> Na prova real foi dada uma janela de <strong>quatro horas</strong>. A <a href="2026_08_10_serie_recolocacao_java_teste_pratico_index.html">página índice da série</a> explica se isso é factível e em que condições; neste episódio o recado é direto: com prazo curto, os primeiros minutos investidos em ler o PDF — em vez de abrir o IDE às cegas — são os que mais compram margem para o resto do desafio.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>nível de contexto (C4)</strong> do modelo C4, o teste deixa de ser “só um PDF” e aparece como sistema no meio de pessoas e critérios:</p>
+                        <p class="series-c4-lead">Na <strong>visão geral do sistema</strong>, o teste deixa de ser “só um PDF” e aparece como sistema no meio de pessoas e critérios:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto do sistema</figcaption>
+                            <figcaption>Visão geral do sistema</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Você (candidato)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -69,9 +69,9 @@
                     <p>Neste primeiro episódio, a meta é fazer o que quase nunca aparece no commit final: ler o problema com calma. O desafio pedia Java 17 ou superior, Spring Boot ou Quarkus, OpenAPI/Swagger, API REST, JPA/Hibernate, H2 em memória, migrations com Flyway ou Liquibase e Bean Validation. Também exigia organização mínima em camadas: Web, Application, Domain e Infra. Esses nomes não são decoração: são um mapa do que a banca espera encontrar.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Quando o enunciado exige camadas, traduz-se bem para o <strong>nível de componentes (C2)</strong> — quatro responsabilidades, quatro caixas, antes de falar em classes:</p>
+                        <p class="series-c4-lead">Quando o enunciado exige camadas, traduz-se bem para <strong>quatro blocos de responsabilidade</strong> — quatro caixas, antes de falar em classes:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes (decisão de camadas)</figcaption>
+                            <figcaption>Decisão de camadas</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">Web<br>contrato HTTP</span>
@@ -90,9 +90,9 @@
                     <p>A segunda decisão foi desenhar a estrutura antes de escrever classe. A camada Web ficaria responsável por HTTP: controllers, DTOs de entrada e saída, documentação OpenAPI e tratamento de erros de borda. A camada Application concentraria os casos de uso. A camada Domain guardaria o modelo de veículo, enumeradores e contratos. A camada Infra implementaria persistência, configuração do H2, migrations e adapters concretos.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Com Spring Boot escolhido, o arranque local resume-se a <strong>contentores (C3)</strong>: quem escuta HTTP, onde corre a lógica e onde ficam os dados — ainda sem entrar no detalhe de cada classe:</p>
+                        <p class="series-c4-lead">Com Spring Boot escolhido, o arranque local resume-se a <strong>três blocos de execução</strong>: quem escuta HTTP, onde corre a lógica e onde ficam os dados — ainda sem entrar no detalhe de cada classe:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores (o que sobe na máquina)</figcaption>
+                            <figcaption>O que sobe na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Cliente HTTP</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -110,9 +110,9 @@
                     <p>Com isso, o plano de ataque fica evidente: base do projeto com dependências certas; domínio de <code>Veículo</code>; persistência com JPA, H2 e Flyway; camada de aplicação com casos de uso; por fim, endpoints, validação, erros e Swagger.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>nível de código (C1)</strong>, o plano já pode anunciar o mapa de pastas que o avaliador vai abrir no IDE — antes do primeiro commit de domínio:</p>
+                        <p class="series-c4-lead">Na <strong>organização do código</strong>, o plano já pode anunciar o mapa de pastas que o avaliador vai abrir no IDE — antes do primeiro commit de domínio:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código (alvo de pastas no IDE)</figcaption>
+                            <figcaption>Pastas-alvo no IDE</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft">…/web</span>

@@ -46,9 +46,9 @@
                     <p>Com o projeto criado, chegamos à parte em que a aplicação deixa de ser só dependências e passa a falar a língua do negócio. No teste da recolocação, isso é onde muitos candidatos ou brilham ou expõem acoplamento.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, o exterior só vê JSON; por baixo, o enunciado exige modelo interno coerente antes de persistir:</p>
+                        <p class="series-c4-lead">Na <strong>visão geral</strong>, o exterior só vê JSON; por baixo, o enunciado exige modelo interno coerente antes de persistir:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto</figcaption>
+                            <figcaption>Visão geral</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Cliente API</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -65,9 +65,9 @@
                     <p>Em Spring Boot tradicional, a entidade pode ser anotada com JPA; o equilíbrio em teste prático é separar responsabilidades sem virar arquitetura acadêmica pesada. O essencial é que regras não fiquem no controller e o modelo seja fácil de entender.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Nos <strong>contentores (C3)</strong>, domínio e dados ainda partilham o mesmo processo — a fronteira é pacote e disciplina, não rede:</p>
+                        <p class="series-c4-lead">Nos <strong>blocos de execução</strong>, domínio e dados ainda partilham o mesmo processo — a fronteira é pacote e disciplina, não rede:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores</figcaption>
+                            <figcaption>O que corre na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box sys">Spring Boot<br>(camadas domain + demais)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -82,9 +82,9 @@
                     <p>DTOs <code>CriarVeiculoRequest</code>, <code>AtualizarVeiculoRequest</code> e <code>VeiculoResponse</code> evitam expor a entidade crua e controlam o contrato HTTP. Contratos de repositório no domínio ou aplicação, com implementação na infra, reforçam o mapa em camadas pedido pelo PDF.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">As decisões traduzem-se em <strong>componentes (C2)</strong> — borda HTTP, núcleo de negócio, validação e contrato de persistência:</p>
+                        <p class="series-c4-lead">As decisões traduzem-se em <strong>blocos técnicos</strong> — borda HTTP, núcleo de negócio, validação e contrato de persistência:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes (domínio vs borda)</figcaption>
+                            <figcaption>Domínio versus borda</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">DTOs Web<br>request / response</span>
@@ -101,9 +101,9 @@
                     <p>Se amanhã surgirem campos técnicos (data de criação, versão), a API não precisa expô-los automaticamente. DTOs funcionam como fronteira. A pergunta guia: se eu removesse a API HTTP, ainda entenderia o que é um veículo no sistema? Se sim, o domínio está no caminho certo.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>código (C1)</strong>, tipos e nomes estáveis são o que o avaliador abre primeiro no pacote <code>domain</code>:</p>
+                        <p class="series-c4-lead">Na <strong>organização do código</strong>, tipos e nomes estáveis são o que o avaliador abre primeiro no pacote <code>domain</code>:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código (tipos centrais)</figcaption>
+                            <figcaption>Tipos centrais no código</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft"><code>Veiculo</code><br><small>entidade / modelo</small></span>

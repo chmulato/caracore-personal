@@ -46,9 +46,9 @@
                     <p>Com o mapa mental fechado no episódio anterior, a etapa seguinte no fluxo de recolocação é criar uma base que não atrapalhe o resto da solução. O avaliador não deve caçar variáveis escondidas nem adivinhar como subir a aplicação.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Esse conforto começa no <strong>contexto (C4)</strong> operacional: quem gera o projeto, o que sobe e quem valida — ainda sem falar de regra de negócio:</p>
+                        <p class="series-c4-lead">Esse conforto começa na <strong>visão geral operacional</strong>: quem gera o projeto, o que sobe e quem valida — ainda sem falar de regra de negócio:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto (quem consome a base recém-criada)</figcaption>
+                            <figcaption>Quem consome a base recém-criada</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box person">Dev / candidato</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -68,9 +68,9 @@
                     <p>A tentação é colocar tudo em pacotes genéricos <code>service</code>, <code>controller</code> e <code>repository</code>. Isso roda, mas não conta a história da arquitetura. Como o PDF exige camadas, a estrutura inicial precisa refletir isso: por exemplo <code>web</code>, <code>application</code>, <code>domain</code> e <code>infra</code>.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">As dependências do Initializr mapeiam direto para <strong>componentes (C2)</strong> do ecossistema Spring — cada caixa é uma escolha que se defende na banca:</p>
+                        <p class="series-c4-lead">As dependências do Initializr mapeiam direto para <strong>blocos do ecossistema Spring</strong> — cada caixa é uma escolha que se defende na banca:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes (starters e responsabilidades técnicas)</figcaption>
+                            <figcaption>Starters e responsabilidades técnicas</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">Spring Web<br>REST, MVC</span>
@@ -89,9 +89,9 @@
                     <p>O Swagger entra cedo: quando o controller aparecer, já haverá lugar para verificar contratos sem montar requests à mão.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No mesmo processo JVM, <strong>contentores (C3)</strong> mostram onde vivem runtime, dados e documentação servida:</p>
+                        <p class="series-c4-lead">No mesmo processo JVM, <strong>três blocos de execução</strong> mostram onde vivem runtime, dados e documentação servida:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores</figcaption>
+                            <figcaption>O que corre na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box sys">JVM: Spring Boot<br>(API + config)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">↔</span>
@@ -108,9 +108,9 @@
                     <p>Nesta etapa ainda não resolvemos todas as regras. O objetivo é deixar o projeto compilando, subindo, com Swagger e H2 acessíveis e Flyway aplicando migration inicial. O que vier depois terá onde morar.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>código (C1)</strong>, a árvore de pastas e ficheiros é o primeiro “exame visual” do avaliador:</p>
+                        <p class="series-c4-lead">Na <strong>organização do código</strong>, a árvore de pastas e ficheiros é o primeiro “exame visual” do avaliador:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código (estrutura inicial visível)</figcaption>
+                            <figcaption>Estrutura inicial visível</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft">src/main/java/…/<br><strong>web</strong> · <strong>application</strong></span>

@@ -9,7 +9,7 @@
     <title>Série: O Protocolo de Lucerna — Índice</title>
     <meta name="description" content="Índice da série (6 episódios + epílogo): soberania tecnológica, migração crítica, compliance, QA invisível, rastro digital, identidade profissional e o Código da Retomada — Arquitetando a Soberania em Ambientes de Alta Incerteza.">
     <meta name="author" content="Christian Mulato">
-    <meta name="keywords" content="Protocolo de Lucerna, Soberania Tecnológica, Arquiteto Soberano, Migração, Compliance, QA, Governança, Legado de Resiliência, C4">
+    <meta name="keywords" content="Protocolo de Lucerna, Soberania Tecnológica, Arquiteto Soberano, Migração, Compliance, QA, Governança, Legado de Resiliência">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/article.css">
     <style>
@@ -106,71 +106,7 @@
                     <p>Esta série transforma um arco vivido em modo Força-Tarefa — migração crítica de middleware, compliance no auge da crise, QA que some do organograma, rastro digital perigoso, identidade profissional em trincheira e encerramento com post-mortem e manifesto — em seis episódios e um epílogo, em linguagem anonimizada: o <strong>Arquiteto Soberano</strong> entre ultimato comercial e integridade técnica.</p>
                     <p>Cada entrega aprofunda um recorte: pressão e janela, engenharia sob protocolo, qualidade como responsabilidade individual, governança do que se escreve, sombra de Lucerna na carreira, retomada operacional e, no epílogo, lições para além do projeto. O tom permanece o do blog: ensaio técnico-narrativo, decisões defendíveis e trincheira de quem desenha e defende arquitetura sob incerteza.</p>
                     <p><strong>Nota sobre o formato:</strong> Não é manual de implementação nem case com nomes reais: é <strong>ficção técnica ancorada em padrões reais</strong> (migração, auditoria, silêncio contratual, risco de documentar demais). O leitor pode mapear cada episódio a situações do dia a dia sem confundir relato com documento forense.</p>
-                    <p>Os esquemas abaixo seguem o <strong>modelo C4</strong> (Simon Brown), mas aparecem <em>depois</em> desta leitura inicial: primeiro o texto situa; em seguida cada figura fixa um zoom — <strong>C4</strong> contexto, <strong>C3</strong> contentores, <strong>C2</strong> componentes, <strong>C1</strong> artefactos concretos da disciplina.</p>
-
-                    <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>nível de contexto (C4)</strong>, a “operação Lucerna” é o sistema no meio de pressões humanas e institucionais:</p>
-                        <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto da operação</figcaption>
-                            <div class="series-c4-diagram">
-                                <span class="series-c4-box person">Equipa técnica<br>(Arquiteto Soberano)</span>
-                                <span class="series-c4-arrow" aria-hidden="true">→</span>
-                                <span class="series-c4-box soft">Ultimato + compliance<br>(comercial, jurídico, silêncio)</span>
-                                <span class="series-c4-arrow" aria-hidden="true">→</span>
-                                <span class="series-c4-box sys">Operação em campo:<br>migração &amp; plataforma crítica</span>
-                                <span class="series-c4-arrow" aria-hidden="true">→</span>
-                                <span class="series-c4-box person">Stakeholders<br>auditoria, cliente</span>
-                            </div>
-                            <p class="series-c4-foot">O centro é a operação que precisa estabilizar; tudo à volta define risco, tempo e o que pode ser dito em voz alta.</p>
-                        </figure>
-                    </div>
-
-                    <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>nível de contentores (C3)</strong>, o mesmo conflito desdobra-se em canais, runtime e registo — fronteiras que os episódios atravessam um a um:</p>
-                        <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores (onde a pressão vira trabalho)</figcaption>
-                            <div class="series-c4-diagram">
-                                <span class="series-c4-box person">Comando &amp; rumor<br>(e-mail, chat, war room)</span>
-                                <span class="series-c4-arrow" aria-hidden="true">→</span>
-                                <span class="series-c4-box sys">Runtime legado ↔ alvo<br>(middleware, integrações)</span>
-                                <span class="series-c4-arrow" aria-hidden="true">→</span>
-                                <span class="series-c4-box store">Rastro &amp; decisão<br>(wiki, tickets, ADR)</span>
-                            </div>
-                            <p class="series-c4-foot">Três contentores lógicos: conversa, sistema e memória — cada um com custo político quando falha.</p>
-                        </figure>
-                    </div>
-
-                    <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>nível de componentes (C2)</strong>, a série parte o problema em quatro frentes que os episódios exploram:</p>
-                        <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes (frentes da soberania)</figcaption>
-                            <div class="series-c4-diagram">
-                                <div class="series-c4-grid4">
-                                    <span class="series-c4-box">Migração &amp; janela<br>ultimato, física do deploy</span>
-                                    <span class="series-c4-box">Compliance &amp; silêncio<br>protocolos, confidencialidade</span>
-                                    <span class="series-c4-box">QA &amp; risco<br>qualidade “invisível”</span>
-                                    <span class="series-c4-box">Rastro &amp; identidade<br>documentar sem expor; carreira</span>
-                                </div>
-                            </div>
-                            <p class="series-c4-foot">Não são “silos felizes”: competem por tempo e por palavras permitidas.</p>
-                        </figure>
-                    </div>
-
-                    <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>nível de artefactos (C1)</strong>, o leitor reconhece o que sobrevive à tempestade — prova de maturidade, não só heroísmo:</p>
-                        <figure class="series-c4-level">
-                            <figcaption>C1 — Artefactos e disciplina documental</figcaption>
-                            <div class="series-c4-diagram">
-                                <div class="series-c4-grid4">
-                                    <span class="series-c4-box soft">Runbook / playbook<br><small>passos reproduzíveis</small></span>
-                                    <span class="series-c4-box soft">Tickets + triage<br><small>decisões rastreáveis</small></span>
-                                    <span class="series-c4-box soft">ADR / relatório de risco<br><small>por que, não só o quê</small></span>
-                                    <span class="series-c4-box soft">Post-mortem &amp; manifesto<br><small>ep06–epílogo</small></span>
-                                </div>
-                            </div>
-                            <p class="series-c4-foot">Cada episódio encosta nestes tipos de prova: o índice antecipa o mapa; os textos enchem o conteúdo.</p>
-                        </figure>
-                    </div>
+                    <p><strong>Como acompanhar a série:</strong> no centro está a operação crítica — migração, janela e plataforma sob pressão. À volta, equipa técnica, ultimato comercial, jurídico e stakeholders puxam por riscos, prazos e limites do que pode ser dito em voz alta. O conflito corre por conversas (e-mail, chat, salas de pressão), pelo sistema em execução e pelas decisões registadas. Os episódios percorrem migração e janela, compliance em silêncio, qualidade e risco invisível, rastro na documentação e identidade profissional. No desfecho, entram artefactos que sobrevivem à tempestade — playbooks, tickets, decisões escritas — tanto quanto bravura individual.</p>
 
                     <div class="episode-grid">
                         <div class="episode-card">

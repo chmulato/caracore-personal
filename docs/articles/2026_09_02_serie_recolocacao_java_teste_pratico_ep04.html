@@ -46,9 +46,9 @@
                     <p>Persistência é quando a API deixa de ser demonstração de request e passa a guardar estado. H2 em memória facilita a vida do avaliador, mas o PDF também pede migrations: estrutura explícita, não improviso.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>contexto (C4)</strong>, a API deixa de ser caixa preta: estado relacional e console H2 entram na narrativa de validação:</p>
+                        <p class="series-c4-lead">Na <strong>visão geral</strong>, a API deixa de ser caixa preta: estado relacional e console H2 entram na narrativa de validação:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C4 — Contexto</figcaption>
+                            <figcaption>Visão geral</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box sys">API de veículos</span>
                                 <span class="series-c4-arrow" aria-hidden="true">→</span>
@@ -65,9 +65,9 @@
                     <p>Configurar JDBC, console H2 para inspeção, Flyway em <code>db/migration</code>, JPA validando schema contra migrations: execução previsível e mensagem clara quando algo desalinha.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">Nos <strong>contentores (C3)</strong>, Flyway e Hibernate partilham o processo; o schema é contrato versionado em SQL:</p>
+                        <p class="series-c4-lead">Nos <strong>blocos de execução</strong>, Flyway e Hibernate partilham o processo; o schema é contrato versionado em SQL:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C3 — Contentores</figcaption>
+                            <figcaption>O que corre na máquina</figcaption>
                             <div class="series-c4-diagram">
                                 <span class="series-c4-box sys">Spring Boot<br>(JPA + Flyway)</span>
                                 <span class="series-c4-arrow" aria-hidden="true">↔</span>
@@ -82,9 +82,9 @@
                     <p>Spring Data JPA pode ser usado diretamente na aplicação ou atrás de adapter fino — escolha proporcional ao tamanho do teste. Listagem paginada: <code>Pageable</code> e <code>Page</code> na consulta, com responsabilidades repartidas: Web recebe parâmetros, Application orquestra, Infra executa a query.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">A Infra decompõe-se em <strong>componentes (C2)</strong> — repositório, migrations, config e mapeamento — sem “explodir” queries no controller:</p>
+                        <p class="series-c4-lead">A Infra decompõe-se em <strong>blocos técnicos</strong> — repositório, migrations, config e mapeamento — sem “explodir” queries no controller:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C2 — Componentes (Infra)</figcaption>
+                            <figcaption>Componentes de infraestrutura</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box">VeiculoRepository<br>(Spring Data)</span>
@@ -101,9 +101,9 @@
                     <p>Veículo inexistente: repositório retorna vazio; a aplicação decide exceção ou resultado; a Web traduz para HTTP 404. Cada camada fala sua língua. No <strong>manual de arranque</strong> (<code>README.md</code>), registar URL, utilizador e senha do console H2 permite ao avaliador ver linhas após um POST no Swagger — detalhe pequeno, grande confiança.</p>
 
                     <div class="series-c4-embed">
-                        <p class="series-c4-lead">No <strong>código (C1)</strong>, migration, entidade, repositório e <code>application.yml</code> são o rasto que o avaliador segue em caso de desalinhamento DTO ↔ coluna:</p>
+                        <p class="series-c4-lead">Na <strong>organização do código</strong>, migration, entidade, repositório e <code>application.yml</code> são o rasto que o avaliador segue em caso de desalinhamento DTO ↔ coluna:</p>
                         <figure class="series-c4-level">
-                            <figcaption>C1 — Código</figcaption>
+                            <figcaption>Detalhe no código</figcaption>
                             <div class="series-c4-diagram">
                                 <div class="series-c4-grid4">
                                     <span class="series-c4-box soft"><code>db/migration/V1__…</code></span>
