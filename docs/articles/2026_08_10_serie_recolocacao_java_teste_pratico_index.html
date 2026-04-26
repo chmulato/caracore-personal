@@ -9,7 +9,7 @@
     <title>Série: Recolocação e teste prático Java — Índice</title>
     <meta name="description" content="Índice da série (7 episódios): desafio de recolocação com quatro horas de prova — API REST de veículos em Java, Spring Boot, camadas, nota sobre viabilidade do prazo e roteiro até ao manual de arranque (README.md).">
     <meta name="author" content="Christian Mulato">
-    <meta name="keywords" content="Java, Spring Boot, API REST, recolocação, teste prático, arquitetura, Jaraguá do Sul, Carreira">
+    <meta name="keywords" content="Java, Spring Boot, API REST, recolocação, teste prático, manual de arranque, README.md, arquitetura, Jaraguá do Sul, Carreira">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/article.css">
     <style>
@@ -103,7 +103,7 @@
 
                 <div class="post-content">
                     <p>Entre março e abril de 2026, a recolocação bateu à porta com um teste prático exigente: construir uma API REST de cadastro de veículos em Java, com camadas claras e critérios de banca que pesam mais do que “só rodar”. Esta série transforma esse desafio — vivido no contexto de uma empresa de TI de Jaraguá do Sul, SC (identidade preservada) — em roteiro técnico em sete entregas, do PDF ao <strong>manual de arranque</strong> no repositório (<code>README.md</code>).</p>
-                    <p>Cada episódio acompanha uma etapa da jornada: leitura do enunciado, base Spring Boot, domínio, persistência, aplicação, web/Swagger e consolidação final. O tom permanece o do blog: ensaio técnico, decisões defendíveis e trincheira de entrevista.</p>
+                    <p>Cada episódio acompanha uma etapa da jornada: leitura do enunciado, base Spring Boot, domínio, persistência, aplicação, web/Swagger e, no fecho, <strong>manual de arranque</strong> em <code>README.md</code> com checklist de entrega. O tom permanece o do blog: ensaio técnico, decisões defendíveis e trincheira de entrevista.</p>
                     <p><strong>Nota sobre o tempo:</strong> No processo em causa foi dada uma janela de <strong>quatro horas</strong> para resolver o desafio. É factível? Para quem já domina Spring Boot, JPA, Flyway, Bean Validation e documentação OpenAPI (springdoc) e entra com um plano enxuto — <strong>sim</strong>: o enunciado em si cabe nesse tempo se se evitar ouro (auth complexo, microsserviços, “arquitetura de palco”) e se o PDF for lido antes de codar. Para quem ainda aquece a stack ou perde o início a decifrar requisitos, quatro horas tornam-se sobretudo um teste de <em>priorização</em>. Esta série desdobra o mesmo percurso em texto justamente para treinar o que, na prova, precisa caber num único bloco contínuo.</p>
                     <p>Os esquemas abaixo seguem o <strong>modelo C4</strong> (Simon Brown), mas aparecem <em>depois</em> desta leitura inicial: primeiro o texto situa; em seguida cada figura fixa um zoom — <strong>C4</strong> contexto, <strong>C3</strong> contentores, <strong>C2</strong> componentes, <strong>C1</strong> código.</p>
 
@@ -177,7 +177,7 @@
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 01</div>
                                 <h3 class="episode-title"><a href="2026_08_12_serie_recolocacao_java_teste_pratico_ep01.html">Do PDF ao plano: lendo um teste prático Java como arquiteto</a></h3>
-                                <p class="episode-teaser">Antes de controllers e entidades: transformar o enunciado em plano técnico, critérios de avaliação e arquitetura Web, Application, Domain e Infra.</p>
+                                <p class="episode-teaser">Antes de controllers e entidades: transformar o enunciado em plano técnico, critérios de avaliação e arquitetura Web, Application, Domain e Infra — já antevendo o que vira <strong>manual de arranque</strong> (<code>README.md</code>).</p>
                                 <div class="episode-date">Lançamento: 12 de agosto de 2026</div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 02</div>
                                 <h3 class="episode-title"><a href="2026_08_19_serie_recolocacao_java_teste_pratico_ep02.html">Preparando o terreno: Spring Boot, dependências e estrutura inicial</a></h3>
-                                <p class="episode-teaser">Dependências certas, pacotes por camada e configuração que o avaliador consegue rodar sem adivinhação.</p>
+                                <p class="episode-teaser">Dependências certas, pacotes por camada, primeiros passos do <strong>manual de arranque</strong> (<code>README.md</code>) e configuração que o avaliador consegue rodar sem adivinhação.</p>
                                 <div class="episode-date">Lançamento: 19 de agosto de 2026</div>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 04</div>
                                 <h3 class="episode-title"><a href="2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html">Da memória ao banco: persistindo veículos com JPA, H2 e Flyway</a></h3>
-                                <p class="episode-teaser">Infraestrutura com contrato: migrations, repositório e paginação sem vazar detalhes para a web.</p>
+                                <p class="episode-teaser">Infraestrutura com contrato: migrations, repositório e paginação sem vazar detalhes para a web; dados do H2 que o <strong>manual de arranque</strong> (<code>README.md</code>) deve documentar.</p>
                                 <div class="episode-date">Lançamento: 2 de setembro de 2026</div>
                             </div>
                         </div>
@@ -222,7 +222,7 @@
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 06</div>
                                 <h3 class="episode-title"><a href="2026_09_16_serie_recolocacao_java_teste_pratico_ep06.html">A porta de entrada da API: controllers simples, validação e documentação viva</a></h3>
-                                <p class="episode-teaser">REST fino, @Valid, handler de erros e OpenAPI/Swagger como bancada de testes.</p>
+                                <p class="episode-teaser">REST fino, @Valid, handler de erros e OpenAPI/Swagger como bancada de testes; a seguir, fechar o <strong>manual de arranque</strong> (<code>README.md</code>) no epílogo da série.</p>
                                 <div class="episode-date">Lançamento: 16 de setembro de 2026</div>
                             </div>
                         </div>
