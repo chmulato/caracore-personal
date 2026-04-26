@@ -5,10 +5,38 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
+    <item>
+      <title><![CDATA[Série Depois do debate — A conclusão possível]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_12_10_serie_depois_do_debate_carreira_conclusao.html</link>
+      <description><![CDATA[Terceiro artigo: conclusões possíveis sem sentença única — mercado, IA, confiança, trajetórias e escolha pessoal.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_10_serie_depois_do_debate_carreira_conclusao.html</guid>
+      <pubDate>Thu, 10 Dec 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Depois do debate — O que temos diante de nós]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_11_12_serie_depois_do_debate_carreira_padroes.html</link>
+      <description><![CDATA[Segundo artigo: dez padrões do debate agregado — promessa de entrada, técnica, IA, processos, etarismo, narrativa e exaustão.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_11_12_serie_depois_do_debate_carreira_padroes.html</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série Depois do debate — As perguntas que ficaram depois do debate]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_10_20_serie_depois_do_debate_carreira_perguntas.html</link>
+      <description><![CDATA[Primeiro artigo: perguntas abertas sobre carreira, mercado, IA, entrevistas, portfólio e saúde emocional — sem nomes.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_10_20_serie_depois_do_debate_carreira_perguntas.html</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série: Depois do debate (carreira e tecnologia) — Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_10_06_serie_depois_do_debate_carreira_index.html</link>
+      <description><![CDATA[Índice (3 artigos): debate anonimizado, mapa C4, calendário out–dez 2026 e ligação ao material em workspace_article.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_10_06_serie_depois_do_debate_carreira_index.html</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title><![CDATA[Série Recolocação Java — Episódio 07: Checklist final e entrega defensável]]></title>
       <link>https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html</link>

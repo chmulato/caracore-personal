@@ -19,9 +19,9 @@ Ficheiros partilhados (sem data de artigo no nome):
   foto_chri.jpg | favicon.ico
 
 
-TRÊS SÉRIES — EXCEÇÃO À “UMA DATA POR PÁGINA”
----------------------------------------------
-Há três séries com página índice própria. Aí a norma “data no PNG = data no nome
+QUATRO SÉRIES — EXCEÇÃO À “UMA DATA POR PÁGINA”
+-----------------------------------------------
+Há quatro séries com página índice própria. Aí a norma “data no PNG = data no nome
 do HTML” não se aplica à página do índice, porque um único HTML lista vários
 episódios publicados em datas diferentes.
 
@@ -32,11 +32,15 @@ episódios publicados em datas diferentes.
    Episódios (cada um segue a norma geral no seu próprio HTML):
    serie_brasil_sdk_soberania_ep01 … ep07
 
-2) Série “Protocolo de Lucerna”
+2) Série “Depois do debate (carreira e tecnologia)”
+   Índice: 2026_10_06_serie_depois_do_debate_carreira_index.html
+   Artigos: serie_depois_do_debate_carreira_perguntas, …_padroes, …_conclusao
+
+3) Série “Protocolo de Lucerna”
    Índice: 2026_04_20_serie_protocolo_lucerna_index.html
    Episódios: protocolo_lucerna_ep01 … ep05, epilogo em HTML próprios.
 
-3) Série “Recolocação e teste prático Java”
+4) Série “Recolocação e teste prático Java”
    Índice: 2026_08_10_serie_recolocacao_java_teste_pratico_index.html
    Episódios: serie_recolocacao_java_teste_pratico_ep01 … ep07
 
