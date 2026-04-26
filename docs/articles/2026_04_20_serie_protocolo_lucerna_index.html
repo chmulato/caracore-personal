@@ -3,17 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html" />
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html" />
     <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html" />
-<title>Série: O Protocolo de Lucerna — Índice</title>
-    <meta name="description" content="Índice da série em 6 episódios + epílogo sobre soberania tecnológica, migração crítica, compliance, QA invisível, rastro digital, identidade profissional e o Código da Retomada. Arquitetando a Soberania em Ambientes de Alta Incerteza.">
+    <meta property="og:image" content="assets/img/2026_05_05_IMAGE_001.png" />
+    <title>Série: O Protocolo de Lucerna — Índice</title>
+    <meta name="description" content="Índice da série (6 episódios + epílogo): soberania tecnológica, migração crítica, compliance, QA invisível, rastro digital, identidade profissional e o Código da Retomada — Arquitetando a Soberania em Ambientes de Alta Incerteza.">
     <meta name="author" content="Christian Mulato">
-    <meta name="keywords" content="Protocolo de Lucerna, Soberania Tecnológica, Arquiteto Soberano, Migração, Compliance, QA, Governança, Legado de Resiliência">
-    
-    <!-- CSS -->
+    <meta name="keywords" content="Protocolo de Lucerna, Soberania Tecnológica, Arquiteto Soberano, Migração, Compliance, QA, Governança, Legado de Resiliência, C4">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/article.css">
-
     <style>
         .episode-grid {
             display: grid;
@@ -78,29 +76,6 @@
             color: #888;
             margin-top: auto;
         }
-        .linkedin-post {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-        .linkedin-post h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: #333;
-        }
-        .linkedin-post textarea {
-            width: 100%;
-            height: 320px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
-            resize: vertical;
-        }
     </style>
 </head>
 <body>
@@ -122,147 +97,164 @@
                 <header class="post-header">
                     <h1 class="post-title">Série: O Protocolo de Lucerna</h1>
                     <div class="post-meta">
-                        <time datetime="2026-04-20">20/04/2026</time> — 6 episódios + epílogo | Lançamentos de 05/05 a 14/07/2026
+                        <time datetime="2026-04-20">20/04/2026</time> — 6 episódios + epílogo | Lançamentos de maio a julho de 2026
                     </div>
                 </header>
-                
+
                 <div class="post-content">
                     <p><em>Arquitetando a Soberania em Ambientes de Alta Incerteza.</em></p>
-                    <p>Uma série em 6 episódios e um epílogo sobre migração crítica de middleware, compliance no auge da crise, QA invisível, rastro digital, identidade profissional e o Código da Retomada. O Arquiteto Soberano navega entre o ultimato comercial e a integridade técnica — e registra, em linguagem anonimizada, o que acontece quando o projeto entra em modo Força-Tarefa e a soberania é posta à prova.</p>
-        
+                    <p>Esta série transforma um arco vivido em modo Força-Tarefa — migração crítica de middleware, compliance no auge da crise, QA que some do organograma, rastro digital perigoso, identidade profissional em trincheira e encerramento com post-mortem e manifesto — em seis episódios e um epílogo, em linguagem anonimizada: o <strong>Arquiteto Soberano</strong> entre ultimato comercial e integridade técnica.</p>
+                    <p>Cada entrega aprofunda um recorte: pressão e janela, engenharia sob protocolo, qualidade como responsabilidade individual, governança do que se escreve, sombra de Lucerna na carreira, retomada operacional e, no epílogo, lições para além do projeto. O tom permanece o do blog: ensaio técnico-narrativo, decisões defendíveis e trincheira de quem desenha e defende arquitetura sob incerteza.</p>
+                    <p><strong>Nota sobre o formato:</strong> Não é manual de implementação nem case com nomes reais: é <strong>ficção técnica ancorada em padrões reais</strong> (migração, auditoria, silêncio contratual, risco de documentar demais). O leitor pode mapear cada episódio a situações do dia a dia sem confundir relato com documento forense.</p>
+                    <p>Os esquemas abaixo seguem o <strong>modelo C4</strong> (Simon Brown), mas aparecem <em>depois</em> desta leitura inicial: primeiro o texto situa; em seguida cada figura fixa um zoom — <strong>C4</strong> contexto, <strong>C3</strong> contentores, <strong>C2</strong> componentes, <strong>C1</strong> artefactos concretos da disciplina.</p>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de contexto (C4)</strong>, a “operação Lucerna” é o sistema no meio de pressões humanas e institucionais:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C4 — Contexto da operação</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Equipa técnica<br>(Arquiteto Soberano)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box soft">Ultimato + compliance<br>(comercial, jurídico, silêncio)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Operação em campo:<br>migração &amp; plataforma crítica</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box person">Stakeholders<br>auditoria, cliente</span>
+                            </div>
+                            <p class="series-c4-foot">O centro é a operação que precisa estabilizar; tudo à volta define risco, tempo e o que pode ser dito em voz alta.</p>
+                        </figure>
+                    </div>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de contentores (C3)</strong>, o mesmo conflito desdobra-se em canais, runtime e registo — fronteiras que os episódios atravessam um a um:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C3 — Contentores (onde a pressão vira trabalho)</figcaption>
+                            <div class="series-c4-diagram">
+                                <span class="series-c4-box person">Comando &amp; rumor<br>(e-mail, chat, war room)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box sys">Runtime legado ↔ alvo<br>(middleware, integrações)</span>
+                                <span class="series-c4-arrow" aria-hidden="true">→</span>
+                                <span class="series-c4-box store">Rastro &amp; decisão<br>(wiki, tickets, ADR)</span>
+                            </div>
+                            <p class="series-c4-foot">Três contentores lógicos: conversa, sistema e memória — cada um com custo político quando falha.</p>
+                        </figure>
+                    </div>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de componentes (C2)</strong>, a série parte o problema em quatro frentes que os episódios exploram:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C2 — Componentes (frentes da soberania)</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box">Migração &amp; janela<br>ultimato, física do deploy</span>
+                                    <span class="series-c4-box">Compliance &amp; silêncio<br>protocolos, confidencialidade</span>
+                                    <span class="series-c4-box">QA &amp; risco<br>qualidade “invisível”</span>
+                                    <span class="series-c4-box">Rastro &amp; identidade<br>documentar sem expor; carreira</span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Não são “silos felizes”: competem por tempo e por palavras permitidas.</p>
+                        </figure>
+                    </div>
+
+                    <div class="series-c4-embed">
+                        <p class="series-c4-lead">No <strong>nível de artefactos (C1)</strong>, o leitor reconhece o que sobrevive à tempestade — prova de maturidade, não só heroísmo:</p>
+                        <figure class="series-c4-level">
+                            <figcaption>C1 — Artefactos e disciplina documental</figcaption>
+                            <div class="series-c4-diagram">
+                                <div class="series-c4-grid4">
+                                    <span class="series-c4-box soft">Runbook / playbook<br><small>passos reproduzíveis</small></span>
+                                    <span class="series-c4-box soft">Tickets + triage<br><small>decisões rastreáveis</small></span>
+                                    <span class="series-c4-box soft">ADR / relatório de risco<br><small>por que, não só o quê</small></span>
+                                    <span class="series-c4-box soft">Post-mortem &amp; manifesto<br><small>ep06–epílogo</small></span>
+                                </div>
+                            </div>
+                            <p class="series-c4-foot">Cada episódio encosta nestes tipos de prova: o índice antecipa o mapa; os textos enchem o conteúdo.</p>
+                        </figure>
+                    </div>
+
                     <div class="episode-grid">
-                        <!-- Episódio 1 -->
                         <div class="episode-card">
                             <img src="assets/img/2026_05_05_IMAGE_001.png" alt="Episódio 1: O Ultimato das 14h30" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 01</div>
                                 <h3 class="episode-title"><a href="2026_05_05_protocolo_lucerna_ep01_ultimato_14h30.html">O Ultimato das 14h30</a></h3>
                                 <p class="episode-teaser">Migração crítica de middleware sob janela agressiva: quando a promessa comercial colide com a realidade da infraestrutura e a soberania técnica é posta à prova.</p>
-                                <div class="episode-date">Lançamento: 05 de Maio de 2026</div>
+                                <div class="episode-date">Lançamento: 05 de maio de 2026</div>
                             </div>
                         </div>
-
-                        <!-- Episódio 2 -->
                         <div class="episode-card">
                             <img src="assets/img/2026_05_30_IMAGE_001.png" alt="Episódio 2: A Engenharia de Guerra e o Compliance" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 02</div>
                                 <h3 class="episode-title"><a href="2026_05_30_protocolo_lucerna_ep02_engenharia_guerra_compliance.html">A Engenharia de Guerra e o Compliance</a></h3>
                                 <p class="episode-teaser">Força-Tarefa e diretrizes de confidencialidade no auge da crise: a dialética do silêncio, o triage de middleware e a psicologia da engenharia sob protocolos de segurança.</p>
-                                <div class="episode-date">Lançamento: 30 de Maio de 2026</div>
+                                <div class="episode-date">Lançamento: 30 de maio de 2026</div>
                             </div>
                         </div>
-
-                        <!-- Episódio 3 -->
                         <div class="episode-card">
                             <img src="assets/img/2026_06_07_IMAGE_001.png" alt="Episódio 3: O Ponto Cego da Qualidade" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 03</div>
                                 <h3 class="episode-title"><a href="2026_06_07_protocolo_lucerna_ep03_ponto_cego_qualidade.html">O Ponto Cego da Qualidade (O QA Invisível)</a></h3>
                                 <p class="episode-teaser">A estrutura de QA prometida é inexistente na operação real. O engenheiro como criador e crítico, a teoria do erro em missão crítica e a ética do arquiteto como lei de qualidade.</p>
-                                <div class="episode-date">Lançamento: 07 de Junho de 2026</div>
+                                <div class="episode-date">Lançamento: 07 de junho de 2026</div>
                             </div>
                         </div>
-
-                        <!-- Episódio 4 -->
                         <div class="episode-card">
                             <img src="assets/img/2026_06_13_IMAGE_001.png" alt="Episódio 4: A Anatomia do Rastro Digital" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 04</div>
                                 <h3 class="episode-title"><a href="2026_06_13_protocolo_lucerna_ep04_anatomia_rastro_digital.html">A Anatomia do Rastro Digital</a></h3>
                                 <p class="episode-teaser">O paradoxo da documentação: a necessidade de registrar para sobreviver versus o risco de expor infraestrutura em ferramentas compartilhadas. Cibersegurança e governança de dados.</p>
-                                <div class="episode-date">Lançamento: 13 de Junho de 2026</div>
+                                <div class="episode-date">Lançamento: 13 de junho de 2026</div>
                             </div>
                         </div>
-
-                        <!-- Episódio 5 -->
                         <div class="episode-card">
                             <img src="assets/img/2026_06_30_IMAGE_001.png" alt="Episódio 5: Identidade Fluida" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 05</div>
                                 <h3 class="episode-title"><a href="2026_06_30_protocolo_lucerna_ep05_identidade_fluida_sombra_lucerna.html">Identidade Fluida – A Sombra de Lucerna</a></h3>
                                 <p class="episode-teaser">Soberania individual, Lucerna como porto seguro da carreira, vigilância e privacidade, e a engenharia de presença: ser onipresente tecnicamente sem virar ativo fixo emocional da corporação.</p>
-                                <div class="episode-date">Lançamento: 30 de Junho de 2026</div>
+                                <div class="episode-date">Lançamento: 30 de junho de 2026</div>
                             </div>
                         </div>
-
-                        <!-- Episódio 6 -->
                         <div class="episode-card">
                             <img src="assets/img/2026_07_07_IMAGE_001.png" alt="Episódio 6: O Código da Retomada" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Episódio 06</div>
                                 <h3 class="episode-title"><a href="2026_07_07_protocolo_lucerna_ep06_codigo_retomada.html">O Código da Retomada (The Recovery Protocol)</a></h3>
-                                <p class="episode-teaser">Encerramento da série. Post-mortem estratégico: resolução dos bugs de persistência e middleware, Estabilização do Nó Principal e o Manifesto do Arquiteto Soberano.</p>
-                                <div class="episode-date">Lançamento: 07 de Julho de 2026</div>
+                                <p class="episode-teaser">Encerramento da série. Post-mortem estratégico: resolução dos bugs de persistência e middleware, estabilização do nó principal e o Manifesto do Arquiteto Soberano.</p>
+                                <div class="episode-date">Lançamento: 07 de julho de 2026</div>
                             </div>
                         </div>
-
-                        <!-- Epílogo -->
                         <div class="episode-card">
                             <img src="assets/img/2026_07_14_IMAGE_001.png" alt="Epílogo: O Protocolo de Lucerna" class="episode-card-image">
                             <div class="episode-card-content">
                                 <div class="episode-number">Epílogo</div>
                                 <h3 class="episode-title"><a href="2026_07_14_protocolo_lucerna_epilogo.html">Epílogo</a></h3>
-                                <p class="episode-teaser">Após a estabilização: reflexão sobre lições aprendidas, evolução da Soberania Tecnológica, novo contrato social do Arquiteto e previsões para a engenharia de 2030. O Manifesto Final.</p>
-                                <div class="episode-date">Lançamento: 14 de Julho de 2026</div>
+                                <p class="episode-teaser">Após a estabilização: reflexão sobre lições aprendidas, evolução da soberania tecnológica, novo contrato social do Arquiteto e previsões para a engenharia de 2030. O manifesto final.</p>
+                                <div class="episode-date">Lançamento: 14 de julho de 2026</div>
                             </div>
                         </div>
                     </div>
-                    
-                    <p><strong>Cronograma de Lançamentos:</strong></p>
-                    <ul>
-                        <li><strong>Lançamento da série (índice):</strong> 20 de Abril de 2026</li>
-                        <li><strong>Episódio 01:</strong> 05 de Maio de 2026</li>
-                        <li><strong>Episódio 02:</strong> 30 de Maio de 2026</li>
-                        <li><strong>Episódio 03:</strong> 07 de Junho de 2026</li>
-                        <li><strong>Episódio 04:</strong> 13 de Junho de 2026</li>
-                        <li><strong>Episódio 05:</strong> 30 de Junho de 2026</li>
-                        <li><strong>Episódio 06:</strong> 07 de Julho de 2026</li>
-                        <li><strong>Epílogo:</strong> 14 de Julho de 2026</li>
-                    </ul>
 
-                    <div class="linkedin-post">
-                        <h3>Texto para Anúncio no LinkedIn (Lançamento — 20/04/2026)</h3>
-                        <textarea readonly>
-🔐 **LANÇAMENTO: Série "O Protocolo de Lucerna"** 🔐
+                    <p><strong>Cronograma:</strong> índice 20/04; episódios 05/05, 30/05, 07/06, 13/06, 30/06, 07/07; epílogo 14/07 de 2026.</p>
 
-O que acontece quando um projeto de migração crítica entra em modo Força-Tarefa — e as diretrizes de compliance apertam no mesmo momento? Quando o QA prometido não existe na prática? Quando o rastro que você deixa para salvar o projeto pode virar um mapa de vulnerabilidades?
-
-Estou lançando a série **"O Protocolo de Lucerna"**: 6 episódios + epílogo sobre soberania tecnológica em ambientes de alta incerteza.
-
-**Arquitetando a Soberania em Ambientes de Alta Incerteza.**
-
-Os temas são densos e reais (com anonimização):
-→ O ultimato comercial e a física dos sistemas
-→ Compliance e a dialética do silêncio no auge da crise
-→ O QA invisível: quando o arquiteto vira a lei de qualidade
-→ O rastro digital: documentar sem expor
-→ Identidade fluida: a Sombra de Lucerna e a carreira em trincheira
-→ O Código da Retomada e o Manifesto do Arquiteto Soberano
-→ Epílogo: lições para 2030 e o novo contrato social do Arquiteto
-
-A página principal da série, com a sinopse de todos os episódios, já está no ar.
-
-➡️ **Confira o índice completo aqui:** [LINK PARA O ÍNDICE]
-
-O primeiro episódio, "O Ultimato das 14h30", será lançado em 05 de maio.
-
-Para quem opera em migração, compliance e governança: esta série é para você.
-
-#ProtocoloDeLucerna #SoberaniaTecnológica #ArquiteturaDeSoftware #Compliance #Governança #EngenhariaDeSoftware #Migração #LegadoDeResiliência
-                        </textarea>
-                    </div>
-                    
                     <hr>
-                    <p><em><strong>Nota:</strong> Esta série reflete experiências em projetos de migração e governança, com total anonimização de clientes, ambientes e pessoas.</em></p>
+                    <p><em><strong>Nota:</strong> Esta série reflete experiências em projetos de migração e governança, com total anonimização de clientes, ambientes e pessoas (Fiction-Based Technical Insights).</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
                 </div>
             </article>
         </div>
     </main>
     <footer class="site-footer">
         <div class="container">
-            <p>Série O Protocolo de Lucerna — Christian Mulato Dev Blog.</p>
-            <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+            <p>Comece pelo <a href="2026_05_05_protocolo_lucerna_ep01_ultimato_14h30.html">primeiro episódio</a> ou volte ao <a href="../index.html">início do blog</a>.</p>
         </div>
     </footer>
     <script src="assets/js/main.js"></script>
