@@ -2,6 +2,14 @@
 
 Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo o conteúdo usa **links de referência relativos** para funcionar em qualquer base URL.
 
+## Status atual do blog
+
+- Artigos existentes em `docs/articles/*.html`: **124**
+- Ciclo ativo: **Junho 2026 - Maio 2029**
+- Histórico preservado antes de: **04/06/2026**
+- Séries com índice próprio: **Brasil SDK**, **Depois do debate**, **Protocolo de Lucerna**, **Recolocação Java**
+- Convenção de imagens (página HTML): `docs/articles/assets/img/README.html`
+
 ## Convenção de links relativos
 
 - **A partir de `personal/`** (index.html):
