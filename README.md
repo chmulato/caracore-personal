@@ -4,7 +4,7 @@ Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo 
 
 ## Status atual do blog
 
-- Artigos existentes em `docs/articles/*.html` com marcação `<article>`: **123**
+- Artigos existentes em `docs/articles/*.html` com marcação `<article>`: **129**
 - Ciclo ativo: **Junho 2026 - Maio 2029**
 - Histórico preservado antes de: **04/06/2026**
 - Séries com índice próprio: **Brasil SDK**, **Depois do debate**, **Protocolo de Lucerna**, **Recolocação Java**

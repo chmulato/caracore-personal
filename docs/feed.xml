@@ -5,9 +5,52 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Série A Ilusão Informatizada — Epílogo: o que ainda merece ser feito por gente]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_12_05_serie_ilusao_informatizada_epilogo.html</link>
+      <description><![CDATA[Epílogo da série: critério humano, autoria, supervisão e a triagem entre o que pode ser automatizado e o que perde sentido sem presença.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_05_serie_ilusao_informatizada_epilogo.html</guid>
+      <pubDate>Sat, 05 Dec 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série A Ilusão Informatizada — Automação desumanizada, ilusão e piada]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_11_30_serie_ilusao_informatizada_ep04.html</link>
+      <description><![CDATA[Quarto ensaio: terceirização da intuição, vácuo de responsabilidade e a caricatura funcional de um progresso que corre mais do que pensa.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_11_30_serie_ilusao_informatizada_ep04.html</guid>
+      <pubDate>Mon, 30 Nov 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série A Ilusão Informatizada — A maldição do médio estatístico]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_11_05_serie_ilusao_informatizada_ep03.html</link>
+      <description><![CDATA[Terceiro ensaio: a IA acerta a casca, mas tropeça na exceção, na regra de negócio, no contexto e no detalhe que sustenta o sistema.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_11_05_serie_ilusao_informatizada_ep03.html</guid>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série A Ilusão Informatizada — A idiotice em escala e o autor ausente]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_10_30_serie_ilusao_informatizada_ep02.html</link>
+      <description><![CDATA[Segundo ensaio: conteúdo fantasma, spam gourmet, inflação do significado e a cultura do autor ausente.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_10_30_serie_ilusao_informatizada_ep02.html</guid>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série A Ilusão Informatizada — Da mineração de cripto à mineração de atenção]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_10_12_serie_ilusao_informatizada_ep01.html</link>
+      <description><![CDATA[Primeiro ensaio: GPUs, cripto, inferência e a migração da velha renda computacional para a economia da atenção e do token linguístico.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_10_12_serie_ilusao_informatizada_ep01.html</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série: A Ilusão Informatizada — Chamada e índice (30/09/2026)]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html</link>
+      <description><![CDATA[Chamada editorial e índice: quatro ensaios e um epílogo sobre GPU, tokens, ruído, detalhe técnico e automação desumanizada — do hardware à responsabilidade. Out–dez 2026.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Série Depois do debate — A conclusão possível]]></title>

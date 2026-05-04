@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_11_05_serie_ilusao_informatizada_ep03.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_11_05_serie_ilusao_informatizada_ep03.html" />
+    <meta property="og:image" content="assets/img/2026_11_05_IMAGE_001.png" />
+    <title>A maldição do médio estatístico — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Terceiro ensaio da série A Ilusão Informatizada: quando a IA acerta a casca e ignora exceção, regra de negócio e detalhe arquitetural — e como recuperar responsabilidade técnica.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="IA, desenvolvimento, arquitetura, testes, qualidade, contexto, série, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_09_30_serie_ilusao_informatizada_index.html">Índice da série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: A Ilusão Informatizada — Artigo 03</p>
+                    <h1 class="post-title">A maldição do médio estatístico</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-11-05">05/11/2026</time> — cerca de 9 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2026_11_05_IMAGE_001.png" alt="A maldição do médio estatístico: diagramas, código e o detalhe crítico" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa do terceiro ensaio: bancada de arquitetura com diagramas em camadas e um detalhe minúsculo destacado — metáfora da exceção que o padrão estatístico tende a atropelar.</figcaption>
+                    </figure>
+
+                    <p>Quem trabalha há anos com software conhece o fenômeno: a solução “típica” que funciona em oitenta por cento dos tutoriais e falha no seu projeto por causa de <em>um</em> detalhe — uma regra de negócio rara, um limite de plataforma, uma condição de corrida, um contrato que mudou na última versão da API. Modelos generativos amplificam esse padrão. Eles são excelentes em produzir a casca mais provável; são fracos em honrar o que é improvável mas decisivo.</p>
+                    <p>Este artigo não pretende “provar” que a IA não presta. Pretende nomear o risco: <strong>alucinação de competência</strong> — código e texto que soam seguros porque repetem o que a média estatística já viu milhões de vezes.</p>
+
+                    <h3>Por que o detalhe some no meio</h3>
+                    <p>Instruções longas tendem a perder peso no centro: o modelo presta atenção ao começo e ao fim, e o trecho crítico que você enterrou no meio vira ruído. Da mesma forma, pedidos genéricos (“implemente o checkout”) convidam a resposta genérica. A máquina entrega o clichê funcional: compila, passa no happy path, ignora o caso bizarro que o seu cliente encontrará na primeira semana em produção.</p>
+                    <p>Isso não é “maldade” do modelo; é arquitetura de treino e de custo. O sistema foi otimizado para ser útil e rápido dentro de uma distribuição. O seu bug singular não está na distribuição — e, portanto, não está na prioridade.</p>
+
+                    <h3>Da colagem de código à engenharia de contexto</h3>
+                    <p>A saída não é abandonar a ferramenta; é mudar o papel do profissional. Você deixa de ser digitador de prompt e passa a ser <em>arquiteto de contexto</em>: contratos explícitos, diagramas de sequência, casos de borda escritos antes do código, testes que obrigam a máquina a encarar o que ela preferia ignorar. Design patterns e UML deixam de ser burocracia acadêmica e viram trilhos: limitam o espaço de busca da geração e reduzem a chance de “casca bonita, núcleo errado”.</p>
+                    <p>Em equipe, a responsabilidade precisa ficar clara: quem assina o merge assina o comportamento. “A IA gerou assim” não é documento de desculpa; é sinal de que o processo deixou de ter dono.</p>
+
+                    <h3>Se o humano desaprende a vigiar</h3>
+                    <p>O problema maior do que um bug isolado é a <strong>desresponsabilização coletiva</strong>. Quando todos confiam na média estatística e ninguém guarda o detalhe impossível de automatizar, o sistema social do software perde a noção de onde está o risco. O quarto artigo da série sobe um degrau e pergunta o que acontece quando esse hábito deixa a oficina e vira cultura civilizacional: eficiência sem responsável, progresso que vira teatro.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Terceiro artigo da série A Ilusão Informatizada; antecessor em 30/10/2026, continuação em 30/11/2026.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Anterior: <a href="2026_10_30_serie_ilusao_informatizada_ep02.html">A idiotice em escala e o autor ausente</a> — <a href="2026_09_30_serie_ilusao_informatizada_index.html">Índice da série</a> — Próximo: <a href="2026_11_30_serie_ilusao_informatizada_ep04.html">Automação desumanizada, ilusão e piada</a></p>
+            <p><a href="../index.html">Início do blog</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>
