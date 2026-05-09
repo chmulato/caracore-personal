@@ -91,7 +91,7 @@
                 <li>Artigos existentes em <code>docs/articles/*.html</code> com marcação de conteúdo (<code>&lt;article&gt;</code>): <strong>130</strong></li>
                 <li>Ciclo ativo: <strong>Junho 2026 - Maio 2029</strong></li>
                 <li>Histórico preservado antes de: <strong>04/06/2026</strong></li>
-                <li>Séries com índice próprio: <strong>Brasil SDK</strong>, <strong>Depois do debate</strong>, <strong>Protocolo de Lucerna</strong>, <strong>Recolocação Java</strong></li>
+                <li>Séries com índice próprio: <strong>Brasil SDK</strong>, <strong>Depois do debate</strong>, <strong>A Ilusão Informatizada</strong>, <strong>Protocolo de Lucerna</strong>, <strong>Recolocação Java</strong></li>
             </ul>
         </section>
 
@@ -109,7 +109,7 @@
 
         <section class="section">
             <h2>2. Exceção para Páginas Índice de Séries</h2>
-            <p>Quatro séries possuem página índice própria. Nesses casos, a regra de igualdade entre data do PNG e data do nome do HTML não se aplica ao índice, pois a página reúne episódios com datas distintas.</p>
+            <p>Cinco séries possuem página índice própria. Nesses casos, a regra de igualdade entre data do PNG e data do nome do HTML não se aplica ao índice, pois a página reúne episódios com datas distintas.</p>
             <ol>
                 <li>
                     <strong>Série Brasil, SDK e Soberania</strong><br>
@@ -122,6 +122,12 @@
                     Artigos: <code>..._perguntas</code>, <code>..._padroes</code>, <code>..._conclusao</code>.
                 </li>
                 <li>
+                    <strong>Série A Ilusão Informatizada</strong><br>
+                    Índice: <code>2026_09_30_serie_ilusao_informatizada_index.html</code><br>
+                    Artigos: <code>..._ep01</code>, <code>..._ep02</code>, <code>..._ep03</code>, <code>..._ep04</code> e <code>..._epilogo</code>.<br>
+                    Observação: o índice reutiliza <code>2026_10_12_IMAGE_001.png</code> no hero, nos cartões do primeiro ensaio e em <code>og:image</code>; isso é válido por se tratar de página chamada/índice publicada antes da série completa.
+                </li>
+                <li>
                     <strong>Série Protocolo de Lucerna</strong><br>
                     Índice: <code>2026_04_20_serie_protocolo_lucerna_index.html</code><br>
                     Episódios: <code>protocolo_lucerna_ep01</code> a <code>ep06</code> e epílogo em HTML próprio.
@@ -132,7 +138,31 @@
                     Episódios: <code>serie_recolocacao_java_teste_pratico_ep01</code> a <code>ep07</code>.
                 </li>
             </ol>
-            <p><strong>Regra prática:</strong> por episódio, manter o prefixo de data do próprio HTML. Na página índice, aceitar datas diferentes nos cartões.</p>
+            <p><strong>Regra prática:</strong> por episódio, manter o prefixo de data do próprio HTML. Na página índice, aceitar datas diferentes nos cartões e, quando necessário, o reaproveitamento controlado de uma hero já existente para representar a série.</p>
+        </section>
+
+        <section class="section">
+            <h2>2.1 Atualização recente do repositório personal</h2>
+            <p>As imagens recentemente incorporadas no repositório personal seguem o padrão geral por data do artigo e, quando aplicável, a exceção documentada para páginas índice.</p>
+
+            <h3>Série Depois do debate</h3>
+            <ul>
+                <li><code>2026_10_06_IMAGE_001.png</code> para a página índice.</li>
+                <li><code>2026_10_20_IMAGE_001.png</code> para o primeiro artigo.</li>
+                <li><code>2026_11_12_IMAGE_001.png</code> para o segundo artigo.</li>
+                <li><code>2026_12_10_IMAGE_001.png</code> para o terceiro artigo.</li>
+            </ul>
+
+            <h3>Série A Ilusão Informatizada</h3>
+            <p>As imagens da série <strong>A Ilusão Informatizada</strong> seguem o padrão geral por data do artigo:</p>
+            <ul>
+                <li><code>2026_10_12_IMAGE_001.png</code> para o primeiro ensaio.</li>
+                <li><code>2026_10_30_IMAGE_001.png</code> para o segundo ensaio.</li>
+                <li><code>2026_11_05_IMAGE_001.png</code> para o terceiro ensaio.</li>
+                <li><code>2026_11_30_IMAGE_001.png</code> para o quarto ensaio.</li>
+                <li><code>2026_12_05_IMAGE_001.png</code> para o epílogo.</li>
+            </ul>
+            <p class="small">A página índice de <code>30/09/2026</code> não recebeu PNG próprio; ela reaproveita a imagem de <code>12/10/2026</code>, o que permanece dentro da exceção documentada para páginas índice de série.</p>
         </section>
 
         <section class="section">
