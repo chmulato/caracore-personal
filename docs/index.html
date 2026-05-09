@@ -11,35 +11,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .footer-notes {
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: .85rem;
+            margin-bottom: 1.75rem;
+            display: grid;
+            gap: .9rem;
             font-family: "Inter", "Segoe UI", Arial, sans-serif;
         }
         .footer-note {
             margin: 0;
-            padding: 0;
-            border: 0;
-            background: transparent;
+            padding: 1rem 1.1rem;
+            border: 1px solid #dbe3ee;
+            border-radius: 12px;
+            background: #f8fafc;
             color: #475569;
             font-size: .95rem;
             font-weight: 400;
             line-height: 1.65;
             letter-spacing: 0;
             text-align: left;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+        }
+        .footer-note-primary {
+            background: linear-gradient(180deg, #f8fffd 0%, #f8fafc 100%);
+            border-color: #bfdbd5;
+        }
+        .footer-note-legal {
+            background: #ffffff;
         }
         .footer-note-title {
             display: block;
-            margin-bottom: .15rem;
+            margin-bottom: .35rem;
             color: #1f2937;
-            font-size: .95rem;
-            font-weight: 600;
-            line-height: 1.65;
+            font-size: .92rem;
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: .01em;
         }
         .footer-note-body {
             margin: 0;
             color: #475569;
+        }
+        .footer-note-body + .footer-note-body {
+            margin-top: .45rem;
         }
         .footer-note strong {
             color: #1f2937;
@@ -54,7 +66,9 @@
             font-weight: 500;
         }
         .footer-note-links {
-            margin-top: .15rem;
+            margin-top: .55rem;
+            padding-top: .55rem;
+            border-top: 1px solid #e2e8f0;
         }
         .footer-note-links a {
             color: #0f766e;
@@ -1815,28 +1829,28 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-notes" aria-label="Notas finais">
-                    <div class="footer-note" role="note" aria-label="Reposicionamento editorial conjunto">
+                    <div class="footer-note footer-note-primary" role="note" aria-label="Reposicionamento editorial conjunto">
                         <span class="footer-note-title">Reposicionamento editorial</span>
                         <p class="footer-note-body">Acervo e publicações institucionais alinhados ao ciclo 04/06/2026-04/06/2029, com foco operacional e cadência editorial enxuta. <a href="https://tools.caracore.com.br/sala/regis/REPOSICIONAMENTO_CONJUNTO_CC_CM_2026_2029.html">Referência</a>.</p>
                         <p class="footer-note-body footer-note-links"><a href="ciclo-ativo.html">Ver somente ciclo ativo</a> | <a href="https://www.caracore.com.br/publications/nota_mudanca_ancora_ciclos_2026_2029.html">Ler nota institucional</a></p>
                     </div>
-                    <div class="footer-note disclaimer">
+                    <div class="footer-note footer-note-legal disclaimer">
                         <span class="footer-note-title">Acervo histórico preservado</span>
                         <p class="footer-note-body">Os artigos anteriores a 04/06/2026 permanecem visíveis neste portal como memória institucional e arquivo público, fora da contagem oficial do ciclo editorial ativo.</p>
                     </div>
-                    <div class="footer-note disclaimer">
+                    <div class="footer-note footer-note-legal disclaimer">
                         <span class="footer-note-title">Natureza do conteúdo</span>
                         <p class="footer-note-body">Os textos publicados neste portal, inclusive a série &quot;O Protocolo de Lucerna&quot; e demais artigos técnicos, constituem <em>Ensaios de Arquitetura de Missão Crítica</em> e reflexões de cunho educativo. Nomes, endereços de rede (IPs), cenários e identificadores foram alterados ou abstraídos para garantir o anonimato de clientes e parceiros (<em>Fiction-Based Technical Insights</em>). Nenhum relato representa situação real identificável.</p>
                     </div>
-                    <div class="footer-note disclaimer">
+                    <div class="footer-note footer-note-legal disclaimer">
                         <span class="footer-note-title">Isenção de responsabilidade</span>
                         <p class="footer-note-body">O autor não se responsabiliza pela aplicação direta das técnicas, práticas ou decisões citadas sem a devida auditoria e adequação a ambientes e contextos específicos. O conteúdo tem finalidade informativa e não substitui assessoria técnica ou jurídica.</p>
                     </div>
-                    <div class="footer-note disclaimer">
+                    <div class="footer-note footer-note-legal disclaimer">
                         <span class="footer-note-title">Propriedade intelectual</span>
                         <p class="footer-note-body">Todo o conteúdo deste portal e a estética &quot;Arquiteto Soberano&quot; são de titularidade e propriedade intelectual do portal Caracore — Soberania Tecnológica (2026). Reprodução ou uso comercial não autorizado é vedado.</p>
                     </div>
-                    <div class="footer-note disclaimer">
+                    <div class="footer-note footer-note-legal disclaimer">
                         <span class="footer-note-title">Compliance e confidencialidade</span>
                         <p class="footer-note-body">O conteúdo não viola acordos de confidencialidade (NDAs) ou obrigações contratuais vigentes, sendo resultado de abstração técnica e educativa, sem exposição de dados, sistemas ou partes identificáveis.</p>
                     </div>
