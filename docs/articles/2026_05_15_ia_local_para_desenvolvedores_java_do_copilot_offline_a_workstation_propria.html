@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_05_15_ia_local_para_desenvolvedores_java_do_copilot_offline_a_workstation_propria.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_05_15_ia_local_para_desenvolvedores_java_do_copilot_offline_a_workstation_propria.html" />
+    <meta property="og:image" content="assets/img/2026_05_15_IMAGE_001.png" />
+<title>IA Local para Desenvolvedores Java: do Copilot Offline à Workstation Própria - Christian Mulato Dev Blog</title>
+    <meta name="description" content="Como montar um ambiente de IA local para desenvolvimento Java: Ollama, modelos coder, VS Code, Continue.dev, Ryzen, RTX, servidor local e custo-benefício.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="IA Local, Java, Java 21, JavaFX, Ollama, Continue.dev, VS Code, Qwen Coder, DeepSeek Coder, Workstation IA, Private AI, On-Prem AI, RTX 3060, Ryzen">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <link rel="stylesheet" href="assets/css/ia-local-config.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title">IA Local para Desenvolvedores Java: do Copilot Offline à Workstation Própria</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-05-15">15/05/2026</time>
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <p><img alt="IA Local para Desenvolvedores Java: do Copilot Offline à Workstation Própria" src="assets/img/2026_05_15_IMAGE_001.png" class="hero-image" /></p>
+                    <p><em>Quando a inteligência artificial deixa de ser apenas uma assinatura mensal e começa a virar infraestrutura técnica própria.</em></p>
+                    <p>Tempo de leitura: 7 minutos</p>
+
+                    <p>A pergunta parece simples: qual é a configuração mínima para codificar Java localmente com IA, sem depender de uma IA remota?</p>
+
+                    <p>Mas por trás dela existe uma mudança maior. O desenvolvedor não está perguntando apenas sobre memória RAM, processador ou placa de vídeo. Ele está perguntando sobre autonomia. Sobre privacidade. Sobre custo recorrente. Sobre a possibilidade de transformar a própria máquina em um laboratório de engenharia, e não apenas em um terminal dependente da nuvem.</p>
+
+                    <p>Depois da primeira onda de euforia com modelos remotos, começa a surgir uma segunda onda mais silenciosa: a da <strong>IA local</strong>, do <strong>copiloto privado</strong>, da <strong>workstation de desenvolvimento com LLM próprio</strong>.</p>
+
+                    <h2>1. O mínimo viável: Java, modelo local e editor</h2>
+                    <p>Para desenvolver Java com IA local, o problema precisa ser separado em três camadas:</p>
+
+                    <ul>
+                        <li><strong>Ambiente Java:</strong> OpenJDK 17 ou 21, Maven ou Gradle, IDE e ferramentas normais de desenvolvimento.</li>
+                        <li><strong>Runtime de IA local:</strong> uma ferramenta capaz de baixar e executar modelos no computador, como Ollama ou LM Studio.</li>
+                        <li><strong>Integração com o editor:</strong> uma extensão que conecte o VS Code ou outro editor ao modelo local.</li>
+                    </ul>
+
+                    <p>A configuração mínima realmente utilizável hoje já é mais acessível do que parecia há poucos anos. Um computador com Ryzen 5 ou Intel i5 recente, 16 GB de RAM, SSD e GPU integrada já consegue rodar modelos 7B quantizados para tarefas de apoio: autocomplete, geração de classes, DTOs, testes unitários, SQL, Dockerfiles e explicação de código.</p>
+
+                    <div class="config-sheet">
+                        <table>
+                            <caption>Planilha rápida de configuração para IA local com Java</caption>
+                            <thead>
+                                <tr>
+                                    <th>Perfil</th>
+                                    <th>Hardware mínimo</th>
+                                    <th>Modelo indicado</th>
+                                    <th>Uso recomendado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tier">Entrada útil</td>
+                                    <td>Ryzen 5 ou Intel i5 recente, 16 GB RAM, SSD 512 GB, GPU integrada</td>
+                                    <td>Qwen Coder 7B ou DeepSeek Coder 6.7B quantizado</td>
+                                    <td>Autocomplete, CRUD, DTOs, testes simples, SQL e explicação de código</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Confortável</td>
+                                    <td>Ryzen 7 ou Intel i7, 32 GB RAM, NVMe 1 TB, RTX 3060 12 GB</td>
+                                    <td>Qwen Coder 14B quantizado, DeepSeek Coder e embeddings locais</td>
+                                    <td>Spring Boot, JavaFX, Docker, análise de projeto maior e RAG básico</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Workstation IA</td>
+                                    <td>Ryzen 9, 64 GB RAM, NVMe 2 TB, RTX 4070/4080 ou superior</td>
+                                    <td>Modelos coder maiores, múltiplos modelos e agentes locais</td>
+                                    <td>Monorepos, revisão arquitetural, automações, RAG avançado e servidor interno</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Não será uma experiência equivalente aos maiores modelos em nuvem. O contexto será menor, as respostas serão mais lentas e análises arquiteturais profundas ainda sofrerão. Mas para o trabalho diário de um desenvolvedor Java, já existe utilidade real.</p>
+
+                    <h2>2. O stack do "Copilot offline"</h2>
+                    <p>O desenho mais comum hoje é simples:</p>
+
+                    <div class="chalkboard"><pre><code>VS Code
+Continue.dev
+Ollama
+Qwen Coder ou DeepSeek Coder
+Projeto Java local</code></pre></div>
+
+                    <p>O <strong>Ollama</strong> roda o modelo localmente. O <strong>Continue.dev</strong> conecta o editor ao Ollama e envia trechos do projeto como contexto. O modelo responde sem que o código precise sair da máquina.</p>
+
+                    <p>Na prática, isso substitui parte da experiência de um Copilot remoto por um fluxo privado:</p>
+
+                    <div class="chalkboard"><pre><code>Antes:
+Editor -> Internet -> serviço externo -> resposta
+
+Agora:
+Editor -> API local -> modelo local -> resposta</code></pre></div>
+
+                    <p>Para Java, modelos como <strong>qwen2.5-coder:7b</strong>, <strong>deepseek-coder:6.7b</strong> e variações 14B quantizadas já entregam bom apoio em Spring Boot, JavaFX, SQL, testes, YAML e documentação técnica. Com 16 GB de RAM, o foco deve ser em modelos leves. Com 32 GB, a experiência fica muito mais confortável.</p>
+
+                    <h2>3. Por que um "PC gamer" virou máquina de programador?</h2>
+                    <p>Uma confusão comum aparece quando o desenvolvedor começa a pesquisar hardware: quase tudo no varejo vem com o rótulo de <em>PC gamer</em>.</p>
+
+                    <p>Isso não significa que o programador precise jogar. Significa apenas que o mercado de performance cresceu primeiro pelo consumo gamer. A mesma GPU vendida para jogos também acelera IA local, processamento paralelo, CUDA, embeddings, modelos de linguagem e ferramentas de automação.</p>
+
+                    <p>Na prática, o que o desenvolvedor está comprando não é um brinquedo gamer. É uma <strong>estação de desenvolvimento</strong>:</p>
+
+                    <ul>
+                        <li><strong>CPU forte:</strong> compilações Java, Docker, multitarefa e IDE pesada.</li>
+                        <li><strong>RAM suficiente:</strong> projetos, navegador, banco local, containers e modelo de IA.</li>
+                        <li><strong>SSD NVMe:</strong> builds, indexing da IDE e carregamento de modelos.</li>
+                        <li><strong>GPU RTX:</strong> inferência local, embeddings e copiloto privado.</li>
+                    </ul>
+
+                    <p>O nome comercial ainda é "gamer". O uso real, para quem programa, é workstation.</p>
+
+                    <h2>4. O equilíbrio Ryzen + NVIDIA</h2>
+                    <p>Uma combinação apareceu com força no mercado de IA local: <strong>CPU AMD Ryzen</strong> com <strong>GPU NVIDIA RTX</strong>.</p>
+
+                    <p>O motivo é pragmático. Processadores Ryzen entregam muitos núcleos, boa eficiência e excelente custo-benefício para multitarefa: IDE, Docker, banco local, Angular, Spring Boot e navegador rodando ao mesmo tempo. Já a NVIDIA domina a maturidade do ecossistema de IA por causa de CUDA, drivers, documentação e suporte amplo das ferramentas.</p>
+
+                    <p>Para um desenvolvedor Java, a configuração equilibrada fica mais clara quando vista como uma pequena planilha de decisão:</p>
+
+                    <div class="config-sheet">
+                        <table>
+                            <caption>Build recomendada para Java + IA local</caption>
+                            <thead>
+                                <tr>
+                                    <th>Componente</th>
+                                    <th>Escolha equilibrada</th>
+                                    <th>Por que importa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tier">CPU</td>
+                                    <td>AMD Ryzen 7 7700 ou Ryzen 7 5700</td>
+                                    <td>Compilação Java, Docker, IDE pesada, banco local e multitarefa</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">GPU</td>
+                                    <td>NVIDIA RTX 3060 com 12 GB de VRAM</td>
+                                    <td>Boa compatibilidade com IA local, CUDA, Ollama, embeddings e modelos 7B/14B</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Memória</td>
+                                    <td>32 GB RAM</td>
+                                    <td>Ponto de conforto para IDE, navegador, Docker, banco e modelo local simultâneos</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Armazenamento</td>
+                                    <td>SSD NVMe de 1 TB</td>
+                                    <td>Reduz gargalo em Maven, Gradle, indexing da IDE, Docker e carga de modelos</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Base</td>
+                                    <td>Fonte 650W de qualidade e placa-mãe expansível</td>
+                                    <td>Protege o investimento e permite crescer para mais RAM, SSD ou GPU futura</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>O detalhe mais importante é a <strong>VRAM</strong>. Para IA local, muitas vezes uma RTX 3060 de 12 GB é mais interessante que uma placa mais nova com apenas 8 GB. Em jogos, FPS pode vender mais. Em IA local, memória de vídeo decide o tamanho e a fluidez dos modelos que você consegue executar.</p>
+
+                    <h2>5. A torre de IA na rede local</h2>
+                    <p>Outra prática que está crescendo é separar a máquina de trabalho do servidor de IA. Em vez de colocar tudo no notebook ou desktop principal, algumas pessoas montam uma torre dedicada, ligada por RJ45, rodando Ollama, embeddings, RAG e interfaces como Open WebUI.</p>
+
+                    <p>A arquitetura é simples:</p>
+
+                    <div class="chalkboard"><pre><code>Notebook ou desktop de desenvolvimento
+VS Code, IntelliJ, navegador, Docker
+        |
+        | rede local / RJ45
+        v
+Servidor IA local
+Ollama, modelos coder, embeddings, RAG, Open WebUI</code></pre></div>
+
+                    <p>Isso reduz calor e ruído na máquina principal, permite compartilhar a IA entre vários dispositivos e cria uma infraestrutura parecida com um serviço interno. Para pequenas empresas, escritórios e times técnicos, essa lógica começa a fazer sentido por privacidade, LGPD, previsibilidade de custo e redução de dependência de fornecedores externos.</p>
+
+                    <p>É por isso que termos como <strong>Private AI</strong>, <strong>On-Prem AI</strong>, <strong>Self-Hosted AI</strong>, <strong>Local AI</strong> e <strong>Sovereign AI</strong> estão ganhando espaço. A nuvem continua importante, mas a IA deixa de ser exclusivamente SaaS e volta a ocupar uma pergunta antiga da infraestrutura: o que deve ficar dentro de casa?</p>
+
+                    <h2>6. CAPEX contra OPEX: assinatura ou infraestrutura?</h2>
+                    <p>Quando alguém compara uma assinatura de IA online de R$ 500 por mês com uma torre local de R$ 10 mil, a conta não é apenas financeira. Mas a matemática ajuda.</p>
+
+                    <p>Em 20 meses, R$ 500 mensais também viram R$ 10 mil. A diferença é que, no modelo online, você alugou acesso. No modelo local, você ainda possui uma máquina: workstation, servidor, laboratório, ambiente Java, base para automação, possível servidor de testes e ativo que pode ser atualizado ou revendido.</p>
+
+                    <div class="config-sheet">
+                        <table>
+                            <caption>Comparativo de custo-benefício: IA online vs. IA local</caption>
+                            <thead>
+                                <tr>
+                                    <th>Critério</th>
+                                    <th>IA online</th>
+                                    <th>IA local</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tier">Custo em 20 meses</td>
+                                    <td>R$ 500/mês vira aproximadamente R$ 10 mil</td>
+                                    <td>Investimento inicial próximo de R$ 10 mil em uma workstation</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Ativo ao final</td>
+                                    <td>Acesso alugado, sem hardware próprio</td>
+                                    <td>Máquina útil para desenvolvimento, laboratório, servidor e revenda</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Privacidade</td>
+                                    <td>Código e contexto dependem da política do fornecedor</td>
+                                    <td>Código, documentos e experimentos permanecem na rede local</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Ponto forte</td>
+                                    <td>Modelos gigantes, contexto amplo e raciocínio pesado</td>
+                                    <td>Autocomplete, testes, documentação, SQL, RAG interno e tarefas recorrentes</td>
+                                </tr>
+                                <tr>
+                                    <td class="tier">Melhor uso</td>
+                                    <td>Consultas complexas, pesquisa e tarefas que exigem modelos de ponta</td>
+                                    <td>Rotina de programação Java, projetos privados e automação local</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="chalkboard"><pre><code>IA online = OPEX
+custo operacional recorrente
+
+IA local = CAPEX
+investimento em infraestrutura própria</code></pre></div>
+
+                    <p>A IA remota ainda vence em modelos gigantes, contexto enorme, raciocínio pesado e recursos multimodais de ponta. Mas a IA local vence em tarefas repetitivas, privadas e próximas do código: autocomplete, documentação, testes, refatorações, SQL, análise de trechos, geração de boilerplate e apoio diário em projetos Java.</p>
+
+                    <p>O cenário mais inteligente tende a ser híbrido: local para 70% a 90% do trabalho cotidiano e nuvem para aquilo que realmente exige modelos maiores.</p>
+
+                    <h2>Conclusão: não é só hardware, é independência técnica</h2>
+                    <p>A IA local não elimina a nuvem. Também não transforma uma RTX doméstica em datacenter. Mas muda a postura do desenvolvedor.</p>
+
+                    <p>Em vez de apenas consumir inteligência como serviço, ele começa a construir uma pequena infraestrutura de inteligência própria. Um copiloto privado. Um laboratório local. Um ambiente onde código, dados e experimentos podem permanecer sob controle.</p>
+
+                    <p>Para quem trabalha com Java, JavaFX, Spring Boot, SQLite, Docker e sistemas legados, essa autonomia tem valor técnico e profissional. Não se trata de comprar um "PC gamer". Trata-se de montar uma <strong>workstation de desenvolvimento com IA local</strong>.</p>
+
+                    <p class="author-signature"><em>No fim, a pergunta não é apenas quanto custa rodar IA localmente. A pergunta é quanto vale não depender sempre da IA dos outros.</em></p>
+                </div>
+
+                <footer class="post-footer">
+                    <div class="author-info">
+                        <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                        <div class="author-details">
+                            <strong>Christian Mulato</strong>
+                            <p>Desenvolvedor Java e Arquiteto de Software</p>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
