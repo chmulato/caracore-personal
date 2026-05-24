@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 10 Dec 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Dec 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Grandes Estruturas Obsoletas]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_12_18_grandes_estruturas_obsoletas.html</link>
+      <description><![CDATA[Um ensaio crítico sobre a fachada de eficiência, a caciquocracia corporativa, o extrativismo de taxas e o custo humano das grandes estruturas obsoletas.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_18_grandes_estruturas_obsoletas.html</guid>
+      <pubDate>Fri, 18 Dec 2026 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Série Depois do debate — A conclusão possível]]></title>
