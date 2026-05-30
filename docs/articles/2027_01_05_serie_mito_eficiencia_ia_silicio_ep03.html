@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html" />
+    <meta property="og:image" content="assets/img/2027_01_05_IMAGE_001.png" />
+    <title>Bancos Vetoriais: A Nova Geometria do Dado — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Artigo 3 da série O Mito da Eficiência: embeddings, busca semântica, Spring AI VectorStore e o custo de RAM dos bancos vetoriais.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="banco vetorial, embeddings, pgvector, Spring AI, RAG, série, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: O Mito da Eficiência — Artigo 03</p>
+                    <h1 class="post-title">Bancos Vetoriais: A Nova Geometria do Dado</h1>
+                    <p class="post-subtitle">Entenda o "JPA da Inteligência Artificial" e por que ele vai devorar sua memória RAM.</p>
+                    <div class="post-meta">
+                        <time datetime="2027-01-05">05/01/2027</time> — cerca de 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2027_01_05_IMAGE_001.png" alt="Bancos Vetoriais: tabela SQL transformando-se em espaço de embeddings" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa do artigo 3: transição visual de linhas e colunas SQL para pontos numéricos em espaço de alta dimensão — "cadeira" e "poltrona" próximas semanticamente, distantes no índice literal.</figcaption>
+                    </figure>
+
+                    <p>O segundo artigo deixou claro que a IA se perde na floresta do código legado. Agora precisamos entender onde essa "nova inteligência" guarda o que aprende — e como recuperamos isso sem SQL tradicional.</p>
+                    <p>Não é quarta dimensão mística. É geometria de coordenadas. E cobra caro em RAM.</p>
+
+                    <h3>Adeus tabelas, olá coordenadas</h3>
+                    <p>No SQL do seu legado, a informação vive em gavetas: coluna A, linha B. Você busca "Cadeira" e encontra a string exata. Digite "Assento de madeira" e o banco tradicional não acha nada — a menos que alguém tenha previsto o sinônimo.</p>
+                    <p>O banco vetorial (Pinecone, Milvus, Weaviate, Qdrant, Chroma) não guarda palavras; guarda distâncias. Via <strong>embedding</strong>, a IA transforma frase, parágrafo ou trecho de procedure em lista de números — um vetor. Exemplo simplificado: <code>[0.12, -0.59, 0.88, ...]</code>.</p>
+                    <p>Num mapa matemático de milhares de dimensões, "Cadeira" e "Poltrona" ficam geometricamente próximas. A busca não é por igualdade; é por proximidade. Isso se chama <strong>busca vetorial</strong> ou <strong>semantic search</strong> — mudança de paradigma do significado para além da palavra-chave.</p>
+
+                    <h3>Como "conversar" com o banco</h3>
+                    <p>Você não usa <code>SELECT</code> e <code>JOIN</code> da mesma forma. O fluxo é:</p>
+                    <ol>
+                        <li><strong>Embedding da consulta:</strong> sua pergunta vira vetor — representação matemática da intenção.</li>
+                        <li><strong>Busca por similaridade:</strong> o banco encontra pontos "próximos" no espaço, não strings iguais.</li>
+                        <li><strong>Integração via framework:</strong> LangChain4j ou Spring AI encapsulam APIs específicas de cada vendor.</li>
+                    </ol>
+                    <p>Para o desenvolvedor Java, isso soa familiar se pensarmos na fase pré-Hibernate: cada banco vetorial tinha API própria. Agora frameworks criam abstração — o tal "JPA vetorial".</p>
+
+                    <h3>O JPA dos vetores: abstração necessária</h3>
+                    <p>Spring AI expõe <code>VectorStore</code> — interface que permite trocar backend (Postgres com pgvector, Pinecone, Milvus) sem reescrever código de negócio, similar ao Hibernate/JPA. LangChain4j oferece camada equivalente para agentes e RAG.</p>
+                    <p>Objetivo: salvar objeto Java no banco vetorial sem se preocupar se vai para servidor local ou nuvem da Big Tech. Sobrevivência do desenvolvedor em meio à proliferação de vendors.</p>
+                    <p>Isso não elimina complexidade — desloca. Você ainda precisa escolher dimensão do embedding, modelo de embedding, estratégia de chunking de documentos e política de atualização quando o legado muda.</p>
+
+                    <h3>O custo invisível: RAM</h3>
+                    <p>Bancos relacionais são eficientes em disco. Banco vetorial, para ser rápido, mantém índices HNSW carregados na RAM.</p>
+                    <p>Cálculo da dor: 1 milhão de documentos, vetor de 1536 dimensões (comum em modelos OpenAI-compatíveis) — você guarda gigabytes de decimais que precisam ser comparados em milissegundos. Seu legado roda feliz com 8 GB; um vetorial robusto "brinca" a partir de 32 GB ou 64 GB só para índices.</p>
+                    <p>Para pequena empresa (10 mil documentos), um servidor comum de 16 GB pode bastar. Escala para bilhões de registros cai no monopólio das Big Techs — confirmação do artigo 1.</p>
+
+                    <h3>Quem está na vanguarda</h3>
+                    <p>Databricks e Snowflake integram vetores em data warehouses para evitar dois bancos separados. PostgreSQL com <strong>pgvector</strong> é aposta mais realista para o chão de fábrica: adiciona coluna vetorial na tabela de sempre — tentativa de salvar legado unindo SQL e semântica.</p>
+                    <p>Pinecone: gerenciado, escala fácil, custo alto. Weaviate: open source, busca híbrida (vetorial + keyword). Qdrant: custo-benefício em 2026. Chroma: protótipos locais. Escolha depende de escala, orçamento e necessidade de soberania.</p>
+
+                    <h3>Imprecisão por design</h3>
+                    <p>Fato real: busca vetorial é imprecisa por natureza — proximidade, não exatidão. Você nunca usaria vetorial para fechar caixa do PDV (1+1 = 2). Usa para o gestor perguntar: "Quais produtos vendem mais quando chove?" — relação semântica entre clima e estoque que SQL antigo levaria meses de query manual.</p>
+                    <p>RAG (Retrieval-Augmented Generation) alimenta LLM com trechos recuperados do vetorial antes de responder. Qualidade depende de limpeza e enriquecimento dos dados legados — não basta "jogar" PDFs no bucket.</p>
+
+                    <h3>Tipos de memória no sistema agêntico</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Tipo</th><th>Para quê</th><th>Formato real</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Longo prazo</td><td>Manuais, regras, documentação</td><td>Banco vetorial (embeddings)</td></tr>
+                            <tr><td>Curto prazo</td><td>Histórico da conversa atual</td><td>Redis, NoSQL (JSON rápido)</td></tr>
+                            <tr><td>Auditoria</td><td>O que a IA decidiu e por quê</td><td>SQL tradicional (imutável)</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Não será enciclopédia de TXT ou MD. Será ecossistema híbrido — exatamente o oposto da narrativa "substitua tudo por IA".</p>
+
+                    <h3>Conclusão</h3>
+                    <p>O banco vetorial é cérebro de longo prazo da IA, mas cobra caro pelo aluguel da memória. Não substitui seu banco de dados; vive ao lado dele — bibliotecário dos conceitos, enquanto SQL continua contador dos centavos.</p>
+                    <p>Próximo artigo: se otimizarmos software para economizar RAM, vamos mesmo economizar — ou o mercado engole a eficiência e pede mais?</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Terceiro artigo da série O Mito da Eficiência; continuidade com o artigo 4 em 12/01/2027.</em></p>
+
+                    <p class="copyright">&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Engenheiro Construtor</p>
+                    </div>
+                </div>
+            </footer>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Artigo anterior: <a href="2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html">O Peso do Legado na Era dos Agentes</a> — Próximo: <a href="2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html">A Lei de Jevons e o Paradoxo da Otimização</a></p>
+            <p><a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

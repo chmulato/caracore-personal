@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html" />
+    <meta property="og:image" content="assets/img/2026_12_29_IMAGE_001.png" />
+    <title>O Peso do Legado na Era dos Agentes — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Artigo 2 da série O Mito da Eficiência: por que a IA patina em Java 8, COBOL e procedures — janela de contexto, alucinação e arqueologia digital.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="legado, COBOL, Java, IA, agentes, procedures, série, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: O Mito da Eficiência — Artigo 02</p>
+                    <h1 class="post-title">O Peso do Legado na Era dos Agentes</h1>
+                    <p class="post-subtitle">Por que a IA "patina" no seu código de 20 anos e por que o COBOL não será substituído por prompts.</p>
+                    <div class="post-meta">
+                        <time datetime="2026-12-29">29/12/2026</time> — cerca de 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2026_12_29_IMAGE_001.png" alt="O Peso do Legado na Era dos Agentes: enciclopédia de código versus janela de contexto" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa do artigo 2: pilha enciclopédica de código legado e uma janela estreita de leitura — metáfora da janela de contexto que impede a LLM de ver a floresta inteira.</figcaption>
+                    </figure>
+
+                    <p>O primeiro artigo mostrou que o hardware é o limite físico. Agora entramos na camada lógica: por que a IA, que parece tão inteligente em demos, se comporta como estagiário confuso ao olhar para o seu sistema legado?</p>
+                    <p>Se você já tentou usar IA para modernizar código com procedures internas, regras tributárias obscuras e bancos sem documentação, conhece a sensação: a ferramenta patina, inventa soluções que não compilam e ignora a exceção que só dispara uma vez por ano. Não é incompetência sua — é choque de civilizações.</p>
+
+                    <h3>Determinismo versus probabilidade</h3>
+                    <p>Sistemas legados — Java 8, COBOL, Delphi, procedures SQL — foram construídos sobre determinismo. Se a entrada é A, a saída precisa ser B. Regras tributárias de 1998, validações de integridade e nuances de negócio foram escritas em pedra porque o erro custa processo, multa ou cliente.</p>
+                    <p>A IA generativa (LLMs) é probabilística. Ela não "lê" código; prevê qual seria o próximo caractere mais provável com base no que viu na internet. Quando você joga um sistema complexo para análise, ocorre curto-circuito conceitual:</p>
+                    <ul>
+                        <li>A IA ignora a exceção da regra: o legado é 10% fluxo principal e 90% exceções tratadas a duras penas.</li>
+                        <li>Alucinação técnica: se uma biblioteca Java de 2012 sumiu do Maven Central, ela inventa substituto que parece correto mas nunca compila.</li>
+                        <li>Perda de arquitetura: ela analisa o pedaço com perfeição e falha no sistema inteiro.</li>
+                    </ul>
+
+                    <h3>A janela de contexto: olhar de lince numa floresta</h3>
+                    <p>A retórica diz que a IA pode "ler todo o seu repositório". Mentira prática. Toda LLM tem janela de contexto — limite de memória de curto prazo. Imagine seu legado como livro de 2.000 páginas; a IA lê 50 por vez.</p>
+                    <p>Se a regra da página 10 depende de variável global definida na página 1.500, ela perde o fio. Vê a árvore; ignora que a floresta está pegando fogo. Esse é o motivo pelo qual projetos de "IA que reescreve legado" falham: não falta inteligência; falta continuidade de contexto e conhecimento histórico que nunca foi documentado.</p>
+
+                    <h3>O caso das procedures e do banco caixa-preta</h3>
+                    <p>SQL de vinte anos atrás não é armazenamento — é lógica pura embutida no banco. Triggers, packages, regras de JGB (Juntas de Gestão de Business), validações cruzadas entre tabelas que ninguém mapeou desde o outsourcing de 2005.</p>
+                    <p>Para a IA, o banco é caixa preta. Sem evidências de como os dados se transformam lá dentro, ela supõe. E suposição em sistema fiscal ou financeiro é risco jurídico, não ganho de produtividade.</p>
+                    <p>Você mencionou ter patinado num projeto real: a IA não conseguia ler o legado por nuances, procedures e regras internas impossíveis. Isso é padrão, não exceção. A abordagem correta não é substituição; é mapeamento e reengenharia com etapas manuais para extrair regras de negócio antes de qualquer automação.</p>
+
+                    <h3>O outsourcing de 20 anos atrás, repetido</h3>
+                    <p>Lembra quando mandaram desenvolvimento para longe para cortar custo? O código voltou funcionando, mas ninguém sabia o porquê. Perdeu-se conhecimento intelectual.</p>
+                    <p>Estamos repetindo o erro com IA. Confiar que ela reescreverá legado sem humano entender regras internas é caminho rápido para criar "Legado de IA": código que ninguém mantém, que consome mais RAM que o original e que alucina em produção.</p>
+
+                    <h3>Agentes não substituem arqueologia</h3>
+                    <p>Em 2026, agentes encadeiam tarefas: ler planilha, gerar gráfico, consolidar apresentação. Funciona quando o domínio é bem definido e os dados estão mastigados. Falha quando o domínio é o seu ERP de 1995 com dez camadas de patch.</p>
+                    <p>O orquestrador (agente central) delega para especialistas — dados, análise, consolidação. Belo na teoria. Na prática, cada delegação consome janela de contexto e tokens; cada especialista ignora o que o outro viu se o estado não for modelado com rigor. Sistemas monolíticos não morrem; arquiteturas agênticas exigem modularidade que legado raramente tem.</p>
+
+                    <h3>Integração gradual, não revolução</h3>
+                    <p>A tendência realista não é substituir COBOL em 25 anos. É coexistência. Soluções de IA processam e analisam dados dos sistemas legados sem migração total imediata — o Padrão Estrangulador que veremos no artigo final.</p>
+                    <p>Exemplo concreto: o legado gera relatório bruto em TXT; a IA lê esse TXT e produz insight para o gerente. O core continua determinístico; a IA opera na borda, onde probabilidade é aceitável.</p>
+
+                    <h3>Conclusão</h3>
+                    <p>O legado não é entulho — é espinha dorsal de ferro da economia real. A IA patina porque falta contexto histórico e precisão absoluta que negócios exigem. Mudar legado não é copiar e colar no ChatGPT; é arqueologia digital que a tecnologia atual ainda não automatiza com segurança.</p>
+                    <p>No próximo artigo, descemos ao armazenamento: onde a "nova inteligência" guarda o que aprende — bancos vetoriais, embeddings e o custo de RAM que a retórica esconde.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Segundo artigo da série O Mito da Eficiência; continuidade com o artigo 3 em 05/01/2027.</em></p>
+
+                    <p class="copyright">&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Engenheiro Construtor</p>
+                    </div>
+                </div>
+            </footer>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Artigo anterior: <a href="2026_12_22_serie_mito_eficiencia_ia_silicio_ep01.html">A Fantasia do Hardware Infinito</a> — Próximo: <a href="2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html">Bancos Vetoriais: A Nova Geometria do Dado</a></p>
+            <p><a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

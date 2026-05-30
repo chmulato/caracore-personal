@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html" />
+    <meta property="og:image" content="assets/img/2026_12_22_IMAGE_001.png" />
+    <title>Série: O Mito da Eficiência — IA, Silício e a Realidade Além da Nuvem — Índice</title>
+    <meta name="description" content="Chamada à série O Mito da Eficiência: cinco artigos sobre hardware de IA, legado, bancos vetoriais, paradoxo de Jevons e estratégias práticas — dezembro de 2026 a janeiro de 2027.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="IA, hardware, VRAM, legado, bancos vetoriais, Jevons, Java, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <style>
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .episode-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .episode-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1e293b 0%, #0f766e 100%);
+        }
+        .episode-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .episode-number {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .episode-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .episode-title a:hover {
+            color: var(--primary-color);
+        }
+        .episode-teaser {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .episode-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+        }
+        .episode-card-figure {
+            margin: 0;
+        }
+        .episode-card-caption {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.45;
+            padding: 0.5rem 0.85rem 0.65rem;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .episode-card-caption {
+            color: #94a3b8;
+            background: #0f172a;
+            border-top-color: #334155;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Quando a retórica da nuvem encontra o silício, a RAM e o boleto</p>
+                    <h1 class="post-title">Série: O Mito da Eficiência — IA, Silício e a Realidade Além da Nuvem</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-12-15">15/12/2026</time> — 5 artigos | Lançamentos de dezembro de 2026 a janeiro de 2027
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2026_12_22_IMAGE_001.png" alt="Série O Mito da Eficiência: índice" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa da série: o PDV real diante da promessa de nuvem infinita — engenharia de chão de fábrica versus retórica de agentes autônomos.</figcaption>
+                    </figure>
+
+                    <p>Esta série nasce de uma conversa longa — a que muitos desenvolvedores têm consigo mesmos em 2026, mas raramente publicam. De um lado, o mercado vende agentes de IA que leem planilhas, cruzam dados e montam apresentações executivas. Do outro, o chão de fábrica: um PDV em JavaFX que não fecha numa tela só, procedures SQL de vinte anos que ninguém documentou, boletos de tokens que chegam a quinhentos reais por mês e a sensação de que estamos no País das Maravilhas — promessas coloridas, contas reais.</p>
+                    <p>O objetivo não é negar a IA. É <strong>tirar o véu</strong>. Cada artigo dura cerca de oito minutos de leitura e traz evidências, custos e limitações técnicas — sem oba-oba de LinkedIn e sem pessimismo gratuito. Falamos de VRAM escassa, legado que a LLM não lê, bancos vetoriais que devoram RAM, o paradoxo de Jevons quando otimizamos código, e estratégias concretas para quem precisa fazer o sistema funcionar na segunda-feira.</p>
+                    <p><strong>Convite:</strong> leia na ordem 1 → 5 se quiser o arco completo (do limite físico do hardware até o mapa de sobrevivência). Cada texto também funciona sozinho.</p>
+
+                    <div class="episode-grid">
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2026_12_22_IMAGE_001.png" alt="Artigo 1 da série O Mito da Eficiência" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 1: VRAM, escassez de chips e o imposto do token.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 01</div>
+                                <h3 class="episode-title"><a href="2026_12_22_serie_mito_eficiencia_ia_silicio_ep01.html">A Fantasia do Hardware Infinito</a></h3>
+                                <p class="episode-teaser">Por que o cérebro da IA bate no teto do silício: VRAM cara, latência de API, escassez de GPUs e o custo oculto de cada token gerado.</p>
+                                <div class="episode-date">Lançamento: 22 de dezembro de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2026_12_29_IMAGE_001.png" alt="Artigo 2 da série O Mito da Eficiência" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 2: legado determinístico versus IA probabilística.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 02</div>
+                                <h3 class="episode-title"><a href="2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html">O Peso do Legado na Era dos Agentes</a></h3>
+                                <p class="episode-teaser">Por que a IA patina no Java 8, no COBOL e nas procedures: janela de contexto, alucinação técnica e arqueologia digital.</p>
+                                <div class="episode-date">Lançamento: 29 de dezembro de 2026</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_01_05_IMAGE_001.png" alt="Artigo 3 da série O Mito da Eficiência" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 3: geometria vetorial e o custo invisível de RAM.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 03</div>
+                                <h3 class="episode-title"><a href="2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html">Bancos Vetoriais: A Nova Geometria do Dado</a></h3>
+                                <p class="episode-teaser">Embeddings, busca semântica, Spring AI VectorStore e por que o banco vetorial não substitui o SQL do caixa.</p>
+                                <div class="episode-date">Lançamento: 05 de janeiro de 2027</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_01_12_IMAGE_001.png" alt="Artigo 4 da série O Mito da Eficiência" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 4: Rust, Java, IA e o paradoxo de Jevons.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 04</div>
+                                <h3 class="episode-title"><a href="2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html">A Lei de Jevons e o Paradoxo da Otimização</a></h3>
+                                <p class="episode-teaser">Se otimizarmos memória com Rust ou IA, vamos economizar — ou apenas rodar mais agentes no mesmo hardware?</p>
+                                <div class="episode-date">Lançamento: 12 de janeiro de 2027</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_01_19_IMAGE_001.png" alt="Artigo 5 da série O Mito da Eficiência" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 5: sidecar, SLMs locais e saída do País das Maravilhas.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 05</div>
+                                <h3 class="episode-title"><a href="2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html">Sobrevivendo ao Mundo de Alice</a></h3>
+                                <p class="episode-teaser">Estratégias práticas: padrão estrangulador, sidecar de IA, modelos pequenos locais e soberania de dados sem perder o legado.</p>
+                                <div class="episode-date">Lançamento: 19 de janeiro de 2027</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Cronograma:</strong> índice 15/12/2026; artigos 22/12, 29/12/2026, 05/01, 12/01 e 19/01/2027.</p>
+                    <p><strong>Imagens:</strong> prompts 16:9 em <code>serie_mito_eficiencia_prompts_imagens.txt</code>.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Série ensaística com base em diálogo técnico real sobre IA, legado e infraestrutura — evidências e custos, não marketing corporativo.</em></p>
+
+                    <p class="copyright">&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Engenheiro Construtor</p>
+                    </div>
+                </div>
+            </footer>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Comece pelo <a href="2026_12_22_serie_mito_eficiencia_ia_silicio_ep01.html">primeiro artigo</a> ou volte ao <a href="../index.html">início do blog</a>.</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

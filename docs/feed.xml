@@ -5,9 +5,178 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Fri, 18 Dec 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Série O Mito da Eficiência — Sobrevivendo ao Mundo de Alice]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html</link>
+      <description><![CDATA[Artigo final: sidecar de IA, SLMs locais, pgvector híbrido e estratégias práticas para unir legado estável à inteligência necessária.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html</guid>
+      <pubDate>Tue, 19 Jan 2027 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série O Mito da Eficiência — A Lei de Jevons e o Paradoxo da Otimização]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html</link>
+      <description><![CDATA[Quarto artigo: Rust, Java e IA na busca por eficiência de RAM — e por que o paradoxo de Jevons engole a economia gerada.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html</guid>
+      <pubDate>Mon, 12 Jan 2027 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série O Mito da Eficiência — Bancos Vetoriais: A Nova Geometria do Dado]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html</link>
+      <description><![CDATA[Terceiro artigo: embeddings, busca semântica, Spring AI VectorStore e o custo de RAM dos bancos vetoriais ao lado do SQL legado.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html</guid>
+      <pubDate>Mon, 05 Jan 2027 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série O Mito da Eficiência — O Peso do Legado na Era dos Agentes]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html</link>
+      <description><![CDATA[Segundo artigo: por que a IA patina em COBOL, Java 8 e procedures — janela de contexto, alucinação e arqueologia digital.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html</guid>
+      <pubDate>Mon, 29 Dec 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série O Mito da Eficiência — A Fantasia do Hardware Infinito]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_12_22_serie_mito_eficiencia_ia_silicio_ep01.html</link>
+      <description><![CDATA[Primeiro artigo: VRAM, latência, escassez de GPUs e o imposto do token — o limite físico por trás da retórica de nuvem infinita.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_22_serie_mito_eficiencia_ia_silicio_ep01.html</guid>
+      <pubDate>Mon, 22 Dec 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série: O Mito da Eficiência — IA, Silício e a Realidade Além da Nuvem — Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html</link>
+      <description><![CDATA[Chamada à série de cinco artigos (dez/2026 – jan/2027): hardware, legado, bancos vetoriais, Jevons e estratégias práticas contra o oba-oba da IA.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html</guid>
+      <pubDate>Mon, 15 Dec 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Ep. 1: O Ultimato das 14h30]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_05_05_protocolo_lucerna_ep01_ultimato_14h30.html</link>
+      <description><![CDATA[Primeiro episódio da série O Protocolo de Lucerna. Uma migração crítica de middleware sob janela agressiva: quando a promessa comercial colide com a realidade da infraestrutura e a soberania técnica é posta à prova.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_05_05_protocolo_lucerna_ep01_ultimato_14h30.html</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Episódio 07: Refatorando o Futuro do Brasil]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_21_serie_brasil_sdk_soberania_ep07.html</link>
+      <description><![CDATA[Sétimo e último episódio da série Brasil, SDK e Soberania. Discutimos os caminhos possíveis para o Brasil refatorar seu futuro tecnológico.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_21_serie_brasil_sdk_soberania_ep07.html</guid>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Episódio 06: Isolamento como Resistência: O "Modo Localhost"]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_07_22_serie_brasil_sdk_soberania_ep06.html</link>
+      <description><![CDATA[Sexto episódio da série Brasil, SDK e Soberania. O isolamento técnico como forma de resistência individual e sua viabilidade como estratégia nacional.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_07_22_serie_brasil_sdk_soberania_ep06.html</guid>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Epílogo]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_07_14_protocolo_lucerna_epilogo.html</link>
+      <description><![CDATA[Epílogo da série. Após a estabilização, o Arquiteto reflete sobre lições aprendidas, a evolução da Soberania Tecnológica, o novo contrato social do Arquiteto em 2026 e previsões para a engenharia de 2030.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_07_14_protocolo_lucerna_epilogo.html</guid>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Ep. 6: O Código da Retomada (The Recovery Protocol)]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_07_07_protocolo_lucerna_ep06_codigo_retomada.html</link>
+      <description><![CDATA[Sexto e último episódio da série. Post-mortem estratégico: resolução dos bugs de persistência e middleware, Estabilização do Nó Principal, baseline de confiança sem QA formal e o Manifesto do Arquiteto Soberano.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_07_07_protocolo_lucerna_ep06_codigo_retomada.html</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Ep. 5: Identidade Fluida – A Sombra de Lucerna]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_06_30_protocolo_lucerna_ep05_identidade_fluida_sombra_lucerna.html</link>
+      <description><![CDATA[Quinto episódio da série. Soberania individual, a metáfora de Lucerna como porto seguro da carreira, vigilância e privacidade, e a engenharia de presença: ser onipresente tecnicamente sem virar ativo fixo emocional da corporação.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_30_protocolo_lucerna_ep05_identidade_fluida_sombra_lucerna.html</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Episódio 05: O Legado de 1964 e a Nossa Dívida Técnica]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_06_22_serie_brasil_sdk_soberania_ep05.html</link>
+      <description><![CDATA[Quinto episódio da série Brasil, SDK e Soberania. Como as decisões do regime militar criaram uma 'dívida técnica' social e de infraestrutura que ainda impacta o Brasil.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_22_serie_brasil_sdk_soberania_ep05.html</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Ep. 4: A Anatomia do Rastro Digital]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_06_13_protocolo_lucerna_ep04_anatomia_rastro_digital.html</link>
+      <description><![CDATA[Quarto episódio da série. O paradoxo da documentação: registrar conhecimento para sobreviver versus o risco de expor infraestrutura em ferramentas compartilhadas. Cibersegurança e governança de dados no desenvolvimento.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_13_protocolo_lucerna_ep04_anatomia_rastro_digital.html</guid>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Ep. 3: O Ponto Cego da Qualidade (O QA Invisível)]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_06_07_protocolo_lucerna_ep03_ponto_cego_qualidade.html</link>
+      <description><![CDATA[Terceiro episódio da série. A estrutura de QA prometida contratualmente é inexistente na operação real: o Núcleo de Engenharia como criador e crítico, a teoria do erro em missão crítica e a ética do arquiteto como lei de qualidade.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_07_protocolo_lucerna_ep03_ponto_cego_qualidade.html</guid>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Protocolo de Lucerna — Ep. 2: A Engenharia de Guerra e o Compliance]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_05_30_protocolo_lucerna_ep02_engenharia_guerra_compliance.html</link>
+      <description><![CDATA[Segundo episódio da série. Quando o projeto entra em modo Força-Tarefa e as diretrizes de confidencialidade se tornam rigorosas: a dialética do silêncio, o triage de middleware e a psicologia da engenharia sob protocolos de segurança.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_05_30_protocolo_lucerna_ep02_engenharia_guerra_compliance.html</guid>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Episódio 04: PIX: O Framework Nativo que Deu Certo]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_05_23_serie_brasil_sdk_soberania_ep04.html</link>
+      <description><![CDATA[Quarto episódio da série Brasil, SDK e Soberania. Um estudo de caso sobre o sucesso do PIX, que prova a capacidade técnica brasileira para a soberania digital.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_05_23_serie_brasil_sdk_soberania_ep04.html</guid>
+      <pubDate>Sat, 23 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[IA Local para Desenvolvedores Java: do Copilot Offline à Workstation Própria]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_05_15_ia_local_para_desenvolvedores_java_do_copilot_offline_a_workstation_propria.html</link>
+      <description><![CDATA[Como montar um ambiente de IA local para desenvolvimento Java: Ollama, modelos coder, VS Code, Continue.dev, Ryzen, RTX, servidor local e custo-benefício.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_05_15_ia_local_para_desenvolvedores_java_do_copilot_offline_a_workstation_propria.html</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Legado e a Matriz: o que a Engenharia herda do Cuidado]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_05_10_o_legado_e_a_matriz_o_que_a_engenharia_herda_do_cuidado.html</link>
+      <description><![CDATA[Dia das Mães (sem clichê): cuidado como arquitetura de base. Uma ponte entre migração de legado, documentação e sustentabilidade cognitiva.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_05_10_o_legado_e_a_matriz_o_que_a_engenharia_herda_do_cuidado.html</guid>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Pêndulo da Tecnologia: Entre a Ilusão de Mercado e a Evolução das Abstrações]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_05_08_o_pendulo_da_tecnologia_entre_a_ilusao_de_mercado_e_a_evolucao_das_abstracoes.html</link>
+      <description><![CDATA[Uma reflexão sobre IA, ferramentas RAD, ciclos econômicos e a evolução das abstrações no desenvolvimento de software.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_05_08_o_pendulo_da_tecnologia_entre_a_ilusao_de_mercado_e_a_evolucao_das_abstracoes.html</guid>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Entre o Prazo e o WSDL: A Saga de uma Migração no &quot;Mundo Real&quot;]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_30_entre_o_prazo_e_o_wsdl_a_saga_de_uma_migracao_no_mundo_real.html</link>
+      <description><![CDATA[Um relato do mundo real sobre uma migração de WebSphere para WildFly/Cloud: quando o cronograma parece linear, mas a infraestrutura lembra que a física vem antes do PowerPoint.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_30_entre_o_prazo_e_o_wsdl_a_saga_de_uma_migracao_no_mundo_real.html</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[O Projeto "Sistema Alfa": Anatomia de um Quase Fracasso e as Lições da Linha de Frente]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_25_o_projeto_sistema_alfa_anatomia_de_um_quase_fracasso_e_as_licoes_da_linha_de_frente.html</link>
+      <description><![CDATA[Artigo sobre O Projeto Sistema Alfa: Anatomia de um Quase-Fracasso e as Lições da Linha de Frente]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_25_o_projeto_sistema_alfa_anatomia_de_um_quase_fracasso_e_as_licoes_da_linha_de_frente.html</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Série: O Protocolo de Lucerna — Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html</link>
+      <description><![CDATA[Índice da série (6 episódios + epílogo): soberania tecnológica, migração crítica, compliance, QA invisível, rastro digital, identidade profissional e o Código da Retomada — Arquitetando a Soberania em Ambientes de Alta Incerteza.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html</guid>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[A Física Antes da Lógica]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_04_12_a_fisica_antes_da_logica.html</link>
+      <description><![CDATA[Reflexões sobre como a física e a química fundamentam o código: a filosofia de desenvolvimento que transformou um simulador de efluentes em um modelo cientificamente soberano]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_12_a_fisica_antes_da_logica.html</guid>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Grandes Estruturas Obsoletas]]></title>

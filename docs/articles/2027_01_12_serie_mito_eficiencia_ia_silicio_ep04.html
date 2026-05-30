@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html" />
+    <meta property="og:image" content="assets/img/2027_01_12_IMAGE_001.png" />
+    <title>A Lei de Jevons e o Paradoxo da Otimização — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Artigo 4 da série O Mito da Eficiência: Rust vs Java vs IA, paradoxo de Jevons e por que otimizar RAM não barateia a conta.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Jevons, Rust, Java, otimização, RAM, IA, série, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: O Mito da Eficiência — Artigo 04</p>
+                    <h1 class="post-title">A Lei de Jevons e o Paradoxo da Otimização</h1>
+                    <p class="post-subtitle">Por que Rust e IA não vão diminuir sua conta de RAM — e quem ganha com isso.</p>
+                    <div class="post-meta">
+                        <time datetime="2027-01-12">12/01/2027</time> — cerca de 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2027_01_12_IMAGE_001.png" alt="A Lei de Jevons: eficiência que aumenta consumo total" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa do artigo 4: balança entre linguagens "magras" e multiplicação de agentes de IA — metáfora visual do paradoxo de Jevons na infraestrutura.</figcaption>
+                    </figure>
+
+                    <p>E se usássemos IA para reescrever infraestrutura em Rust, eliminando Garbage Collector e código morto, e criássemos sistemas 40% mais baratos em RAM? Pergunta de bilhão de dólares — e a resposta econômica é desconfortável.</p>
+                    <p>Este artigo confronta a ideia de que eficiência de software automaticamente barateia a conta. Spoiler: muitas vezes ela só muda para onde vai o gasto.</p>
+
+                    <h3>Código magro versus hardware gordo</h3>
+                    <p>Java com GC é "comilão" de memória: 8 GB de dados podem exigir 12–16 GB de RAM para o runtime respirar. Rust, com ownership, usa o que precisa — em PDVs e servidores legados, economia de 30–50% de RAM é plausível.</p>
+                    <p>Mas quando falamos de IA, o gargalo não é RAM do sistema onde Java/Rust rodam — é VRAM da GPU com pesos do modelo. Rust não encolhe 7 bilhões de parâmetros. O motor de caminhão consome diesel pela carga, não pelo peso do motorista.</p>
+
+                    <h3>O paradoxo de Jevons</h3>
+                    <p>William Stanley Jevons observou no carvão do século XIX: quanto mais eficiente o uso, maior o consumo total. Aplicado a 2026: se IA otimiza seu sistema para metade da memória, a empresa não compra metade dos servidores — mantém os mesmos e roda quatro vezes mais agentes.</p>
+                    <p>Eficiência gera demanda, raramente economia. Software 2.0 e refatoração assistida por IA são nobres; a maré do mercado pede mais processamento pelo mesmo preço caro.</p>
+
+                    <h3>Rust: prata que custa ouro</h3>
+                    <p>Rust domina infraestrutura de inferência (vLLM, partes de motores CUDA). Para Big Tech, vale pagar time Rust sênior para economizar 5% de energia em data center planetário. Para dono de PDV ou média empresa, é mais barato comprar pente de 128 GB (R$ 1.500) que reescrever legado em linguagem de baixo nível (meses de salário sênior raro).</p>
+                    <p>Existem 100 programadores Java/COBOL para cada Rust sênior. Dívida técnica de 20 anos não espera curva de aprendizado. Hardware virou solução preguiçosa para software ineficiente — porque é previsível no orçamento.</p>
+
+                    <h3>IA como arquiteta: armadilha da validação</h3>
+                    <p>IA pode gerar kernel de banco ultra-otimizado em Rust. Quem garante que não há bug de lógica após 1.000 horas de uso? Hoje gastamos mais revisando código gerado do que se humano sênior escrevesse do zero.</p>
+                    <p>IA é copiloto excelente; engenheira-chefe péssima para sistemas onde falha não é opção. Custo de substituição supera custo de RAM — empresas preferem previsibilidade.</p>
+                    <p>Quantização já comprime modelos de 40 GB para 8 GB VRAM — IA ajuda a decidir neurônios descartáveis. Mas Lei de Jevons entra de novo: modelos maiores ocupam o espaço liberado.</p>
+
+                    <h3>GC, Rust e a pergunta do VRAM</h3>
+                    <p>Sua intuição sobre buracos de memória e código morto está correta para aplicações tradicionais. Rust curaria inchaço do software — menos watts no escritório, PDV mais estável.</p>
+                    <p>Não resolve escassez física de silício nem energia bruta para girar matrizes de IA. Project Loom e Java bem feito também ajudam no meio-termo: PDV continua JavaFX; IA e vetorial conectam via JNI ou Project Panama a bibliotecas nativas.</p>
+
+                    <h3>Silício como árbitro imobiliário</h3>
+                    <p>Big Techs reservam produção TSMC por anos. Se software ficar mais leve, lançam modelos maiores para preencher o vácuo. Objetivo da indústria não é eficiência para seu bolso — é capacidade máxima para o deles.</p>
+                    <p>NVIDIA, Databricks e IBM estudam velocidade de processamento que supera métodos tradicionais — inovação real, retórica incluída. Separar fato de marketing exige olhar boletos, não keynotes.</p>
+
+                    <h3>Infraestrutura barata: o que seria possível</h3>
+                    <p>Micro-kernel AI-native em Rust. Memória unificada (M3 Apple como referência). JIT inteligente que remove código não usado da RAM. Compilação em tempo real. Tudo tecnicamente imaginável.</p>
+                    <p>Barreiras: validação, legado, Lei de Jevons, capital fluindo para chips rápidos — não para reengenharia lenta. Quando silício bater limite atômico, otimização de software será obrigatória; até lá, compramos GPU.</p>
+
+                    <h3>Conclusão</h3>
+                    <p>Buscar infraestrutura barata via otimização é batalha nobre contra maré de ganância por processamento. Rust é ferramenta certa; IA é acelerador certo; mercado é motor que sempre pede mais combustível.</p>
+                    <p>Não espere tecnologia barata — espere que faça mais coisas pelo mesmo preço caro. O fechamento da série traz o mapa prático: como sobreviver a esse mundo sem perder legado nem caixa.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Quarto artigo da série O Mito da Eficiência; continuidade com o artigo 5 em 19/01/2027.</em></p>
+
+                    <p class="copyright">&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Engenheiro Construtor</p>
+                    </div>
+                </div>
+            </footer>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Artigo anterior: <a href="2027_01_05_serie_mito_eficiencia_ia_silicio_ep03.html">Bancos Vetoriais: A Nova Geometria do Dado</a> — Próximo: <a href="2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html">Sobrevivendo ao Mundo de Alice</a></p>
+            <p><a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da série</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>

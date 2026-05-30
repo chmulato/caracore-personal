@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html" />
+    <meta property="og:image" content="assets/img/2027_01_19_IMAGE_001.png" />
+    <title>Sobrevivendo ao Mundo de Alice — Christian Mulato Dev Blog</title>
+    <meta name="description" content="Artigo 5 da série O Mito da Eficiência: sidecar, SLMs, pgvector e estratégias práticas para unir legado estável à IA necessária.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="sidecar, SLM, legado, pgvector, Alice, IA, série, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+                <a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da Série</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: O Mito da Eficiência — Artigo 05 (final)</p>
+                    <h1 class="post-title">Sobrevivendo ao Mundo de Alice</h1>
+                    <p class="post-subtitle">Estratégias práticas para unir o legado estável à inteligência necessária sem ser devorado pelas Big Techs.</p>
+                    <div class="post-meta">
+                        <time datetime="2027-01-19">19/01/2027</time> — cerca de 8 min de leitura
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2027_01_19_IMAGE_001.png" alt="Sobrevivendo ao Mundo de Alice: PDV 2D real versus dashboards holográficos vazios" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa do artigo 5: túnel de cabos levando a um PDV JavaFX funcional em 2D — realidade produtiva versus hologramas de hype ao fundo; fecho da série no chão de fábrica.</figcaption>
+                    </figure>
+
+                    <p>Chegamos ao fim da toca do coelho. Os artigos anteriores tiraram o véu da retórica: hardware escasso, legado incompreensível para LLMs, bancos vetoriais famintos por RAM, paradoxo de Jevons engolindo otimizações. Este capítulo responde o que fazer na segunda-feira de manhã.</p>
+                    <p>Sim, estamos no País das Maravilhas — Big Techs como Rainha de Copas gritando para cortar cabeças do legado enquanto corremos em círculos pagando luz e tokens. A saída não é oba-oba nem pessimismo total. É engenharia real.</p>
+
+                    <h3>Pare de substituir; comece a cercar</h3>
+                    <p>Erro comum: pedir à IA que leia procedures complexas de uma vez — ensinar filosofia a motor de combustão. A IA não deve ser o sistema; deve ser extensão do sistema.</p>
+                    <p>Estratégia vencedora para 2026: <strong>Arquitetura Sidecar</strong>.</p>
+                    <ul>
+                        <li>JavaFX e SQL legado continuam rodando transações e segurança.</li>
+                        <li>IA vive em serviço separado, recebe dados mastigados (JSON) e devolve percepções.</li>
+                        <li>Não peça para mudar código; peça para analisar resultado do código.</li>
+                    </ul>
+                    <p>Isso conecta ao Padrão Estrangulador (Strangler Pattern): não mude o core; crie casca de IA na borda. Legado gera TXT; IA gera insight. Core permanece determinístico.</p>
+
+                    <h3>Adote SLMs — o pequeno é o novo grande</h3>
+                    <p>Mercado olha GPT-5; revolução para pequenas empresas são Small Language Models (Phi, Llama 3B, modelos quantizados). Rodam localmente ou em nuvem barata; não precisam 80 GB VRAM.</p>
+                    <p>Com placa de consumo (RTX 4060 Ti), IA entende contexto do PDV sem pedágio OpenAI. R$ 500/mês em tokens viram investimento único em hardware modesto — ou uso cirúrgico de API só onde retorno compensa.</p>
+                    <p>SLMs sabem menos filosofia e mais SQL/Java do seu domínio — adequados a tarefas específicas que geram valor, não chat genérico.</p>
+
+                    <h3>JPA vetorial e soberania de dados</h3>
+                    <p>Não jogue especificações em banco vetorial aleatório na nuvem. Use abstração Spring AI <code>VectorStore</code> para manter independência de vendor.</p>
+                    <p>Comece com Postgres + pgvector: banco híbrido (SQL + vetores) economiza RAM, simplifica backup e mantém procedures protegidas pelo mesmo firewall. Melhor que dois bancos separados gerenciados por terceiros.</p>
+                    <p>Soberania não é romanticismo — é continuidade de negócio quando preço do token sobe ou API muda termos.</p>
+
+                    <h3>Fuja da retórica no-code</h3>
+                    <p>Alice comeu biscoito achando que cresceria; muitos acreditam que IA eliminará programador. Realidade inversa: quanto mais IA consome, mais vale quem entende o porquê.</p>
+                    <p>Hardware caro e software ineficiente serão resolvidos por quem sabe achar buracos de memória, debugar regra oculta e manter PDV funcional numa tela — StackPane, binding, Task em background, FXML modular. Esse conhecimento é escudo contra inchaço tecnológico.</p>
+
+                    <h3>O que consumir — dashboards, não hologramas</h3>
+                    <p>Não espere planilhas 3D estilo Minority Report na maioria das empresas. Espere sistemas legados com "boca" (chat) e "ouvido" (leitura de documentos). Dashboards conversacionais em 2D; AR restrita a nichos industriais.</p>
+                    <p>Televisão em war room mostrará fluxo de agentes — mas resultado final continua PDF, KPI e gráfico que executivo entende. Java no servidor envia JSON; front renderiza. Revolução na conversa, não na estética.</p>
+
+                    <h3>Alice desmontada: mapa rápido da série</h3>
+                    <ol>
+                        <li><strong>Hardware finito:</strong> token é imposto; VRAM é elite.</li>
+                        <li><strong>Legado pesado:</strong> janela de contexto mata migração mágica.</li>
+                        <li><strong>Vetores caros:</strong> geometria semântica ao lado do SQL, não no lugar.</li>
+                        <li><strong>Jevons:</strong> eficiência alimenta mais consumo.</li>
+                        <li><strong>Sidecar + SLM + pgvector:</strong> hibridização sobrevivente.</li>
+                    </ol>
+
+                    <h3>Veredito final</h3>
+                    <p>Custo de quinhentos reais em tokens é preço de ser usuário. Objetivo do desenvolvedor: tornar-se arquiteto de soluções híbridas.</p>
+                    <p>Evidência final: nenhuma empresa quebrou por manter legado que funciona; muitas quebraram migrando para magia sem hardware ou equipe para sustentar alucinação.</p>
+                    <p>Mundo de Alice é sedutor e promete milagres. Mundo real é latência, boleto, hardware que esquenta e cliente que precisa PDV em 2D, rápido e barato. IA é ferramenta poderosa — ainda apenas ferramenta.</p>
+                    <p><strong>Use IA para iluminar o legado, não para reconstruí-lo no escuro.</strong></p>
+                    <p>Quando o coelho branco do mercado perceber que o dinheiro acabou para queimar RAM, quem estiver pronto com software eficiente e arquitetura sidecar será quem oferece saída — não quem vendeu o buraco da toca.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Artigo final da série O Mito da Eficiência — IA, Silício e a Realidade Além da Nuvem (dez/2026 – jan/2027).</em></p>
+
+                    <p class="copyright">&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Engenheiro Construtor</p>
+                    </div>
+                </div>
+            </footer>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Artigo anterior: <a href="2027_01_12_serie_mito_eficiencia_ia_silicio_ep04.html">A Lei de Jevons e o Paradoxo da Otimização</a></p>
+            <p><a href="2026_12_15_serie_mito_eficiencia_ia_silicio_index.html">Índice da série</a> — <a href="../index.html">Início do blog</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>
