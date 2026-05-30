@@ -45,12 +45,11 @@
                         <figcaption class="hero-image-caption">Capa do artigo 1: contraste entre RAM comum e VRAM escassa, corredor de data center com slots vazios — metáfora visual do limite físico por trás da promessa de nuvem infinita.</figcaption>
                     </figure>
 
-                    <p>Muitos gestores acreditam que a inteligência artificial é um recurso etéreo, algo que vive numa nuvem mágica com capacidade infinita. A retórica das Big Techs vende a facilidade: <em>"basta uma chamada de API"</em>. Mas no mundo real, cada resposta que a IA gera para o seu PDV, para o seu dashboard ou para o seu chatbot consome recursos físicos brutais. Não existe software sem hardware — e o hardware de IA é, hoje, o recurso mais escasso e ineficiente do planeta.</p>
-                    <p>Este artigo abre a série <strong>O Mito da Eficiência</strong> encarando esse chão material. Não para negar a utilidade da IA, mas para mostrar por que transformar um sistema legado numa "IA funcional" da noite para o dia esbarra num triângulo cruel: VRAM, latência e custo.</p>
+                    <p>O custo do hardware, da nuvem e do token como pedágio já foi tratado em junho, no episódio <a href="2026_06_15_horizonte_essencial_ep01_peso_do_hardware.html">O peso do hardware</a> (série <em>Horizonte do Essencial</em>). Esta série não repete aquele mapa: entra no que mudou quando a <strong>IA agêntica</strong> virou o centro da retórica — VRAM, latência de orquestração e a conta de quem tenta plugar LLM no PDV ou no legado.</p>
+                    <p>O triângulo que importa aqui é outro: <strong>VRAM, latência e custo por chamada</strong> — não “nuvem boa ou má” em abstracto, mas o preço de cada rodada de agente sobre o seu sistema real.</p>
 
-                    <h3>O mito da nuvem abstrata</h3>
-                    <p>Quando você faz um <code>SELECT</code> no SQL, o custo de energia é desprezível. Quando você pede a uma LLM que analise mil linhas de vendas e sugira uma ação, cada palavra gerada custa uma fração de centavo de dólar — e cada rodada de "agente conversando com agente" multiplica esse valor.</p>
-                    <p>Para um PDV que processa milhares de interações por dia, transformar cada operação em chamada de IA pode tornar o lucro da venda menor do que o custo do processamento. É aqui que a retórica da "IA para todos" encontra o balanço financeiro da empresa. O token virou imposto: quem não possui hardware paga pedágio a quem possui.</p>
+                    <h3>O imposto do token na prática agêntica</h3>
+                    <p>Quando você faz um <code>SELECT</code> no SQL, o custo de energia é desprezível. Quando pede a uma LLM que analise mil linhas de vendas — e pior, quando um orquestrador encadeia várias chamadas — cada palavra gerada custa fração de centavo de dólar, multiplicada a cada “passo” do agente. Para um PDV com milhares de interações por dia, transformar cada operação em IA pode fazer o lucro da venda perder para o processamento.</p>
 
                     <h3>VRAM: a memória de elite</h3>
                     <p>Diferente da RAM comum — que você compra em pentes de 32 GB por preço razoável —, a VRAM das GPUs de inferência é cara e limitada. Um modelo de IA "médio" precisa estar inteiramente carregado nessa memória para responder em tempo aceitável. Se o modelo não cabe, o sistema patina: a latência sobe, a experiência morre.</p>
@@ -58,13 +57,9 @@
                     <p>Em 2026, uma GPU de consumo (RTX 4060 Ti) roda modelos pequenos; uma estação com RTX 5090 ou equivalente profissional é necessária para vários agentes simultâneos analisando legado e gerando dashboards. Estamos falando de US$ 600 a US$ 15.000+ só de placa — antes de RAM, energia e refrigeração.</p>
 
                     <h3>O gargalo da transferência</h3>
-                    <p>O maior custo nem sempre é processar o dado; muitas vezes é movê-lo. Em sistemas legados, os dados vivem em discos, SSDs e bancos relacionais. Para a IA "pensar" sobre eles, é preciso convertê-los em vetores, serializá-los e enviá-los à GPU. Esse caminho é estreito e caro — especialmente quando o legado gera relatórios brutos em TXT que precisam ser reprocessados a cada consulta.</p>
-                    <p>Um rack de servidores focado em IA consome, em 2026, o equivalente energético a um quarteirão residencial. As Big Techs triplicaram capacidade de "fábricas de IA" em poucos meses; o gasto global em infraestrutura de IA deve superar trilhões de dólares. Pequenos negócios disputam, literalmente, as migalhas de poder computacional que sobram das gigantes.</p>
-
-                    <h3>A escassez fabricada</h3>
+                    <p>O maior custo nem sempre é processar o dado; muitas vezes é movê-lo. Dados legados vivem em disco e SQL; cada consulta agêntica exige serializar e enviar blocos à GPU — caminho estreito quando o ERP só exporta TXT bruto a cada pedido.</p>
+                    <h3>A escassez de silício para inferência</h3>
                     <p>Enquanto empresas planejam agentes para tudo, a produção de chips de alta performance (H100, Blackwell e sucessores) está esgotada com anos de antecedência. TSMC reserva capacidade para quem pode pagar adiantado — não para o lojista que quer um assistente no ERP.</p>
-                    <p>A tendência não é "todo mundo compra GPU". É aluguel: você não é dono do motor; aluga o movimento via tokens. O risco é dependência total de preços em dólar e de políticas de uso impostas por terceiros.</p>
-
                     <h3>Comparativo frio: SQL versus agente</h3>
                     <p>Em sistemas agênticos reais (LangChain4j, Spring AI), o fluxo não é mágico: é um loop Java com condicionais que chama a LLM várias vezes. O orquestrador envia o objetivo; a LLM responde com passos; o código executa uma função (abrir planilha, consultar API); o resultado volta à LLM. Cada "troca de figurinha" demora de 2 a 10 segundos de latência de API. Uma apresentação completa pode levar minutos — não segundos.</p>
                     <p>Isso não invalida agentes; contextualiza expectativas. O gestor que imagina dashboard "vivo" com agentes conversando em tempo real precisa entender que está pagando por minutos de GPU alheia, não por milissegundos de CPU local.</p>
@@ -74,7 +69,7 @@
                     <p>O caminho para a média das empresas é consumo de APIs ou modelos quantizados (versões comprimidas que cabem em hardware barato). A estratégia vencedora não é "quem tem a IA mais inteligente", mas quem faz a IA rodar no hardware que já existe — ou quem paga só pelo uso que gera retorno.</p>
 
                     <h3>Conclusão</h3>
-                    <p>Estamos construindo castelos de software em terreno de hardware movediço. A estratégia de "jogar RAM no problema" está chegando ao fim porque não há RAM (nem energia) suficiente para sustentar a ineficiência atual. O próximo artigo entra na camada lógica: por que, mesmo quando você paga pelo hardware alheio, a IA ainda patina no código legado que sustenta a economia real.</p>
+                    <p>O limite desta série começa no silício da inferência, não na RAM genérica do servidor. O próximo artigo entra na camada lógica: por que, mesmo pagando pelo hardware alheio, a IA ainda patina no código legado que sustenta a economia real.</p>
 
                     <hr>
                     <p><em><strong>Nota:</strong> Primeiro artigo da série O Mito da Eficiência; continuidade com o artigo 2 em 29/12/2026.</em></p>
