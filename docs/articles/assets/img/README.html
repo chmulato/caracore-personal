@@ -88,10 +88,10 @@
         <section class="section">
             <h2>Status Atual do Blog</h2>
             <ul>
-                <li>Artigos existentes em <code>docs/articles/*.html</code> com marcação de conteúdo (<code>&lt;article&gt;</code>): <strong>131</strong></li>
+                <li>Artigos existentes em <code>docs/articles/*.html</code> com marcação de conteúdo (<code>&lt;article&gt;</code>): <strong>145</strong></li>
                 <li>Ciclo ativo: <strong>Junho 2026 - Maio 2029</strong></li>
                 <li>Histórico preservado antes de: <strong>04/06/2026</strong></li>
-                <li>Séries com índice próprio: <strong>Brasil SDK</strong>, <strong>Depois do debate</strong>, <strong>A Ilusão Informatizada</strong>, <strong>Protocolo de Lucerna</strong>, <strong>Recolocação Java</strong></li>
+                <li>Séries com índice próprio: <strong>Brasil SDK</strong>, <strong>Depois do debate</strong>, <strong>A Ilusão Informatizada</strong>, <strong>O Mito da Eficiência</strong>, <strong>Protocolo de Lucerna</strong>, <strong>Recolocação Java</strong></li>
             </ul>
         </section>
 
@@ -109,7 +109,7 @@
 
         <section class="section">
             <h2>2. Exceção para Páginas Índice de Séries</h2>
-            <p>Cinco séries possuem página índice própria. Nesses casos, a regra de igualdade entre data do PNG e data do nome do HTML não se aplica ao índice, pois a página reúne episódios com datas distintas.</p>
+            <p>Seis séries possuem página índice própria. Nesses casos, a regra de igualdade entre data do PNG e data do nome do HTML não se aplica ao índice, pois a página reúne episódios com datas distintas.</p>
             <ol>
                 <li>
                     <strong>Série Brasil, SDK e Soberania</strong><br>
@@ -126,6 +126,12 @@
                     Índice: <code>2026_09_30_serie_ilusao_informatizada_index.html</code><br>
                     Artigos: <code>..._ep01</code>, <code>..._ep02</code>, <code>..._ep03</code>, <code>..._ep04</code> e <code>..._epilogo</code>.<br>
                     Observação: o índice reutiliza <code>2026_10_12_IMAGE_001.png</code> no hero, nos cartões do primeiro ensaio e em <code>og:image</code>; isso é válido por se tratar de página chamada/índice publicada antes da série completa.
+                </li>
+                <li>
+                    <strong>Série O Mito da Eficiência (IA, Silício e a Realidade Além da Nuvem)</strong><br>
+                    Índice: <code>2026_12_15_serie_mito_eficiencia_ia_silicio_index.html</code><br>
+                    Artigos: <code>..._ep01</code> a <code>..._ep05</code> (dez/2026 – jan/2027).<br>
+                    Observação: o índice reutiliza <code>2026_12_22_IMAGE_001.png</code> no hero e em <code>og:image</code> (capa do artigo 1). Prompts 16:9 em <code>docs/articles/serie_mito_eficiencia_prompts_imagens.txt</code>.
                 </li>
                 <li>
                     <strong>Série Protocolo de Lucerna</strong><br>
@@ -163,6 +169,17 @@
                 <li><code>2026_12_05_IMAGE_001.png</code> para o epílogo.</li>
             </ul>
             <p class="small">A página índice de <code>30/09/2026</code> não recebeu PNG próprio; ela reaproveita a imagem de <code>12/10/2026</code>, o que permanece dentro da exceção documentada para páginas índice de série.</p>
+
+            <h3>Série O Mito da Eficiência</h3>
+            <ul>
+                <li>Índice (<code>15/12/2026</code>): reutiliza <code>2026_12_22_IMAGE_001.png</code> no hero e em <code>og:image</code>.</li>
+                <li><code>2026_12_22_IMAGE_001.png</code> — artigo 1: A Fantasia do Hardware Infinito.</li>
+                <li><code>2026_12_29_IMAGE_001.png</code> — artigo 2: O Peso do Legado na Era dos Agentes.</li>
+                <li><code>2027_01_05_IMAGE_001.png</code> — artigo 3: Bancos Vetoriais: A Nova Geometria do Dado.</li>
+                <li><code>2027_01_12_IMAGE_001.png</code> — artigo 4: A Lei de Jevons e o Paradoxo da Otimização.</li>
+                <li><code>2027_01_19_IMAGE_001.png</code> — artigo 5: Sobrevivendo ao Mundo de Alice.</li>
+            </ul>
+            <p class="small">Prompts de geração 16:9 (paisagem): <code>docs/articles/serie_mito_eficiencia_prompts_imagens.txt</code>. Formato sugerido: 1920×1080 px. Foto do autor ao final dos artigos: <code>foto_chri.jpg</code> via <code>post-footer</code> / <code>author-avatar</code>.</p>
         </section>
 
         <section class="section">
