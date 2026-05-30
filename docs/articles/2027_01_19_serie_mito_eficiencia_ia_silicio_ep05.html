@@ -45,32 +45,48 @@
                         <figcaption class="hero-image-caption">Capa do artigo 5: túnel de cabos levando a um PDV JavaFX funcional em 2D — realidade produtiva versus hologramas de hype ao fundo; fecho da série no chão de fábrica.</figcaption>
                     </figure>
 
-                    <p>Os quatro artigos anteriores fecharam o diagnóstico: hardware finito, legado opaco para LLMs, vetores caros, Jevons engolindo otimização. Este capítulo é só <strong>receita</strong> — o que implementar na segunda-feira, no chão de fábrica.</p>
+                    <p>Se você chegou direto neste texto, o resumo é simples: IA agêntica promete revolução, mas esbarra em hardware finito, legado opaco, bancos vetoriais caros e um mercado que consome toda otimização (Lei de Jevons). Os quatro artigos anteriores fecharam esse diagnóstico.</p>
+                    <p>Este capítulo não repete o problema. É só <strong>receita</strong> — o que implementar na segunda-feira, no chão de fábrica.</p>
 
-                    <h3>Pare de substituir; comece a cercar</h3>
-                    <p>Erro comum: pedir à IA que leia procedures complexas de uma vez — ensinar filosofia a motor de combustão. A IA não deve ser o sistema; deve ser extensão do sistema. A ideia de automação nos bastidores, com ganho observável, está no <a href="2026_07_05_horizonte_essencial_ep03_automacao_invisivel.html">episódio 3 do Horizonte do Essencial</a>; aqui descrevemos o desenho quando a borda é uma LLM.</p>
-                    <p>Estratégia vencedora para 2026: <strong>Arquitetura Sidecar</strong>.</p>
+                    <h3>Sidecar em vez de substituição</h3>
+                    <p>A tentativa mais comum — e mais cara — é pedir à IA que leia procedures complexas de uma vez. É ensinar filosofia a motor de combustão.</p>
+                    <p><strong>A IA não deve ser o sistema; deve ser extensão do sistema.</strong></p>
+                    <p>A ideia de automação nos bastidores, com ganho observável, está no <a href="2026_07_05_horizonte_essencial_ep03_automacao_invisivel.html">episódio 3 do Horizonte do Essencial</a>. Aqui, o desenho quando a borda é uma LLM.</p>
+                    <p>Para 2026, a estratégia que funciona é a <strong>Arquitetura Sidecar</strong>:</p>
                     <ul>
                         <li>JavaFX e SQL legado continuam rodando transações e segurança.</li>
-                        <li>IA vive em serviço separado, recebe dados mastigados (JSON) e devolve percepções.</li>
-                        <li>Não peça para mudar código; peça para analisar resultado do código.</li>
+                        <li>A IA vive em serviço separado, recebe dados mastigados (JSON) e devolve percepções.</li>
+                        <li>Não peça para mudar código; peça para analisar o resultado do código.</li>
                     </ul>
-                    <p>Exemplo concreto: o PDV em JavaFX emite o fechamento do dia como JSON ou TXT estruturado; o sidecar resume anomalias de estoque para o gerente — sem reescrever o caixa, sem dashboard holográfico.</p>
+                    <p><strong>Exemplo concreto:</strong> o PDV em JavaFX emite o fechamento do dia como JSON ou TXT estruturado. O sidecar resume anomalias de estoque para o gerente — sem reescrever o caixa, sem dashboard holográfico.</p>
 
-                    <h3>Adote SLMs onde a conta fechar</h3>
-                    <p>Modelos pequenos (Phi, Llama 3B quantizado) já foram argumentados no <a href="2026_08_05_horizonte_essencial_ep05_a_decada_da_ram_infinita.html">episódio 5 do Horizonte</a>. No PDV, uma RTX 4060 Ti local pode cobrir consultas de domínio (SQL, regras fiscais resumidas) sem os R$ 500/mês de token — reserve API paga só para tarefas onde o retorno for mensurável.</p>
+                    <h3>SLMs locais: pague só onde vale</h3>
+                    <p>Depois de cercar o legado, vem a conta. Nem toda pergunta precisa de API cara na nuvem.</p>
+                    <p>Modelos pequenos (Phi, Llama 3B quantizado) já foram argumentados no <a href="2026_08_05_horizonte_essencial_ep05_a_decada_da_ram_infinita.html">episódio 5 do Horizonte</a>. No PDV, uma RTX 4060 Ti local pode cobrir consultas de domínio — SQL, regras fiscais resumidas — sem os R$ 500/mês de token.</p>
+                    <p><strong>Reserve API paga só para tarefas onde o retorno for mensurável.</strong></p>
 
-                    <h3>JPA vetorial e soberania de dados</h3>
-                    <p>Não jogue especificações em banco vetorial aleatório na nuvem. Use abstração Spring AI <code>VectorStore</code> para manter independência de vendor.</p>
-                    <p>Comece com Postgres + pgvector: banco híbrido (SQL + vetores) economiza RAM, simplifica backup e mantém procedures protegidas pelo mesmo firewall. Offline-first e dados locais como base operacional continuam no <a href="2026_06_25_horizonte_essencial_ep02_soberania_local.html">episódio 2 do Horizonte</a>; pgvector encaixa nessa hierarquia, não a substitui.</p>
+                    <h3>Vetores no Postgres, não na nuvem aleatória</h3>
+                    <p>Sidecar e SLM resolvem processamento. Memória de longo prazo exige outro cuidado: onde guardar o que a IA precisa lembrar.</p>
+                    <p>Não jogue especificações em banco vetorial aleatório na nuvem. Use a abstração Spring AI <code>VectorStore</code> para manter independência de vendor.</p>
+                    <p>Comece com Postgres + pgvector: banco híbrido (SQL + vetores) economiza RAM, simplifica backup e mantém procedures protegidas pelo mesmo firewall.</p>
+                    <p>Offline-first e dados locais como base operacional continuam no <a href="2026_06_25_horizonte_essencial_ep02_soberania_local.html">episódio 2 do Horizonte</a>. O pgvector encaixa nessa hierarquia — não a substitui.</p>
 
-                    <h3>Programador continua necessário</h3>
-                    <p>Quanto mais IA consome, mais vale quem entende o porquê das regras ocultas — debugar procedure, manter PDV funcional numa tela (StackPane, binding, <code>Task</code> em background, FXML modular). Esse conhecimento é escudo contra inchaço tecnológico; no-code no lugar de engenharia continua sendo vitrine.</p>
+                    <h3>O desenvolvedor não saiu de moda</h3>
+                    <p>Com sidecar, SLM e vetores no lugar, sobra uma pergunta incômoda: ainda precisa de programador?</p>
+                    <p>Sim. Quanto mais IA consome, mais vale quem entende o porquê das regras ocultas:</p>
+                    <ul>
+                        <li>debugar procedure;</li>
+                        <li>manter PDV funcional numa tela (StackPane, binding, <code>Task</code> em background, FXML modular).</li>
+                    </ul>
+                    <p>Esse conhecimento é escudo contra inchaço tecnológico. No-code no lugar de engenharia continua sendo vitrine.</p>
 
-                    <h3>O que consumir — dashboards, não hologramas</h3>
-                    <p>Não espere planilhas 3D na maioria das empresas. Espere legado com campo de busca que entende intenção e relatório executivo em PDF. Java no servidor envia JSON; o front renderiza em 2D. Revolução na conversa, não na estética.</p>
+                    <h3>Entregue valor em 2D, não em holograma</h3>
+                    <p>Arquitetura certa ainda pode morrer na expectativa errada do gestor.</p>
+                    <p>Não espere planilhas 3D na maioria das empresas. Espere legado com campo de busca que entende intenção e relatório executivo em PDF. Java no servidor envia JSON; o front renderiza em 2D.</p>
+                    <p><strong>Revolução na conversa, não na estética.</strong></p>
 
-                    <h3>Mapa da série</h3>
+                    <h3>Recapitulando a série em cinco pontos</h3>
+                    <p>Antes do veredito, o mapa completo — útil para quem leu só este artigo:</p>
                     <ol>
                         <li><strong>Hardware finito:</strong> token é imposto; VRAM é elite.</li>
                         <li><strong>Legado pesado:</strong> janela de contexto mata migração mágica.</li>
@@ -80,9 +96,12 @@
                     </ol>
 
                     <h3>Veredito final</h3>
-                    <p>Custo de quinhentos reais em tokens é preço de ser usuário. Objetivo do desenvolvedor: tornar-se arquiteto de soluções híbridas — sidecar, SLM local, pgvector no Postgres que você já backupa.</p>
-                    <p>Nenhuma empresa quebrou por manter legado que funciona; muitas quebraram migrando para magia sem equipe para sustentar alucinação. Critério e responsabilidade humana fecham o arco no <a href="2026_08_15_horizonte_essencial_epilogo_o_que_continua_humano.html">epílogo do Horizonte do Essencial</a>.</p>
-                    <p><strong>Use IA para iluminar o legado, não para reconstruí-lo no escuro.</strong></p>
+                    <p>Custo de quinhentos reais em tokens é preço de ser usuário. O objetivo do desenvolvedor: tornar-se arquiteto de soluções híbridas — sidecar, SLM local, pgvector no Postgres que você já backupa.</p>
+                    <p>Nenhuma empresa quebrou por manter legado que funciona. Muitas quebraram migrando para magia sem equipe para sustentar alucinação.</p>
+                    <p>Critério e responsabilidade humana fecham o arco no <a href="2026_08_15_horizonte_essencial_epilogo_o_que_continua_humano.html">epílogo do Horizonte do Essencial</a>.</p>
+                    <blockquote>
+                        <p><strong>Use IA para iluminar o legado, não para reconstruí-lo no escuro.</strong></p>
+                    </blockquote>
 
                     <hr>
                     <p><em><strong>Nota:</strong> Artigo final da série O Mito da Eficiência — IA, Silício e a Realidade Além da Nuvem (dez/2026 – jan/2027).</em></p>

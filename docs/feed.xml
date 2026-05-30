@@ -12,7 +12,7 @@
     <item>
       <title><![CDATA[Série O Mito da Eficiência — Sobrevivendo ao Mundo de Alice]]></title>
       <link>https://personal.caracore.com.br/articles/2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html</link>
-      <description><![CDATA[Artigo final: sidecar de IA, SLMs locais, pgvector híbrido e estratégias práticas para unir legado estável à inteligência necessária.]]></description>
+      <description><![CDATA[Artigo final: sidecar em vez de substituição, SLMs locais, pgvector no Postgres e entrega em 2D — receita para a segunda-feira sem reescrever o legado.]]></description>
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_01_19_serie_mito_eficiencia_ia_silicio_ep05.html</guid>
       <pubDate>Tue, 19 Jan 2027 00:00:00 +0000</pubDate>
     </item>
