@@ -81,16 +81,18 @@
                     <p>RAG (Retrieval-Augmented Generation) alimenta LLM com trechos recuperados do vetorial antes de responder. Qualidade depende de limpeza e enriquecimento dos dados legados — não basta "jogar" PDFs no bucket.</p>
 
                     <h3>Tipos de memória no sistema agêntico</h3>
-                    <table>
-                        <thead>
-                            <tr><th>Tipo</th><th>Para quê</th><th>Formato real</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Longo prazo</td><td>Manuais, regras, documentação</td><td>Banco vetorial (embeddings)</td></tr>
-                            <tr><td>Curto prazo</td><td>Histórico da conversa atual</td><td>Redis, NoSQL (JSON rápido)</td></tr>
-                            <tr><td>Auditoria</td><td>O que a IA decidiu e por quê</td><td>SQL tradicional (imutável)</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="chalkboard chalkboard-table">
+                        <table>
+                            <thead>
+                                <tr><th>Tipo</th><th>Para quê</th><th>Formato real</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Longo prazo</td><td>Manuais, regras, documentação</td><td>Banco vetorial (embeddings)</td></tr>
+                                <tr><td>Curto prazo</td><td>Histórico da conversa atual</td><td>Redis, NoSQL (JSON rápido)</td></tr>
+                                <tr><td>Auditoria</td><td>O que a IA decidiu e por quê</td><td>SQL tradicional (imutável)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p>Não será enciclopédia de TXT ou MD. Será ecossistema híbrido — exatamente o oposto da narrativa "substitua tudo por IA".</p>
 
                     <h3>Conclusão</h3>
