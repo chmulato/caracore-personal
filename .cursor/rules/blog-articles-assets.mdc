@@ -12,16 +12,18 @@ Para **artigos novos** (e ao editar HTML em `docs/articles/`), manter artefactos
 
 - **CSS:** `assets/css/` — p.ex. `main.css`, `article.css`, `highlight.css`; folhas novas no mesmo sítio, não ao lado do HTML.
 - **JS:** `assets/js/` — p.ex. `main.js`, `article.js`.
-- **Imagens:** `assets/img/` — convenções em `docs/articles/assets/img/README.txt`.
+- **Imagens:** `assets/img/` — convenções em `docs/articles/assets/img/README.html`.
 
 ## Marcação
 
 - `<link rel="stylesheet" href="assets/css/...">` e `<script src="assets/js/...">`.
 - `og:image` com `content="assets/img/..."` alinhado ao hero quando existir.
+- Rodapé: `post-footer` / `author-info` / `assets/img/foto_chri.jpg` (`author-avatar`).
 
 ## Evitar
 
 - CSS/JS/imagens soltos na pasta `articles/` ao lado dos HTML (fora de `assets/`).
-- Blocos grandes de `<style>` ou `<script>` inline; preferir ficheiros em `assets/css` e `assets/js` (exceções mínimas documentadas no `assets/README.txt`).
+- Blocos grandes de `<style>` ou `<script>` inline; preferir ficheiros em `assets/css` e `assets/js` (exceções mínimas, p.ex. grelha de episódios no índice de série).
+- Referências a ficheiros internos de produção (prompts, rascunhos) em páginas públicas de chamada de série.
 
-Referência humana: `docs/articles/assets/README.txt`.
+Referência humana: `docs/articles/assets/img/README.html` e regra `blog-personal-workspace.mdc`.

@@ -1,0 +1,60 @@
+---
+description: Estado e convenções do Christian Mulato Dev Blog (caracore-personal)
+globs: docs/**/*
+alwaysApply: true
+---
+
+# Blog personal — memória do workspace
+
+Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.com.br/`).
+
+## Status (atualizar ao publicar série ou artigo)
+
+- **145** HTML em `docs/articles/` com `<article class="post">`
+- Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
+- **6 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
+
+| Série | Índice / chamada | Slug filtro (`index.html`) | Slug ficheiros |
+|-------|------------------|----------------------------|----------------|
+| Brasil, SDK e Soberania | `2026_02_15_serie_brasil_sdk_soberania_index.html` | `serie-brasil-sdk` | `serie_brasil_sdk_soberania_epNN` |
+| Depois do debate | `2026_10_06_serie_depois_do_debate_carreira_index.html` | `serie-debate-carreira` | `serie_depois_do_debate_carreira_*` |
+| A Ilusão Informatizada | `2026_09_30_serie_ilusao_informatizada_index.html` | `serie-ilusao-informatizada` | `serie_ilusao_informatizada_epNN` / epílogo |
+| **O Mito da Eficiência** | `2026_12_15_serie_mito_eficiencia_ia_silicio_index.html` | `serie-mito-eficiencia` | `serie_mito_eficiencia_ia_silicio_epNN` |
+| Protocolo de Lucerna | `2026_04_20_serie_protocolo_lucerna_index.html` | `serie-lucerna` | `protocolo_lucerna_epNN` |
+| Recolocação Java | `2026_08_10_serie_recolocacao_java_teste_pratico_index.html` | `serie-recolocacao-java` | `serie_recolocacao_java_teste_pratico_epNN` |
+| Horizonte do Essencial | `2026_06_05_serie_horizonte_essencial_chamada.html` | `serie-horizonte-essencial` | `horizonte_essencial_epNN` |
+
+### Série O Mito da Eficiência (dez/2026 – jan/2027)
+
+- Título: *O Mito da Eficiência — IA, Silício e a Realidade Além da Nuvem*
+- 5 artigos (~8 min): hardware/VRAM → legado → bancos vetoriais → Jevons → sidecar/Alice
+- Cronograma: índice 15/12; ep01 22/12; ep02 29/12/2026; ep03 05/01; ep04 12/01; ep05 19/01/2027
+- Hero índice e `og:image`: reutiliza `2026_12_22_IMAGE_001.png` (exceção de índice)
+- PNG por episódio: data do HTML → `YYYY_MM_DD_IMAGE_001.png`
+- **Não** citar ficheiros internos de prompts na chamada pública da série
+
+## Checklist ao adicionar conteúdo
+
+1. HTML do artigo em `docs/articles/` (padrão das séries existentes)
+2. `docs/index.html`: cartão, `data-category-slug` com slug da série, contador de artigos, `<option>` no filtro se for série nova
+3. `docs/feed.xml`: `<item>` + `lastBuildDate`
+4. `docs/articles/assets/img/README.html` e `README.md` na raiz
+5. PNG hero em `docs/articles/assets/img/` quando existir imagem
+
+## Artigos HTML
+
+- CSS/JS/imagens só em `docs/articles/assets/` (ver regra `blog-articles-assets.mdc`)
+- Links internos **relativos**; canonical/og:url absolutos para `personal.caracore.com.br`
+- Rodapé do autor: `post-footer` + `foto_chri.jpg` + `author-avatar` (não só texto em `author-signature`)
+- Séries: nav «Índice da Série», `post-serie-kicker`, links anterior/próximo no `site-footer`
+
+## Imagens
+
+- Padrão: `YYYY_MM_DD_IMAGE_NNN.png` (data = prefixo do HTML; `001` = hero = `og:image`)
+- Partilhados: `foto_chri.jpg`, `favicon.ico`
+- Guia completo: `docs/articles/assets/img/README.html`
+
+## Index e feed
+
+- Filtro: `categoryFilter` + `data-category-slug`; match via `includes()` em `assets/js/main.js`
+- RSS: um item por artigo com `<article class="post">`; ordem decrescente por data de publicação

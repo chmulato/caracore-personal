@@ -4,11 +4,13 @@ Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo 
 
 ## Status atual do blog
 
-- Artigos existentes em `docs/articles/*.html` com marcação `<article>`: **129**
+- Artigos existentes em `docs/articles/*.html` com marcação `<article class="post">`: **145**
 - Ciclo ativo: **Junho 2026 - Maio 2029**
 - Histórico preservado antes de: **04/06/2026**
-- Séries com índice próprio: **Brasil SDK**, **Depois do debate**, **Protocolo de Lucerna**, **Recolocação Java**
-- Convenção de imagens (página HTML): `docs/articles/assets/img/README.html`
+- Séries com índice próprio: **Brasil SDK**, **Depois do debate**, **A Ilusão Informatizada**, **O Mito da Eficiência**, **Protocolo de Lucerna**, **Recolocação Java**
+- Série com chamada (sem `_index`): **Horizonte do Essencial** (`2026_06_05_serie_horizonte_essencial_chamada.html`)
+- Convenção de imagens: `docs/articles/assets/img/README.html`
+- Memória Cursor do workspace: `.cursor/rules/blog-personal-workspace.mdc`
 
 ## Convenção de links relativos
 
@@ -23,4 +25,8 @@ Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo 
   - JS: `assets/js/main.js`
   - Link para outro artigo (mesma pasta): `nome_do_artigo.html`
 
-Não usar caminhos absolutos do site (ex.: `/personal/...`) para navegação interna; usar apenas relativos. Links externos (LinkedIn, GitHub, etc.) permanecem absolutos. Canonical e og:url/og:image, quando usados, devem apontar para a URL canônica do matriz (https://personal.caracore.com.br//...).
+Não usar caminhos absolutos do site (ex.: `/personal/...`) para navegação interna; usar apenas relativos. Links externos (LinkedIn, GitHub, etc.) permanecem absolutos. Canonical e og:url/og:image, quando usados, devem apontar para a URL canônica do matriz (`https://personal.caracore.com.br/...`).
+
+## Ao publicar série ou artigo novo
+
+Atualizar em conjunto: HTML do artigo, `docs/index.html` (cartões + filtro + contador), `docs/feed.xml`, `docs/articles/assets/img/README.html`, este README e `.cursor/rules/blog-personal-workspace.mdc`.
