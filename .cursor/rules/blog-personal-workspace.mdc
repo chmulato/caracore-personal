@@ -13,6 +13,7 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 - **146** HTML em `docs/articles/` com `<article class="post">`
 - Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
 - **6 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
+- **Última memória:** jun/2026 — artigo avulso **02/06**, `index.html` e `feed.xml` alinhados a **8** publicações em Junho 2026
 
 | Série | Índice / chamada | Slug filtro (`index.html`) | Slug ficheiros |
 |-------|------------------|----------------------------|----------------|
@@ -32,6 +33,33 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 - Hero índice e `og:image`: reutiliza `2026_12_22_IMAGE_001.png` (exceção de índice)
 - PNG por episódio: data do HTML → `YYYY_MM_DD_IMAGE_001.png`
 - **Não** citar ficheiros internos de prompts na chamada pública da série
+
+### Junho 2026 (8 publicações no `index.html`)
+
+| Data | Ficheiro | Tipo |
+|------|----------|------|
+| 02/06 | `2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html` | Avulso (IA, carreira, nexialismo) |
+| 05/06 | `2026_06_05_serie_horizonte_essencial_chamada.html` | Chamada Horizonte do Essencial |
+| 07/06 | `2026_06_07_protocolo_lucerna_ep03_ponto_cego_qualidade.html` | Lucerna ep03 |
+| 13/06 | `2026_06_13_protocolo_lucerna_ep04_anatomia_rastro_digital.html` | Lucerna ep04 |
+| 15/06 | `2026_06_15_horizonte_essencial_ep01_peso_do_hardware.html` | Horizonte ep01 |
+| 22/06 | `2026_06_22_serie_brasil_sdk_soberania_ep05.html` | Brasil SDK ep05 |
+| 25/06 | `2026_06_25_horizonte_essencial_ep02_soberania_local.html` | Horizonte ep02 |
+| 30/06 | `2026_06_30_protocolo_lucerna_ep05_identidade_fluida_sombra_lucerna.html` | Lucerna ep05 |
+
+Hero do avulso 02/06: `2026_06_02_IMAGE_001.png`. Slug filtro no cartão: `ia mercado desenvolvimento carreira`.
+
+### Linha editorial AutoCAD → IA (avulsos)
+
+- **2025-07-03** `2025_07_03_da_prancheta_ao_prompt_o_futuro_da_criacao_de_softwares_com_inteligencia_artificial.html` — origem (LinkedIn / prancheta → prompt; arquiteto vs digitador).
+- **2026-06-02** `2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html` — aprofundamento (faculdade 1994, nexialismo, commodity de código, 5 competências, cobrança por resultado).
+- No HTML de 02/06: nota no topo com link relativo para jul/2025. No `index.html`: cartão com link na descrição para o mesmo artigo.
+- Temas próximos (não duplicar sem necessidade): `2026_05_08_o_pendulo_da_tecnologia_...` (RAD/CASE, curadoria de soluções); série **Depois do debate** (IA e carreira).
+
+### Horizonte do Essencial (chamada, sem `_index`)
+
+- Chamada: `2026_06_05_serie_horizonte_essencial_chamada.html` — título no HTML: *Série: Horizonte do Essencial*
+- Cronograma jun–ago/2026: ep01 15/06, ep02 25/06, ep03 05/07, ep04 25/07, ep05 05/08, epílogo 15/08
 
 ## Checklist ao adicionar conteúdo
 
