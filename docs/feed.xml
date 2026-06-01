@@ -5,7 +5,7 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
@@ -304,6 +304,13 @@
       <description><![CDATA[Chamada editorial da série: custo real, soberania local e automação discreta, com 5 artigos e 1 epílogo.]]></description>
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_05_serie_horizonte_essencial_chamada.html</guid>
       <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Do AutoCAD à Inteligência Artificial: O Programador Está se Tornando um Novo Tipo de Projetista?]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html</link>
+      <description><![CDATA[Paralelo entre AutoCAD nos anos 90 e a IA generativa hoje: código como commodity, programador nexialista e as competências que o mercado passará a valorizar.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html</guid>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Série Recolocação Java — Episódio 07: Checklist final e entrega defensável]]></title>

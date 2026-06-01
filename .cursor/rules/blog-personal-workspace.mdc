@@ -10,7 +10,7 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **145** HTML em `docs/articles/` com `<article class="post">`
+- **146** HTML em `docs/articles/` com `<article class="post">`
 - Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
 - **6 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
 
