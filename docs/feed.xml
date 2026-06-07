@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Tue, 02 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jan 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[A Mesa dos Gigantes: O Conto dos Não Convidados na Era dos Ativos]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_01_24_a_mesa_dos_gigantes.html</link>
+      <description><![CDATA[Um conto satírico sobre o abismo geracional, a moradia impossível e o malabarismo dos nômades digitais espremidos entre as decisões de grandes líderes e a economia de ativos.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_01_24_a_mesa_dos_gigantes.html</guid>
+      <pubDate>Sun, 24 Jan 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Série O Mito da Eficiência — Sobrevivendo ao Mundo de Alice]]></title>
