@@ -10,10 +10,10 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **147** HTML em `docs/articles/` com `<article class="post">`
+- **149** HTML em `docs/articles/` com `<article class="post">`
 - Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
 - **6 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
-- **Última memória:** jun/2026 — artigo avulso **02/06**, `index.html` e `feed.xml` alinhados a **8** publicações em Junho 2026
+- **Última memória:** jan/2027 — artigo avulso **30/01**, `index.html` e `feed.xml` alinhados.
 
 | Série | Índice / chamada | Slug filtro (`index.html`) | Slug ficheiros |
 |-------|------------------|----------------------------|----------------|
@@ -34,9 +34,10 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 - PNG por episódio: data do HTML → `YYYY_MM_DD_IMAGE_001.png`
 - **Não** citar ficheiros internos de prompts na chamada pública da série
 
-### Conto Avulso (Janeiro 2027)
+### Artigos Avulsos (Janeiro 2027)
 
 - **2027-01-24** `2027_01_24_a_mesa_dos_gigantes.html` — conto avulso: *A Mesa dos Gigantes: O Conto dos Não Convidados na Era dos Ativos* (realismo fantástico/sátira sobre abismo geracional, moradia e geopolítica). Hero: `2027_01_24_IMAGE_001.png`. Slugs: `ia mercado carreira`.
+- **2027-01-30** `2027_01_30_a_paciencia_da_semeadura.html` — artigo avulso: *A Paciência da Semeadura: O Tempo Real da Engenharia contra o Imediatismo da IA* (reflexão sobre ritmo de maturação de software, marcenaria fina vs IA). Hero: `2027_01_30_IMAGE_001.png`. Slugs: `desenvolvimento carreira ia`.
 
 ### Junho 2026 (8 publicações no `index.html`)
 
