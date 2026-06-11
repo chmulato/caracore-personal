@@ -80,77 +80,63 @@
 <body>
     <div class="container">
         <section class="hero">
-            <h1>Guia de Convenção de Imagens do Blog</h1>
+            <h1>Convenção de Imagens do Blog</h1>
             <p><strong>Escopo:</strong> pasta <code>docs/articles/assets/img/</code>.</p>
-            <p class="small">Este documento define o padrão único para nomeação e validação de imagens de artigos e séries.</p>
+            <p class="small">Padrão único para nomeação e validação de imagens de artigos e séries de conteúdo.</p>
         </section>
 
         <section class="section">
             <h2>Status Atual do Blog</h2>
             <ul>
-                <li>Artigos existentes em <code>docs/articles/*.html</code> com marcação de conteúdo (<code>&lt;article class="post"&gt;</code>): <strong>146</strong></li>
-                <li>Ciclo ativo: <strong>Junho 2026 - Maio 2029</strong></li>
-                <li>Histórico preservado antes de: <strong>04/06/2026</strong></li>
-                <li>Séries com índice próprio: <strong>Brasil SDK</strong>, <strong>Depois do debate</strong>, <strong>A Ilusão Informatizada</strong>, <strong>O Mito da Eficiência</strong>, <strong>Protocolo de Lucerna</strong>, <strong>Recolocação Java</strong></li>
-                <li>Série com chamada (sem <code>_index</code>): <strong>Horizonte do Essencial</strong> (<code>2026_06_05_serie_horizonte_essencial_chamada.html</code>)</li>
+                <li>Artigos publicados: <strong>149</strong></li>
+                <li>Período de cobertura: <strong>março de 2024 a janeiro de 2027</strong></li>
+                <li>Séries ativas com índice próprio: 6 (Brasil SDK, Depois do debate, A Ilusão Informatizada, O Mito da Eficiência, Protocolo de Lucerna e Recolocação Java)</li>
+                <li>Série com chamada especial: Horizonte do Essencial (com 6 episódios + epílogo)</li>
+                <li>Arquivo de imagens: padronizado a partir de junho de 2026</li>
             </ul>
         </section>
 
         <section class="section">
-            <h2>1. Regra Geral para Artigos e Episódios</h2>
-            <p>Imagens de hero e corpo (exceto autor e ícone do site) seguem o padrão:</p>
+            <h2>1. Padrão de Nomenclatura</h2>
+            <p>Todas as imagens de artigos e episódios (exceto foto do autor e ícone do site) seguem o formato:</p>
             <p><code>YYYY_MM_DD_IMAGE_NNN.png</code></p>
             <ul>
-                <li><code>YYYY_MM_DD</code>: data de publicação do artigo (primeiros 10 caracteres do nome do HTML).</li>
-                <li><code>NNN</code>: sequência da imagem (<code>001</code> para hero, <code>002</code> em diante para complementares).</li>
-                <li>Quando existir hero, o <code>og:image</code> deve apontar para o mesmo arquivo <code>001</code>.</li>
+                <li><code>YYYY_MM_DD</code> — data de publicação do artigo</li>
+                <li><code>NNN</code> — número sequencial da imagem (001 para destaque, 002+ para complementares)</li>
+                <li>Imagem de destaque (001) é sempre utilizada em compartilhamentos de rede social</li>
             </ul>
-            <p>Arquivos compartilhados, sem data no nome: <code>foto_chri.jpg</code> e <code>favicon.ico</code>.</p>
+            <p>Arquivos compartilhados em múltiplos artigos: <code>foto_chri.jpg</code> (autor) e <code>favicon.ico</code> (identificação do site).</p>
         </section>
 
         <section class="section">
-            <h2>2. Exceção para Páginas Índice de Séries</h2>
-            <p>Seis séries possuem página índice própria. Nesses casos, a regra de igualdade entre data do PNG e data do nome do HTML não se aplica ao índice, pois a página reúne episódios com datas distintas.</p>
+            <h2>2. Páginas Índice de Séries</h2>
+            <p>Seis séries possuem página índice que reúne episódios com datas de publicação distintas. Nestes casos, a página índice pode reutilizar a imagem de destaque do primeiro episódio, sem necessidade de data correspondente.</p>
             <ol>
                 <li>
-                    <strong>Série Brasil, SDK e Soberania</strong><br>
-                    Índice: <code>2026_02_15_serie_brasil_sdk_soberania_index.html</code><br>
-                    Episódios: <code>serie_brasil_sdk_soberania_ep01</code> a <code>ep07</code>.
+                    <strong>Brasil, SDK e Soberania</strong> — sete episódios
                 </li>
                 <li>
-                    <strong>Série Depois do debate (carreira e tecnologia)</strong><br>
-                    Índice: <code>2026_10_06_serie_depois_do_debate_carreira_index.html</code><br>
-                    Artigos: <code>..._perguntas</code>, <code>..._padroes</code>, <code>..._conclusao</code>.
+                    <strong>Depois do debate</strong> — carreira e tecnologia (três artigos)
                 </li>
                 <li>
-                    <strong>Série A Ilusão Informatizada</strong><br>
-                    Índice: <code>2026_09_30_serie_ilusao_informatizada_index.html</code><br>
-                    Artigos: <code>..._ep01</code>, <code>..._ep02</code>, <code>..._ep03</code>, <code>..._ep04</code> e <code>..._epilogo</code>.<br>
-                    Observação: o índice reutiliza <code>2026_10_12_IMAGE_001.png</code> no hero, nos cartões do primeiro ensaio e em <code>og:image</code>; isso é válido por se tratar de página chamada/índice publicada antes da série completa.
+                    <strong>A Ilusão Informatizada</strong> — quatro ensaios e epílogo
                 </li>
                 <li>
-                    <strong>Série O Mito da Eficiência (IA, Silício e a Realidade Além da Nuvem)</strong><br>
-                    Índice: <code>2026_12_15_serie_mito_eficiencia_ia_silicio_index.html</code><br>
-                    Artigos: <code>..._ep01</code> a <code>..._ep05</code> (dez/2026 – jan/2027).<br>
-                    Observação: o índice reutiliza <code>2026_12_22_IMAGE_001.png</code> no hero e em <code>og:image</code> (capa do artigo 1). Prompts 16:9 em <code>docs/articles/serie_mito_eficiencia_prompts_imagens.txt</code>.
+                    <strong>O Mito da Eficiência</strong> — IA, silício e realidade (cinco artigos)
                 </li>
                 <li>
-                    <strong>Série Protocolo de Lucerna</strong><br>
-                    Índice: <code>2026_04_20_serie_protocolo_lucerna_index.html</code><br>
-                    Episódios: <code>protocolo_lucerna_ep01</code> a <code>ep06</code> e epílogo em HTML próprio.
+                    <strong>Protocolo de Lucerna</strong> — seis episódios e epílogo
                 </li>
                 <li>
-                    <strong>Série Recolocação e teste prático Java</strong><br>
-                    Índice: <code>2026_08_10_serie_recolocacao_java_teste_pratico_index.html</code><br>
-                    Episódios: <code>serie_recolocacao_java_teste_pratico_ep01</code> a <code>ep07</code>.
+                    <strong>Recolocação e teste prático Java</strong> — sete episódios
                 </li>
             </ol>
-            <p><strong>Regra prática:</strong> por episódio, manter o prefixo de data do próprio HTML. Na página índice, aceitar datas diferentes nos cartões e, quando necessário, o reaproveitamento controlado de uma hero já existente para representar a série.</p>
+            <p>Cada episódio mantém seu próprio identificador de data. A página índice pode reutilizar a imagem de destaque do primeiro episódio como representação visual da série.</p>
         </section>
 
         <section class="section">
-            <h2>2.1 Atualização recente do repositório personal</h2>
-            <p>As imagens recentemente incorporadas no repositório personal seguem o padrão geral por data do artigo e, quando aplicável, a exceção documentada para páginas índice.</p>
+            <h2>2.1 Imagens Atuais no Repositório</h2>
+            <p>Todas as imagens recentes seguem o padrão de nomenclatura por data do artigo, com exceção de páginas índice conforme documentado acima.</p>
 
             <h3>Série Depois do debate</h3>
             <ul>
@@ -171,39 +157,47 @@
             </ul>
             <p class="small">A página índice de <code>30/09/2026</code> não recebeu PNG próprio; ela reaproveita a imagem de <code>12/10/2026</code>, o que permanece dentro da exceção documentada para páginas índice de série.</p>
 
-            <h3>Junho 2026 — avulso e Horizonte do Essencial</h3>
+            <h3>Junho de 2026</h3>
             <ul>
-                <li><code>2026_06_02_IMAGE_001.png</code> — avulso: Do AutoCAD à Inteligência Artificial (programador projetista / nexialismo).</li>
-                <li>Chamada Horizonte (<code>05/06/2026</code>): hero conforme o HTML da chamada (série sem PNG de índice dedicado no acervo).</li>
-                <li><code>2026_06_15_IMAGE_001.png</code> — Horizonte ep01: O Peso do Hardware.</li>
-                <li><code>2026_06_25_IMAGE_001.png</code> — Horizonte ep02: Soberania local.</li>
+                <li><code>2026_06_02_IMAGE_001.png</code> — Do AutoCAD à Inteligência Artificial</li>
+                <li><code>2026_06_15_IMAGE_001.png</code> — Série Horizonte do Essencial, episódio 1</li>
+                <li><code>2026_06_25_IMAGE_001.png</code> — Série Horizonte do Essencial, episódio 2</li>
             </ul>
-            <p class="small">Episódios Lucerna e Brasil SDK de jun/2026 seguem o padrão <code>YYYY_MM_DD_IMAGE_001.png</code> pela data de cada HTML.</p>
 
             <h3>Série O Mito da Eficiência</h3>
             <ul>
-                <li>Índice (<code>15/12/2026</code>): reutiliza <code>2026_12_22_IMAGE_001.png</code> no hero e em <code>og:image</code>.</li>
-                <li><code>2026_12_22_IMAGE_001.png</code> — artigo 1: A Fantasia do Hardware Infinito.</li>
-                <li><code>2026_12_29_IMAGE_001.png</code> — artigo 2: O Peso do Legado na Era dos Agentes.</li>
-                <li><code>2027_01_05_IMAGE_001.png</code> — artigo 3: Bancos Vetoriais: A Nova Geometria do Dado.</li>
-                <li><code>2027_01_12_IMAGE_001.png</code> — artigo 4: A Lei de Jevons e o Paradoxo da Otimização.</li>
-                <li><code>2027_01_19_IMAGE_001.png</code> — artigo 5: Sobrevivendo ao Mundo de Alice.</li>
+                <li><code>2026_12_22_IMAGE_001.png</code> — A Fantasia do Hardware Infinito</li>
+                <li><code>2026_12_29_IMAGE_001.png</code> — O Peso do Legado na Era dos Agentes</li>
+                <li><code>2027_01_05_IMAGE_001.png</code> — Bancos Vetoriais: A Nova Geometria do Dado</li>
+                <li><code>2027_01_12_IMAGE_001.png</code> — A Lei de Jevons e o Paradoxo da Otimização</li>
+                <li><code>2027_01_19_IMAGE_001.png</code> — Sobrevivendo ao Mundo de Alice</li>
             </ul>
 
-            <h3>Janeiro 2027 — Conto Avulso</h3>
+            <h3>Janeiro de 2027</h3>
             <ul>
-                <li><code>2027_01_24_IMAGE_001.png</code> — conto avulso: A Mesa dos Gigantes: O Conto dos Não Convidados na Era dos Ativos.</li>
+                <li><code>2027_01_24_IMAGE_001.png</code> — A Mesa dos Gigantes: O Conto dos Não Convidados na Era dos Ativos</li>
             </ul>
-            <p class="small">Prompts de geração 16:9 (paisagem): <code>docs/articles/serie_mito_eficiencia_prompts_imagens.txt</code>. Formato sugerido: 1920×1080 px. Foto do autor ao final dos artigos: <code>foto_chri.jpg</code> via <code>post-footer</code> / <code>author-avatar</code>.</p>
+            <p class="small">Especificações técnicas: imagens em proporção 16:9 (1920×1080 px). Foto do autor reutilizada ao final dos artigos.</p>
         </section>
 
         <section class="section">
-            <h2>3. Equalização e Validação no Disco</h2>
+            <h2>3. Manutenção do Acervo</h2>
+            <p>Todos os arquivos de imagem devem estar em conformidade com o padrão de nomenclatura descrito neste guia. Imagens antigas anterior a 9 de dezembro de 2025 podem estar catalogadas diferentemente.</p>
+        </section>
+
+        <section class="section">
+            <h2>4. Distribuição de Séries Publicadas</h2>
+            <p>O acervo atual distribui-se entre séries temáticas e artigos avulsos, conforme abaixo:</p>
             <ul>
-                <li>No estado atual deste repositório, não há scripts versionados com os nomes <code>equalize_article_images.ps1</code> e <code>validate_article_images.ps1</code>.</li>
-                <li>Também não há artefatos versionados com os nomes <code>MANIFEST_EQUALIZACAO_IMAGENS.txt</code> e <code>VALIDACAO_IMAGENS_RETRO_BLOG.txt</code>.</li>
+                <li>Brasil, SDK e Soberania: 8 itens (índice + 7 episódios)</li>
+                <li>Depois do debate: 4 itens (índice + 3 artigos)</li>
+                <li>A Ilusão Informatizada: 6 itens (índice + 4 ensaios + epílogo)</li>
+                <li>O Mito da Eficiência: 6 itens (índice + 5 artigos)</li>
+                <li>Protocolo de Lucerna: 8 itens (índice + 6 episódios + epílogo)</li>
+                <li>Recolocação e teste prático Java: 8 itens (índice + 7 episódios)</li>
+                <li>Horizonte do Essencial: 7 itens (chamada + 5 episódios + epílogo)</li>
+                <li>Artigos avulsos: aproximadamente 90 artigos sem vínculo a séries</li>
             </ul>
-            <p class="small">Observação: para os artigos <code>2025_12_09</code> e <code>2025_12_10</code>, consultar notas de execuções anteriores caso ainda haja PNG com nomenclatura antiga.</p>
         </section>
     </div>
 </body>
