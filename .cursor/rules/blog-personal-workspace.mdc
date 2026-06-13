@@ -10,7 +10,7 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **150** HTML em `docs/articles/` com `<article class="post">`
+- **151** HTML em `docs/articles/` com `<article class="post">`
 - Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
 - **6 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
 - **Última memória:** jan/2027 — artigo avulso **30/01**, `index.html` e `feed.xml` alinhados.
@@ -39,7 +39,7 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 - **2027-01-24** `2027_01_24_a_mesa_dos_gigantes.html` — conto avulso: *A Mesa dos Gigantes: O Conto dos Não Convidados na Era dos Ativos* (realismo fantástico/sátira sobre abismo geracional, moradia e geopolítica). Hero: `2027_01_24_IMAGE_001.png`. Slugs: `ia mercado carreira`.
 - **2027-01-30** `2027_01_30_a_paciencia_da_semeadura.html` — artigo avulso: *A Paciência da Semeadura: O Tempo Real da Engenharia contra o Imediatismo da IA* (reflexão sobre ritmo de maturação de software, marcenaria fina vs IA). Hero: `2027_01_30_IMAGE_001.png`. Slugs: `desenvolvimento carreira ia`.
 
-### Junho 2026 (8 publicações no `index.html`)
+### Junho 2026 (9 publicações no `index.html`)
 
 | Data | Ficheiro | Tipo |
 |------|----------|------|
@@ -47,12 +47,14 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 | 05/06 | `2026_06_05_serie_horizonte_essencial_chamada.html` | Chamada Horizonte do Essencial |
 | 07/06 | `2026_06_07_protocolo_lucerna_ep03_ponto_cego_qualidade.html` | Lucerna ep03 |
 | 13/06 | `2026_06_13_protocolo_lucerna_ep04_anatomia_rastro_digital.html` | Lucerna ep04 |
+| 14/06 | `2026_06_14_o_espelho_da_linha_de_frente_Ilusoes_digitais_e_o_cerco_a_economia_invisivel.html` | Avulso (Compliance, Fintechs, Regulação) |
 | 15/06 | `2026_06_15_horizonte_essencial_ep01_peso_do_hardware.html` | Horizonte ep01 |
 | 22/06 | `2026_06_22_serie_brasil_sdk_soberania_ep05.html` | Brasil SDK ep05 |
 | 25/06 | `2026_06_25_horizonte_essencial_ep02_soberania_local.html` | Horizonte ep02 |
 | 30/06 | `2026_06_30_protocolo_lucerna_ep05_identidade_fluida_sombra_lucerna.html` | Lucerna ep05 |
 
 Hero do avulso 02/06: `2026_06_02_IMAGE_001.png`. Slug filtro no cartão: `ia mercado desenvolvimento carreira`.
+Hero do avulso 14/06: `2026_06_14_IMAGE_001.png`. Slug filtro no cartão: `compliance mercado`.
 
 ### Linha editorial AutoCAD → IA (avulsos)
 
