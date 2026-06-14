@@ -4,13 +4,13 @@ Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo 
 
 ## Status atual do blog
 
-- Artigos existentes em `docs/articles/*.html` com marcação `<article class="post">`: **151**
+- Artigos existentes em `docs/articles/*.html` com marcação `<article class="post">`: **152**
 - Ciclo ativo: **Junho 2026 - Maio 2029**
 - Histórico preservado antes de: **04/06/2026**
 - Séries com índice próprio: **Brasil SDK**, **Depois do debate**, **A Ilusão Informatizada**, **O Mito da Eficiência**, **Protocolo de Lucerna**, **Recolocação Java**
 - Série com chamada (sem `_index`): **Horizonte do Essencial** (`2026_06_05_serie_horizonte_essencial_chamada.html`)
-- **Junho 2026:** 9 artigos no índice (avulso 02/06 + avulso 14/06 + chamada Horizonte + episódios Lucerna, Horizonte e Brasil SDK)
-- **Último avulso publicado (jun/2026):** [O Espelho da Linha de Frente...](docs/articles/2026_06_14_o_espelho_da_linha_de_frente_Ilusoes_digitais_e_o_cerco_a_economia_invisivel.html) e [Do AutoCAD à Inteligência Artificial…](docs/articles/2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html) — continuação de [Da Prancheta ao Prompt](docs/articles/2025_07_03_da_prancheta_ao_prompt_o_futuro_da_criacao_de_softwares_com_inteligencia_artificial.html) (jul/2025)
+- **Junho 2026:** 10 artigos no índice (avulso 02/06 + avulso 14/06 + avulso 19/06 + chamada Horizonte + episódios Lucerna, Horizonte e Brasil SDK)
+- **Último avulso publicado (jun/2026):** [Os Erros Invisíveis na Arquitetura...](docs/articles/2026_06_19_os_erros_invisiveis_na_arquitetura_que_ninguem_te_conta.html), [O Espelho da Linha de Frente...](docs/articles/2026_06_14_o_espelho_da_linha_de_frente_Ilusoes_digitais_e_o_cerco_a_economia_invisivel.html) e [Do AutoCAD à Inteligência Artificial…](docs/articles/2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html) — continuação de [Da Prancheta ao Prompt](docs/articles/2025_07_03_da_prancheta_ao_prompt_o_futuro_da_criacao_de_softwares_com_inteligencia_artificial.html) (jul/2025)
 - Convenção de imagens: `docs/articles/assets/img/README.html`
 - Memória Cursor do workspace: `.cursor/rules/blog-personal-workspace.mdc`
 
