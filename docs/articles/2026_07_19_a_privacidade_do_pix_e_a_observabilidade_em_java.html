@@ -107,7 +107,9 @@ public class PixDataMasker extends MessageConverter {
 
                     <ul>
                         <li><strong>Logs Centralizados (Mascaramento JSON):</strong> As instâncias Java enviam a saída em formato estruturado (JSON, utilizando a biblioteca <code>logstash-logback-encoder</code>) para a console de saída padrão do container. Ferramentas como o FluentBit capturam esse fluxo e o indexam no Elasticsearch ou Grafana Loki. Como o mascaramento ocorreu na JVM, nenhum dado sensível chega ao indexador de logs.</li>
-                        <li><strong>Metrics (Métricas Numéricas Limpas):</strong> O uso de bibliotecas como o Micrometer (integrado no Spring Boot Actuator) expõe endpoints estritamente numéricos para raspagem do Prometheus. As métricas jamais devem carregar dados de identificação pessoal (PII) em suas <strong>etiquetas</strong> (labels). Registra-se apenas volumetria agregada: <code>pix_failures_total{status="timeout"}</code>.</li>
+                        <li><strong>Metrics (Métricas Numéricas Limpas):</strong> O uso de bibliotecas como o Micrometer (integrado no Spring Boot Actuator) expõe endpoints estritamente numéricos para raspagem do Prometheus. As métricas jamais devem carregar dados de identificação pessoal (PII) em suas <strong>etiquetas</strong> (labels). Registra-se apenas volumetria agregada:
+                            <div class="chalkboard"><pre><code>pix_failures_total{status="timeout"}</code></pre></div>
+                        </li>
                         <li><strong>Traces (Rastreamento Correlacionado):</strong> Através de frameworks como OpenTelemetry Java Agent, geramos um ID de correlação único (Trace ID) que acompanha a jornada do Pix por todos os microsserviços (API, Risco, Core Bancário). Se um erro operacional ocorrer, a equipe de desenvolvimento busca pelo Trace ID, identificando a falha de ponta a ponta no cluster de Kubernetes, sem expor nenhum dado sensível dos clientes envolvidos na transação.</li>
                     </ul>
 
