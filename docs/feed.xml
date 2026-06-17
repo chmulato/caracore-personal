@@ -68,6 +68,13 @@
       <pubDate>Mon, 15 Dec 2026 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title><![CDATA[A Privacidade do Pix e a Observabilidade em Java: O Dilema da Exposição Cadastral]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_07_19_a_privacidade_do_pix_e_a_observabilidade_em_java.html</link>
+      <description><![CDATA[Como implementar mascaramento de logs com Custom Converters em Logback e gerenciar observabilidade segura no Kubernetes em conformidade com a LGPD.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_07_19_a_privacidade_do_pix_e_a_observabilidade_em_java.html</guid>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title><![CDATA[O Protocolo de Lucerna — Ep. 1: O Ultimato das 14h30]]></title>
       <link>https://personal.caracore.com.br/articles/2026_05_05_protocolo_lucerna_ep01_ultimato_14h30.html</link>
       <description><![CDATA[Primeiro episódio da série O Protocolo de Lucerna. Uma migração crítica de middleware sob janela agressiva: quando a promessa comercial colide com a realidade da infraestrutura e a soberania técnica é posta à prova.]]></description>
