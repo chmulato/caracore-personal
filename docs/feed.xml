@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Sat, 30 Jan 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Feb 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[O Bug do Dia 20 e a Cara de Pastel: Uma Fábula sobre a IA no Front da Vida Real]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_02_05_o_bug_do_dia_20_e_a_cara_de_pastel_uma_fabula_sobre_a_ia_no_front_da_vida_real.html</link>
+      <description><![CDATA[Uma crônica satírica sobre os limites da automação de código no frontend, a dependência de assistentes de IA e o inevitável encontro com a realidade técnica no dia de faturamento.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_02_05_o_bug_do_dia_20_e_a_cara_de_pastel_uma_fabula_sobre_a_ia_no_front_da_vida_real.html</guid>
+      <pubDate>Fri, 05 Feb 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[A Paciência da Semeadura: O Tempo Real da Engenharia contra o Imediatismo da IA]]></title>
@@ -66,7 +74,6 @@
       <description><![CDATA[Chamada à série de cinco artigos (dez/2026 – jan/2027): hardware, legado, bancos vetoriais, Jevons e estratégias práticas contra o oba-oba da IA.]]></description>
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html</guid>
       <pubDate>Mon, 15 Dec 2026 00:00:00 +0000</pubDate>
-    </item>
     <item>
       <title><![CDATA[A Privacidade do Pix e a Observabilidade em Java: O Dilema da Exposição Cadastral]]></title>
       <link>https://personal.caracore.com.br/articles/2026_07_19_a_privacidade_do_pix_e_a_observabilidade_em_java.html</link>
