@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Fri, 05 Feb 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Feb 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[O Teatro da Ordem: Fronteiras Invisíveis, Tecnocracia e o Emburrecimento Planejado]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_02_10_o_teatro_da_ordem_fronteiras_invisiveis_tecnocracia_e_o_emburrecimento_planejado.html</link>
+      <description><![CDATA[Uma análise sobre a digitalização de fronteiras, o pragmatismo das body-shops de TI e a centralização geopolítica sob a ótica da tecnocracia e do emburrecimento planejado.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_02_10_o_teatro_da_ordem_fronteiras_invisiveis_tecnocracia_e_o_emburrecimento_planejado.html</guid>
+      <pubDate>Wed, 10 Feb 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[O Bug do Dia 20 e a Cara de Pastel: Uma Fábula sobre a IA no Front da Vida Real]]></title>
