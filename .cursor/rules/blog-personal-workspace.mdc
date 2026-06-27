@@ -10,11 +10,11 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **153** HTML em `docs/articles/` com `<article class="post">`
+- **179** HTML em `docs/articles/` com `<article class="post">`
 - Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
-- **6 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
-- **Última memória:** jan/2027 — artigo avulso **30/01**, `index.html` e `feed.xml` alinhados.
-- **Última publicação inserida:** 27/06/2026 — A Normose da Engenharia Financeira e o Retrato de Veblen.
+- **9 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
+- **Última memória:** jun/2027 — série **Além do Hype** (10/06/2027), `index.html` e `feed.xml` alinhados.
+- **Última publicação inserida:** 10/06/2027 — O Caminho do Meio — O Monolito Modular e Extração.
 
 | Série | Índice / chamada | Slug filtro (`index.html`) | Slug ficheiros |
 |-------|------------------|----------------------------|----------------|
@@ -25,6 +25,9 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 | Protocolo de Lucerna | `2026_04_20_serie_protocolo_lucerna_index.html` | `serie-lucerna` | `protocolo_lucerna_epNN` |
 | Recolocação Java | `2026_08_10_serie_recolocacao_java_teste_pratico_index.html` | `serie-recolocacao-java` | `serie_recolocacao_java_teste_pratico_epNN` |
 | Horizonte do Essencial | `2026_06_05_serie_horizonte_essencial_chamada.html` | `serie-horizonte-essencial` | `horizonte_essencial_epNN` |
+| As Redes Invisíveis | `2027_02_12_serie_redes_invisiveis_index.html` | `serie-redes-invisiveis` | `serie_redes_invisiveis_epNN` |
+| O Novo Tabuleiro do Mundo | `2027_05_02_serie_novo_tabuleiro_index.html` | `serie-novo-tabuleiro` | `serie_novo_tabuleiro_epNN` |
+| Além do Hype | `2027_05_05_serie_alem_hype_monolitos_microservicos_index.html` | `serie-alem-hype` | `serie_alem_hype_monolitos_microservicos_epNN` |
 
 ### Série O Mito da Eficiência (dez/2026 – jan/2027)
 

@@ -5,9 +5,57 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Fri, 16 Apr 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jun 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Além do Hype — Ep. 5 (Epílogo): O Caminho do Meio — O Monolito Modular e Extração]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_06_10_serie_alem_hype_monolitos_microservicos_ep05.html</link>
+      <description><![CDATA[Artigo 5 e Epílogo da série Além do Hype. Encerramos a série detalhando o Monolito Modular como fundação ideal e o padrão Strangler Fig para extrações arquiteturais cirúrgicas.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_06_10_serie_alem_hype_monolitos_microservicos_ep05.html</guid>
+      <pubDate>Thu, 10 Jun 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Além do Hype — Ep. 4: A Realidade Financeira e Operacional (FinOps & Carga Cognitiva)]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_06_03_serie_alem_hype_monolitos_microservicos_ep04.html</link>
+      <description><![CDATA[Artigo 4 da série Além do Hype. Analisamos a realidade financeira (FinOps), custos ocultos de infraestrutura e a sobrecarga de carga cognitiva nas equipes.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_06_03_serie_alem_hype_monolitos_microservicos_ep04.html</guid>
+      <pubDate>Thu, 03 Jun 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Além do Hype — Ep. 3: O Design do Negócio e a Lei de Conway]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_05_27_serie_alem_hype_monolitos_microservicos_ep03.html</link>
+      <description><![CDATA[Artigo 3 da série Além do Hype. Investigamos a relação invisível entre a organização de times e a arquitetura técnica usando DDD Estratégico e a Lei de Conway.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_05_27_serie_alem_hype_monolitos_microservicos_ep03.html</guid>
+      <pubDate>Thu, 27 May 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Além do Hype — Ep. 2: A Matemática da Escala — Volumetria, Rede e a Teoria das Filas]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_05_20_serie_alem_hype_monolitos_microservicos_ep02.html</link>
+      <description><![CDATA[Artigo 2 da série Além do Hype. Analisamos de forma estatística e matemática o custo da rede, a Lei de Amdahl, a Universal Scalability Law de Gunther e a Teoria das Filas.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_05_20_serie_alem_hype_monolitos_microservicos_ep02.html</guid>
+      <pubDate>Thu, 20 May 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Além do Hype — Ep. 1: O Pêndulo da Computação e a Arquitetura Orientada a Currículo]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_05_13_serie_alem_hype_monolitos_microservicos_ep01.html</link>
+      <description><![CDATA[Artigo 1 da série Além do Hype: O Pêndulo da Computação e a Arquitetura Orientada a Currículo. Uma imersão na psicologia do mercado, na história cíclica de centralização e descentralização e no fenômeno do CV-Driven Development.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_05_13_serie_alem_hype_monolitos_microservicos_ep01.html</guid>
+      <pubDate>Thu, 13 May 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Série: Além do Hype: O Pêndulo entre Monolitos e Microsserviços — Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html</link>
+      <description><![CDATA[Chamada e índice para a série avaliando monolitos, microsserviços, custos de nuvem, DDD e Conway de forma pragmática e científica.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html</guid>
+      <pubDate>Wed, 05 May 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[As Redes Invisíveis — Epílogo: A Descentralização do Silêncio e a Lei das Duas Gerações]]></title>

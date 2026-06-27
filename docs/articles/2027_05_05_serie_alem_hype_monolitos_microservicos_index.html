@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html" />
+    <meta property="og:image" content="assets/img/2027_05_05_IMAGE_001.png" />
+    <title>Série: Além do Hype: O Pêndulo entre Monolitos e Microsserviços — Índice</title>
+    <meta name="description" content="Chamada à série Além do Hype: cinco artigos avaliando monolitos, microsserviços, custos de nuvem, DDD e Conway de forma pragmática e científica — maio a junho de 2027.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Monolito, Microsserviços, Arquitetura de Software, DDD, Conway, FinOps, Teoria das Filas, Christian Mulato">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <style>
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .episode-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .episode-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1e293b 0%, #0f766e 100%);
+        }
+        .episode-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .episode-number {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .episode-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .episode-title a:hover {
+            color: var(--primary-color);
+        }
+        .episode-teaser {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .episode-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+        }
+        .episode-card-figure {
+            margin: 0;
+        }
+        .episode-card-caption {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.45;
+            padding: 0.5rem 0.85rem 0.65rem;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .episode-card-caption {
+            color: #94a3b8;
+            background: #0f172a;
+            border-top-color: #334155;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+            <nav class="main-nav">
+                <a href="../index.html">Início</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+                <header class="post-header">
+                    <p class="post-serie-kicker">Série: Além do Hype — Índice e Apresentação</p>
+                    <h1 class="post-title">Série: Além do Hype: O Pêndulo entre Monolitos e Microsserviços</h1>
+                    <div class="post-meta">
+                        <time datetime="2027-05-05">05/05/2027</time> — 5 artigos | Lançamentos de maio a junho de 2027
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <figure class="hero-image-frame">
+                        <img src="assets/img/2027_05_05_IMAGE_001.png" alt="Série Além do Hype: índice" class="hero-image" />
+                        <figcaption class="hero-image-caption">Capa da série: o pêndulo oscilando entre o peso sólido e coeso do monolito e a teia distribuída de microsserviços.</figcaption>
+                    </figure>
+
+                    <h2>O Gancho Emocional: O Custo Oculto da Vaidade</h2>
+                    <p><em>"Quando a vaidade do currículo bate no teto físico da rede, do orçamento e da cognição humana."</em> Essa frase sintetiza uma dor comum na engenharia moderna: a criação deliberada de complexidade. Muitas equipes constroem sistemas distribuídos caros e difíceis de debugar sob o pretexto de preparar o software para uma escala que o negócio nunca terá. Esse fenômeno afeta a rentabilidade de novos produtos e drena o foco da engenharia, gerando sistemas frágeis em nome do hype tecnológico.</p>
+                    
+                    <p>Esta série técnica se propõe a analisar o dilema clássico da engenharia de software moderna: a escolha entre arquiteturas monolíticas e microsserviços. Em vez de alimentar polarizações passionais de redes sociais, avaliaremos cada abordagem técnica sob a ótica pragmática de dados estruturados, trade-offs financeiros, limites organizacionais e física da rede.</p>
+
+                    <div class="chalkboard">
+                        <h3>Para quem é esta série?</h3>
+                        <ul>
+                            <li><strong>Engenheiros de Software Seniores:</strong> que precisam tomar decisões arquiteturais robustas sob restrições físicas de hardware e orçamento.</li>
+                            <li><strong>Líderes Técnicos e Tech Leads:</strong> que desejam entender o impacto do desenho organizacional na qualidade do código.</li>
+                            <li><strong>Arquitetos de Solução:</strong> focados em equilibrar o custo operacional na nuvem (FinOps) com a velocidade de entrega das equipes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="chalkboard">
+                        <h3>O que você vai aprender ao final da série?</h3>
+                        <ul>
+                            <li>Como decidir entre o modelo monolítico e o distribuído utilizando dados empíricos de volumetria.</li>
+                            <li>Como estimar custos operacionais e a latência de rede antes de iniciar a escrita do código.</li>
+                            <li>Como alinhar a arquitetura do sistema com o organograma e canais de comunicação da sua empresa (Lei de Conway).</li>
+                            <li>Como utilizar o Monolito Modular como ponto de partida ideal e aplicar técnicas seguras de extração cirúrgica sob demanda real de escala.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Convite:</strong> leia na ordem do arco conceitual (do fator humano até a extração cirúrgica pragmática). Cada artigo também pode ser lido de forma isolada.</p>
+
+                    <div class="episode-grid">
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_05_13_IMAGE_001.png" alt="Artigo 1 da série Além do Hype" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 1: Hype tecnológico e o currículo do desenvolvedor.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 01</div>
+                                <h3 class="episode-title"><a href="2027_05_13_serie_alem_hype_monolitos_microservicos_ep01.html">O Pêndulo da Computação e a Arquitetura Orientada a Currículo</a></h3>
+                                <p class="episode-teaser">Entenda a psicologia por trás da complexidade artificial nos sistemas e aprenda a identificar quando sua equipe está arquitetando para o currículo pessoal e não para a necessidade real do negócio.</p>
+                                <div class="episode-date">Lançamento: 13 de maio de 2027</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_05_20_IMAGE_001.png" alt="Artigo 2 da série Além do Hype" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 2: Latência de rede e a matemática das filas.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 02</div>
+                                <h3 class="episode-title"><a href="2027_05_20_serie_alem_hype_monolitos_microservicos_ep02.html">A Matemática da Escala — Volumetria, Rede e a Teoria das Filas</a></h3>
+                                <p class="episode-teaser">Aprenda a aplicar as leis matemáticas de Amdahl e Gunther (USL) e a Teoria das Filas para estimar a capacidade física de paralelismo, latência de rede e a viabilidade técnica dos microsserviços antes de codificar.</p>
+                                <div class="episode-date">Lançamento: 20 de maio de 2027</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_05_27_IMAGE_001.png" alt="Artigo 3 da série Além do Hype" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 3: Organização de equipes e limites do negócio.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 03</div>
+                                <h3 class="episode-title"><a href="2027_05_27_serie_alem_hype_monolitos_microservicos_ep03.html">O Design do Negócio e a Lei de Conway</a></h3>
+                                <p class="episode-teaser">Descubra como os limites organizacionais de comunicação moldam sua base de código e saiba estruturar contextos delimitados (DDD) para evitar o pior dos cenários: o acoplamento lógico distribuído.</p>
+                                <div class="episode-date">Lançamento: 27 de maio de 2027</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_06_03_IMAGE_001.png" alt="Artigo 4 da série Além do Hype" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 4: O bolso do CEO e a sanidade do time.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 04</div>
+                                <h3 class="episode-title"><a href="2027_06_03_serie_alem_hype_monolitos_microservicos_ep04.html">A Realidade Financeira e Operacional (FinOps & Carga Cognitiva)</a></h3>
+                                <p class="episode-teaser">Aprenda a estimar o TCO (Custo Total de Propriedade) da infraestrutura distribuída na nuvem e a mensurar a carga cognitiva de observabilidade imposta à sua equipe no dia a dia operacional.</p>
+                                <div class="episode-date">Lançamento: 03 de junho de 2027</div>
+                            </div>
+                        </div>
+                        <div class="episode-card">
+                            <figure class="episode-card-figure">
+                                <img src="assets/img/2027_06_10_IMAGE_001.png" alt="Artigo 5 da série Além do Hype" class="episode-card-image">
+                                <figcaption class="episode-card-caption">Capa do artigo 5: Monolito modular e padrões de extração.</figcaption>
+                            </figure>
+                            <div class="episode-card-content">
+                                <div class="episode-number">Artigo 05 (Epílogo)</div>
+                                <h3 class="episode-title"><a href="2027_06_10_serie_alem_hype_monolitos_microservicos_ep05.html">Episódio 05 (Epílogo): O Caminho do Meio — O Monolito Modular e Extração</a></h3>
+                                <p class="episode-teaser">Fechamento da série: como construir monolitos coesos e extrair microsserviços cirurgicamente sob demanda real de escala utilizando o Strangler Fig Pattern.</p>
+                                <div class="episode-date">Lançamento: 10 de junho de 2027</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Cronograma:</strong> índice em 05/05/2027; artigos de 13/05 a 10/06/2027.</p>
+
+                    <hr>
+                    <p><em><strong>Nota:</strong> Esta série representa uma jornada reflexiva baseada em práticas reais de desenvolvimento e arquitetura, livre de modismos corporativos e dogmas de redes sociais.</em></p>
+
+                    <p class="copyright">&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Desenvolvedor Java e Arquiteto de Software</p>
+                    </div>
+                </div>
+            </footer>
+            </article>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Comece pelo <a href="2027_05_13_serie_alem_hype_monolitos_microservicos_ep01.html">primeiro artigo</a> ou volte ao <a href="../index.html">início do blog</a>.</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html>
