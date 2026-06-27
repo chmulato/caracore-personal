@@ -1,33 +1,33 @@
-# Personal (Dev Blog)
+# Christian Mulato Dev Blog
 
-Blog pessoal (Christian Mulato Dev Blog) no site matriz (caracore.com.br). Todo o conteúdo usa **links de referência relativos** para funcionar em qualquer base URL.
+Este repositório contém a estrutura e as publicações do blog pessoal de Christian Mulato. O espaço é dedicado a discussões, artigos de opinião e ensaios profundos sobre desenvolvimento de software, arquitetura de sistemas modernos e o mercado de trabalho em tecnologia.
 
-## Status atual do blog
+## Propósito e Linha Editorial
 
-- Artigos existentes em `docs/articles/*.html` com marcação `<article class="post">`: **179**
-- Ciclo ativo: **Junho 2026 - Maio 2029**
-- Séries com índice próprio: **Brasil SDK**, **Depois do debate**, **A Ilusão Informatizada**, **O Mito da Eficiência**, **Protocolo de Lucerna**, **Recolocação Java**, **As Redes Invisíveis**, **O Novo Tabuleiro do Mundo**, **Além do Hype**
-- Série com chamada (sem `_index`): **Horizonte do Essencial** (`2026_06_05_serie_horizonte_essencial_chamada.html`)
-- **Junho 2026:** 11 artigos no índice (avulso 02/06 + avulso 14/06 + avulso 19/06 + avulso 27/06 + chamada Horizonte + episódios Lucerna, Horizonte e Brasil SDK)
-- **Último avulso publicado (jun/2026):** [A Normose da Engenharia Financeira...](docs/articles/2026_06_27_a_normose_da_engenharia_financeira_e_o_retrato_de_veblen.html), [Os Erros Invisíveis na Arquitetura...](docs/articles/2026_06_19_os_erros_invisiveis_na_arquitetura_que_ninguem_te_conta.html), [O Espelho da Linha de Frente...](docs/articles/2026_06_14_o_espelho_da_linha_de_frente_Ilusoes_digitais_e_o_cerco_a_economia_invisivel.html) e [Do AutoCAD à Inteligência Artificial…](docs/articles/2026_06_02_do_autocad_a_inteligencia_artificial_o_programador_esta_se_tornando_um_novo_tipo_de_projetista.html) — continuação de [Da Prancheta ao Prompt](docs/articles/2025_07_03_da_prancheta_ao_prompt_o_futuro_da_criacao_de_softwares_com_inteligencia_artificial.html) (jul/2025)
-- Convenção de imagens: `docs/articles/assets/img/README.html`
-- Memória Cursor do workspace: `.cursor/rules/blog-personal-workspace.mdc`
+O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a dia da engenharia de software, abordando temas de forma didática e acessível tanto para profissionais seniores quanto para leitores em início de carreira. A linha editorial foge de modismos corporativos e dogmas tecnológicos para focar em trade-offs de infraestrutura, matemática de escala, custos de nuvem e a influência da comunicação humana nas organizações.
 
-## Convenção de links relativos
+## Visão Geral do Blog
 
-- **A partir de `personal/`** (index.html):
-  - CSS: `articles/assets/css/main.css`
-  - Um artigo: `articles/<nome>.html`
+* **Total de Artigos:** 179 artigos publicados.
+* **Período de Publicações:** de março de 2024 a junho de 2027.
+* **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
+  * [Além do Hype](https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html): Discussão matemática e financeira entre monolitos modulares e microsserviços.
+  * [O Novo Tabuleiro do Mundo](https://personal.caracore.com.br/articles/2027_05_02_serie_novo_tabuleiro_index.html): A geopolítica de IA, data centers locais e soberania energética.
+  * [As Redes Invisíveis](https://personal.caracore.com.br/articles/2027_02_12_serie_redes_invisiveis_index.html): Telecomunicações, bilhetagem de transporte e resiliência cibernética.
+  * [Horizonte do Essencial](https://personal.caracore.com.br/articles/2026_06_05_serie_horizonte_essencial_chamada.html): Reflexões sobre hardware local, soberania de código e desenvolvimento sustentável.
+  * [Recolocação Java](https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html): Guias pragmáticos de carreira, contratação e testes práticos de arquitetura.
+  * [Protocolo de Lucerna](https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html): Histórias e análises de segurança em sistemas corporativos legados.
+  * [O Mito da Eficiência](https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html): IA, silício e a busca racional por otimização real.
+  * [A Ilusão Informatizada](https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html): Ensaios críticos sobre o avanço tecnológico acelerado.
+  * [Brasil, SDK e Soberania](https://personal.caracore.com.br/articles/2026_02_15_serie_brasil_sdk_soberania_index.html): Análise de desenvolvimento nacional, regulação e soberania.
+  * [Depois do debate](https://personal.caracore.com.br/articles/2026_10_06_serie_depois_do_debate_carreira_index.html): Reflexões sobre o futuro da carreira técnica na era dos LLMs.
 
-- **A partir de `personal/articles/`** (cada artigo):
-  - Voltar ao início: `../index.html`
-  - CSS: `assets/css/main.css`, `assets/css/article.css`, `assets/css/highlight.css`
-  - Imagens: `assets/img/<arquivo>`
-  - JS: `assets/js/main.js`
-  - Link para outro artigo (mesma pasta): `nome_do_artigo.html`
+## Elementos de Estilo e Navegação
 
-Não usar caminhos absolutos do site (ex.: `/personal/...`) para navegação interna; usar apenas relativos. Links externos (LinkedIn, GitHub, etc.) permanecem absolutos. Canonical e og:url/og:image, quando usados, devem apontar para a URL canônica do matriz (`https://personal.caracore.com.br/...`).
+* **Interface Leve e Focada:** O blog prioriza uma interface limpa com suporte integrado a temas claro e escuro, reduzindo o cansaço visual e facilitando a leitura de textos longos.
+* **Quadros Verdes de Giz (Chalkboard):** Caixas destacadas em estilo lousa são posicionadas ao final dos artigos para servir como glossários práticos, ajudando a esclarecer leis técnicas e termos históricos sem interromper o fluxo narrativo principal.
+* **Leitura Sequencial:** Os episódios de cada série possuem ganchos textuais e links de engajamento no encerramento que guiam o leitor naturalmente ao próximo capítulo.
 
-## Ao publicar série ou artigo novo
+## Acesso e Contribuições
 
-Atualizar em conjunto: HTML do artigo, `docs/index.html` (cartões + filtro + contador), `docs/feed.xml`, `docs/articles/assets/img/README.html`, este README e `.cursor/rules/blog-personal-workspace.mdc`.
+O blog opera de forma estática e leve. Para ler os artigos ou navegar pelas categorias filtradas, basta acessar a página inicial em [Christian Mulato Dev Blog](https://personal.caracore.com.br/).
