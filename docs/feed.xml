@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 10 Jun 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Jul 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[A Ilusão do Quintal: Por que a soberania de hardware não se compra na China]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_07_22_a_ilusao_do_quintal_por_que_a_soberania_de_hardware_nao_se_compra_na_china.html</link>
+      <description><![CDATA[Uma análise provocativa sobre a falsa soberania local do isolamento de hardware e a tese da Soberania Dinâmica baseada no não-alinhamento pragmático.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_07_22_a_ilusao_do_quintal_por_que_a_soberania_de_hardware_nao_se_compra_na_china.html</guid>
+      <pubDate>Thu, 22 Jul 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Além do Hype — Ep. 5 (Epílogo): O Caminho do Meio — O Monolito Modular e Extração]]></title>

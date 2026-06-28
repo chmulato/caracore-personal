@@ -84,7 +84,7 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
 
 ## ✍️ Tom Editorial e Assinatura
 
-1. **Estilo Narrativo**: Tom sênior, sóbrio e técnico. Jargões e siglas devem ser evitados no corpo principal do texto e isolados estritamente na lousa de glossário ao final do artigo.
+1. **Estilo Narrativo**: Tom sênior, sóbrio e técnico. Jargões de negócios modernos e siglas corporativas (como "cognitivo", "mindset", etc.) devem ser evitados no corpo principal, priorizando a adoção de termos clássicos e eruditos consagrados do português tradicional (ex: preferir "intelectivo", "intelectual" ou "mental"). Siglas e leis específicas devem ser isoladas estritamente na lousa de glossário ao final do artigo.
 2. **Emojis**: É proibido o uso de emojis decorativos ou infantilizados nos títulos de cabeçalho, kichers, ou no corpo dos artigos de séries novas (ex: Além do Hype, O Novo Tabuleiro do Mundo) para assegurar o tom maduro do blog.
 3. **Assinatura do Autor**: Sempre inserida de forma padronizada no fechamento do artigo dentro da classe `post-footer`:
   ```html
