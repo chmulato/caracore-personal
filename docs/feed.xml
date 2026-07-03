@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 22 Jul 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jul 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[O Acelerador e a Bússola: O Verdadeiro Valor da Maturidade na Era da Velocidade]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_07_27_o_acelerador_e_a_bussola_o_verdadeiro_valor_da_maturidade_na_era_da_velocidade.html</link>
+      <description><![CDATA[Uma reflexão humana e sem clichês sobre a transição de carreira, o choque de gerações e como a inteligência emocional atua como ponto de calibração indispensável no mercado de trabalho atual.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_07_27_o_acelerador_e_a_bussola_o_verdadeiro_valor_da_maturidade_na_era_da_velocidade.html</guid>
+      <pubDate>Tue, 27 Jul 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[A Ilusão do Quintal: Por que a soberania de hardware não se compra na China]]></title>
