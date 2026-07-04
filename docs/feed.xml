@@ -5,9 +5,49 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 23 Sep 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Nov 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[A Ilusão da Interface — Apêndice: O Cântico e o Manual (Linguagens Criptografadas)]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_11_04_serie_ilusao_da_interface_apendice.html</link>
+      <description><![CDATA[O encerramento da série e a justaposição literal das duas interfaces do ensaio. O Cântico alegórico para o adulto e o Manual gamer para o jovem.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_11_04_serie_ilusao_da_interface_apendice.html</guid>
+      <pubDate>Thu, 04 Nov 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[A Ilusão da Interface — Ep. 3 (Epílogo): O Espelho da Praça]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_10_28_serie_ilusao_da_interface_epilogo.html</link>
+      <description><![CDATA[O encontro do adulto tradicional e do jovem hiperconectado. Onde a tradição familiar e o impulsionamento algorítmico mostram-se lados da mesma moeda.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_10_28_serie_ilusao_da_interface_epilogo.html</guid>
+      <pubDate>Thu, 28 Oct 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[A Ilusão da Interface — Ep. 2: Hackeando a Atenção (Jovem)]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_10_21_serie_ilusao_da_interface_ep02.html</link>
+      <description><![CDATA[Como as redes sociais industrializaram a fofoca e criaram gladiadores digitais regidos por pura álgebra linear e métricas de engajamento.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_10_21_serie_ilusao_da_interface_ep02.html</guid>
+      <pubDate>Thu, 21 Oct 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[A Ilusão da Interface — Ep. 1: O Código do Poder (Adulto)]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_10_14_serie_ilusao_da_interface_ep01.html</link>
+      <description><![CDATA[Por que a geopolítica do petrodólar, as planilhas financeiras e as corporações reais de defesa movem o mundo enquanto as teorias de conspiração apenas distraem.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_10_14_serie_ilusao_da_interface_ep01.html</guid>
+      <pubDate>Thu, 14 Oct 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Série: A Ilusão da Interface — Chamada e Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_10_07_serie_ilusao_da_interface_chamada.html</link>
+      <description><![CDATA[Chamada oficial de abertura e índice do novo arco editorial sobre a ilusão do frontend dos discursos e decodificação do backend do poder.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_10_07_serie_ilusao_da_interface_chamada.html</guid>
+      <pubDate>Thu, 07 Oct 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 8 (Epílogo): A Bússola e o Acelerador]]></title>

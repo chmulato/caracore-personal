@@ -31,6 +31,7 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
   9. **Brasil, SDK e Soberania** (Index + 7 Episódios) — Regulação e desenvolvimento de SDKs nacionais.
   10. **Depois do debate** (Index + 3 Episódios) — O futuro do programador na era dos LLMs.
   11. **Do Silício ao Chão de Fábrica** (Index + 8 Episódios) — Geopolítica física, soberania de dados híbrida e telemetria offline-first na economia real produtiva do país.
+  12. **A Ilusão da Interface** (Index + 3 Episódios + 1 Apêndice) — Crítica geopolítica e social sobre o petrodólar, as panelinhas locais, a economia da atenção dos algoritmos e o desdobramento da linguagem de controle para leitores adultos e jovens.
 
 ---
 
@@ -96,15 +97,38 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
 2. **Destaques e Ênfase no Texto**: Não use asteriscos de markdown (`**`) para aplicar negrito em arquivos HTML. Use sempre a tag HTML nativa clássica `<strong>`.
 3. **Ironia e Mentoria (Ajuste de Rota 2027)**: O blog adota uma postura irônica e sarcástica em relação à tecnocracia, à burocracia do "teatro ágil" corporativo e à economia especulativa de fumaça (Faria Lima). Contudo, essa acidez deve ser direcionada apenas a níveis sistêmicos e estruturais. O relacionamento com novos desenvolvedores em início de carreira deve ser sempre de **mentoria e proteção**, blindando o time das armadilhas da pressa de mercado.
 4. **Emojis**: É proibido o uso de emojis decorativos ou infantilizados nos títulos de cabeçalho, kichers, ou no corpo dos artigos para assegurar o tom maduro do blog.
-5. **Assinatura do Autor**: Sempre inserida de forma padronizada no fechamento do artigo dentro da classe `post-footer`:
-  ```html
-  <footer class="post-footer">
-      <div class="author-info">
-          <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
-          <div class="author-details">
-              <strong>Christian Mulato</strong>
-              <p>Arquiteto de Software e Engenheiro de Sistemas</p>
-          </div>
-      </div>
-  </footer>
-  ```
+5. **Assinatura do Autor**: Sempre inserida de forma padronizada no fechamento do artigo dentro da classe `post-footer`.
+   * **Assinatura Técnica (Christian Mulato):** Usada para artigos práticos de engenharia, código e carreira:
+     ```html
+     <footer class="post-footer">
+         <div class="author-info">
+             <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+             <div class="author-details">
+                 <strong>Christian Mulato</strong>
+                 <p>Arquiteto de Software e Engenheiro de Sistemas</p>
+             </div>
+         </div>
+     </footer>
+     ```
+   * **Assinatura Crítica/Geopolítica (Cidadão Global):** Usada para ensaios de realpolitik, crítica cultural, regulação de algoritmos e análises globais (como a série *"A Ilusão da Interface"*):
+     ```html
+     <footer class="post-footer">
+         <div class="author-info">
+             <img src="assets/img/foto_chri.jpg" alt="Cidadão Global" class="author-avatar">
+             <div class="author-details">
+                 <strong>Cidadão Global</strong>
+             </div>
+         </div>
+     </footer>
+     ```
+
+---
+
+## 🌐 Evitando Câmaras de Eco (Diretrizes de Evolução)
+
+Para garantir que o blog continue crescendo de forma saudável e intelectualmente rica quando novos agentes ou modelos de IA colaborarem com ele:
+
+1. **Evitar Regurgitação de Hypes:** Novos agentes não devem simplesmente repetir termos da moda ou discursos simplificados de senso comum sobre tecnologia, regulação ou política. Cada post deve buscar decodificar o *backend* (regras de incentivo econômico, física do hardware, infraestrutura de poder).
+2. **Contraste de Visões:** Ao abordar temas complexos, o blog deve apresentar a justaposição de visões (como as perspectivas do Adulto e do Jovem, ou o embate entre o pragmatismo da engenharia física e as promessas da simulação digital).
+3. **Maturidade Crítica vs. Niilismo:** Embora a acidez e o ceticismo com relação a lobbies e mercados especulativos sejam bem-vindos, a postura final deve ser sempre de incentivo ao estudo dos fundamentos e da soberania individual, e não de desesperança vazia.
+4. **Respeito ao Legado:** Novos textos devem dialogar com o acervo existente, citando conceitos ou leis discutidas em posts e séries anteriores, criando uma teia lógica conectada em vez de pensamentos fragmentados.
