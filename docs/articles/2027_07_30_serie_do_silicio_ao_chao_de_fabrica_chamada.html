@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html" />
+    <meta property="og:image" content="assets/img/2027_08_05_IMAGE_001.png" />
+    <title>Série: Do Silício ao Chão de Fábrica — Chamada e índice</title>
+    <meta name="description" content="Chamada e índice (30/07/2027): série sobre os limites físicos da computação, geopolítica do hardware, a morte dos frameworks e o surgimento do Engenheiro Auditor. São 8 episódios, com lançamentos de agosto a setembro de 2027.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Do Silício ao Chão de Fábrica, Tecnologia, Engenharia de Software, Hardware, Silício, IA, Geopolítica, Edge Computing">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <style>
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .episode-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .episode-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1f2937 0%, #0f766e 100%);
+        }
+        .episode-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .episode-number {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .episode-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .episode-title a:hover {
+            color: var(--primary-color);
+        }
+        .episode-teaser {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .episode-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+        }
+        .episode-card-figure {
+            margin: 0;
+        }
+        .episode-card-caption {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.45;
+            padding: 0.5rem 0.85rem 0.65rem;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .episode-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        [data-theme="dark"] .episode-card-caption {
+            color: #94a3b8;
+            background: #0f172a;
+            border-top-color: #334155;
+        }
+        [data-theme="dark"] .episode-number {
+            color: #94a3b8;
+        }
+        [data-theme="dark"] .episode-title a {
+            color: #f1f5f9;
+        }
+        [data-theme="dark"] .episode-teaser {
+            color: #cbd5e1;
+        }
+        [data-theme="dark"] .episode-date {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">A Engenharia por Trás do Hype</p>
+                <h1 class="post-title">Série: Do Silício ao Chão de Fábrica</h1>
+                <div class="post-meta">
+                    <time datetime="2027-07-30">30/07/2027</time> — Chamada e índice | 8 episódios | Lançamentos de agosto a setembro de 2027
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame">
+                    <img src="assets/img/2027_08_05_IMAGE_001.png" alt="Série Do Silício ao Chão de Fábrica: chamada" class="hero-image" />
+                    <figcaption class="hero-image-caption">Capa editorial da série: a busca pela essência técnica contra a cortina de fumaça digital.</figcaption>
+                </figure>
+
+                <p>A computação se afastou da física, e a indústria se acostumou a vender abstrações como se fossem infinitas. Enquanto isso, o hardware continua implacável — e a complexidade gerada por ferramentas automáticas já compromete operações críticas em todo o país. O resultado é silencioso, mas letal: custos de infraestrutura explodindo, dependência cega de provedores centralizados e o acúmulo de débito técnico que compromete a base dos negócios.</p>
+
+                <p>Esta página, datada de 30 de julho de 2027, é o manifesto de abertura e o índice da série <strong>Do Silício ao Chão de Fábrica</strong>. Em oito episódios semanais, investigamos a rotatividade eterna das camadas de abstração, a dependência global do silício (Taiwan, ASML, NVIDIA) e o "Brasil Invisível" — as ilhas industriais e de missão crítica que realmente movem a economia real longe dos holofotes corporativos.</p>
+
+                <p>Para quem trabalha em sistemas que não podem falhar e busca clareza técnica na era do barulho digital, esta série não é tendência: é fundamento. Você não vai apenas entender o cenário; vai aprender a enxergar as vulnerabilidades estruturais que a maioria tenta esconder.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_08_05_IMAGE_001.png" alt="Episódio 1 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A queda da Babel dos frameworks e o código como commodity barata.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 01</div>
+                            <h3 class="episode-title"><a href="2027_08_05_serie_do_silicio_ao_chao_de_fabrica_ep01.html">A Queda da Babel dos Frameworks</a></h3>
+                            <p class="episode-teaser">Com IAs gerando sistemas inteiros em segundos, digitar código virou commodity. Bem-vindo à era do Código Espaguete 2.0.</p>
+                            <div class="episode-date">Lançamento: 05/08/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_08_12_IMAGE_001.png" alt="Episódio 2 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">O retorno dos fundamentos clássicos da computação na cabine de validação.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 02</div>
+                            <h3 class="episode-title"><a href="2027_08_12_serie_do_silicio_ao_chao_de_fabrica_ep02.html">O Programador Auditor</a></h3>
+                            <p class="episode-teaser">A transição do papel de digitador para revisor e arquiteto de qualidade. Onde a maturidade se torna o ativo mais valioso.</p>
+                            <div class="episode-date">Lançamento: 12/08/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_08_19_IMAGE_001.png" alt="Episódio 3 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">O valor palpável contra a abstração financeira estéril.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 03</div>
+                            <h3 class="episode-title"><a href="2027_08_19_serie_do_silicio_ao_chao_de_fabrica_ep03.html">Economia Real vs. Economia da Ilusão</a></h3>
+                            <p class="episode-teaser">A linha divisória entre a tecnologia que resolve problemas físicos e logísticos reais e as bolhas de especulação pura.</p>
+                            <div class="episode-date">Lançamento: 19/08/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_08_26_IMAGE_001.png" alt="Episódio 4 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A física do hardware e os gargalos do latifúndio digital.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 04</div>
+                            <h3 class="episode-title"><a href="2027_08_26_serie_do_silicio_ao_chao_de_fabrica_ep04.html">A Ditadura do Silício</a></h3>
+                            <p class="episode-teaser">A ilusão da liberdade na nuvem diante da brutal dependência física de Taiwan, da ASML e do monopólio da NVIDIA.</p>
+                            <div class="episode-date">Lançamento: 26/08/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_09_02_IMAGE_001.png" alt="Episódio 5 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">O processamento na ponta e os modelos eficientes e locais.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 05</div>
+                            <h3 class="episode-title"><a href="2027_09_02_serie_do_silicio_ao_chao_de_fabrica_ep05.html">A Rota de Fuga: SLMs e Edge AI</a></h3>
+                            <p class="episode-teaser">Como arquiteturas híbridas e Small Language Models libertam as empresas do aprisionamento tecnológico das Big Techs.</p>
+                            <div class="episode-date">Lançamento: 02/09/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_09_09_IMAGE_001.png" alt="Episódio 6 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A mentalidade rentista contra o investimento em risco real.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 06</div>
+                            <h3 class="episode-title"><a href="2027_09_09_serie_do_silicio_ao_chao_de_fabrica_ep06.html">A Elite Rentista vs. A Cultura da Engenharia</a></h3>
+                            <p class="episode-teaser">Por que a elite brasileira prefere comprar pacotes fechados de fora a financiar inovação física e desenvolvimento de base.</p>
+                            <div class="episode-date">Lançamento: 09/09/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_09_16_IMAGE_001.png" alt="Episódio 7 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">As regiões industriais que sustentam a infraestrutura nacional.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 07</div>
+                            <h3 class="episode-title"><a href="2027_09_16_serie_do_silicio_ao_chao_de_fabrica_ep07.html">O Brasil Invisível</a></h3>
+                            <p class="episode-teaser">Um mapeamento dos polos de excelência (Sul, Vale da Eletrônica, Agro 4.0) onde a engenharia aplicada é questão de sobrevivência.</p>
+                            <div class="episode-date">Lançamento: 16/09/2027</div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_09_23_IMAGE_001.png" alt="Episódio 8 da série Do Silício ao Chão de Fábrica" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A calibração fina entre velocidade de entrega e solidez estrutural.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 08 (Epílogo)</div>
+                            <h3 class="episode-title"><a href="2027_09_23_serie_do_silicio_ao_chao_de_fabrica_ep08.html">A Bússola e o Acelerador</a></h3>
+                            <p class="episode-teaser">O fechamento da série: como a convergência da IA e a sabedoria da maturidade redefinem a soberania tecnológica.</p>
+                            <div class="episode-date">Lançamento: 23/09/2027</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p><strong>Cronograma de Lançamento:</strong> Chamada oficial em <strong>30/07/2027</strong> (esta página); Episódios subsequentes lançados semanalmente às quintas-feiras, de <strong>05/08/2027</strong> a <strong>23/09/2027</strong>.</p>
+
+                <hr>
+                <p><em><strong>Nota Editorial:</strong> Esta série é um manifesto em formato de ensaios analíticos. Discutimos a engenharia sob a ótica da física da computação, gestão de riscos operacionais e o valor irrefutável dos fundamentos contra o hype mercadológico.</em></p>
+
+                <div class="author-signature">
+                    <p><strong>Christian Mulato</strong><br>
+                    Arquiteto de Software e Engenheiro de Sistemas</p>
+                    <p>&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Arquiteto de Software e Engenheiro de Sistemas</p>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>
