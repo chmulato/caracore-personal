@@ -5,9 +5,81 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Tue, 27 Jul 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Sep 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 8 (Epílogo): A Bússola e o Acelerador]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_09_23_serie_do_silicio_ao_chao_de_fabrica_ep08.html</link>
+      <description><![CDATA[No fechamento deste arco, qual tem sido a sua postura: a pressa cega da aceleração ou a precisão estratégica de quem garante a direção?]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_09_23_serie_do_silicio_ao_chao_de_fabrica_ep08.html</guid>
+      <pubDate>Thu, 23 Sep 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 7: O Brasil Invisível]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_09_16_serie_do_silicio_ao_chao_de_fabrica_ep07.html</link>
+      <description><![CDATA[Mapeando a engenharia de missão crítica que mantém a base física e logística do país funcionando em ambientes sem conectividade de internet.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_09_16_serie_do_silicio_ao_chao_de_fabrica_ep07.html</guid>
+      <pubDate>Thu, 16 Sep 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 6: A Elite Rentista vs. A Cultura da Engenharia]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_09_09_serie_do_silicio_ao_chao_de_fabrica_ep06.html</link>
+      <description><![CDATA[Uma análise irônica sobre as decisões de infraestrutura no Brasil e o viés de terceirizar a tecnologia enquanto o capital busca o refúgio seguro dos juros.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_09_09_serie_do_silicio_ao_chao_de_fabrica_ep06.html</guid>
+      <pubDate>Thu, 09 Sep 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 5: A Rota de Fuga: SLMs e Edge AI]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_09_02_serie_do_silicio_ao_chao_de_fabrica_ep05.html</link>
+      <description><![CDATA[A descentralização e a soberania operacional: como a inteligência artificial distribuída localmente confere autonomia e estabilidade financeira.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_09_02_serie_do_silicio_ao_chao_de_fabrica_ep05.html</guid>
+      <pubDate>Thu, 02 Sep 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 4: A Ditadura do Silício]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_08_26_serie_do_silicio_ao_chao_de_fabrica_ep04.html</link>
+      <description><![CDATA[A infraestrutura física por trás da computação e a dependência estratégica das fábricas de chips e cadeias de suprimentos globais.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_08_26_serie_do_silicio_ao_chao_de_fabrica_ep04.html</guid>
+      <pubDate>Thu, 26 Aug 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 3: Economia Real vs. Economia da Ilusão]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_08_19_serie_do_silicio_ao_chao_de_fabrica_ep03.html</link>
+      <description><![CDATA[O padrão Gateway Pass-Through para contenção de custos e a distinção ética entre a engenharia de valor concreto e a especulação digital.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_08_19_serie_do_silicio_ao_chao_de_fabrica_ep03.html</guid>
+      <pubDate>Thu, 19 Aug 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 2: O Programador Auditor]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_08_12_serie_do_silicio_ao_chao_de_fabrica_ep02.html</link>
+      <description><![CDATA[A transição crítica na era das IAs geradoras de código: como o profissional sênior assume a responsabilidade de auditar e desenhar limites claros.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_08_12_serie_do_silicio_ao_chao_de_fabrica_ep02.html</guid>
+      <pubDate>Thu, 12 Aug 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Do Silício ao Chão de Fábrica — Ep. 1: A Babel dos Frameworks]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_08_05_serie_do_silicio_ao_chao_de_fabrica_ep01.html</link>
+      <description><![CDATA[A ressaca do código gerado por automações sem fundamentos e o isolamento de dependências através da Arquitetura Hexagonal.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_08_05_serie_do_silicio_ao_chao_de_fabrica_ep01.html</guid>
+      <pubDate>Thu, 05 Aug 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Série: Do Silício ao Chão de Fábrica — Chamada e Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html</link>
+      <description><![CDATA[Chamada e cronograma completo da série: a desconstrução técnica do desenvolvimento acelerado e o foco no pragmatismo do mundo físico.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html</guid>
+      <pubDate>Fri, 30 Jul 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[O Acelerador e a Bússola: O Verdadeiro Valor da Maturidade na Era da Velocidade]]></title>
