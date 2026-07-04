@@ -8,8 +8,8 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
 
 ## Visão Geral do Blog
 
-* **Total de Artigos:** 181 artigos publicados.
-* **Período de Publicações:** de março de 2024 a julho de 2027.
+* **Total de Artigos:** 191 artigos publicados.
+* **Período de Publicações:** de março de 2024 a setembro de 2027.
 * **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
   * [Além do Hype](https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html): Discussão matemática e financeira entre monolitos modulares e microsserviços.
   * [O Novo Tabuleiro do Mundo](https://personal.caracore.com.br/articles/2027_05_02_serie_novo_tabuleiro_index.html): A geopolítica de IA, data centers locais e soberania energética.
@@ -21,6 +21,7 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
   * [A Ilusão Informatizada](https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html): Ensaios críticos sobre o avanço tecnológico acelerado.
   * [Brasil, SDK e Soberania](https://personal.caracore.com.br/articles/2026_02_15_serie_brasil_sdk_soberania_index.html): Análise de desenvolvimento nacional, regulação e soberania.
   * [Depois do debate](https://personal.caracore.com.br/articles/2026_10_06_serie_depois_do_debate_carreira_index.html): Reflexões sobre o futuro da carreira técnica na era dos LLMs.
+  * [Do Silício ao Chão de Fábrica](https://personal.caracore.com.br/articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html): Geopolítica física, soberania de dados híbrida e telemetria offline-first na economia real produtiva do país.
 
 ## Elementos de Estilo e Navegação
 

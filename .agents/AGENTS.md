@@ -16,9 +16,9 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 
 ## 📈 Status Atual (Ciclo Ativo: jun/2026 a mai/2029)
 
-* **Total de Artigos Publicados:** 179 artigos
-* **Total de Séries com Índice Próprio:** 10 séries
-* **Período do Acervo:** março de 2024 a junho de 2027 (datas futuras em 2027 são usadas para agendamento de séries editoriais)
+* **Total de Artigos Publicados:** 191 artigos
+* **Total de Séries com Índice Próprio:** 11 séries
+* **Período do Acervo:** março de 2024 a setembro de 2027 (datas futuras em 2027 são usadas para agendamento de séries editoriais)
 * **Lista de Séries Ativas:**
   1. **Além do Hype** (Index + 5 Episódios) — Arquitetura de software, matemática de escala e FinOps.
   2. **O Novo Tabuleiro do Mundo** (Index + 6 Episódios + Epílogo) — IA como commodity física e matriz energética.
@@ -30,6 +30,7 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
   8. **A Ilusão Informatizada** (Index + 4 Episódios + Epílogo) — Crítica ao avanço tecnológico.
   9. **Brasil, SDK e Soberania** (Index + 7 Episódios) — Regulação e desenvolvimento de SDKs nacionais.
   10. **Depois do debate** (Index + 3 Episódios) — O futuro do programador na era dos LLMs.
+  11. **Do Silício ao Chão de Fábrica** (Index + 8 Episódios) — Geopolítica física, soberania de dados híbrida e telemetria offline-first na economia real produtiva do país.
 
 ---
 
@@ -47,14 +48,21 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 Todas as imagens de destaque de artigos seguem o padrão registrado no [README de Imagens](docs/articles/assets/img/README.html):
 * **Padrão de Nome:** `YYYY_MM_DD_IMAGE_NNN.png`
   * `YYYY_MM_DD` correspondendo exatamente à data no nome do arquivo HTML do artigo.
-  * `NNN` = `001` para imagem de destaque/capa, `002+` para imagens complementares.
+  * `NNN` = `001` para imagem de destaque/capa, `002+` para imagens complementares (ex: diagramas de arquitetura, mapas).
 * **Proporção Física:** Sempre **16:9 (Landscape/Paisagem)**, tipicamente 1920×1080 px ou 1024×576 px.
-* **Uso Semântico:** As imagens principais no início de cada artigo devem ser declaradas utilizando a estrutura `<figure>` para garantir centralização:
+* **Uso Semântico (Imagem Destaque):** As imagens principais no início de cada artigo devem ser declaradas utilizando a estrutura `<figure>` para garantir centralização:
   ```html
   <figure class="hero-image-frame">
       <img src="assets/img/YYYY_MM_DD_IMAGE_001.png" alt="[Descrição]" class="hero-image" />
       <figcaption class="hero-image-caption">[Legenda Centralizada]</figcaption>
   </figure>
+  ```
+* **Uso Semântico (Imagens Complementares/Diagramas):** Devem ser inseridas usando o container padrão nativo do blog (sem classes customizadas ad-hoc ou estilos CSS inline):
+  ```html
+  <div class="image-container">
+      <img src="assets/img/YYYY_MM_DD_IMAGE_NNN.png" alt="[Descrição]" />
+      <p class="image-caption">[Legenda em itálico]</p>
+  </div>
   ```
 
 ---
@@ -85,15 +93,17 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
 ## ✍️ Tom Editorial e Assinatura
 
 1. **Estilo Narrativo**: Tom sênior, sóbrio e técnico. Jargões de negócios modernos e siglas corporativas (como "cognitivo", "mindset", etc.) devem ser evitados no corpo principal, priorizando a adoção de termos clássicos e eruditos consagrados do português tradicional (ex: preferir "intelectivo", "intelectual" ou "mental"). Siglas e leis específicas devem ser isoladas estritamente na lousa de glossário ao final do artigo.
-2. **Emojis**: É proibido o uso de emojis decorativos ou infantilizados nos títulos de cabeçalho, kichers, ou no corpo dos artigos de séries novas (ex: Além do Hype, O Novo Tabuleiro do Mundo) para assegurar o tom maduro do blog.
-3. **Assinatura do Autor**: Sempre inserida de forma padronizada no fechamento do artigo dentro da classe `post-footer`:
+2. **Destaques e Ênfase no Texto**: Não use asteriscos de markdown (`**`) para aplicar negrito em arquivos HTML. Use sempre a tag HTML nativa clássica `<strong>`.
+3. **Ironia e Mentoria (Ajuste de Rota 2027)**: O blog adota uma postura irônica e sarcástica em relação à tecnocracia, à burocracia do "teatro ágil" corporativo e à economia especulativa de fumaça (Faria Lima). Contudo, essa acidez deve ser direcionada apenas a níveis sistêmicos e estruturais. O relacionamento com novos desenvolvedores em início de carreira deve ser sempre de **mentoria e proteção**, blindando o time das armadilhas da pressa de mercado.
+4. **Emojis**: É proibido o uso de emojis decorativos ou infantilizados nos títulos de cabeçalho, kichers, ou no corpo dos artigos para assegurar o tom maduro do blog.
+5. **Assinatura do Autor**: Sempre inserida de forma padronizada no fechamento do artigo dentro da classe `post-footer`:
   ```html
   <footer class="post-footer">
       <div class="author-info">
           <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
           <div class="author-details">
               <strong>Christian Mulato</strong>
-              <p>Desenvolvedor Java e Arquiteto de Software</p>
+              <p>Arquiteto de Software e Engenheiro de Sistemas</p>
           </div>
       </div>
   </footer>
