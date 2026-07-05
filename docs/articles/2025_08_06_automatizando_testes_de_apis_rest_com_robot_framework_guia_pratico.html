@@ -70,26 +70,26 @@
 </li>
 </ul>
 <p><strong>Configuração do Ambiente</strong></p>
-<pre><code>pip install robotframework
+<div class="chalkboard"><pre><code>pip install robotframework
 pip install robotframework-requests
-</code></pre>
+</code></pre></div>
 <p><strong>Arquitetura do Projeto</strong></p>
-<pre><code>tests/
+<div class="chalkboard"><pre><code>tests/
 ├── resources/
 │   └── keywords.robot
 ├── suites/
 │   └── api_tests.robot
 └── variables/
     └── config.robot
-</code></pre>
+</code></pre></div>
 <p><strong>Configuração de Variáveis</strong></p>
 <p><strong>Arquivo: variables/config.robot</strong></p>
-<pre><code><strong>* Variables </strong>*
+<div class="chalkboard"><pre><code><strong>* Variables </strong>*
 ${BASE_URL}    https://api.seuprojeto.com/v1
-</code></pre>
+</code></pre></div>
 <p><strong>Implementação de Keywords Reutilizáveis</strong></p>
 <p><strong>Arquivo: resources/keywords.robot</strong></p>
-<pre><code><strong>* Settings </strong>*
+<div class="chalkboard"><pre><code><strong>* Settings </strong>*
 Library    RequestsLibrary
 
 <strong>* Keywords </strong>*
@@ -100,10 +100,10 @@ GET Deve Retornar 200
     [Arguments]    ${endpoint}
     ${response}=    GET On Session    api    ${endpoint}
     Should Be Equal As Integers    ${response.status_code}    200
-</code></pre>
+</code></pre></div>
 <p><strong>Casos de Teste</strong></p>
 <p><strong>Arquivo: suites/api_tests.robot</strong></p>
-<pre><code><strong>* Settings </strong>*
+<div class="chalkboard"><pre><code><strong>* Settings </strong>*
 Resource    ../variables/config.robot
 Resource    ../resources/keywords.robot
 Suite Setup    Iniciar Sessão na API
@@ -114,10 +114,10 @@ Testar Endpoint de Status
 
 Testar Endpoint de Usuário
     GET Deve Retornar 200    /users/1
-</code></pre>
+</code></pre></div>
 <p><strong>Execução dos Testes</strong></p>
-<pre><code>robot -d results tests/suites/api_tests.robot
-</code></pre>
+<div class="chalkboard"><pre><code>robot -d results tests/suites/api_tests.robot
+</code></pre></div>
 <p>O comando gera um relatório HTML detalhado em results/report.html com status de execução e métricas de performance.</p>
 <p><strong>Vantagens da Implementação</strong></p>
 <ul>
@@ -136,7 +136,7 @@ Testar Endpoint de Usuário
 </ul>
 <p><strong>Integração com CI/CD</strong></p>
 <p><strong>Exemplo de GitHub Actions:</strong></p>
-<pre><code>name: API Tests
+<div class="chalkboard"><pre><code>name: API Tests
 on: [push]
 
 jobs:
@@ -153,7 +153,7 @@ jobs:
                     pip install robotframework robotframework-requests
             - name: Run tests
                 run: robot tests/suites/api_tests.robot
-</code></pre>
+</code></pre></div>
 <p><strong>Conclusão</strong></p>
 <p>O <strong>Robot Framework</strong> oferece uma solução robusta para automação de testes de APIs REST, combinando sintaxe acessível com funcionalidades empresariais. A implementação de testes automatizados resulta em maior confiabilidade, redução de tempo de validação e melhoria contínua da qualidade do software.</p>
 <p><strong>Principais benefícios alcançados:</strong></p>
