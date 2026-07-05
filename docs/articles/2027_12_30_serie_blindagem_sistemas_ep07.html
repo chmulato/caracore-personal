@@ -86,8 +86,10 @@
                                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
 <h2>1. O Incidente: A Paralisia em Cadeia de Sistemas Públicos Nacionais</h2>
-                <p>Durante a histórica crise da vulnerabilidade Log4j (RCE), diversos portais públicos e sistemas bancários brasileiros travaram completamente seus serviços. O principal fator para a catástrofe não foi a falha no código em si, mas a total ausência de contenção arquitetural. Uma vez que o invasor executava o código malicioso de forma remota na API de logs, a aplicação herdava direitos irrestritos para acessar a rede interna do data center, instalar scripts mineradores de dados e ler chaves privadas.</p>
+                <p>Imagine o isolamento de segurança como <strong>colocar um componente antigo infectado dentro de uma cúpula de vidro blindada e hermética</strong> (MicroVM/eBPF) no quintal da sua casa. Se o componente explodir lá dentro, os estilhaços de vidro e a fumaça tóxica ficam totalmente retidos e isolados na cúpula. O restante da sua casa continua intocado. Sem essa cúpula de engenharia de contenção estanque, qualquer falha espalha-se de forma imediata destruindo o prédio inteiro de produção.</p>
 
+                <p>Durante a histórica crise da vulnerabilidade Log4j (RCE), diversos portais públicos e sistemas bancários brasileiros travaram completamente seus serviços. O principal fator para a catástrofe não foi a falha no código em si, mas a total ausência de contenção arquitetural. Uma vez que o invasor executava o código malicioso de forma remota na API de logs, a aplicação herdava direitos irrestritos para acessar a rede interna do data center, instalar scripts mineradores de dados e ler chaves privadas.</p>
+ 
                 <p>As aplicações rodavam sem isolamento e sem monitoramento de chamadas de sistema ao nível de kernel. Quando a falha estourou, o contágio se espalhou de maneira imediata pelas redes locais dos servidores corporativos. Esse cenário provou a urgente necessidade de desenhar arquiteturas de defesa baseadas no princípio do privilégio mínimo e do privilégio zero por padrão.</p>
 
                 <div class="tutor-note">
@@ -103,7 +105,12 @@
                 <p>Prevenir o colapso catastrófico de sistemas complexos exige o isolamento das partes sensíveis através de camadas rígidas de controle no kernel do sistema operacional:</p>
 
                 <ul>
-                    <li><strong>eBPF (Extended Berkeley Packet Filter):</strong> Permite injetar programas seguros e leves diretamente no kernel do Linux para auditar e bloquear requisições de rede ou chamadas de arquivos por aplicações comprometidas, sem causar lentidão no processamento do servidor.</li>
+                    <li><strong>eBPF (Extended Berkeley Packet Filter):</strong> Permite injetar programas seguros e leves diretamente no kernel do Linux para auditar e bloquear requisições de rede ou chamadas de arquivos por aplicações comprometidas, sem causar lentidão no processamento do servidor.
+                        <pre><code class="language-c">// Exemplo conceitual de filtro eBPF interceptando chamadas (Syscalls):
+if (syscall == SYS_OPEN &amp;&amp; path != "/tmp" &amp;&amp; process == "legacy_parser") {
+    return BLOCK_SYSCALL; // Bloqueia a leitura do arquivo fora de /tmp
+}</code></pre>
+                    </li>
                     <li><strong>MicroVMs (Isolamento por Hardware):</strong> Tecnologias como Firecracker executam cada processo inseguro (como interpretadores de documentos legados ou códigos antigos compilados em C) dentro de mini-máquinas virtuais que inicializam em milissegundos, limitando o acesso a discos rígidos e placas de rede físicas.</li>
                 </ul>
 
@@ -115,6 +122,38 @@
                     <li><strong>Filtros eBPF Ativos:</strong> Configurar perfis de monitoramento que proíbem que APIs web tradicionais iniciem novos processos ou executem downloads arbitrários fora do planejado em tempo de execução.</li>
                 </ol>
 
+                <h2>Containers vs MicroVMs vs eBPF</h2>
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="background: #1e293b; color: #ffffff;">
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">Critério</th>
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">Containers (Docker)</th>
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">MicroVMs (Firecracker)</th>
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">eBPF (Extended BPF)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Mecanismo</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Namespaces/Cgroups (Kernel compartilhado)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Kernel próprio isolado por Hardware</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Injeção de código direto no Kernel da Host</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Tempo de Boot</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Segundos</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Milissegundos (&lt; 5ms)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Imediato (em tempo de compilação do hook)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Isolamento</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; color: #e11d48;">Médio (risco de jailbreak se kernel falhar)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; color: #16a34a; font-weight: bold;">Altíssimo (completo à nível de hardware)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; color: #16a34a; font-weight: bold;">Altíssimo (bloqueio cirúrgico de chamadas)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <div class="tutor-note">
                     <strong>Nota de Formatura (Mestre da Fita Crepe):</strong><br>
                     "Sei que muito do que discutimos nestes sete capítulos soa puramente conceitual. Mas a verdade é que toda pós-graduação é, por definição, conceitual. O nosso objetivo aqui não foi te dar receitas prontas, mas sim estruturar a sua base teórica e criar as 'ilusões de aprendizado' necessárias para que você perca o medo do baixo nível. É essa fundação mental que te dará a segurança e a oportunidade de encarar a realidade caótica do chão de fábrica quando um sistema de produção falhar sob a sua responsabilidade. A partir de hoje, a fita crepe está com você. Parabéns pela formatura."
@@ -122,11 +161,12 @@
 
                 <hr class="section-separator">
 
-                <h2>Revisão de Linha de Frente (Resumo do Aprendizado)</h2>
+                <h2>Revisão de Linha de Frente (Checklist de Formatura)</h2>
                 <ul>
-                    <li><strong>Princípio de Isolamento:</strong> Não confie na perfeição do código de terceiros. Assuma que seu sistema será comprometido e blinde as fronteiras operacionais.</li>
-                    <li><strong>eBPF e microVMs:</strong> As ferramentas modernas que garantem o privilégio mínimo para processos ativos diretamente na raiz do kernel.</li>
-                    <li><strong>Soberania Digital:</strong> A capacidade corporativa e nacional de garantir a sobrevivência e integridade das infraestruturas de dados essenciais frente a ameaças globais.</li>
+                    <li><strong>[ ] Aceite a Realidade Operacional:</strong> Entenda que reescrever tudo em Rust é uma meta utópica; o isolamento e sandboxing de código legado são a única mitigação cirúrgica real.</li>
+                    <li><strong>[ ] Desenhe Fronteiras com eBPF:</strong> Intercepte e audite as syscalls da aplicação diretamente na raiz do kernel.</li>
+                    <li><strong>[ ] Crie Anteparas de Contenção:</strong> Envolva processos e parsers legados não-confiáveis sob cúpulas estanques de microVMs.</li>
+                    <li><strong>[ ] Assine com Autodidatismo:</strong> Mantenha-se em aprendizado constante para colidir com o caos do chão de fábrica em produção (Christian Mulato Autodidata).</li>
                 </ul>
 
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">

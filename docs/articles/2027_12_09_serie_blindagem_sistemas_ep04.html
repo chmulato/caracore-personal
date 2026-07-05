@@ -83,16 +83,18 @@
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Esquema arquitetural da Máquina Virtual Java detalhando as fronteiras de memória gerenciada (On-Heap) e as integrações externas perigosas via memória nativa (Off-Heap).</figcaption>
                 </figure>
 
-                                <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
+                <h2>1. O Incidente: O Cluster de Mensageria Silenciosamente Asfixiado</h2>
+                <p>Imagine a memória Off-Heap como o ato de <strong>encher baldes de água no quintal da casa</strong> (fora da gerência do Garbage Collector): cada requisição do Kafka adicionava mais água, mas ninguém esvaziava os baldes. Em poucas horas de operação contínua sob tráfego de dados massivo, o quintal inundou completamente e a casa inteira (o processo JVM do servidor) teve de ser evacuada e morta de forma abrupta por estouro crítico (OOM).</p>
 
-<h2>1. O Incidente: O Cluster de Mensageria Silenciosamente Asfixiado</h2>
-                <p>Em um ambiente corporativo de larga escala, o cluster do Apache Kafka responsável pelo direcionamento de eventos de transações de crédito começou a sofrer com reinicializações forçadas em produção devido a estouro absoluto de recursos do servidor (Out Of Memory do sistema operacional). A equipe de monitoramento inicialmente aumentou o Heap alocado da JVM, mas o problema persistiu.</p>
-
-                <p>O diagnóstico aprofundado revelou um vazamento de memória silencioso ocorrendo na área <em>Off-Heap</em>. O sistema de criptografia legado da empresa conectava-se a uma biblioteca externa compilada em C++ usando pontes JNI (Java Native Interface) convencionais. A cada chamada de descriptografia, os buffers de rede eram alocados na memória nativa fora da gerência do Garbage Collector e, por uma falha de encerramento do recurso na ponte, nunca eram desalocados.</p>
+                <p>O diagnóstico aprofundado revelou um vazamento de memória silencioso ocorrendo na área <em>Off-Heap</em>. O sistema de criptografia legado da empresa conectava-se a uma biblioteca externa compilada em C++ usando pontes JNI (Java Native Interface) convencionais. A cada chamada de descriptografia, os buffers de rede eram alocados na memória nativa fora da gerência do Garbage Collector e, por uma falha de encerramento do recurso na ponte, nunca eram desalocados:</p>
+                
+                <pre><code class="language-java">// Exemplo conceitual do vazamento via JNI:
+byte[] data = decryptNative(buffer); 
+// A função JNI aloca memória nativa Off-Heap internamente, mas falha em liberá-la.</code></pre>
 
                 <div class="tutor-note">
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
-                    "O Garbage Collector do Java é como aquela equipe de limpeza que passa todas as noites nos escritórios recolhendo o lixo que você jogou no cesto (On-Heap). O problema é a memória Off-Heap: é o lixo industrial que você resolveu empilhar no quintal dos fundos. Se você não contratar uma caçamba dedicada para remover esse entulho (como o Project Panama), a prefeitura (o Sistema Operacional) vai interditar o prédio inteiro (matando o processo com o OOM Killer)."
+                    "O Garbage Collector do Java é como aquela equipe de limpeza que passa todas as noites nos escritórios recolhendo o lixo que você jogou no cesto (On-Heap). O problema é a memória Off-Heap: é o lixo industrial que você resolveu empilhar no quintal dos fundos. E o JNI tradicional é como contratar um caminhão de lixo terceirizado sem contrato: se ele não aparecer para buscar o entulho por uma falha de comunicação na ponte nativa, o quintal vira um lixão e o sistema operacional vai interditar o prédio inteiro (matando o processo com o OOM Killer)."
                 </div>
 
                 <h2>2. O Diagnóstico: Por que o Java comum não blinda tudo</h2>
@@ -100,29 +102,80 @@
                     <img src="assets/img/2027_12_09_IMAGE_002.png" alt="Esquema da arquitetura de alocação de memória Java Panama" style="max-width: 100%; height: auto; border-radius: 6px;" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.9rem;">Visão arquitetural demonstrando a alocação de dados Off-Heap e o gerenciamento de Arenas através da API de Memória Estrangeira (Project Panama).</figcaption>
                 </figure>
-                <p>Linguagens gerenciadas como o Java criam a ilusão de imunidade a problemas de memória porque o desenvolvedor comum não interage com endereços físicos. No entanto, o ecossistema corporativo real expõe a JVM a sérios riscos de segurança nas seguintes brechas:</p>
+                
+                <p>Linguagens gerenciadas como o Java criam a ilusão de imunidade a problemas de memória porque o desenvolvedor comum não interage com endereços físicos. No entanto, o ecossistema corporativo real expõe a JVM a sérios riscos através de três pontos vulneráveis principais:</p>
 
+                <h3>🧩 Três Buracos na Cerca da Sandbox</h3>
                 <ul>
-                    <li><strong>A JVM é escrita em C++:</strong> Qualquer falha de segurança ou estouro de buffer localizada no motor interno da HotSpot derruba ou expõe a execução do aplicativo Java de maneira integral.</li>
-                    <li><strong>Memória Off-Heap e `sun.misc.Unsafe`:</strong> Frameworks de alta velocidade (como Netty ou Cassandra) evitam o Garbage Collector para escapar de picos de latência. Eles manipulam alocações nativas diretamente no sistema operacional. Erros aqui possuem a mesma gravidade e comportamento que falhas de vazamento em C++.</li>
-                    <li><strong>Desserialização Insegura:</strong> Falhas lógicas de injeção dinâmica em bibliotecas antigas (como a catastrófica vulnerabilidade Log4j) contornam a integridade da Sandbox do Java executando comandos maliciosos nativamente.</li>
+                    <li><strong>1. Buraco Interno (A JVM é escrita em C++):</strong> Qualquer falha de segurança ou estouro de buffer localizada no motor interno da HotSpot (C++) derruba ou expõe a execução do aplicativo Java de maneira integral.</li>
+                    <li><strong>2. Buraco Lateral (Off-Heap e `sun.misc.Unsafe`):</strong> Frameworks de alta velocidade (como Netty ou Cassandra) evitam o Garbage Collector para escapar de picos de latência. Eles saem da cerca por vontade própria e manipulam alocações nativas diretamente no sistema operacional. Erros aqui possuem a mesma gravidade que falhas de vazamento em C++.</li>
+                    <li><strong>3. Buraco Remoto (Desserialização Insegura):</strong> Falhas lógicas de injeção dinâmica em bibliotecas antigas (como a catastrófica vulnerabilidade Log4j) contornam a integridade da Sandbox do Java executando comandos maliciosos nativamente e abrindo a cerca por fora.</li>
                 </ul>
 
                 <h2>3. Mitigação: Engenheirando as pontes com o Project Panama</h2>
-                <p>Para desativar a insegurança de conexões nativas legadas, o Java introduziu no JDK moderno a API de Memória Estrangeira (Foreign Function &amp; Memory API), parte do **Project Panama**:</p>
+                <p>Para desativar a segurança de conexões nativas legadas, o Java introduziu no JDK moderno a API de Memória Estrangeira (Foreign Function &amp; Memory API), parte do <strong>Project Panama</strong>:</p>
 
                 <ol>
                     <li><strong>Substituição do JNI:</strong> O Project Panama remove a necessidade de escrever código intermediário em C/C++ para integrar bibliotecas externas, permitindo mapear layouts de memória de hardware de forma tipada e segura direto no código Java.</li>
-                    <li><strong>Arenas de Alocação Segura:</strong> Gerenciar a memória Off-Heap utilizando objetos de controle de escopo chamados Arenas. Ao encerrar o escopo da Arena (usando estruturas do tipo <code>try-with-resources</code>), toda a memória nativa alocada no sistema operacional é liberada de forma 100% garantida, sem dependência do Garbage Collector.</li>
+                    <li><strong>Arenas de Alocação Segura:</strong> Gerenciar a memória Off-Heap utilizando objetos de controle de escopo chamados Arenas. Ao encerrar o escopo da Arena (usando estruturas do tipo <code>try-with-resources</code>), toda a memória nativa alocada no sistema operacional é liberada de forma 100% garantida, sem dependência do Garbage Collector:
+                        <pre><code class="language-java">try (Arena arena = Arena.ofConfined()) {
+    MemorySegment seg = arena.allocate(1024); // Alocação segura Off-Heap
+    // Uso seguro da memória nativa com validação física de limites
+} // Toda a memória alocada na arena é desalocada automaticamente ao fechar o bloco</code></pre>
+                    </li>
                 </ol>
+
+                <h2>Como Detectar Vazamentos Off-Heap</h2>
+                <p>Identificar vazamentos de memória que ocorrem fora da gerência da máquina virtual exige instrumentação específica no sistema operacional:</p>
+                <ul>
+                    <li><code>jcmd VM.native_memory summary</code>: O comando nativo do JDK para visualizar o sumário de uso de memória nativa da JVM (exige ativar o NMT - Native Memory Tracking).</li>
+                    <li><code>perf top</code>: Ferramenta de profiling do Linux para monitorar chamadas de alocação de baixo nível em tempo real.</li>
+                    <li><code>jemalloc stats</code>: Substituir a biblioteca alocadora do sistema (glibc malloc) para gerar relatórios estruturados de fragmentação e leaks.</li>
+                    <li><code>async-profiler</code>: Monitorar a stack de execução nativa para cruzar alocações diretas de memória nativa com chamadas Java.</li>
+                </ul>
+
+                <h2>JNI vs Project Panama</h2>
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="background: #1e293b; color: #ffffff;">
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">Aspecto</th>
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">JNI (Legado)</th>
+                            <th style="padding: 10px; border: 1px solid #334155; text-align: left;">Project Panama (Moderno)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Segurança</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; color: #e11d48;">Baixa (risco alto de crash)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; color: #16a34a;">Alta (verificada pela JVM)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Tipagem</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Manual (ponteiros brutos)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Automática (MemorySegment)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Liberação</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Manual (alto risco de leak)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Determinística (via Arenas)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Complexidade</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Alta (exige código C++)</td>
+                            <td style="padding: 10px; border: 1px solid #e2e8f0;">Baixa (código 100% Java)</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <hr class="section-separator">
 
-                <h2>Revisão de Linha de Frente (Resumo do Aprendizado)</h2>
+                <h2>Revisão de Linha de Frente (Mapa Mental do Módulo 04)</h2>
                 <ul>
-                    <li><strong>JVM sob Risco Nativo:</strong> O Garbage Collector só gerencia o lixo localizado dentro do cercado controlado do Heap de aplicação. A memória externa permanece sujeita a falhas graves se não for governada.</li>
-                    <li><strong>Fim do JNI Convencional:</strong> Pontes nativas antigas escritas à mão são fontes constantes de vulnerabilidade e vazamento oculto de RAM.</li>
-                    <li><strong>Project Panama e Arenas:</strong> O recurso do Java moderno para alocar e gerenciar memória externa com limites temporais e escopo determinístico.</li>
+                    <li><strong>[ ] On-Heap:</strong> Memória interna segura, monitorada e limpa pelo Garbage Collector (GC).</li>
+                    <li><strong>[ ] Off-Heap:</strong> Memória nativa dinâmica alocada diretamente no sistema operacional. Alto desempenho, mas de liberação manual.</li>
+                    <li><strong>[ ] JNI (Java Native Interface):</strong> Ponte nativa convencional instável e complexa.</li>
+                    <li><strong>[ ] Project Panama:</strong> A nova API moderna para ligar o Java a componentes e funções nativas com alta performance e tipagem.</li>
+                    <li><strong>[ ] Arenas:</strong> O bloco de controle de escopo determinístico que garante a desalocação nativa segura.</li>
                 </ul>
 
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">

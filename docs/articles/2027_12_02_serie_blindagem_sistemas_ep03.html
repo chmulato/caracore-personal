@@ -86,13 +86,13 @@
                                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
 <h2>1. O Incidente: O Módulo de Autenticação com Sangramento de RAM</h2>
-                <p>Em um sistema de alta concorrência rodando no ecossistema de pagamentos, um vazamento silencioso de memória virtual (Memory Leak) forçava a equipe de operações a reiniciar os pods do cluster Kubernetes a cada 48 horas. A aplicação acumulava resíduos no Heap a cada processo de login de novos usuários que falhavam devido a tokens expirados.</p>
+                <p>Imagine o vazamento de memória virtual (Memory Leak) como um <strong>balde d'água furado</strong>: a cada requisição de login que falhava devido a tokens expirados, o sistema perdia uma única gota de memória RAM no Heap que ficava retida e esquecida. Sob tráfego de dados de alta concorrência contínuo de produção, em exatas 48 horas o balde transbordava e esgotava os recursos físicos da máquina, forçando a equipe de operações a reiniciar os pods do cluster Kubernetes.</p>
 
-                <p>O diagnóstico apontava para um gerenciador de conexões em C++ que, em caminhos de exceção complexos, omitia a liberação do objeto do usuário da memória. Tentativas de correção manual geravam receio de quebras colaterais em produção. A decisão de engenharia foi cirúrgica: isolar o microsserviço de autenticação e reescrever seu núcleo crítico utilizando Rust.</p>
+                <p>O diagnóstico apontava para um gerenciador de conexões em C++ que, em caminhos de exceção complexos, omitia a liberação do objeto do usuário da memória. Tentativas de correção manual geravam receio de quebras colaterais em produção. A decisão de engenharia foi cirúrgica: isolar o microsserviço de autenticação e reescrever seu núcleo crítico utilizando Rust. Rust foi escolhida especificamente porque elimina classes inteiras de bugs e vulnerabilidades de memória que C++ permite no Heap, especialmente em fluxos de tratamento de exceção de dados complexos.</p>
 
                 <div class="tutor-note">
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
-                    "Executivos costumam me perguntar por que a migração para Rust vale a pena. Eu explico: programar em C/C++ é como dirigir sem cinto de segurança a 200 km/h: é rápido até você encontrar um muro na pista. O compilador do Rust te obriga a colocar o cinto, ajustar os retrovisores e fazer o bafômetro antes de dar a partida. Demora mais para compilar e sair da garagem, mas você garante que o software chega vivo no ambiente de produção."
+                    "Executivos costumam me perguntar por que a migração para Rust vale a pena. Eu explico: programar em C/C++ é como dirigir sem cinto de segurança a 200 km/h: é rápido até você encontrar um muro na pista. O compilador do Rust te obriga a colocar o cinto, ajustar os retrovisores e fazer o bafômetro antes de dar a partida. O carro pode até demorar um pouco mais para sair da garagem por conta da rigidez de compilação, mas ele definitivamente não explode no meio da estrada."
                 </div>
 
                 <h2>2. O Diagnóstico: O Paradigma de Ownership do Rust</h2>
@@ -100,7 +100,8 @@
                     <img src="assets/img/2027_12_02_IMAGE_002.png" alt="Fluxograma lógico do Borrow Checker" style="max-width: 100%; height: auto; border-radius: 6px;" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.9rem;">Esquema de fluxo de vida e de empréstimo (Borrow Checker) monitorado pelo compilador para validar a posse de variáveis de forma segura.</figcaption>
                 </figure>
-                <p>Rust elimina classes inteiras de bugs de memória em tempo de compilação sem necessitar de um Garbage Collector. Esse feito é alcançado através de três regras fundamentais de propriedade (Ownership):</p>
+                
+                <p>Para simplificar, pense no conceito de <strong>Ownership (Propriedade)</strong> como a chave física de um cofre de segurança: apenas uma pessoa pode segurá-la de cada vez. Se você entrega a chave para outro colega de equipe (Move), você perde o acesso total ao cofre instantaneamente. E assim que o último dono da chave sai do prédio (fim do escopo), o cofre e seus dados são automaticamente destruídos. Rust elimina classes inteiras de bugs de memória em tempo de compilação sem necessitar de um Garbage Collector. Esse feito é alcançado através de três regras fundamentais de propriedade:</p>
 
                 <ol>
                     <li><strong>Cada valor em Rust tem um proprietário único:</strong> Uma única variável possui os direitos de gerenciar aquele recurso de memória no Heap por vez.</li>
@@ -108,23 +109,43 @@
                     <li><strong>Escopo limpo (Drop):</strong> Quando o proprietário sai do escopo da execução, a memória associada é limpa de forma determinística na hora.</li>
                 </ol>
 
-                <p>Se o código tentar compartilhar recursos simultaneamente de forma insegura (criando data races ou abrindo caminhos para double-free), o **Borrow Checker** impede a compilação do software, exigindo que o engenheiro estruture referências explícitas (imutáveis ou apenas uma mutável por vez).</p>
+                <p>Se o código tentar compartilhar recursos simultaneamente de forma insegura (criando data races ou abrindo caminhos para double-free), o <strong>Borrow Checker</strong> impede a compilação do software, exigindo que o engenheiro estruture referências explícitas (imutáveis ou apenas uma mutável por vez).</p>
+                
+                <pre><code class="language-rust">// Exemplo de erro interceptado pelo Borrow Checker:
+let mut x = 10;
+let y = &amp;mut x; // Ok, primeiro empréstimo mutável ativo
+let z = &amp;mut x; // ERRO EM TEMPO DE COMPILAÇÃO! Não é permitido ter outro empréstimo mutável simultâneo.</code></pre>
 
                 <h2>3. Mitigação: Re-engenheirando com Segurança</h2>
                 <p>A substituição do serviço antigo por Rust foi conduzida com foco em isolamento absoluto do estado mutável:</p>
 
                 <ul>
-                    <li><strong>Borrowing controlado:</strong> Utilizar referências imutáveis temporárias (<code>&amp;T</code>) para ler os tokens de login sem perder ou transferir a propriedade dos dados primários da requisição.</li>
+                    <li><strong>Borrowing controlado:</strong> Utilizar referências imutáveis temporárias (<code>&amp;T</code>) para ler os tokens de login sem perder ou transferir a propriedade dos dados primários da requisição.
+                        <pre><code class="language-rust">fn autenticar(req: &amp;LoginRequest) {
+    let token = req.token.as_ref(); // Borrowing imutável temporário
+    if token.expirado() {
+        return; // Memória limpa automaticamente e com segurança ao sair do escopo (Drop)
+    }
+}</code></pre>
+                    </li>
                     <li><strong>Evitar Unsafe:</strong> Manter o código 100% livre do bloco especial <code>unsafe</code>, permitindo que a própria linguagem seja a fiadora da saúde e estabilidade do fluxo de dados sob concorrência maciça.</li>
+                </ul>
+
+                <h2>Rust vs C++ no Incidente</h2>
+                <ul>
+                    <li><strong>Gerenciamento no Heap:</strong> Em C++, caminhos de exceção complexos permitiam deixar resíduos no Heap sem desalocar (Memory Leak). Em Rust, se houver qualquer cenário sem o comando Drop de liberação associado, o programa não compila.</li>
+                    <li><strong>Acesso Concorrente:</strong> Em C++, o sistema permitia múltiplos acessos simultâneos de escrita em ponteiros de autenticação de sessão. Em Rust, o Borrow Checker proíbe múltiplos empréstimos mutáveis na compilação.</li>
                 </ul>
 
                 <hr class="section-separator">
 
-                <h2>Revisão de Linha de Frente (Resumo do Aprendizado)</h2>
+                <h2>Revisão de Linha de Frente (Mapa Mental do Rust)</h2>
                 <ul>
-                    <li><strong>Segurança em Tempo de Compilação:</strong> Bugs clássicos como estouros de buffer e use-after-free não rodam em produção porque o compilador simplesmente se recusa a gerar o executável.</li>
-                    <li><strong>Ausência de Garbage Collector:</strong> Não há picos de latência ou paradas do sistema para "limpar" o Heap. A desalocação ocorre de maneira predizível e cirúrgica assim que o escopo se encerra.</li>
-                    <li><strong>Ownership e Borrowing:</strong> Regras rígidas que transferem a responsabilidade de auditar a memória do desenvolvedor para as restrições formais da ferramenta de compilação.</li>
+                    <li><strong>[ ] Compilador Rígido:</strong> Impede erros graves de memória RAM antes mesmo do código rodar em produção.</li>
+                    <li><strong>[ ] GC-Free (Sem Coletor):</strong> Garante latência baixa e previsível para autenticações velozes.</li>
+                    <li><strong>[ ] Regras de Ownership:</strong> Cada bloco de dados possui um único dono responsável.</li>
+                    <li><strong>[ ] Borrow Checker Ativo:</strong> Controla e fiscaliza empréstimos de dados simultâneos de forma estrita.</li>
+                    <li><strong>[ ] Limpeza com Drop:</strong> A desalocação da memória dinâmica é automática e determinística assim que o escopo se fecha.</li>
                 </ul>
 
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">

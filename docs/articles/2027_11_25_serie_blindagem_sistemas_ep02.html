@@ -86,44 +86,55 @@
                                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
 <h2>1. O Incidente: O Roteador de Borda e o Ponteiro Fantasma</h2>
+                <p>Imagine o seguinte cenário abstrato para facilitar a visualização do fluxo de dados: o roteador do seu sistema possui gavetas numeradas organizando informações exclusivas de cada cliente. Em uma operação de sucesso, os dados entram e saem das gavetas corretas. O erro a seguir fez com que o sistema, por engano, entregasse a chave de uma gaveta já esvaziada a um novo cliente, que acabou lendo arquivos confidenciais deixados para trás.</p>
+
                 <p>Durante uma auditoria regulatória, a equipe de infraestrutura de rede identificou uma anomalia em um dos roteadores de borda responsáveis pelo balanceamento de carga. O tráfego de dados de múltiplos clientes começou a misturar-se de forma intermitente nos cabeçalhos de rede HTTP. O culpado foi um erro clássico de gerenciamento de memória em C++ no parser de pacotes.</p>
-
+ 
                 <p>Ao processar um pacote com formato malicioso, a aplicação liberava a memória de uma estrutura de controle, mas falhava em zerar o endereço apontado por aquela variável (ponteiro órfão). Ao alocar instantaneamente o próximo cabeçalho na mesma faixa física da memória RAM, a aplicação lia dados residuais e sobrescrevia tokens de sessão ativos de outros usuários, resultando em um vazamento catastrófico de privacidade de dados.</p>
-
+ 
                 <div class="tutor-note">
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
-                    "Use-After-Free é a típica burrice de recepção de hotel: o atendente dá a chave do quarto 102 para um novo hóspede sem avisar que o hóspede antigo ainda está lá dentro pegando as malas. Em software, o invasor é o hóspede novo que entra no quarto e rouba o que o antigo deixou na mesa. Não dependa de torcer para que o hóspede seja honesto; a recepção do sistema operacional precisa travar a porta."
+                    "Use-After-Free é a típica burrice de recepção de hotel: o atendente dá a chave do quarto 102 para um novo hóspede sem avisar que o hóspede antigo ainda está lá dentro pegando as malas. Em software, o invasor é o hóspede novo que entra no quarto e rouba o que o antigo deixou na mesa. Não dependa de torcer para que o hóspede seja honesto; a recepção do sistema operacional é o gerente que deveria travar a porta para impedir isso."
                 </div>
-
+ 
                 <h2>2. O Diagnóstico: A Mecânica de Stack e Heap</h2>
                 <figure class="article-image-frame" style="text-align: center; margin: 1.5rem 0;">
                     <img src="assets/img/2027_11_25_IMAGE_002.png" alt="Esquema de colisão e desalocação no Heap" style="max-width: 100%; height: auto; border-radius: 6px;" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.9rem;">Representação esquemática do Heap de memória RAM exibindo a colisão de endereços decorrente de um ponteiro órfão ativo (Use-After-Free).</figcaption>
                 </figure>
-                <p>Para entender o risco à saúde da sua aplicação, precisamos separar a memória em dois conceitos fundamentais:</p>
-
+                
+                <p>Para desmistificar o risco da aplicação sem jargões acadêmicos pesados, pense na memória RAM através de uma analogia física de armazenamento:</p>
                 <ul>
-                    <li><strong>Stack (Pilha):</strong> Memória rápida, gerenciada automaticamente pelo compilador. Nela residem variáveis locais e escopos de funções. Quando a função termina, o compilador joga tudo fora instantaneamente.</li>
-                    <li><strong>Heap (Monte):</strong> Espaço de alocação dinâmica. O desenvolvedor solicita espaço manualmente usando comandos como <code>malloc()</code> ou o operador <code>new</code> em C++. Essa memória precisa ser liberada explicitamente quando não for mais necessária (através de <code>free()</code> ou <code>delete</code>).</li>
+                    <li><strong>Stack (Pilha / A Mesa de Trabalho):</strong> Funciona como a mesa de trabalho física do programador. Ela é rápida e limpa de forma totalmente automática. Quando a tarefa da função termina, tudo sobre a mesa é jogado no lixo instantaneamente.</li>
+                    <li><strong>Heap (Monte / O Depósito de Caixas):</strong> Funciona como um grande depósito nos fundos da empresa onde guardamos caixas grandes de dados dinâmicos. Essa área exige que você solicite a alocação de espaço e, o mais importante, lembre-se de avisar ao gerente para retirar as caixas de lá quando não forem mais usadas.</li>
                 </ul>
 
-                <p>O perigo ocorre quando o desenvolvedor libera o espaço de memória no Heap, mas deixa o ponteiro ativo na Stack apontando para o antigo endereço. Esse endereço liberado é recolocado imediatamente no catálogo de alocação do sistema operacional. Quando o software tenta acessar o ponteiro antigo, ele lê dados que agora pertencem a outra parte do sistema.</p>
-
+                <p>O conceito de <strong>Use-After-Free (Uso de Memória Órfã)</strong> descreve exatamente a situação em que o software joga fora uma caixa do depósito (libera o espaço no Heap), mas o programador continua acreditando e escrevendo no código como se a caixa ainda estivesse ativa no mesmo endereço original (deixando o ponteiro na Stack ativo).</p>
+ 
+                <p>Esse endereço liberado é recolocado imediatamente no catálogo de alocação do sistema operacional. Quando o software tenta acessar o ponteiro antigo, ele lê dados que agora pertencem a outra parte do sistema.</p>
+ 
                 <h2>3. Mitigação: Como Corrigir na Prática</h2>
                 <p>Para mitigar esses riscos sem reescrever todo o software antigo do dia para a noite, adote as seguintes práticas estruturais:</p>
-
+ 
                 <ol>
-                    <li><strong>Smart Pointers em C++:</strong> Substitua ponteiros brutos por ponteiros inteligentes (como <code>std::unique_ptr</code> ou <code>std::shared_ptr</code>) que gerenciam a contagem de referências e limpam a memória automaticamente quando o último escopo associado é encerrado.</li>
-                    <li><strong>Zerar Ponteiros (Nulling out):</strong> Se for inevitável trabalhar com baixo nível puro, certifique-se de que todo comando <code>free(ptr)</code> seja imediatamente seguido por um <code>ptr = NULL;</code> para evitar que referências órfãs permaneçam ativas.</li>
+                    <li><strong>Smart Pointers em C++:</strong> Substitua ponteiros brutos por ponteiros inteligentes (como <code>std::unique_ptr</code> ou <code>std::shared_ptr</code>) que gerenciam a contagem de referências e limpam a memória automaticamente ao final do escopo.
+                        <pre><code class="language-cpp">std::unique_ptr&lt;Cliente&gt; c = std::make_unique&lt;Cliente&gt;(); // Limpeza automática garantida</code></pre>
+                    </li>
+                    <li><strong>Zerar Ponteiros (Nulling out):</strong> Se for inevitável trabalhar com baixo nível puro, certifique-se de que todo comando de liberação seja imediatamente seguido por uma atribuição nula para evitar referências órfãs ativas.
+                        <pre><code class="language-cpp">delete usuario;
+usuario = nullptr; // Evita ponteiro órfão apontando para a RAM liberada</code></pre>
+                    </li>
                 </ol>
-
+ 
                 <hr class="section-separator">
-
-                <h2>Revisão de Linha de Frente (Resumo do Aprendizado)</h2>
+ 
+                <h2>Revisão de Linha de Frente (Checklist do Módulo 02)</h2>
                 <ul>
-                    <li><strong>Ponteiro Órfão (Dangling Pointer):</strong> Um endereço de memória que aponta para um espaço físico que já foi devolvido ao sistema operacional.</li>
-                    <li><strong>Comportamento Indefinido:</strong> Tentar ler ou escrever em endereços de memória liberados gera falhas de segmentação (Segmentation Fault) ou expõe dados de outros clientes de forma imprevisível.</li>
-                    <li><strong>Higiene de Baixo Nível:</strong> A saúde de qualquer sistema corporativo que lida com FFI ou dependências nativas depende da higiene severa das chamadas dinâmicas.</li>
+                    <li><strong>[ ] Diferencie Stack vs Heap:</strong> Entenda a mesa de trabalho rápida vs o depósito de caixas dinâmico.</li>
+                    <li><strong>[ ] Evite Ponteiros Órfãos:</strong> Nunca tente acessar um endereço de memória física que já foi liberado.</li>
+                    <li><strong>[ ] Utilize Smart Pointers:</strong> Deixe que o compilador gerencie os escopos de limpeza em C++ de forma inteligente.</li>
+                    <li><strong>[ ] Zere referências em baixo nível:</strong> Associe sempre o valor <code>nullptr</code> a variáveis após o comando de delete.</li>
+                    <li><strong>[ ] Teste com Validação Dinâmica:</strong> Monitore o comportamento ativo da RAM para interceptar vazamentos antes do deploy.</li>
                 </ul>
 
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
