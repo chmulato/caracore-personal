@@ -174,8 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     updateStats();
     
-    console.log('🚀 Main.js carregado com sucesso!');
-    console.log(`📊 Artigos carregados: ${document.querySelectorAll('.article-card').length}`);
+    const articleCount = document.querySelectorAll('.article-card').length;
+    if (articleCount > 0) {
+        console.log('🚀 Main.js carregado com sucesso!');
+        console.log(`📊 Artigos carregados: ${articleCount}`);
+    }
 });
 
 // Adicionar estilos para animações
