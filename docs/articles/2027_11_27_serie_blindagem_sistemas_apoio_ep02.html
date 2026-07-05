@@ -107,13 +107,60 @@ Passo 4: Cliente A lê usando o ponteiro antigo e visualiza o Token do Cliente B
 
                 <p>O reaproveitamento automático de blocos de memória livres pelo alocador do sistema operacional é o fator que torna o ataque previsível e extremamente crítico.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Você pode testar e simular as mecânicas de degradação da memória do Módulo 02 enviando o seguinte prompt para a IA tutor:</p>
-
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Crie uma simulação conceitual em português de um ataque Use-After-Free, explicando o que acontece com a memória RAM física quando o endereço do Cliente A é reutilizado para o Cliente B."</code></pre></div>
-
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
+                 <p>Você pode testar e simular as mecânicas de degradação da memória do Módulo 02 enviando o seguinte prompt para a IA tutor:</p>
+ 
+                 <h2>4. Exercício Prático Guiado: O Ponteiro Fantasma (Use-After-Free)</h2>
+                 <p><strong>Objetivo:</strong> Compreender a diferença dinâmica entre a Stack e a Heap e identificar como a falta de limpeza de um ponteiro liberado gera uma falha crítica de segurança.</p>
+                 
+                 <p><strong>O Cenário:</strong> Imagine um sistema de autenticação de servidores que cria uma estrutura temporária na memória Heap para validar se um usuário tem permissões administrativas. Copie o código abaixo e utilize o prompt indicado no painel da sua IA de navegação.</p>
+ 
+                 <p><strong>Passo 1: O Código Vulnerável em C</strong></p>
+                 <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+ 
+struct Usuario {
+    char nome[16];
+    int eh_admin; // 0 = Não, 1 = Sim
+};
+ 
+int main() {
+    // Alocando espaço no "Arquivo Morto Compartilhado" (Heap)
+    struct Usuario *user = (struct Usuario*)malloc(sizeof(struct Usuario));
+    strcpy(user->nome, "Convidado");
+    user->eh_admin = 0;
+ 
+    // ... O usuário faz logout e o sistema desaloca a memória
+    free(user); 
+    
+    // PERIGO: O ponteiro 'user' ainda guarda o endereço de memória antigo!
+    // Ele virou um "Ponteiro Fantasma".
+ 
+    // Uma nova função do sistema é executada e reivindica espaço na Heap
+    // O sistema operacional, por otimização, entrega a mesma gaveta que acabou de ser liberada.
+    int *config_sistema = (int*)malloc(sizeof(int));
+    *config_sistema = 1; // Esse valor '1' sobrescreve exatamente o espaço onde ficava o 'eh_admin'
+ 
+    // O sistema comete o erro de tentar ler o ponteiro antigo que não foi zerado
+    if (user->eh_admin == 1) {
+        printf("[ALERTA] Acesso de Administrador concedido via Use-After-Free!\n");
+    }
+ 
+    return 0;
+}</code></pre></div>
+ 
+                 <p><strong>Passo 2: O Prompt do Aluno (Copie e Cole na IA)</strong></p>
+                 <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Analise o código acima. Explique o que é a vulnerabilidade 'Use-After-Free' que ocorre após a linha `free(user);`. Para a explicação, utilize a analogia de 'limpar a mesa de trabalho temporária (Stack) versus esquecer um post-it com a localização de uma pasta no arquivo morto compartilhado (Heap)'."</code></pre></div>
+ 
+                 <p><strong>Passo 3: O que esperar da resposta da IA (Gabarito Metodológico)</strong></p>
+                 <ul>
+                     <li><strong>O Diagnóstico:</strong> A função <code>free(user)</code> avisa ao sistema operacional que aquela região da memória Heap está disponível, mas ela <strong>não apaga</strong> o endereço guardado na variável <code>user</code>. A variável continua apontando para o local antigo (um ponteiro solto ou <em>dangling pointer</em>).</li>
+                     <li><strong>A Tradução (A Analogia da Trincheira):</strong> A Stack é a sua mesa de trabalho: quando a função acaba, a mesa é limpa instantaneamente. A Heap é o <strong>arquivo morto compartilhado</strong> do prédio. O comando <code>free</code> foi o equivalente a dizer: <em>"Podem usar a gaveta número 42, já terminei"</em>. No entanto, você não jogou fora o <strong>post-it</strong> que tinha escrito "Gaveta 42". Outro departamento (o ponteiro <code>config_sistema</code>) veio e guardou um documento importante (o número 1) na mesma gaveta 42. Quando você olha para o seu post-it antigo e abre a gaveta 42, você lê o dado do outro departamento achando que ainda é o seu.</li>
+                     <li><strong>A Consequência (O Raio-X):</strong> O programa lê uma região de memória que ele achava que continha o perfil do usuário "Convidado", mas que agora contém dados de configuração do sistema. O valor <code>1</code> injetado pela outra função engana o teste lógico <code>if (user->eh_admin == 1)</code>, promovendo um usuário comum a administrador sem autenticação real.</li>
+                 </ul>
+ 
+                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
+                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
                         <li><strong>Alocador de Memória (malloc/new):</strong> Componente do sistema que gerencia e reserva blocos livres de RAM no Heap.</li>
                         <li><strong>ASan (AddressSanitizer):</strong> Ferramenta que insere zonas de alerta (shadow bytes) na memória para detectar acessos inválidos em runtime.</li>
