@@ -91,6 +91,25 @@
         [data-theme="light"] .terminal-block code {
             color: #1e293b !important;
         }
+        .reflection-note-red {
+            background: #fdf2f2;
+            border-left: 4px solid #bf616a;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note-red {
+            background: #1c1012;
+            border-left-color: #bf616a;
+            color: #e2e8f0;
+        }
+        .reflection-note-red strong {
+            color: #991b1b;
+        }
+        [data-theme="dark"] .reflection-note-red strong {
+            color: #fca5a5;
+        }
     </style>
 </head>
 <body>
@@ -191,8 +210,17 @@ int main() {
                     <span style="color: #61afef; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
                     <pre><code class="language-text">"Analise o código C acima. Explique o que é a vulnerabilidade 'Use-After-Free' que ocorre após a linha free(user);. Para a explicação, utilize a analogia de limpar a mesa de trabalho imediata (Stack) versus esquecer um post-it com a localização de uma pasta dentro do arquivo morto compartilhado (Heap)."</code></pre>
                 </div>
-
-                 <h2>4. Dicionário de Trincheira</h2>
+ 
+                <h2>4. Reflexão Final: O Custo Oculto da Gaveta Esquecida</h2>
+                <div class="reflection-note-red">
+                    <p style="margin-top: 0;">Se o Módulo 01 nos mostrou que o cérebro humano falha ao calcular <em>espaço</em> (estourando a caixa postal), este Módulo 02 escancara que também falhamos ao gerenciar o <em>tempo</em>. O erro de <strong>Use-After-Free</strong> é, essencialmente, um erro de cronologia: o programa tenta interagir com o passado, usando um crachá que já perdeu a validade.</p>
+                    
+                    <p>A grande ironia da engenharia de software de baixo nível é que passamos décadas acreditando que dar controle total da memória RAM ao desenvolvedor era o ápice da eficiência. O resultado? Uma indústria multibilionária construída sobre um terreno movediço, onde sistemas críticos correm riscos diários porque alguém esqueceu de zerar um ponteiro após a liberação.</p>
+                    
+                    <p style="margin-bottom: 0;">Para você, essa fragilidade histórica não deve ser motivo de desespero, mas de <strong>visão estratégica</strong>. Quando o mercado admite que não consegue resolver isso apenas pedindo "mais atenção", ele abre espaço para profissionais que sabem arquitetar a contenção de danos. Você está aprendendo a diagnosticar a doença para, no próximo módulo, aplicar a vacina definitiva.</p>
+                </div>
+ 
+                <h2>5. Dicionário de Trincheira</h2>
                  <div style="overflow-x: auto; margin: 2rem 0;">
                      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
                          <thead>
