@@ -113,6 +113,43 @@
 
                 <p>Use este diálogo para sanar dúvidas imediatas de sintaxe de código sem medo ou vergonha de expor lacunas acadêmicas.</p>
 
+                <h2>4. Exercício Prático Guiado: Investigando a "Caixa Postal"</h2>
+                <p>Objetivo: Praticar a identificação de um Buffer Overflow (Estouro de Buffer) em um código real, usando a IA para traduzir a falha técnica para a analogia da caixa postal.</p>
+                
+                <p><strong>O Cenário:</strong> Imagine que você encontrou o seguinte trecho de código antigo em C rodando em um servidor legado da empresa. Copie este código e o prompt abaixo, e cole no painel da sua IA de estudos.</p>
+
+                <p><strong>Passo 1: O Código Vulnerável</strong></p>
+                <div class="chalkboard"><pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+ 
+void verificar_acesso() {
+    char senha_digitada[10]; // Nossa "Caixa postal" de 10 espaços
+    int acesso_concedido = 0; // 0 = Negado, 1 = Liberado
+ 
+    printf("Digite a senha: ");
+    gets(senha_digitada); // Ponto de atenção! A função gets() não verifica o tamanho.
+ 
+    if(strcmp(senha_digitada, "admin123") == 0) {
+        acesso_concedido = 1;
+    }
+ 
+    if(acesso_concedido == 1) {
+        printf("Acesso Liberado ao Sistema de Controle!\n");
+    } else {
+        printf("Acesso Negado.\n");
+    }
+}</code></pre></div>
+
+                <p><strong>Passo 2: O Prompt do Aluno (Copie e Cole na IA)</strong></p>
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Analise o código C acima. Identifique onde está a falha de segurança e explique como um atacante poderia ganhar 'Acesso Liberado' mesmo sem saber a senha 'admin123'. Para explicar, use a analogia da 'caixa postal transbordando e sujando a mesa vizinha'."</code></pre></div>
+
+                <p><strong>Passo 3: O que você deve esperar da resposta da IA (Gabarito Metodológico)</strong></p>
+                <ul>
+                    <li><strong>A Falha (O Diagnóstico):</strong> A falha está na função <code>gets(senha_digitada)</code>. Essa função é cega para limites; ela continua lendo o que o usuário digita até que ele aperte 'Enter'.</li>
+                    <li><strong>A Tradução (A Analogia da Trincheira):</strong> A variável <code>senha_digitada</code> é uma caixa postal que só cabe 10 letras. A variável <code>acesso_concedido</code> (que vale 0) é a caixa postal logo ao lado. Se um atacante digitar uma "carta" de 15 letras (ex: AAAAAAAAAAAAAAA), as primeiras 10 letras enchem a caixa da senha. As 5 letras restantes transbordam e caem dentro da caixa do acesso_concedido.</li>
+                    <li><strong>A Consequência (O Raio-X):</strong> Ao transbordar letras (dados) para dentro da variável <code>acesso_concedido</code>, o valor dela deixa de ser 0 (Negado) e passa a ser um valor diferente de zero. No momento em que o sistema testa <code>if(acesso_concedido == 1)</code>, ele vê que a caixa não está mais vazia e, por uma falha lógica, libera o acesso, concedendo um controle indevido ao atacante.</li>
+                </ul>
+
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
