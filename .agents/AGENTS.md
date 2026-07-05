@@ -16,9 +16,9 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 
 ## 📈 Status Atual (Ciclo Ativo: jun/2026 a mai/2029)
 
-* **Total de Artigos Publicados:** 191 artigos
-* **Total de Séries com Índice Próprio:** 11 séries
-* **Período do Acervo:** março de 2024 a setembro de 2027 (datas futuras em 2027 são usadas para agendamento de séries editoriais)
+* **Total de Artigos Publicados:** 211 artigos
+* **Total de Séries com Índice Próprio:** 13 séries
+* **Período do Acervo:** março de 2024 a janeiro de 2028 (datas futuras em 2027 são usadas para agendamento de séries editoriais)
 * **Lista de Séries Ativas:**
   1. **Além do Hype** (Index + 5 Episódios) — Arquitetura de software, matemática de escala e FinOps.
   2. **O Novo Tabuleiro do Mundo** (Index + 6 Episódios + Epílogo) — IA como commodity física e matriz energética.
@@ -32,6 +32,8 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
   10. **Depois do debate** (Index + 3 Episódios) — O futuro do programador na era dos LLMs.
   11. **Do Silício ao Chão de Fábrica** (Index + 8 Episódios) — Geopolítica física, soberania de dados híbrida e telemetria offline-first na economia real produtiva do país.
   12. **A Ilusão da Interface** (Index + 3 Episódios + 1 Apêndice) — Crítica geopolítica e social sobre o petrodólar, as panelinhas locais, a economia da atenção dos algoritmos e o desdobramento da linguagem de controle para leitores adultos e jovens.
+  13. **Blindagem de Sistemas** (Index + 7 Episódios) — Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital.
+  14. **Blindagem de Sistemas — Lições de Apoio** (7 Episódios) — Aulas de apoio e nivelamento prático utilizando analogias lógicas simples e tutoria de IA no navegador para estudantes de menor base técnica.
 
 ---
 

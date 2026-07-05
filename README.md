@@ -8,10 +8,10 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
 
 ## Visão Geral do Blog
 
-* **Total de Artigos:** 199 artigos publicados.
-* **Período de Publicações:** de março de 2024 a dezembro de 2027.
+* **Total de Artigos:** 211 artigos publicados.
+* **Período de Publicações:** de março de 2024 a janeiro de 2028.
 * **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
-  * [Blindagem de Sistemas](https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html): Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital.
+  * [Blindagem de Sistemas](https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html): Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital, acompanhada de 7 lições de apoio aos sábados para nivelamento didático.
   * [Além do Hype](https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html): Discussão matemática e financeira entre monolitos modulares e microsserviços.
   * [O Novo Tabuleiro do Mundo](https://personal.caracore.com.br/articles/2027_05_02_serie_novo_tabuleiro_index.html): A geopolítica de IA, data centers locais e soberania energética.
   * [As Redes Invisíveis](https://personal.caracore.com.br/articles/2027_02_12_serie_redes_invisiveis_index.html): Telecomunicações, bilhetagem de transporte e resiliência cibernética.

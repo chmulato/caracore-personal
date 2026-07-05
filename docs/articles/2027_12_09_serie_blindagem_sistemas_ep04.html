@@ -104,7 +104,7 @@
                 <h2>2. Anatomia do Off-Heap: A Ponte JNI Danificada</h2>
                 <p>O fragmento a seguir ilustra a implementação nativa C++ vulnerável associada ao JNI:</p>
 
-                <div class="chalkboard"><pre><code class="language-cpp">// Código nativo C++ da ponte JNI (vulnerable):
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-cpp">// Código nativo C++ da ponte JNI (vulnerable):
 JNIEXPORT jbyteArray JNICALL Java_com_kafka_Crypto_encryptNative(JNIEnv *env, jobject obj, jbyteArray input) {
     jsize len = env->GetArrayLength(input);
     jbyte* native_buffer = (jbyte*) malloc(len); // Alocação Off-Heap manual
@@ -124,7 +124,7 @@ JNIEXPORT jbyteArray JNICALL Java_com_kafka_Crypto_encryptNative(JNIEnv *env, jo
                 <p><strong>Por que a JVM falha?</strong> O Garbage Collector gerencia estritamente o Heap do Java. Para o GC, o objeto Java que encapsula o buffer nativo pesa apenas alguns bytes na pilha, fazendo com que o GC raramente rode para coletá-lo. Enquanto isso, o buffer real alocado nativamente consome gigabytes físicos de RAM Off-Heap. Essa falha se conecta diretamente com a <strong>colisão de Heap</strong> e os <strong>ponteiros órfãos do Módulo 02</strong>, mostrando que desvios no baixo nível burlam qualquer barreira lógica da linguagem Java.</p>
 
                 <h3>Demonstração da Falha (Antes/Depois do Incidente NMT):</h3>
-                <div class="chalkboard"><pre><code class="language-text"># Executando diagnóstico com NMT (Native Memory Tracking) ativo:
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text"># Executando diagnóstico com NMT (Native Memory Tracking) ativo:
 $ jcmd &lt;pid&gt; VM.native_memory summary
 
 [NMT Antes da Carga de Trabalho]
@@ -148,7 +148,7 @@ Total: Reserved=6144MB, Committed=5120MB
                 <h2>4. A Solução Moderna: Project Panama e Arenas</h2>
                 <p>O Java moderno (JDK 21+) substitui a fragilidade do JNI pela API de Memória Estrangeira (Foreign Function &amp; Memory API), parte do <strong>Project Panama</strong>. Ele elimina a necessidade de construir wrappers C++, permitindo interagir com código nativo direto do Java usando <strong>Arenas</strong> e <strong>MemorySegments</strong> com ciclo de vida determinístico:</p>
 
-                <div class="chalkboard"><pre><code class="language-java">// Código seguro equivalente com Project Panama:
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-java">// Código seguro equivalente com Project Panama:
 import java.lang.foreign.*;
 
 public void safeEncrypt(byte[] inputData) {
@@ -206,7 +206,7 @@ public void safeEncrypt(byte[] inputData) {
 
             
                 <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
-                    <strong>Recomendação de Estudo:</strong> Compreendidos os riscos da ponte JNI e da sandbox JVM, avance para o Módulo 05 para examinar as fronteiras físicas de integração de novos módulos seguros em Rust com sistemas legados corporativos.
+                    <strong>Recomendação de Estudo:</strong> Para nivelar os conceitos de forma simples com analogias, consulte a <a href="2027_12_11_serie_blindagem_sistemas_apoio_ep04.html">Lição de Apoio 04: Nivelamento de JVM Off-Heap e Project Panama</a>. Compreendidos os riscos da ponte JNI e da sandbox JVM, avance para o Módulo 05 para examinar as fronteiras físicas de integração de novos módulos seguros em Rust com sistemas legados corporativos.
                 </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">

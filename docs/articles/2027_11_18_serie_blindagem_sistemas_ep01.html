@@ -114,7 +114,7 @@
                 <h2>2. Anatomia da Vulnerabilidade e a "Praga Silenciosa"</h2>
                 <p>O calcanhar de Aquiles do parser residia em um clássico estouro de buffer de pilha (Stack Buffer Overflow) na rotina de processamento de cabeçalhos de arquivos legados:</p>
 
-                <div class="chalkboard"><pre><code class="language-c">// Função vulnerável extraída por engenharia reversa do binário ELF:
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-c">// Função vulnerável extraída por engenharia reversa do binário ELF:
 void process_packet(char *user_input) {
     char local_buffer[256];
     // O erro mortal: copiar sem validar o tamanho de entrada do pacote externo
@@ -122,10 +122,10 @@ void process_packet(char *user_input) {
 }</code></pre></div>
 
                 <p><strong>O Payload Destrutivo:</strong> A IA ofensiva construiu um input contendo 264 bytes de lixo para estourar o buffer, seguido do endereço físico da instrução maliciosa para sequestrar o ponteiro de instrução `EIP`/`RIP` do processador:</p>
-                <div class="chalkboard"><pre><code class="language-text">Payload: [264 bytes de padding A] + [8 bytes de RIP sobrescrito apontando para Shellcode] + [Shellcode]</code></pre></div>
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">Payload: [264 bytes de padding A] + [8 bytes de RIP sobrescrito apontando para Shellcode] + [Shellcode]</code></pre></div>
 
                 <h3>Fronteira da Memória (Antes vs Depois do Ataque):</h3>
-                <div class="chalkboard"><pre><code class="language-text">[Estado Saudável da Stack]
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">[Estado Saudável da Stack]
 [local_buffer (256 bytes)] ➔ [RIP Salvo (Endereço de retorno legítimo)]
 
 [Estado Corrompido pelo Exploit]
@@ -157,7 +157,7 @@ void process_packet(char *user_input) {
                 <p>A velocidade das IAs ofensivas inviabiliza auditorias manuais periódicas. A defesa deve responder na mesma escala de tempo e automação.</p>
 
                 <h3>Como Integrar IA Defensiva no pipeline CI/CD:</h3>
-                <div class="chalkboard"><pre><code class="language-yaml"># Pipeline simplificado de varredura estática de AST em builds:
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-yaml"># Pipeline simplificado de varredura estática de AST em builds:
 stages:
   - security_scan
 
@@ -207,7 +207,7 @@ run_ai_auditor:
 
             
                 <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
-                    <strong>Recomendação de Estudo:</strong> Compreendida a velocidade do ataque de IA, prossiga para o Módulo 02 para analisar a fundo as mecânicas de degradação da memória RAM causadas por falhas na stack.
+                    <strong>Recomendação de Estudo:</strong> Para nivelar os conceitos de forma simples com analogias, consulte a <a href="2027_11_20_serie_blindagem_sistemas_apoio_ep01.html">Lição de Apoio 01: Nivelamento de RCE e Engenharia Reversa</a>. Compreendida a velocidade do ataque de IA, prossiga para o Módulo 02 para analisar a fundo as mecânicas de degradação da memória RAM causadas por falhas na stack.
                 </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">

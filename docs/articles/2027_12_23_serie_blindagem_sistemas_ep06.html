@@ -117,7 +117,7 @@
                 <p>Modelos locais de IA defensiva inspecionam o código em busca de fraquezas estruturais convertendo o binário compilado para uma representação em <strong>Grafo de Fluxo de Controle (CFG)</strong> e <strong>Árvore de Sintaxe Abstrata (AST)</strong>. Diferente de linters sintáticos estáticos baseados em regex, a IA simula o fluxo lógico de dados (Data Flow Analysis) ao longo das ramificações de desvios da memória, identificando padrões invisíveis de vazamento em arenas nativas, JNI/Panama instáveis (Módulo 04) e referências de pontes FFI mal estruturadas (Módulo 05).</p>
 
                 <h3>Exemplo de Alerta Gerado pela IA Defensiva:</h3>
-                <div class="chalkboard"><pre><code class="language-text">[ai-defensive-scanner] ALERTA: Vulnerabilidade Crítica de Memória Identificada!
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">[ai-defensive-scanner] ALERTA: Vulnerabilidade Crítica de Memória Identificada!
 - Arquivo: src/native/parser.cpp
 - Linha: 142
 - Classe: USE-AFTER-FREE (UAF) / Heap Collision
@@ -207,7 +207,7 @@ jobs:
 
             
                 <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
-                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 7 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                    <strong>Recomendação de Estudo:</strong> Para nivelar os conceitos de forma simples com analogias, consulte a <a href="2027_12_25_serie_blindagem_sistemas_apoio_ep06.html">Lição de Apoio 06: Nivelamento de Fuzzing e DevSecOps com IA</a>. Como este capítulo apresenta tempo de leitura estimado em 7 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
                 </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">

@@ -139,7 +139,7 @@ void process_new_connection(char* buffer) {
                 <p><strong>A Colisão no Heap:</strong> Quando <code>delete global_session_ptr</code> é acionado, o endereço do objeto é devolvido ao catálogo de endereços disponíveis do sistema operacional. Ao chegar uma nova requisição na thread vizinha, o alocador (`malloc` ou `new`) escolhe exatamente o mesmo bloco físico de memória por eficiência de cache. O ponteiro órfão `global_session_ptr` aponta para a nova estrutura de sessão do segundo cliente, permitindo leitura cruzada e alteração indesejada de chaves criptográficas.</p>
 
                 <h3>Fronteira Física de RAM (UAF na Prática):</h3>
-                <div class="chalkboard"><pre><code class="language-text">[Instante 1: Sessão 1 Alocada]
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">[Instante 1: Sessão 1 Alocada]
 Endereço 0x0045FF -> [Token: CLIENT_A_TOKEN] (global_session_ptr aponta aqui)
 
 [Instante 2: Pacote Malformado Recebido]
@@ -175,7 +175,7 @@ Resultado: Cliente A lê e escreve no Token do Cliente B.</code></pre></div>
                     <li><strong><code>std::shared_ptr</code> (Propriedade Compartilhada):</strong> Mantém uma contagem de referências interna na thread. A memória é liberada apenas quando a última referência ativa for destruída.</li>
                 </ul>
 
-                <div class="chalkboard"><pre><code class="language-cpp">// Mitigação moderna com Smart Pointers:
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-cpp">// Mitigação moderna com Smart Pointers:
 #include &lt;memory&gt;
 
 void process_client() {
@@ -226,8 +226,8 @@ legacy_ptr = nullptr; // Evita que chamadas subsequentes usem a memória antiga<
             </div>
 
             <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
-                <strong>Recomendação de Estudo:</strong> Compreendida a vulnerabilidade física do gerenciamento dinâmico de memória em C++, prossiga para o Módulo 03 para estudar as garantias em tempo de compilação fornecidas pelo compilador Rust.
-            </div>
+                <strong>Recomendação de Estudo:</strong> Para nivelar os conceitos de forma simples com analogias, consulte a <a href="2027_11_27_serie_blindagem_sistemas_apoio_ep02.html">Lição de Apoio 02: Nivelamento de Heap, Stack e Use-After-Free</a>. Compreendida a vulnerabilidade física do gerenciamento dinâmico de memória em C++, prossiga para o Módulo 03 para estudar as garantias em tempo de compilação fornecidas pelo compilador Rust.
+                </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
                 — Fim do Módulo 02. Continua no <a href="2027_12_02_serie_blindagem_sistemas_ep03.html">Módulo 03: O Cinto de Segurança do Rust</a>. Índice da série em: <a href="2027_11_11_serie_blindagem_sistemas_chamada.html">Chamada e Índice</a>.
