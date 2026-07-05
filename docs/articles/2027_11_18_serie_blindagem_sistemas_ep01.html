@@ -100,12 +100,13 @@
                     <img src="assets/img/2027_11_18_IMAGE_002.png" alt="Esquema lógico de análise AST" style="max-width: 100%; height: auto; border-radius: 6px;" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.9rem;">Esquema de representação e desconstrução da Árvore de Sintaxe Abstrata (AST) para análise estrutural de binários.</figcaption>
                 </figure>
-                <p>As Inteligências Artificiais voltadas para red teaming operam por meio de uma ponte entre a análise sintática e a geração semântica de código. Diferente de analisadores estáticos comuns (SAST) que apenas buscam por expressões regulares em nomes de funções perigosas (como o infame <code>strcpy</code>), as IAs ofensivas realizam as seguintes etapas:</p>
+                <p>Para compreender como uma inteligência artificial ofensiva atua de forma tão rápida sobre sistemas legados, imagine a aplicação antiga como um <strong>carro velho sem manual de instruções</strong>. A IA atua como um mecânico de elite equipado com um scanner digital avançado. Em vez de adivinhar o funcionamento, a máquina realiza uma invasão em quatro passos simples:</p>
 
                 <ol>
-                    <li><strong>Mapeamento de AST (Abstract Syntax Tree):</strong> O modelo desconstrói o fluxo lógico do binário compilado em uma estrutura de árvore abstrata. Isso permite entender o caminho exato que os dados externos percorrem desde as portas de rede até os registradores físicos de memória do processador.</li>
-                    <li><strong>Heurística de Fuzzing Inteligente:</strong> Em vez de testar entradas aleatórias para travar a aplicação, a IA prevê caminhos lógicos que alteram o ponteiro de instrução da CPU (IP/EIP) baseado em padrões históricos de vazamento de memória.</li>
-                    <li><strong>Síntese Autônoma de Códigos de Invasão (PoC):</strong> Uma vez encontrada a falha, a IA gera o payload exato em Python ou Shell script que explora o estouro, contornando proteções ativas do sistema operacional (como canários de pilha e espaço de endereço randomizado - ASLR).</li>
+                    <li><strong>A IA mapeia o programa (O Mapa das Engrenagens):</strong> Ela faz um "raio-X" do binário compilado e desenha uma Árvore de Sintaxe Abstrata (AST), que funciona como o mapa das engrenagens internas do programa. Ela rastreia o caminho exato que os dados externos percorrem da rede até a memória.</li>
+                    <li><strong>A IA encontra a falha (Chaves de Teste):</strong> Através de testes de fadiga (Fuzzing) direcionados por probabilidade, a IA testa portas lógicas com milhares de chaves até achar uma que gire. Ela descobre qual engrenagem possui um milímetro de folga mecânica.</li>
+                    <li><strong>A IA cria a ferramenta (A Chave sob Medida):</strong> Com a fresta detectada, a IA escreve autonomamente um código de invasão (o <em>exploit</em>). Ela esculpe a chave perfeita para passar por cima das travas originais em segundos.</li>
+                    <li><strong>A IA assume o controle (RCE):</strong> O código de invasão assume a execução e concede controle total ao atacante. É o equivalente a entrar na casa e assumir o controle dos interruptores de luz, fechaduras e câmeras de segurança.</li>
                 </ol>
 
                 <h2>3. Mitigação: Como Engenheirar a Defesa</h2>
