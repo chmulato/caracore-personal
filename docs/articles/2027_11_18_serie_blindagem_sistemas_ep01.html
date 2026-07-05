@@ -85,11 +85,7 @@
 
                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
-                <div class="study-note">
-                    <strong>Recomendação de Estudo (Para os Curiosos e Dedicados):</strong> Como este módulo apresenta alta densidade técnica com tempo de leitura estimado em 10 minutos, sugerimos dividir a sua jornada de estudo em dois esforços distintos: reserve um primeiro momento para compreender o incidente real e o diagnóstico analítico; em um segundo esforço concentrado, dedique-se ao código de mitigação da solução e aos exercícios de fixação.
-                </div>
-
-                <h2>1. O Incidente: O Dia em que o Servidor de Arquivos Caiu em 3 Horas</h2>
+<h2>1. O Incidente: O Dia em que o Servidor de Arquivos Caiu em 3 Horas</h2>
                 <p>Na terceira semana de outubro, o servidor interno de arquivos confidenciais de um grande provedor financeiro brasileiro sofreu um comprometimento total. Nenhuma credencial foi roubada em campanhas de phishing e nenhum funcionário abriu anexos maliciosos. O vetor de entrada foi um parser de documentos legados rodando em uma biblioteca C compilada em 2012, cujos fontes haviam sido perdidos durante a migração de repositórios da empresa.</p>
 
                 <p>Sob condições de análise convencionais, auditar esse binário de forma manual exigiria semanas de engenharia reversa com Ghidra ou IDA Pro. No entanto, o invasor utilizou um modelo de inteligência artificial de segurança ofensiva de última geração. A IA analisou o arquivo ELF do binário, identificou a assinatura de uma função vulnerável de alocação de buffer e, utilizando fuzzing simbólico acoplado, gerou um código de invasão funcional do tipo <em>Remote Code Execution (RCE)</em> que concedeu controle de root ao atacante em exatos 172 minutos.</p>
@@ -140,6 +136,11 @@
                     </ul>
                 </div>
             </div>
+
+            
+                <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
+                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 10 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
                 — Fim do Módulo 01. Continua no <a href="2027_11_25_serie_blindagem_sistemas_ep02.html">Módulo 02: A Praga Silenciosa</a>. Índice da série em: <a href="2027_11_11_serie_blindagem_sistemas_chamada.html">Chamada e Índice</a>.

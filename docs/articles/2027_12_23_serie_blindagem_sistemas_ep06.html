@@ -85,11 +85,7 @@
 
                                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
-                <div class="study-note">
-                    <strong>Recomendação de Estudo (Para os Curiosos e Dedicados):</strong> Como este módulo apresenta alta densidade técnica com tempo de leitura estimado em 11 minutos, sugerimos dividir a sua jornada de estudo em dois esforços distintos: reserve um primeiro momento para compreender o incidente real e o diagnóstico analítico; em um segundo esforço concentrado, dedique-se ao código de mitigação da solução e aos exercícios de fixação.
-                </div>
-
-                <h2>1. O Incidente: O Servidor que Travava em Ambientes de Teste</h2>
+<h2>1. O Incidente: O Servidor que Travava em Ambientes de Teste</h2>
                 <p>Durante a migração de um microsserviço de mensageria assíncrona, a equipe de engenharia identificou instabilidades graves quando a aplicação era submetida a fluxos intermitentes de pacotes deformados na rede. Em vez de simplesmente descartar as mensagens inválidas, o servidor alocava buffer dinâmico de forma desordenada no Heap, culminando em travamento por exaustão de recursos.</p>
 
                 <p>Sem tempo para contratar consultorias especializadas de auditoria de código externa, a engenharia ativou uma esteira de testes automatizada para segurança de software. O fluxo combinou testes dinâmicos de carga direcionados por modelos de inteligência artificial de segurança rodando localmente na infraestrutura privada de integração contínua (CI/CD). O sistema simulou milhares de requisições de formatos inesperados e de alta concorrência em tempo recorde.</p>
@@ -138,6 +134,11 @@
                     </ul>
                 </div>
             </div>
+
+            
+                <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
+                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 11 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
                 — Fim do Módulo 06. Continua no <a href="2027_12_30_serie_blindagem_sistemas_ep07.html">Módulo 07: Defesa de Tese</a>. Índice da série em: <a href="2027_11_11_serie_blindagem_sistemas_chamada.html">Chamada e Índice</a>.

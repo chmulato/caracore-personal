@@ -85,11 +85,7 @@
 
                                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
-                <div class="study-note">
-                    <strong>Recomendação de Estudo (Para os Curiosos e Dedicados):</strong> Como este módulo apresenta alta densidade técnica com tempo de leitura estimado em 12 minutos, sugerimos dividir a sua jornada de estudo em dois esforços distintos: reserve um primeiro momento para compreender o incidente real e o diagnóstico analítico; em um segundo esforço concentrado, dedique-se ao código de mitigação da solução e aos exercícios de fixação.
-                </div>
-
-                <h2>1. O Incidente: O Roteador de Borda e o Ponteiro Fantasma</h2>
+<h2>1. O Incidente: O Roteador de Borda e o Ponteiro Fantasma</h2>
                 <p>Durante uma auditoria regulatória, a equipe de infraestrutura de rede identificou uma anomalia em um dos roteadores de borda responsáveis pelo balanceamento de carga. O tráfego de dados de múltiplos clientes começou a misturar-se de forma intermitente nos cabeçalhos de rede HTTP. O culpado foi um erro clássico de gerenciamento de memória em C++ no parser de pacotes.</p>
 
                 <p>Ao processar um pacote com formato malicioso, a aplicação liberava a memória de uma estrutura de controle, mas falhava em zerar o endereço apontado por aquela variável (ponteiro órfão). Ao alocar instantaneamente o próximo cabeçalho na mesma faixa física da memória RAM, a aplicação lia dados residuais e sobrescrevia tokens de sessão ativos de outros usuários, resultando em um vazamento catastrófico de privacidade de dados.</p>
@@ -141,6 +137,11 @@
                     </ul>
                 </div>
             </div>
+
+            
+                <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
+                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 12 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
                 — Fim do Módulo 02. Continua no <a href="2027_12_02_serie_blindagem_sistemas_ep03.html">Módulo 03: O Cinto de Segurança do Rust</a>. Índice da série em: <a href="2027_11_11_serie_blindagem_sistemas_chamada.html">Chamada e Índice</a>.

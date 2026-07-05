@@ -85,11 +85,7 @@
 
                                 <p><em>Nota do Desenvolvedor: O caso a seguir representa uma simulação prática de engenharia com base em ameaças e ocorrências reais do ecossistema corporativo.</em></p>
 
-                <div class="study-note">
-                    <strong>Recomendação de Estudo (Para os Curiosos e Dedicados):</strong> Como este módulo apresenta alta densidade técnica com tempo de leitura estimado em 14 minutos, sugerimos dividir a sua jornada de estudo em dois esforços distintos: reserve um primeiro momento para compreender o incidente real e o diagnóstico analítico; em um segundo esforço concentrado, dedique-se ao código de mitigação da solução e aos exercícios de fixação.
-                </div>
-
-                <h2>1. O Incidente: O Cluster de Mensageria Silenciosamente Asfixiado</h2>
+<h2>1. O Incidente: O Cluster de Mensageria Silenciosamente Asfixiado</h2>
                 <p>Em um ambiente corporativo de larga escala, o cluster do Apache Kafka responsável pelo direcionamento de eventos de transações de crédito começou a sofrer com reinicializações forçadas em produção devido a estouro absoluto de recursos do servidor (Out Of Memory do sistema operacional). A equipe de monitoramento inicialmente aumentou o Heap alocado da JVM, mas o problema persistiu.</p>
 
                 <p>O diagnóstico aprofundado revelou um vazamento de memória silencioso ocorrendo na área <em>Off-Heap</em>. O sistema de criptografia legado da empresa conectava-se a uma biblioteca externa compilada em C++ usando pontes JNI (Java Native Interface) convencionais. A cada chamada de descriptografia, os buffers de rede eram alocados na memória nativa fora da gerência do Garbage Collector e, por uma falha de encerramento do recurso na ponte, nunca eram desalocados.</p>
@@ -140,6 +136,11 @@
                     </ul>
                 </div>
             </div>
+
+            
+                <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
+                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 14 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
                 — Fim do Módulo 04. Continua no <a href="2027_12_16_serie_blindagem_sistemas_ep05.html">Módulo 05: A Rampa de Alto Nível</a>. Índice da série em: <a href="2027_11_11_serie_blindagem_sistemas_chamada.html">Chamada e Índice</a>.
