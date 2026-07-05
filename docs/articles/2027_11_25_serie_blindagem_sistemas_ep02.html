@@ -162,13 +162,13 @@ Resultado: Cliente A lê e escreve no Token do Cliente B.</code></pre></div>
 |----------------------------|</code></pre></div>
 
                 <h3>B. Heap (Alocação Dinâmica):</h3>
-                <p>O Heap gerencia alocações dinâmicas de tamanhos variados feitas via `malloc`/`new`. O gerenciamento é feito por algoritmos do alocador do sistema (como `ptmalloc` ou `jemalloc`), que organizam a memória livre em listas de blocos (bins). Sem liberação explícita (`free`/`delete`), os dados persistem, gerando vazamento de memória (Memory Leak). Após um `free()`, o alocador tenta agrupar blocos vizinhos livres (Coalescimento) para mitigar a **Fragmentação do Heap**.</p>
+                <p>O Heap gerencia alocações dinâmicas de tamanhos variados feitas via `malloc`/`new`. O gerenciamento é feito por algoritmos do alocador do sistema (como `ptmalloc` ou `jemalloc`), que organizam a memória livre em listas de blocos (bins). Sem liberação explícita (`free`/`delete`), os dados persistem, gerando vazamento de memória (Memory Leak). Após um `free()`, o alocador tenta agrupar blocos vizinhos livres (Coalescimento) para mitigar a <strong>Fragmentação do Heap</strong>.</p>
 
                 <h3>Conexão com o Módulo 01 (Ataque Autônomo):</h3>
-                <p>No **Módulo 01**, vimos como a IA ofensiva encontra falhas de buffer overflow analisando a AST. A corrupção de memória por Use-After-Free é a consequência direta e o próximo passo lógico explorado após o sequestro da pilha (RCE). Uma vez obtida a execução arbitrária, o exploit utiliza o Heap para realocar objetos manipulados e consolidar o controle sobre o sistema operacional host, preparando o caminho para as defesas por confinamento de hardware que defenderemos no **Módulo 07**.</p>
+                <p>No <strong>Módulo 01</strong>, vimos como a IA ofensiva encontra falhas de buffer overflow analisando a AST. A corrupção de memória por Use-After-Free é a consequência direta e o próximo passo lógico explorado após o sequestro da pilha (RCE). Uma vez obtida a execução arbitrária, o exploit utiliza o Heap para realocar objetos manipulados e consolidar o controle sobre o sistema operacional host, preparando o caminho para as defesas por confinamento de hardware que defenderemos no <strong>Módulo 07</strong>.</p>
 
                 <h2>4. Mitigação Prática: Codificação Defensiva em C++</h2>
-                <p>Para eliminar de vez o risco de referências órfãs, substitua ponteiros puros por **Smart Pointers** (Ponteiros Inteligentes) da biblioteca padrão:</p>
+                <p>Para eliminar de vez o risco de referências órfãs, substitua ponteiros puros por <strong>Smart Pointers</strong> (Ponteiros Inteligentes) da biblioteca padrão:</p>
 
                 <ul>
                     <li><strong><code>std::unique_ptr</code> (Propriedade Exclusiva):</strong> Garante que apenas uma variável possua a propriedade do objeto no heap. O objeto é destruído automaticamente quando a variável sai de escopo.</li>
@@ -189,11 +189,11 @@ void process_client() {
 legacy_ptr = nullptr; // Evita que chamadas subsequentes usem a memória antiga</code></pre></div>
 
                 <h3>Isolamento por Infraestrutura (MicroVMs):</h3>
-                <p>Caso o parser de pacotes legados C++ não possa ser alterado, a solução é confiná-lo a nível de Kernel Linux (Módulo 07). Executar o parser em sandboxes restritos com eBPF monitorando chamadas ou encapsulado em microVMs Firecracker isola o vazamento de memória no nível de hardware.</p>
+                <p>Caso o parser de pacotes legados C++ não possa ser alterado, a solução é confiná-lo a nível de Kernel Linux (<strong>Módulo 07</strong>). Executar o parser em sandboxes restritos com eBPF monitorando chamadas ou encapsulado em microVMs Firecracker isola o vazamento de memória no nível de hardware.</p>
 
                 <h2>5. Objeções Técnicas e Diagnósticos em Produção</h2>
                 <ul>
-                    <li><strong>Como detectar UAF em runtime?</strong> Utilize compilações instrumentadas com **AddressSanitizer (ASan)** (`-fsanitize=address`) em ambientes de testes e staging. O ASan insere zonas proibidas (shadow bytes) ao redor das alocações e reporta acessos inválidos imediatamente.</li>
+                    <li><strong>Como detectar UAF em runtime?</strong> Utilize compilações instrumentadas com <strong>AddressSanitizer (ASan)</strong> (`-fsanitize=address`) em ambientes de testes e staging. O ASan insere zonas proibidas (shadow bytes) ao redor das alocações e reporta acessos inválidos imediatamente.</li>
                     <li><strong>Como lidar com fragmentação de Heap sob carga extrema?</strong> Em sistemas com alta alocação de pacotes por segundo, utilize alocadores de alto desempenho alternativos (como o `jemalloc`), que dividem a memória em arenas específicas por thread, reduzindo o travamento de locks e a fragmentação.</li>
                 </ul>
 

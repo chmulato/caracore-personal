@@ -82,8 +82,8 @@ public class PixDataMasker extends MessageConverter {
     private String maskSensitiveData(String message) {
         Matcher matcher = CPF_PATTERN.matcher(message);
         if (matcher.find()) {
-            // Mascara os blocos centrais do CPF: XXX.***.***-XX
-            return matcher.replaceAll("$1.***.***-$4");
+            // Mascara os blocos centrais do CPF: XXX.<strong>*.</strong>*-XX
+            return matcher.replaceAll("$1.<strong>*.</strong>*-$4");
         }
         return message;
     }

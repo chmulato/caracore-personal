@@ -84,15 +84,15 @@ pip install robotframework-requests
 </code></pre>
 <p><strong>Configuração de Variáveis</strong></p>
 <p><strong>Arquivo: variables/config.robot</strong></p>
-<pre><code>*** Variables ***
+<pre><code><strong>* Variables </strong>*
 ${BASE_URL}    https://api.seuprojeto.com/v1
 </code></pre>
 <p><strong>Implementação de Keywords Reutilizáveis</strong></p>
 <p><strong>Arquivo: resources/keywords.robot</strong></p>
-<pre><code>*** Settings ***
+<pre><code><strong>* Settings </strong>*
 Library    RequestsLibrary
 
-*** Keywords ***
+<strong>* Keywords </strong>*
 Iniciar Sessão na API
     Create Session    api    ${BASE_URL}
 
@@ -103,12 +103,12 @@ GET Deve Retornar 200
 </code></pre>
 <p><strong>Casos de Teste</strong></p>
 <p><strong>Arquivo: suites/api_tests.robot</strong></p>
-<pre><code>*** Settings ***
+<pre><code><strong>* Settings </strong>*
 Resource    ../variables/config.robot
 Resource    ../resources/keywords.robot
 Suite Setup    Iniciar Sessão na API
 
-*** Test Cases ***
+<strong>* Test Cases </strong>*
 Testar Endpoint de Status
     GET Deve Retornar 200    /status
 

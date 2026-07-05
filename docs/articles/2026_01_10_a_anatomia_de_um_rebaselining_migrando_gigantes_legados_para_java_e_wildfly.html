@@ -205,15 +205,15 @@ rm -rf standalone/deployments/*.failed
 <h3>3. Documente os Workarounds, Mas Planeje Sua Eliminação</h3>
 <p>Cada workaround é uma <strong>dívida técnica</strong> que precisa ser honrada eventualmente. Durante a migração, mantivemos um arquivo versionado chamado <code>TECH_DEBT.md</code> que residia junto com o código no repositório Git. Cada workaround tinha uma entrada estruturada:</p>
 <div class="chalkboard"><pre><code class="language-markdown">## TD-2024-001: Exclusão de módulos JAX-RS do WildFly
-**Status:** Ativo
-**Razão:** Conflito entre Apache Wink 1.4 e RESTEasy nativo do WildFly
-**Workaround:** Arquivo jboss-deployment-structure.xml que exclui módulos JAX-RS
-**Impacto:** Aplicação depende de Apache Wink versionado, bloqueando futuras migrações para JAX-RS
-**Plano de eliminação:** Refatorar todos os endpoints para JAX-RS 2.1 nativo (estimado Q3/2026)
-**Prioridade:** Alta - bloqueia atualização de WildFly
+<strong>Status:</strong> Ativo
+<strong>Razão:</strong> Conflito entre Apache Wink 1.4 e RESTEasy nativo do WildFly
+<strong>Workaround:</strong> Arquivo jboss-deployment-structure.xml que exclui módulos JAX-RS
+<strong>Impacto:</strong> Aplicação depende de Apache Wink versionado, bloqueando futuras migrações para JAX-RS
+<strong>Plano de eliminação:</strong> Refatorar todos os endpoints para JAX-RS 2.1 nativo (estimado Q3/2026)
+<strong>Prioridade:</strong> Alta - bloqueia atualização de WildFly
 
 ## TD-2024-002: Socket Factory customizado para LDAPS
-**Status:** Ativo
+<strong>Status:</strong> Ativo
 ...
 </code></pre></div>
 <p>Isso serve dois propósitos críticos:</p>

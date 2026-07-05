@@ -167,7 +167,7 @@ run_ai_auditor:
     - ai-ast-scanner --bin-path ./dist/legacy_parser --output report.json
     - ai-verifier --rules-db ./security_rules.db --report report.json</code></pre></div>
 
-                <h3>Anteparas de Contenção (Tese do Módulo 07):</h3>
+                <h3>Anteparas de Contenção (Tese do <strong>Módulo 07</strong>):</h3>
                 <p>Não podemos garantir que todo código legado esteja livre de furos. Portanto, a contenção sistêmica é mandatória:</p>
                 <ul>
                     <li><strong>Políticas eBPF de Syscalls:</strong> Restrinja o que o parser pode pedir ao kernel, bloqueando syscalls do tipo `sys_execve` em nível de sistema operacional.</li>
@@ -175,7 +175,7 @@ run_ai_auditor:
                 </ul>
 
                 <div class="tutor-note">
-                    <strong>Sementes Narrativas do Módulo 07:</strong><br>
+                     <strong>Sementes Narrativas do <strong>Módulo 07</strong>:</strong><br>
                     "Lembre-se disso: a segurança de amanhã não é sobre escrever o software perfeito. É sobre desenhar anteparas estruturais para que, quando a IA ofensiva explodir o parser na pilha, a destruição seja contida em uma cúpula digital isolada sem afetar a integridade do host. O sandboxing com microVMs e as restrições eBPF são as cúpulas de vidro blindadas que constroem a soberania digital da infraestrutura nacional."
                 </div>
 

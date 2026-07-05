@@ -94,7 +94,7 @@
                 </ul>
                 </p>
 
-                <p>O fluxo de mensagens envolvia um produtor Kafka Java que, para realizar criptografia ultra-rápida de payloads em trânsito, invocava um binário nativo em C++ através de **JNI (Java Native Interface)**. A ponte nativa alocava um buffer cru usando `malloc` no espaço de usuário do host para passar os dados para o módulo C++, contudo, quando ocorriam timeouts de rede, o fluxo de retorno Java abortava sem invocar o correspondente método nativo de desalocação (`free`), acumulando vazamento (leak) crônico fora do Heap gerenciado pela JVM.</p>
+                <p>O fluxo de mensagens envolvia um produtor Kafka Java que, para realizar criptografia ultra-rápida de payloads em trânsito, invocava um binário nativo em C++ através de <strong>JNI (Java Native Interface)</strong>. A ponte nativa alocava um buffer cru usando `malloc` no espaço de usuário do host para passar os dados para o módulo C++, contudo, quando ocorriam timeouts de rede, o fluxo de retorno Java abortava sem invocar o correspondente método nativo de desalocação (`free`), acumulando vazamento (leak) crônico fora do Heap gerenciado pela JVM.</p>
 
                 <div class="tutor-note">
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
@@ -121,7 +121,7 @@ JNIEXPORT jbyteArray JNICALL Java_com_kafka_Crypto_encryptNative(JNIEnv *env, jo
     return output;
 }</code></pre></div>
 
-                <p><strong>Por que a JVM falha?</strong> O Garbage Collector gerencia estritamente o Heap do Java. Para o GC, o objeto Java que encapsula o buffer nativo pesa apenas alguns bytes na pilha, fazendo com que o GC raramente rode para coletá-lo. Enquanto isso, o buffer real alocado nativamente consome gigabytes físicos de RAM Off-Heap. Essa falha se conecta diretamente com a **colisão de Heap** e os **ponteiros órfãos do Módulo 02**, mostrando que desvios no baixo nível burlam qualquer barreira lógica da linguagem Java.</p>
+                <p><strong>Por que a JVM falha?</strong> O Garbage Collector gerencia estritamente o Heap do Java. Para o GC, o objeto Java que encapsula o buffer nativo pesa apenas alguns bytes na pilha, fazendo com que o GC raramente rode para coletá-lo. Enquanto isso, o buffer real alocado nativamente consome gigabytes físicos de RAM Off-Heap. Essa falha se conecta diretamente com a <strong>colisão de Heap</strong> e os <strong>ponteiros órfãos do Módulo 02</strong>, mostrando que desvios no baixo nível burlam qualquer barreira lógica da linguagem Java.</p>
 
                 <h3>Demonstração da Falha (Antes/Depois do Incidente NMT):</h3>
                 <div class="chalkboard"><pre><code class="language-text"># Executando diagnóstico com NMT (Native Memory Tracking) ativo:
@@ -142,11 +142,11 @@ Total: Reserved=6144MB, Committed=5120MB
                 <ul>
                     <li><strong>A. Buraco Interno (Fragilidade do HotSpot):</strong> A própria JVM HotSpot é construída em C++ e assembly. Falhas de estouro de pilha ou vulnerabilidades lógicas dentro da própria JVM expõem o processo completo a ataques locais.</li>
                     <li><strong>B. Buraco Lateral (Acesso Direto com Unsafe):</strong> Frameworks de altíssima performance utilizam a classe interna protegida <code>sun.misc.Unsafe</code> para alocar e ler dados Off-Heap de forma manual (visando alto throughput e evitando locks do GC). Qualquer erro lógico aqui gera corrupção física direta na RAM.</li>
-                    <li><strong>C. Buraco Remoto (Desserialização Insegura):</strong> Vulnerabilidades lógicas clássicas (como o Log4j do Módulo 07) contornam a JVM forçando o carregamento dinâmico de bytecodes maliciosos de servidores externos, sequestrando o processo nativamente.</li>
+                    <li><strong>C. Buraco Remoto (Desserialização Insegura):</strong> Vulnerabilidades lógicas clássicas (como o Log4j do <strong>Módulo 07</strong>) contornam a JVM forçando o carregamento dinâmico de bytecodes maliciosos de servidores externos, sequestrando o processo nativamente.</li>
                 </ul>
 
                 <h2>4. A Solução Moderna: Project Panama e Arenas</h2>
-                <p>O Java moderno (JDK 21+) substitui a fragilidade do JNI pela API de Memória Estrangeira (Foreign Function &amp; Memory API), parte do **Project Panama**. Ele elimina a necessidade de construir wrappers C++, permitindo interagir com código nativo direto do Java usando **Arenas** e **MemorySegments** com ciclo de vida determinístico:</p>
+                <p>O Java moderno (JDK 21+) substitui a fragilidade do JNI pela API de Memória Estrangeira (Foreign Function &amp; Memory API), parte do <strong>Project Panama</strong>. Ele elimina a necessidade de construir wrappers C++, permitindo interagir com código nativo direto do Java usando <strong>Arenas</strong> e <strong>MemorySegments</strong> com ciclo de vida determinístico:</p>
 
                 <div class="chalkboard"><pre><code class="language-java">// Código seguro equivalente com Project Panama:
 import java.lang.foreign.*;
@@ -177,7 +177,7 @@ public void safeEncrypt(byte[] inputData) {
                 </p>
 
                 <p><strong>Objeções e Riscos de Migração:</strong>
-                Reescrever JNI legado para Panama exige esforço e testes de compatibilidade de drivers de hardware. Contudo, os riscos de regressão lógica são mitigados executando fuzzing estendido (Módulo 06) antes do deploy. Esse isolamento é vital para a tese de soberania e sandboxing físico (**Módulo 07**), pois garante que a quebra de uma sandbox lógica interna de linguagem não comprometa o host do provedor financeiro.</p>
+                Reescrever JNI legado para Panama exige esforço e testes de compatibilidade de drivers de hardware. Contudo, os riscos de regressão lógica são mitigados executando fuzzing estendido (Módulo 06) antes do deploy. Esse isolamento é vital para a tese de soberania e sandboxing físico (<strong>Módulo 07</strong>), pois garante que a quebra de uma sandbox lógica interna de linguagem não comprometa o host do provedor financeiro.</p>
 
                 <hr class="section-separator">
 
@@ -185,7 +185,7 @@ public void safeEncrypt(byte[] inputData) {
                 <ul>
                     <li><strong>[ ] Ative o NMT em Produção:</strong> Adicione a flag <code>-XX:NativeMemoryTracking=summary</code> na inicialização da JVM para auditar a memória nativa.</li>
                     <li><strong>[ ] Planeje a Eliminação de JNI:</strong> Refatore módulos legados que usam JNI puro ou Unsafe para a API de Arenas do Project Panama.</li>
-                    <li><strong>[ ] Isole Componentes Críticos:</strong> Não confie apenas no isolamento de linguagens gerenciadas; configure anteparas físicas a nível de OS (Módulo 07).</li>
+                    <li><strong>[ ] Isole Componentes Críticos:</strong> Não confie apenas no isolamento de linguagens gerenciadas; configure anteparas físicas a nível de OS (<strong>Módulo 07</strong>).</li>
                     <li><strong>[ ] Monitore com async-profiler:</strong> Realize capturas periódicas de alocações nativas no cluster de mensageria para interceptar vazamentos.</li>
                 </ul>
 

@@ -91,7 +91,7 @@
                 <p><strong>Métricas do Incidente de Teste:</strong>
                 <ul>
                     <li><strong>Tempo de Detecção de Falhas (Legado):</strong> Média de 14 dias em rotinas manuais de code review.</li>
-                    <li><strong>Tempo de Detecção com IA Defensiva:</strong> Reduzido para **9 minutos** no pipeline CI/CD.</li>
+                    <li><strong>Tempo de Detecção com IA Defensiva:</strong> Reduzido para <strong>9 minutos</strong> no pipeline CI/CD.</li>
                     <li><strong>Frequência de Falhas na Esteira:</strong> Identificação de 14 bugs graves de heap antes da publicação.</li>
                     <li><strong>Redução de Ruído:</strong> Queda de 85% em alertas irrelevantes via triagem heurística local.</li>
                 </ul>
@@ -114,7 +114,7 @@
                 <h2>2. O Diagnóstico: O Ciclo de Desenvolvimento Seguro Moderno</h2>
                 
                 <h3>A. Como a IA Defensiva Analisa Binários</h3>
-                <p>Modelos locais de IA defensiva inspecionam o código em busca de fraquezas estruturais convertendo o binário compilado para uma representação em **Grafo de Fluxo de Controle (CFG)** e **Árvore de Sintaxe Abstrata (AST)**. Diferente de linters sintáticos estáticos baseados em regex, a IA simula o fluxo lógico de dados (Data Flow Analysis) ao longo das ramificações de desvios da memória, identificando padrões invisíveis de vazamento em arenas nativas, JNI/Panama instáveis (Módulo 04) e referências de pontes FFI mal estruturadas (Módulo 05).</p>
+                <p>Modelos locais de IA defensiva inspecionam o código em busca de fraquezas estruturais convertendo o binário compilado para uma representação em <strong>Grafo de Fluxo de Controle (CFG)</strong> e <strong>Árvore de Sintaxe Abstrata (AST)</strong>. Diferente de linters sintáticos estáticos baseados em regex, a IA simula o fluxo lógico de dados (Data Flow Analysis) ao longo das ramificações de desvios da memória, identificando padrões invisíveis de vazamento em arenas nativas, JNI/Panama instáveis (Módulo 04) e referências de pontes FFI mal estruturadas (Módulo 05).</p>
 
                 <h3>Exemplo de Alerta Gerado pela IA Defensiva:</h3>
                 <div class="chalkboard"><pre><code class="language-text">[ai-defensive-scanner] ALERTA: Vulnerabilidade Crítica de Memória Identificada!
@@ -128,7 +128,7 @@
 - Mitigação Sugerida: Definir 'session_data = nullptr' após a desalocação ou refatorar para std::unique_ptr.</code></pre></div>
 
                 <h3>B. Anatomia do Fuzzing Inteligente</h3>
-                <p>O fuzzing tradicional bombardeia a aplicação com entradas puramente aleatórias, estagnando rapidamente em caminhos de execução complexos que exigem dados estruturados específicos (como campos mágicos de cabeçalhos). O **Fuzzing Inteligente Guiado por IA** resolve isso:</p>
+                <p>O fuzzing tradicional bombardeia a aplicação com entradas puramente aleatórias, estagnando rapidamente em caminhos de execução complexos que exigem dados estruturados específicos (como campos mágicos de cabeçalhos). O <strong>Fuzzing Inteligente Guiado por IA</strong> resolve isso:</p>
                 <ul>
                     <li><strong>Criação de Inputs Baseados em Gramática:</strong> A IA deduz o formato do protocolo de rede analisando o parser e modela inputs sintaticamente corretos, mas logicamente corrompidos.</li>
                     <li><strong>Exploração de Caminhos Raros:</strong> A IA monitora a cobertura do código (code coverage) a cada mutação de input. Se uma ramificação específica do CFG não é executada, a IA usa solucionadores lógicos para mutar os bytes exatos do pacote e forçar o teste daquele caminho raro.</li>
@@ -176,7 +176,7 @@ jobs:
           ai-scanner --path ./src --threshold-block critical</code></pre></div>
 
                 <h3>Conexão Curricular:</h3>
-                <p>O Módulo 06 fecha a barreira de prevenção: a IA defensiva replica as ações da IA ofensiva (Módulo 01), detecta Use-After-Free (Módulo 02), valida invariantes de compilador em Rust (Módulo 03), audita vazamentos Off-Heap (Módulo 04) e testa a ponte FFI Rust/legado (Módulo 05). Essa esteira valida o software antes que ele seja exposto na infraestrutura final confinada a nível de Kernel (**Módulo 07**).</p>
+                <p>O Módulo 06 fecha a barreira de prevenção: a IA defensiva replica as ações da IA ofensiva (Módulo 01), detecta Use-After-Free (Módulo 02), valida invariantes de compilador em Rust (Módulo 03), audita vazamentos Off-Heap (Módulo 04) e testa a ponte FFI Rust/legado (Módulo 05). Essa esteira valida o software antes que ele seja exposto na infraestrutura final confinada a nível de Kernel (<strong>Módulo 07</strong>).</p>
 
                 <hr class="section-separator">
 

@@ -125,7 +125,7 @@ void validate_and_register(char* raw_token) {
     delete evaluator; // Só alcançado em caminhos de sucesso completo
 }</code></pre></div>
 
-                <p>sob alta concorrência, o microsserviço recebia milhares de conexões com tokens inválidos gerados por ataques automáticos de varredura (IA Ofensiva - Módulo 01). Esse desvio gerava uma **colisão de heap**, fragmentando a RAM física de forma tão severa que a alocação de novas sessões legítimas esbarrava em ponteiros órfãos do Módulo 02, corrompendo a integridade lógica da memória compartilhada.</p>
+                <p>sob alta concorrência, o microsserviço recebia milhares de conexões com tokens inválidos gerados por ataques automáticos de varredura (IA Ofensiva - Módulo 01). Esse desvio gerava uma <strong>colisão de heap</strong>, fragmentando a RAM física de forma tão severa que a alocação de novas sessões legítimas esbarrava em ponteiros órfãos do Módulo 02, corrompendo a integridade lógica da memória compartilhada.</p>
 
                 <h3>Estado da Memória Heap (Antes vs Depois do Leak):</h3>
                 <div class="chalkboard"><pre><code class="language-text">[Heap Saudável]
@@ -135,7 +135,7 @@ void validate_and_register(char* raw_token) {
 [Endereço 0x10 (Orfão - TokenEvaluator)] ➔ [Endereço 0x20 (Orfão - TokenEvaluator)] ➔ [0x30 (Orfão)]</code></pre></div>
 
                 <h2>3. A Reengenharia com Rust: Garantias Estritas do Compilador</h2>
-                <p>O conceito de **Ownership (Propriedade)** atua como o cinto de segurança da analogia: cada variável é responsável por gerenciar a desalocação do seu bloco dinâmico. O compilador garante de forma estrita de duas maneiras:</p>
+                <p>O conceito de <strong>Ownership (Propriedade)</strong> atua como o cinto de segurança da analogia: cada variável é responsável por gerenciar a desalocação do seu bloco dinâmico. O compilador garante de forma estrita de duas maneiras:</p>
                 <ul>
                     <li><strong>Ownership e Drop Determinístico:</strong> Rust não possui Garbage Collector. A liberação ocorre no exato instante em que o objeto sai do seu escopo, seja no fluxo normal ou em um caminho de erro (Early Return via enum `Result`).</li>
                     <li><strong>Borrowing e Borrow Checker:</strong> Impede data races bloqueando a existência de múltiplas referências mutáveis simultâneas sobre o mesmo dado de sessão.</li>
@@ -168,7 +168,7 @@ fn validate_and_register(raw_token: &amp;str) -> Result&lt;(), String&gt; {
 } // drop() acionado para o evaluator em caminhos de sucesso. Zero risco de vazamento!</code></pre></div>
 
                 <h2>4. Limitações, Riscos e Integração Legada</h2>
-                <p>A reengenharia para Rust não é livre de riscos. Se o novo módulo precisar interagir com bibliotecas legadas C++, somos obrigados a expor a fronteira por **FFI (Foreign Function Interface)** usando blocos `unsafe`:</p>
+                <p>A reengenharia para Rust não é livre de riscos. Se o novo módulo precisar interagir com bibliotecas legadas C++, somos obrigados a expor a fronteira por <strong>FFI (Foreign Function Interface)</strong> usando blocos `unsafe`:</p>
                 <div class="chalkboard"><pre><code class="language-rust">// Fronteira de FFI externa:
 extern "C" {
     fn raw_c_parser(data: *const u8, len: usize) -> i32;
@@ -180,7 +180,7 @@ fn safe_wrapper(data: &amp;[u8]) -> i32 {
         raw_c_parser(data.as_ptr(), data.len())
     }
 }</code></pre></div>
-                <p>O uso de `unsafe` desativa o Borrow Checker localmente, abrindo brechas para vazamentos se o código externo C++ violar as invariantes da memória. A mitigação cirúrgica dessa fronteira é isolar o binário compilado em adaptadores robustos usando Arquitetura Hexagonal, como vimos no **Módulo 05**.</p>
+                <p>O uso de `unsafe` desativa o Borrow Checker localmente, abrindo brechas para vazamentos se o código externo C++ violar as invariantes da memória. A mitigação cirúrgica dessa fronteira é isolar o binário compilado em adaptadores robustos usando Arquitetura Hexagonal, como vimos no <strong>Módulo 05</strong>.</p>
 
                 <h3>Demonstração Prática do Antes/Depois:</h3>
                 <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
@@ -213,7 +213,7 @@ fn safe_wrapper(data: &amp;[u8]) -> i32 {
                 <h2>5. Objeções Técnicas e Conexões Sistêmicas</h2>
                 <ul>
                     <li><strong>Objeção: "Reescrever código crítico custa muito caro."</strong> (Resposta: A reescrita cirúrgica apenas do núcleo de autenticação custou 5% do tempo de um projeto total, reduzindo o custo operacional de downtime em 100%).</li>
-                    <li><strong>Conexão Curricular:</strong> O código Rust impede bugs clássicos de heap do Módulo 02, contrasta com as vulnerabilidades perigosas de alocação off-heap da JVM do Módulo 04 e é verificado contra falhas lógicas usando fuzzing de IA em build no Módulo 06. Toda essa estrutura se conecta com o **Módulo 07**, no qual a contenção sistêmica de infraestrutura garante resiliência nacional.</li>
+                    <li><strong>Conexão Curricular:</strong> O código Rust impede bugs clássicos de heap do Módulo 02, contrasta com as vulnerabilidades perigosas de alocação off-heap da JVM do Módulo 04 e é verificado contra falhas lógicas usando fuzzing de IA em build no Módulo 06. Toda essa estrutura se conecta com o <strong>Módulo 07</strong>, no qual a contenção sistêmica de infraestrutura garante resiliência nacional.</li>
                 </ul>
 
                 <hr class="section-separator">

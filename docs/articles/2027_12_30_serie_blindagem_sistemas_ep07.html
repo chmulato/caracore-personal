@@ -229,8 +229,8 @@ int kprobe_execve(struct pt_regs *ctx) {
                 <h3>Métricas de Impacto da Solução:</h3>
                 <ul>
                     <li><strong>Tempo de mitigação e bloqueio:</strong> Imediato (barrado na Syscall pelo eBPF em nano-segundos).</li>
-                    <li><strong>Velocidade de auto-healing:</strong> **< 5 milissegundos** para instanciar uma nova microVM limpa e saudável.</li>
-                    <li><strong>Exposição de credenciais do Host:</strong> **Zero** (o processo isolado não possui acesso físico a diretórios ou chaves do servidor).</li>
+                    <li><strong>Velocidade de auto-healing:</strong> <strong>< 5 milissegundos</strong> para instanciar uma nova microVM limpa e saudável.</li>
+                    <li><strong>Exposição de credenciais do Host:</strong> <strong>Zero</strong> (o processo isolado não possui acesso físico a diretórios ou chaves do servidor).</li>
                 </ul>
 
                 <h2>5. Soberania Digital: Resiliência Tecnológica Nacional</h2>

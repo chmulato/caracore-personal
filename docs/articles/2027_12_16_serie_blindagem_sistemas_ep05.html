@@ -94,7 +94,7 @@
                 </ul>
                 </p>
 
-                <p>O fluxo original da fintech delegava a verificação de hash e assinatura criptográfica de PDFs a uma biblioteca legada em C++ vinculada via Node-addon bruto. O código continha furos graves do tipo **Buffer Overflow** e **Use-After-Free** (Módulo 02) ao lidar com buffers malformados na CPU. Reescrever uma base de código de 1,2 milhão de linhas de Java e Node.js em Rust do dia para a noite era financeiramente inviável. A solução pragmática foi a **migração cirúrgica progressiva**: reescrever apenas o core criptográfico em Rust e acoplá-lo ao ecossistema existente.</p>
+                <p>O fluxo original da fintech delegava a verificação de hash e assinatura criptográfica de PDFs a uma biblioteca legada em C++ vinculada via Node-addon bruto. O código continha furos graves do tipo <strong>Buffer Overflow</strong> e <strong>Use-After-Free</strong> (Módulo 02) ao lidar com buffers malformados na CPU. Reescrever uma base de código de 1,2 milhão de linhas de Java e Node.js em Rust do dia para a noite era financeiramente inviável. A solução pragmática foi a <strong>migração cirúrgica progressiva</strong>: reescrever apenas o core criptográfico em Rust e acoplá-lo ao ecossistema existente.</p>
 
                 <div class="tutor-note">
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
@@ -176,13 +176,13 @@ Requisicão HTTP ➔ Node.js Adapter ➔ Port (FFI C ABI) ➔ Core em Rust (Veri
                 <ol>
                     <li><strong>Isolar o Ponto de Entrada:</strong> Separe as funções críticas que realizam IO e processamento de arquivos perigosos do restante do aplicativo em portas de infraestrutura dedicadas.</li>
                     <li><strong>Validação das Pontes com Fuzzing:</strong> Use ferramentas de teste dinâmico (Módulo 06) injetando bytes aleatórios e payloads corrompidos na ponte FFI para garantir que o módulo Rust aborte conexões inválidas sem crashar o host.</li>
-                    <li><strong>Preparação para Sandboxing (**Módulo 07**):</strong> Estruture o binário FFI Rust de forma que ele possa rodar confinado dentro de uma microVM Firecracker ou eBPF, isolando as interfaces nativas dos dados gerais do sistema operacional.</li>
+                    <li><strong>Preparação para Sandboxing (<strong>Módulo 07</strong>):</strong> Estruture o binário FFI Rust de forma que ele possa rodar confinado dentro de uma microVM Firecracker ou eBPF, isolando as interfaces nativas dos dados gerais do sistema operacional.</li>
                 </ol>
 
                 <h2>5. Objeções Técnicas e Conexões</h2>
                 <ul>
                     <li><strong>Objeção: "Pontes FFI são complexas e podem gerar novos bugs."</strong> (Resposta: O mapeamento estrito usando ferramentas como `napi-rs` ou o Project Panama do Módulo 04 reduz drasticamente a taxa de erros humanos, mantendo tipagem segura entre as linguagens).</li>
-                    <li><strong>Conexão Curricular:</strong> O design hexagonal híbrido protege a aplicação de ataques cibernéticos contra código antigo (Módulo 01), elimina bugs no heap (Módulo 02) com as garantias nativas de segurança do Rust (Módulo 03), substituindo pontes JNI inseguras (Módulo 04). Esse pipeline é verificado por fuzzing direcionado (Módulo 06) e isolado via sandboxing físico no fechamento da tese (**Módulo 07**).</li>
+                    <li><strong>Conexão Curricular:</strong> O design hexagonal híbrido protege a aplicação de ataques cibernéticos contra código antigo (Módulo 01), elimina bugs no heap (Módulo 02) com as garantias nativas de segurança do Rust (Módulo 03), substituindo pontes JNI inseguras (Módulo 04). Esse pipeline é verificado por fuzzing direcionado (Módulo 06) e isolado via sandboxing físico no fechamento da tese (<strong>Módulo 07</strong>).</li>
                 </ul>
 
                 <hr class="section-separator">
