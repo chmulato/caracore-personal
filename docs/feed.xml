@@ -5,9 +5,73 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 04 Nov 2027 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Dec 2027 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 07 (Fim): Defesa de Tese e Soberania Digital]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_12_30_serie_blindagem_sistemas_ep07.html</link>
+      <description><![CDATA[Contenção de rede e privilégio mínimo no kernel através de eBPF e microVMs como defesa contra falhas sistêmicas estruturais.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_12_30_serie_blindagem_sistemas_ep07.html</guid>
+      <pubDate>Thu, 30 Dec 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 06: Validação Dinâmica de Código na Prática]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_12_23_serie_blindagem_sistemas_ep06.html</link>
+      <description><![CDATA[Configurando fuzzing inteligente e testes dinâmicos na esteira de integração contínua para prever comportamentos indefinidos.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_12_23_serie_blindagem_sistemas_ep06.html</guid>
+      <pubDate>Thu, 23 Dec 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 05: Integração Híbrida via FFI e WebAssembly]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html</link>
+      <description><![CDATA[Isolamento de lógica crítica legada integrando Rust com APIs de alto nível por meio de Wasm e interfaces estrangeiras de chamadas.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html</guid>
+      <pubDate>Thu, 16 Dec 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 04: JVM Saudável e a API de Memória Estrangeira]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html</link>
+      <description><![CDATA[Mitigando os riscos de alocação de dados Off-Heap no Java estruturando Arenas seguras através do Project Panama.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html</guid>
+      <pubDate>Thu, 09 Dec 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 03: Memória Imune com Ownership e Rust]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_12_02_serie_blindagem_sistemas_ep03.html</link>
+      <description><![CDATA[Explorando o modelo de posse de recursos, empréstimos e o Borrow Checker em compile-time para blindagem de software crítica.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_12_02_serie_blindagem_sistemas_ep03.html</guid>
+      <pubDate>Thu, 02 Dec 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 02: A física da Stack, Heap e Use-After-Free]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_11_25_serie_blindagem_sistemas_ep02.html</link>
+      <description><![CDATA[Compreendendo o funcionamento e o risco de vazamentos decorrentes de ponteiros órfãos ativos na alocação dinâmica da RAM.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_11_25_serie_blindagem_sistemas_ep02.html</guid>
+      <pubDate>Thu, 25 Nov 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Blindagem de Sistemas — Módulo 01: O Ataque Autônomo e Exploração via IA]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_11_18_serie_blindagem_sistemas_ep01.html</link>
+      <description><![CDATA[Analisando o pipeline de auditoria e geração automática de códigos de invasão baseado em árvores de sintaxe abstrata (AST) por modelos ofensivos.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_11_18_serie_blindagem_sistemas_ep01.html</guid>
+      <pubDate>Thu, 18 Nov 2027 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Série: Blindagem de Sistemas — Chamada e Índice]]></title>
+      <link>https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html</link>
+      <description><![CDATA[Chamada de abertura oficial e edital curricular do novo arco sobre blindagem prática e gerenciamento mecânico seguro de memória em sistemas corporativos.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html</guid>
+      <pubDate>Thu, 11 Nov 2027 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[A Ilusão da Interface — Apêndice: O Cântico e o Manual (Linguagens Criptografadas)]]></title>

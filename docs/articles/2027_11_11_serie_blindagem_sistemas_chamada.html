@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html" />
+    <meta property="og:image" content="assets/img/2027_11_11_IMAGE_001.png" />
+    <title>Série: Blindagem de Sistemas — Chamada e Índice</title>
+    <meta name="description" content="Chamada e edital (11/11/2027): pós-graduação em engenharia de riscos, segurança de aplicações (AppSec), DevSecOps, Rust, mitigação na JVM e análises de vulnerabilidades.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Blindagem de Sistemas, DevSecOps, AppSec, SAST, DAST, Cibersegurança, Rust, Java, JVM, IA Ofensiva, Engenharia de Riscos, OWASP">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <style>
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .episode-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .episode-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .episode-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .episode-number {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .episode-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .episode-title a:hover {
+            color: var(--primary-color);
+        }
+        .episode-teaser {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .episode-date-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            padding-top: 0.75rem;
+        }
+        .episode-card-figure {
+            margin: 0;
+        }
+        .episode-card-caption {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.45;
+            padding: 0.5rem 0.85rem 0.65rem;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .episode-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        [data-theme="dark"] .episode-card-caption {
+            color: #94a3b8;
+            background: #0f172a;
+            border-top-color: #334155;
+        }
+        [data-theme="dark"] .episode-number {
+            color: #94a3b8;
+        }
+        [data-theme="dark"] .episode-title a {
+            color: #f1f5f9;
+        }
+        [data-theme="dark"] .episode-teaser {
+            color: #cbd5e1;
+        }
+        [data-theme="dark"] .episode-date-time {
+            color: #94a3b8;
+            border-top-color: #334155;
+        }
+        .tutor-intro-box {
+            background: #f8fafc;
+            border-left: 4px solid #1e293b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        [data-theme="dark"] .tutor-intro-box {
+            background: #0f172a;
+            border-left-color: #38bdf8;
+        }
+        .tutor-intro-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        [data-theme="dark"] .tutor-intro-title {
+            color: #f8fafc;
+        }
+        .section-separator {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 2.5rem 0;
+        }
+        [data-theme="dark"] .section-separator {
+            background: #334155;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Pós-Graduação Prática em Engenharia de Risco</p>
+                <h1 class="post-title">Série: Blindagem de Sistemas — Chamada e Índice</h1>
+                <div class="post-meta">
+                    <time datetime="2027-11-11">11/11/2027</time> — Chamada e índice | Lançamentos de novembro a dezembro de 2027
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame">
+                    <img src="assets/img/2027_11_11_IMAGE_001.png" alt="Série Blindagem de Sistemas: edital" class="hero-image" />
+                    <figcaption class="hero-image-caption">Edital curricular da série: decodificando falhas de memória e estabelecendo o novo patamar de resiliência e saúde em sistemas críticos.</figcaption>
+                </figure>
+
+                <p>O mercado de desenvolvimento de software mudou permanentemente. IAs generativas de última geração já não são apenas ferramentas de produtividade para escrever código básico; elas se transformaram em plataformas capazes de auditar, mapear árvores de sintaxe inteiras e encontrar portas de entrada para invasões críticas em sistemas corporativos em questão de horas.</p>
+
+                <p>Nesse novo cenário de ameaças rápidas, a antiga mentalidade de apenas remendar falhas pontuais faliu. O desenvolvedor sênior contemporâneo precisa dominar a engenharia de riscos e a gestão mecânica de memória — as fundações sobre as quais toda a nossa infraestrutura de servidores, clusters de bancos de dados e gateways opera.</p>
+
+                <p>Esta página marca o início e funciona como o índice da nossa <strong>pós-graduação prática em formato de série: Blindagem de Sistemas</strong>. Ao longo de sete capítulos semanais veiculados nas quintas-feiras de novembro e dezembro de 2027, faremos uma jornada com o rigor de um livro-texto de engenharia de software.</p>
+
+                <p><em>Aviso de Concorrência e Risco: Todos os incidentes reais descritos nas lições a seguir são estudos de caso simulados sob condições controladas de laboratório. Eles representam cenários práticos e ocorrências realistas que podem surgir no dia a dia da produção de qualquer empresa tech, desenhados especificamente para fins pedagógicos de mitigação de vulnerabilidades.</em></p>
+
+                <div class="tutor-intro-box">
+                    <div class="tutor-intro-title">Nota da Trincheira (Mestre da Fita Crepe):</div>
+                    <p><em>"Minha experiência prática inclui o diagnóstico de incidentes críticos envolvendo chamadas nativas, corrupção de memória e falhas graves de isolamento em ambientes de produção. Nesta pós-graduação, meu papel como tutor é guiá-lo pela engenharia de risco aplicada, conectando o código de baixo nível ao impacto estrutural que rege os negócios das empresas modernas. Vamos direto às fundações."</em></p>
+                </div>
+
+                <p>Cada episódio contará com um cenário real de incidentes de produção, o diagnóstico estrutural do código, a estratégia aplicada de mitigação em baixo nível, além de um resumo de aprendizado e um glossário de trincheira para traduzir os jargões complexos de forma didática para executivos e leigos.</p>
+
+                <h2>O Desafio: Para quem é este guia?</h2>
+                <p>Esta pós-graduação foi desenhada tanto para o líder que gerencia riscos de tecnologia quanto para o desenvolvedor que deseja compreender e manipular os limites físicos do hardware. Não exigimos que você seja um especialista em Rust ou cibersegurança ofensiva; buscamos mentes curiosas e obstinadas. Os únicos pré-requisitos reais para iniciar a jornada são:</p>
+                <ul>
+                    <li><strong>Para Desenvolvedores (Trilha Pro):</strong> Noções básicas de programação em qualquer stack de mercado (como Java, Node.js, C# ou Go) e a curiosidade de entender como seu código de alto nível interage com a memória física do servidor. Se você nunca viu Rust ou C, este guia foi desenhado para ser a sua rampa de acesso definitiva.</li>
+                    <li><strong>Para Líderes e Gestores (A Ilusão da Trilha Executiva):</strong> Desenhada especificamente para quem assume que gerenciar riscos consiste apenas em assinar checklists burocráticos ou olhar gráficos coloridos em apresentações rápidas. Se você tiver a audácia de ler os artigos inteiros em vez de apenas delegar, entenderá finalmente por que sua infraestrutura quebra e por que a saúde de seus sistemas não se resolve em salas de reunião.</li>
+                </ul>
+                
+                <div class="tutor-intro-box" style="border-left-color: #f59e0b; background: #fffbeb;">
+                    <div class="tutor-intro-title">Recomendação de Estudo (Para os Curiosos e Dedicados):</div>
+                    <p><em>Como cada módulo desta pós-graduação apresenta alta densidade técnica e tempos de leitura superiores a 10 minutos, recomendamos dividir o estudo de cada capítulo em dois esforços distintos: reserve um primeiro momento para absorver o incidente real e as analogias lógicas, e um segundo esforço concentrado para analisar a implementação da solução em código e resolver os exercícios de fixação.</em></p>
+                </div>
+
+                <div class="tutor-intro-box" style="border-left-color: #0f766e; background: #f0fdfa; margin-top: 1.5rem; color: #115e59;">
+                    <div class="tutor-intro-title" style="color: #0f766e; font-weight: bold; margin-bottom: 0.5rem;">Nota Pragmática (Teoria de Laboratório vs. Pressão de Entrega):</div>
+                    <p style="margin: 0; font-style: italic;">"Na vida real de produção, a necessidade de entregar novas funcionalidades fala mais alto do que refatorar códigos antigos. Ninguém vai pausar a sua empresa por 6 meses para reescrever sistemas inteiros em Rust. Por isso, nossa filosofia de mitigação aqui é cirúrgica: em vez de reconstruir do zero, ensinaremos você a blindar o que já existe rodando, utilizando anteparas de isolamento externas e eBPF em poucas horas, restringindo o esforço de reescrita híbrida apenas para micro-módulos de altíssimo risco. É o equilíbrio pragmático entre o prazo do deploy e a segurança real do seu sistema."</p>
+                </div>
+                
+                <p>Prepare-se para ver a engenharia de software sob uma perspectiva muito mais palpável e desafiadora. A infraestrutura que sustenta as suas aplicações em produção esconde segredos mecânicos fascinantes. Vamos desvendá-los.</p>
+
+                <hr class="section-separator">
+
+                <h2>Grade Curricular e Grade de Aulas</h2>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_11_18_IMAGE_001.png" alt="Módulo 1 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Pipeline de engenharia reversa e códigos de invasão por IA.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 01</div>
+                            <h3 class="episode-title"><a href="2027_11_18_serie_blindagem_sistemas_ep01.html">O Ataque Autônomo: Auditoria e Exploração com Inteligência Artificial</a></h3>
+                            <p class="episode-teaser">Como IAs avançadas mapeiam código legado, geram códigos de invasão de forma autônoma e por que a segurança por obscuridade está definitivamente morta.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 18/11/2027</span>
+                                <span>10 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_11_25_IMAGE_001.png" alt="Módulo 2 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Gestão mecânica de memória física e ponteiros em C/C++.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 02</div>
+                            <h3 class="episode-title"><a href="2027_11_25_serie_blindagem_sistemas_ep02.html">A Praga Silenciosa: Use-After-Free e Bugs de Memória</a></h3>
+                            <p class="episode-teaser">Entendendo e mitigando as clássicas falhas de alocação de baixo nível que ainda assolam os principais kernels e SDKs de comunicação global.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 25/11/2027</span>
+                                <span>12 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_12_02_IMAGE_001.png" alt="Módulo 3 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Ciclo de vida e propriedade de variáveis em Rust.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 03</div>
+                            <h3 class="episode-title"><a href="2027_12_02_serie_blindagem_sistemas_ep03.html">O Cinto de Segurança do Rust: Garantias do Compilador</a></h3>
+                            <p class="episode-teaser">Como reescrever módulos críticos usando Ownership e Borrowing para garantir a segurança de memória sem introduzir overhead de runtime.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 02/12/2027</span>
+                                <span>15 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_12_09_IMAGE_001.png" alt="Módulo 4 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Memória nativa Off-Heap e a arquitetura do Project Panama.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 04</div>
+                            <h3 class="episode-title"><a href="2027_12_09_serie_blindagem_sistemas_ep04.html">A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco</a></h3>
+                            <p class="episode-teaser">O Java é imune? Desmistificando o Garbage Collector e protegendo acessos nativos off-heap com APIs modernas de memória estrangeira.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 09/12/2027</span>
+                                <span>14 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_12_16_IMAGE_001.png" alt="Módulo 5 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Arquitetura hexagonal e adaptadores nativos via FFI e Wasm.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 05</div>
+                            <h3 class="episode-title"><a href="2027_12_16_serie_blindagem_sistemas_ep05.html">A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado</a></h3>
+                            <p class="episode-teaser">Como re-arquitetar APIs existentes (Node.js, Spring Boot, .NET) envelopando partes lentas ou inseguras in microsserviços de alto desempenho.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 16/12/2027</span>
+                                <span>12 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_12_23_IMAGE_001.png" alt="Módulo 6 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Loop CI/CD de DevSecOps e fuzzing automatizado por agentes de IA.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 06</div>
+                            <h3 class="episode-title"><a href="2027_12_23_serie_blindagem_sistemas_ep06.html">Copilotos de Defesa: Fuzzing e Análise Dinâmica com IA</a></h3>
+                            <p class="episode-teaser">Configurando pipelines automatizados com modelos de IA locais atuando como Red Team constante em seu fluxo de integração contínua.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 23/12/2027</span>
+                                <span>11 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2027_12_30_IMAGE_001.png" alt="Módulo 7 da série Blindagem de Sistemas" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Sandboxing de infraestrutura e isolamento no kernel com eBPF e microVMs.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Módulo 07</div>
+                            <h3 class="episode-title"><a href="2027_12_30_serie_blindagem_sistemas_ep07.html">Defesa de Tese: Contenção de Danos e Soberania Digital</a></h3>
+                            <p class="episode-teaser">Epílogo da série. Estratégias arquiteturais avançadas de sandboxing corporativo e a construção de infraestruturas resilientes nacionais.</p>
+                            <div class="episode-date-time">
+                                <span>Lançamento: 30/12/2027</span>
+                                <span>8 min de leitura</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 3rem;"><strong>Lançamento da Série:</strong> Aulas práticas semanais publicadas às quintas-feiras, de <strong>18/11/2027</strong> a <strong>30/12/2027</strong>.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>
