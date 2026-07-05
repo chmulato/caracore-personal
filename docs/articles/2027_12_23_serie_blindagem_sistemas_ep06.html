@@ -73,7 +73,7 @@
                 <p class="post-serie-kicker">Série: Blindagem de Sistemas — Módulo 06</p>
                 <h1 class="post-title">Copilotos de Defesa: Fuzzing e Análise Dinâmica com IA</h1>
                 <div class="post-meta">
-                    <time datetime="2027-12-23">23/12/2027</time> | ⏱️ 11 min de leitura
+                    <time datetime="2027-12-23">23/12/2027</time> | ⏱️ 7 min de leitura
                 </div>
             </header>
 
@@ -190,18 +190,24 @@ jobs:
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
-                        <li><strong>Análise Dinâmica de Cobertura:</strong> O processo de monitorar quais ramificações lógicas do código-fonte foram executadas e testadas de forma real durante a injeção de inputs.</li>
-                        <li><strong>Fuzzing Guiado:</strong> Teste de robustez de software que monitora o comportamento das instruções na RAM para otimizar os bytes dos novos pacotes de teste.</li>
-                        <li><strong>Grafo de Fluxo de Controle (CFG):</strong> O mapeamento lógico que representa todos os caminhos possíveis de execução e ramificações de desvios que a CPU pode tomar ao rodar a aplicação.</li>
-                        <li><strong>Falsos Negativos:</strong> A pior falha da segurança: quando um bug grave passa imperceptível pelos analisadores sem acionar alertas.</li>
-                        <li><strong>Filtro de Ruído Operacional:</strong> A tecnologia de triagem automática que descarta relatórios de vulnerabilidade irrelevantes ou incorretos, poupando tempo da equipe.</li>
-                    </ul>
+<li><strong>AFL++:</strong> Um dos fuzzers mais poderosos da indústria, que utiliza instrumentação de código para "ver" como o programa processa a entrada e ajustar suas mutações automaticamente.</li>
+<li><strong>Análise Dinâmica de Cobertura:</strong> O processo de monitorar quais ramificações lógicas do código-fonte foram executadas e testadas de forma real durante a injeção de inputs.</li>
+<li><strong>CI/CD Pipeline (Esteira de Produção):</strong> A esteira de produção contínua. No contexto deste módulo, é o ambiente onde a IA atua como um "porteiro" automatizado, bloqueando código com vulnerabilidades antes do deploy.</li>
+<li><strong>Falsos Negativos:</strong> A pior falha da segurança: quando um bug grave passa imperceptível pelos analisadores sem acionar alertas.</li>
+<li><strong>Filtro de Ruído Operacional:</strong> A tecnologia de triagem automática que descarta relatórios de vulnerabilidade irrelevantes ou incorretos, poupando tempo da equipe.</li>
+<li><strong>Fuzzing Guiado:</strong> Teste de robustez de software que monitora o comportamento das instruções na RAM para otimizar os bytes dos novos pacotes de teste.</li>
+<li><strong>Grafo de Fluxo de Controle (CFG):</strong> O mapeamento lógico que representa todos os caminhos possíveis de execução e ramificações de desvios que a CPU pode tomar ao rodar a aplicação.</li>
+<li><strong>Mutação (Fuzzing):</strong> A técnica onde o fuzzer pega um pacote de dados válido e altera bits aleatórios (ou baseados em lógica) para testar se o parser da aplicação quebra sob estresse.</li>
+<li><strong>Parser:</strong> O componente de software responsável por ler e interpretar dados recebidos (ex: pacotes de rede). É a "entrada de ar" do sistema e o local mais comum para a injeção de ataques.</li>
+<li><strong>Payload:</strong> A "carga útil" ou o conteúdo malicioso injetado pelo fuzzer para tentar forçar um comportamento inesperado ou a execução de código.</li>
+<li><strong>SIGSEGV (Segmentation Fault):</strong> O sinal que o sistema operacional envia quando um programa tenta acessar uma área de memória que não lhe pertence. É a "prova do crime" que o fuzzer busca para confirmar um crash.</li>
+</ul>
                 </div>
             </div>
 
             
                 <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
-                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 11 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                    <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 7 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
                 </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">

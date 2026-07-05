@@ -73,7 +73,7 @@
                 <p class="post-serie-kicker">Série: Blindagem de Sistemas — Módulo 04</p>
                 <h1 class="post-title">A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco</h1>
                 <div class="post-meta">
-                    <time datetime="2027-12-09">09/12/2027</time> | ⏱️ 14 min de leitura
+                    <time datetime="2027-12-09">09/12/2027</time> | ⏱️ 8 min de leitura
                 </div>
             </header>
 
@@ -192,12 +192,15 @@ public void safeEncrypt(byte[] inputData) {
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
-                        <li><strong>Alocação Nativa Direta (Off-Heap):</strong> O espaço de armazenamento alocado diretamente no sistema operacional host, livre do monitoramento do Garbage Collector.</li>
-                        <li><strong>Ponte Nativa (JNI):</strong> A infraestrutura convencional de acoplamento entre Java e binários compilados C/C++, altamente propensa a vazamentos e quebras de integridade da máquina física se mal implementada.</li>
-                        <li><strong>Cúpula Determinística (Arena):</strong> O objeto de controle de escopo do Project Panama que assegura a liberação automática e segura de alocações nativas no final da execução.</li>
-                        <li><strong>Rastreamento de Memória Nativa (NMT):</strong> Ferramenta interna da JVM HotSpot para auditar o uso detalhado de RAM nativa alocada de forma direta pela JVM.</li>
-                        <li><strong>Estouro Sistêmico de Memória (OOM Killer):</strong> O mecanismo do kernel Linux que elimina processos que consomem memória física de forma descontrolada para impedir a paralisação completa do sistema operacional.</li>
-                    </ul>
+<li><strong>Estouro Sistêmico de Memória (OOM Killer):</strong> O mecanismo do kernel Linux que elimina processos que consomem memória física de forma descontrolada para impedir a paralisação completa do sistema operacional.</li>
+<li><strong>Garbage Collector (GC):</strong> O gestor automático da JVM que limpa objetos na memória On-Heap. Ele não possui visibilidade ou autoridade sobre recursos alocados manualmente fora de sua área (Off-Heap).</li>
+<li><strong>JNI (Java Native Interface):</strong> A "ponte" que permite ao Java executar código nativo (C/C++). É o ponto de falha mais comum, pois exige que o desenvolvedor gerencie manualmente o ciclo de vida da memória na interface.</li>
+<li><strong>Memory Leak (Vazamento):</strong> O acúmulo gradual de memória alocada que nunca é liberada. No contexto nativo, isso causa a exaustão física da RAM do host, levando ao crash pelo Kernel.</li>
+<li><strong>Off-Heap (Alocação Nativa Direta):</strong> Memória alocada fora da área gerenciada pela JVM (usando malloc ou mmap). Oferece performance extrema, mas transfere a responsabilidade de limpeza para o programador.</li>
+<li><strong>Rastreamento de Memória Nativa (NMT):</strong> Ferramenta interna da JVM HotSpot para auditar o uso detalhado de RAM nativa alocada de forma direta pela JVM.</li>
+<li><strong>Soberania do Processo:</strong> A ideia de que um processo deve ser capaz de monitorar e conter seus próprios recursos. Quando um sistema perde o controle de sua memória nativa, ele perde a soberania sobre sua própria execução.</li>
+<li><strong>Try-with-Resources / Arenas:</strong> Estrutura de linguagem (como o Arena do Project Panama) que garante que recursos (arquivos, sockets, memória nativa) sejam fechados automaticamente ao final do escopo, eliminando falhas humanas.</li>
+</ul>
                 </div>
             </div>
 

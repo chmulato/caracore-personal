@@ -73,7 +73,7 @@
                 <p class="post-serie-kicker">Série: Blindagem de Sistemas — Módulo 03</p>
                 <h1 class="post-title">O Cinto de Segurança do Rust: Garantias do Compilador</h1>
                 <div class="post-meta">
-                    <time datetime="2027-12-02">02/12/2027</time> | ⏱️ 15 min de leitura
+                    <time datetime="2027-12-02">02/12/2027</time> | ⏱️ 8 min de leitura
                 </div>
             </header>
 
@@ -229,12 +229,17 @@ fn safe_wrapper(data: &amp;[u8]) -> i32 {
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
-                        <li><strong>Posse Única (Ownership):</strong> O mecanismo do Rust no qual cada recurso de RAM possui uma variável dona exclusiva. Quando a dona sai de cena, a RAM é desalocada de imediato pelo compilador.</li>
-                        <li><strong>Vazamento de Heap (Memory Leak):</strong> A falha de programação que ocorre quando a aplicação aloca espaço no Heap e deixa de devolvê-lo, consumindo a RAM do servidor de forma indevida até o travamento.</li>
-                        <li><strong>Interface Externa (FFI):</strong> A ponte lógica que permite a linguagens diferentes chamarem funções diretamente na máquina compilada uma da outra (ex: Rust invocando C++ legado).</li>
-                        <li><strong>Verificador de Empréstimos (Borrow Checker):</strong> O sistema de análise estática do compilador Rust que audita referências de memória na compilação, impedindo acessos simultâneos inválidos.</li>
-                        <li><strong>Instrução Drop:</strong> A rotina do Rust que age de forma equivalente à chamada de liberação determinística no Heap assim que o ciclo de vida do escopo é concluído.</li>
-                    </ul>
+<li><strong>Blocos unsafe:</strong> Trechos de código em Rust onde o compilador desativa suas verificações de segurança. Necessários para FFI, mas onde o desenvolvedor assume a responsabilidade total pela integridade da memória.</li>
+<li><strong>Data Race (Corrida de Dados):</strong> Erro que ocorre quando duas threads tentam acessar e modificar a mesma posição de memória ao mesmo tempo sem sincronização, levando a comportamentos imprevisíveis.</li>
+<li><strong>Determinismo:</strong> Propriedade de um sistema onde o comportamento é sempre o mesmo para uma entrada específica. No Rust, a liberação de memória é determinística (ocorre no drop), ao contrário de linguagens com Garbage Collector.</li>
+<li><strong>FFI (Foreign Function Interface / Interface Externa):</strong> O canal de comunicação que permite ao Rust chamar bibliotecas escritas em outras linguagens (como C++). É uma zona de perigo onde a segurança do Rust não pode ser garantida.</li>
+<li><strong>Heap:</strong> Área da memória RAM onde objetos de vida longa são alocados dinamicamente. É onde ocorrem os vazamentos quando a memória não é devolvida ao sistema.</li>
+<li><strong>Instrução Drop:</strong> A rotina do Rust que age de forma equivalente à chamada de liberação determinística no Heap assim que o ciclo de vida do escopo é concluído.</li>
+<li><strong>OOM Killer (Out-Of-Memory):</strong> Mecanismo de "emergência" do Kernel Linux que encerra processos quando o sistema fica sem RAM, como visto no incidente do microsserviço.</li>
+<li><strong>Posse Única (Ownership):</strong> O mecanismo do Rust no qual cada recurso de RAM possui uma variável dona exclusiva. Quando a dona sai de cena, a RAM é desalocada de imediato pelo compilador.</li>
+<li><strong>Vazamento de Heap (Memory Leak):</strong> A falha de programação que ocorre quando a aplicação aloca espaço no Heap e deixa de devolvê-lo, consumindo a RAM do servidor de forma indevida até o travamento.</li>
+<li><strong>Verificador de Empréstimos (Borrow Checker):</strong> O sistema de análise estática do compilador Rust que audita referências de memória na compilação, impedindo acessos simultâneos inválidos.</li>
+</ul>
                 </div>
             </div>
 

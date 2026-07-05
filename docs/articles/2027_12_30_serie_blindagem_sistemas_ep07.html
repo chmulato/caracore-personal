@@ -73,7 +73,7 @@
                 <p class="post-serie-kicker">Série: Blindagem de Sistemas — Módulo 07</p>
                 <h1 class="post-title">Defesa de Tese: Contenção de Danos e Soberania Digital</h1>
                 <div class="post-meta">
-                    <time datetime="2027-12-30">30/12/2027</time> | ⏱️ 15 min de leitura
+                    <time datetime="2027-12-30">30/12/2027</time> | ⏱️ 12 min de leitura
                 </div>
             </header>
 
@@ -260,12 +260,15 @@ bpftool prog load bpf_sec_filter.o /sys/fs/bpf/sec_filter type lsm</code></pre><
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
-                        <li><strong>Chamada de Sistema (Syscall):</strong> A requisição direta que uma aplicação faz ao núcleo do sistema operacional (Kernel) para realizar operações de hardware (como ler arquivos ou conectar à rede).</li>
-                        <li><strong>Filtro de Kernel (eBPF):</strong> A tecnologia que roda pequenos programas seguros direto no núcleo do sistema operacional para monitorar ou barrar syscalls sem lentidão.</li>
-                        <li><strong>MicroVM:</strong> Uma máquina virtual extremamente leve e isolada por hardware via KVM (como Firecracker), que inicializa em milissegundos com kernel enxuto.</li>
-                        <li><strong>Verificador eBPF (eBPF Verifier):</strong> O mecanismo de segurança do kernel que inspeciona o código eBPF antes da execução, garantindo que ele não trave ou cause falhas físicas no sistema.</li>
-                        <li><strong>Privilégio Mínimo:</strong> A política de segurança de infraestrutura que garante a processos apenas as permissões estritamente necessárias para a execução de suas tarefas.</li>
-                    </ul>
+<li><strong>Anteparas (Bulkheads):</strong> Metáfora de engenharia naval usada para descrever o isolamento de módulos: se uma parte do sistema é comprometida, a "porta estanque" impede que o dano se propague para o resto da infraestrutura.</li>
+<li><strong>Chamada de Sistema (Syscall):</strong> O mecanismo pelo qual um programa solicita serviços (como acesso à rede ou leitura de arquivos) ao Kernel do sistema operacional.</li>
+<li><strong>Filtro de Kernel (eBPF):</strong> A tecnologia que roda pequenos programas seguros direto no núcleo do sistema operacional para monitorar ou barrar syscalls sem lentidão.</li>
+<li><strong>JNDI Lookup:</strong> Interface de diretório Java usada no Log4Shell para buscar recursos externos; o vetor de ataque que permitiu a execução de código remoto.</li>
+<li><strong>MicroVM:</strong> Uma máquina virtual extremamente leve e isolada por hardware via KVM (como Firecracker), que inicializa em milissegundos com kernel enxuto.</li>
+<li><strong>OOB (Out-of-Bounds):</strong> Refere-se a acessos de memória fora dos limites permitidos (como no Use-After-Free), frequentemente usados em explorações para corromper o estado de um programa.</li>
+<li><strong>RCE (Remote Code Execution):</strong> Vulnerabilidade crítica que permite a um atacante executar comandos arbitrários no servidor, como visto no caso Log4j.</li>
+<li><strong>Soberania Digital:</strong> A capacidade de uma organização ou país de manter controle total sobre sua infraestrutura e dados, sem depender de soluções de segurança proprietárias de terceiros.</li>
+</ul>
                 </div>
             </div>
 

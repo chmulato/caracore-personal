@@ -73,7 +73,7 @@
                 <p class="post-serie-kicker">Série: Blindagem de Sistemas — Módulo 05</p>
                 <h1 class="post-title">A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado</h1>
                 <div class="post-meta">
-                    <time datetime="2027-12-16">16/12/2027</time> | ⏱️ 12 min de leitura
+                    <time datetime="2027-12-16">16/12/2027</time> | ⏱️ 7 min de leitura
                 </div>
             </header>
 
@@ -197,16 +197,20 @@ Requisicão HTTP ➔ Node.js Adapter ➔ Port (FFI C ABI) ➔ Core em Rust (Veri
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
-                        <li><strong>Interface de Funções Estrangeiras (FFI):</strong> A ponte nativa que permite a linguagens de alto nível invocar funções compiladas diretamente na RAM do host.</li>
-                        <li><strong>Representação Desordenada (Name Mangling):</strong> O processo onde o compilador altera nomes de funções para incluir dados de tipos; desativado com <code>#[no_mangle]</code> para garantir compatibilidade C.</li>
-                        <li><strong>Arquitetura Hexagonal:</strong> Padrão de design que confina o core lógico e trata conexões externas de infraestrutura como adaptadores periféricos descartáveis.</li>
-                        <li><strong>Vazamento de Integridade (Safety Leak):</strong> A quebra de regras de segurança física de memória que ocorre quando ponteiros inseguros de linguagens nativas corrompem o ambiente seguro do Rust.</li>
-                        <li><strong>Estresse de Fila (Backpressure):</strong> A capacidade do sistema de suspender novas entradas quando o poder de processamento da CPU está no limite de saturação.</li>
-                    </ul>
+<li><strong>#[no_mangle]:</strong> Atributo que impede o compilador de alterar o nome da função. Sem isso, a função Rust fica "invisível" ou ilegível para o programa legado que tenta chamá-la.</li>
+<li><strong>ABI (Application Binary Interface):</strong> O "idioma" comum (como a ABI C) que permite que binários compilados por linguagens diferentes (ex: Rust e C++) conversem entre si na memória.</li>
+<li><strong>ABI C:</strong> Conjunto de regras de como funções devem ser chamadas (quais registradores usar, como passar argumentos) para garantir interoperabilidade entre linguagens de baixo nível.</li>
+<li><strong>Arquitetura Hexagonal:</strong> Padrão de design que confina o core lógico e trata conexões externas de infraestrutura como adaptadores periféricos descartáveis.</li>
+<li><strong>Backpressure (Retrocesso / Estresse de Fila):</strong> Mecanismo de controle de fluxo onde o sistema sinaliza que está sobrecarregado, forçando a origem a diminuir a velocidade, evitando a queda do serviço por saturação.</li>
+<li><strong>extern "C":</strong> Comando no Rust que instrui o compilador a usar a convenção de chamadas da linguagem C, permitindo que o código seja chamado por qualquer sistema legado.</li>
+<li><strong>Fatia (Slice):</strong> No Rust, uma forma segura de referenciar uma sequência de dados em memória sem possuir o dado. Essencial para processar buffers recebidos do C++ sem copiar a memória.</li>
+<li><strong>Interface de Funções Estrangeiras (FFI):</strong> A ponte nativa que permite a linguagens de alto nível invocar funções compiladas diretamente na RAM do host.</li>
+<li><strong>Vazamento de Integridade (Safety Leak):</strong> A quebra de regras de segurança física de memória que ocorre quando ponteiros inseguros de linguagens nativas corrompem o ambiente seguro do Rust.</li>
+</ul>
                 </div>
             
             <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
-                <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 12 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
+                <strong>Recomendação de Estudo:</strong> Como este capítulo apresenta tempo de leitura estimado em 7 minutos e alta densidade, sugerimos dividir o esforço em duas sessões: reserve o primeiro momento para o caso/diagnóstico técnico e o segundo para a análise do código e exercícios.
             </div>
 
             <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">

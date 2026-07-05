@@ -73,7 +73,7 @@
                 <p class="post-serie-kicker">Série: Blindagem de Sistemas — Módulo 02</p>
                 <h1 class="post-title">A Praga Silenciosa: Use-After-Free e Bugs de Memória</h1>
                 <div class="post-meta">
-                    <time datetime="2027-11-25">25/11/2027</time> | ⏱️ 12 min de leitura
+                    <time datetime="2027-11-25">25/11/2027</time> | ⏱️ 9 min de leitura
                 </div>
             </header>
 
@@ -210,12 +210,18 @@ legacy_ptr = nullptr; // Evita que chamadas subsequentes usem a memória antiga<
                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
                     <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
                     <ul>
-                        <li><strong>Pilha (Stack):</strong> A mesa de trabalho física local e ultra-rápida do chip do computador. Armazena variáveis locais e endereços de controle de execução. A limpeza ocorre de forma imediata quando a função termina.</li>
-                        <li><strong>Monte (Heap):</strong> A área de alocação dinâmica e ampla de memória RAM. Exige instruções explícitas do desenvolvedor para solicitar espaço e liberar os blocos de memória ao sistema operacional.</li>
-                        <li><strong>Uso de Memória Órfã (Use-After-Free):</strong> O erro grave de engenharia de software no qual um programa continua a usar um endereço físico no Heap que já foi devolvido ao sistema operacional, resultando em leitura cruzada de dados confidenciais de outros usuários.</li>
-                        <li><strong>Ponteiro Inteligente (Smart Pointer):</strong> Tipo de dado encapsulado em C++ que gerencia o ciclo de vida do recurso alocado de forma nativa e automática, prevenindo erros manuais humanos de alocação.</li>
-                        <li><strong>Fragmentação de Heap:</strong> O fenômeno no qual a alocação e liberação desordenada de memória deixa blocos livres pequenos espalhados, impedindo alocações grandes consecutivas e degradando o desempenho.</li>
-                    </ul>
+<li><strong>Alocador de Memória (malloc/new):</strong> O componente do sistema operacional ou da linguagem responsável por encontrar e reservar blocos de memória livre no Heap para o programa.</li>
+<li><strong>ASan (AddressSanitizer):</strong> Ferramenta de detecção de erros de memória em tempo de execução. Ela "marca" regiões de memória proibidas para identificar quando um programa acessa algo que já deveria estar livre.</li>
+<li><strong>Bin (Arena de Memória):</strong> Estrutura de organização interna do alocador que agrupa blocos de memória de tamanhos semelhantes. Entender isso ajuda a prever como o sistema "reaproveita" o espaço livre.</li>
+<li><strong>Coalescimento (Coalescing):</strong> Processo onde o alocador une blocos livres adjacentes na memória para reduzir a fragmentação. É um comportamento que pode influenciar a previsibilidade de um ataque UAF.</li>
+<li><strong>Dangling Pointer (Ponteiro Órfão):</strong> Um ponteiro que continua apontando para um endereço de memória que já foi liberado (free/delete). É a causa raiz da vulnerabilidade UAF.</li>
+<li><strong>Fragmentação de Heap:</strong> O fenômeno no qual a alocação e liberação desordenada de memória deixa blocos livres pequenos espalhados, impedindo alocações grandes consecutivas e degradando o desempenho.</li>
+<li><strong>Monte (Heap):</strong> A área de alocação dinâmica e ampla de memória RAM. Exige instruções explícitas do desenvolvedor para solicitar espaço e liberar os blocos de memória ao sistema operacional.</li>
+<li><strong>Pilha (Stack):</strong> A mesa de trabalho física local e ultra-rápida do chip do computador. Armazena variáveis locais e endereços de controle de execução. A limpeza ocorre de forma imediata quando a função termina.</li>
+<li><strong>Ponteiro Inteligente (Smart Pointer):</strong> Tipo de dado encapsulado em C++ que gerencia o ciclo de vida do recurso alocado de forma nativa e automática, prevenindo erros manuais humanos de alocação.</li>
+<li><strong>Thread:</strong> Unidade básica de execução dentro de um processo. O UAF é frequentemente perigoso porque uma thread pode desalocar memória enquanto outra thread tenta acessá-la, gerando a "leitura cruzada".</li>
+<li><strong>Uso de Memória Órfã (Use-After-Free):</strong> O erro grave de engenharia de software no qual um programa continua a usar um endereço físico no Heap que já foi devolvido ao sistema operacional, resultando em leitura cruzada de dados confidenciais de outros usuários.</li>
+</ul>
                 </div>
             </div>
 
