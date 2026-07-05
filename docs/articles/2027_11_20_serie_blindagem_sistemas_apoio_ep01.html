@@ -87,6 +87,25 @@
         [data-theme="light"] .terminal-block code {
             color: #1e293b !important;
         }
+        .reflection-note {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note {
+            background: #061c12;
+            border-left-color: #10b981;
+            color: #e2e8f0;
+        }
+        .reflection-note strong {
+            color: #0f766e;
+        }
+        [data-theme="dark"] .reflection-note strong {
+            color: #34d399;
+        }
     </style>
 </head>
 <body>
@@ -310,6 +329,17 @@ int main() {
                              </tr>
                          </tbody>
                      </table>
+                 </div>
+
+                 <div class="reflection-note">
+                     <strong style="font-size: 1.05rem; display: block; margin-bottom: 0.75rem;">Reflexão Final: O Mito do Programador Infalível</strong>
+                     Chegamos ao fim da nossa primeira trincheira. Ao observar a falha da "caixa postal" (<em>Buffer Overflow</em>), é tentador culpar exclusivamente o desenvolvedor que escreveu o código antigo. No entanto, a verdadeira lição deste módulo é muito mais profunda: <strong>o problema não é a falta de talento, mas a arquitetura da confiança.</strong>
+                     <br><br>
+                     Linguagens clássicas como C e C++ foram desenhadas para extrair o máximo de velocidade das máquinas. Para isso, elas entregam um poder absoluto ao programador, partindo da premissa de que ele nunca cometerá um erro de cálculo ao alocar espaço ou gerenciar ponteiros.
+                     <br><br>
+                     Mas a realidade do mercado é outra. O cérebro humano se cansa, os prazos apertam e a atenção falha em uma sexta-feira no final do expediente. Quando a base da infraestrutura global depende da perfeição humana contínua em 100% do tempo, não estamos criando sistemas seguros; estamos montando uma bomba-relógio. Entender como e por que o baixo nível quebra (como vimos no transbordamento de memória hoje) é o rito de passagem necessário para que você, amanhã, saiba como construir as armaduras que a indústria tanto precisa.
+                     <br><br>
+                     Você sobreviveu ao seu primeiro mergulho estrutural. Respire fundo, celebre o fato de ter desmistificado uma vulnerabilidade crítica, e descanse a mente.
                  </div>
             </div>
 
