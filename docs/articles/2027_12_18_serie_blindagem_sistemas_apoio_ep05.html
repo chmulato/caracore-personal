@@ -50,6 +50,66 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
+        .reflection-note-green {
+            background: #f0fdf4;
+            border-left: 4px solid #a3be8c;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note-green {
+            background: #0f1c14;
+            border-left-color: #a3be8c;
+            color: #e2e8f0;
+        }
+        .reflection-note-green strong {
+            color: #0f766e;
+        }
+        [data-theme="dark"] .reflection-note-green strong {
+            color: #a3be8c;
+        }
     </style>
 </head>
 <body>
@@ -99,29 +159,106 @@
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
                 <p>Veja como estruturar o confinamento seguro através de uma Arquitetura Hexagonal Híbrida:</p>
 
-                <div class="chalkboard"><pre><code class="language-text">[Fluxo de Confinamento Seguro]
-[ Aplicação Legada ] ➔ [ Adaptador FFI (C ABI) ] ➔ [ Núcleo Seguro em Rust ]</code></pre></div>
+                <div class="ffi-architecture" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0;">
+                  <p style="margin-top: 0; color: #88c0d0; font-family: monospace; text-align: center;">[Fluxo de Confinamento Seguro - Arquitetura Hexagonal]</p>
+                  
+                  <div style="display: flex; gap: 10px; font-family: monospace; font-size: 13px; color: #eceff4; align-items: stretch; justify-content: center; margin-bottom: 10px; text-align: center;">
+                    
+                    <div style="flex: 1; background: rgba(191, 97, 106, 0.1); border: 2px solid #bf616a; padding: 15px; border-radius: 6px;">
+                      <strong style="color: #bf616a; font-size: 14px;">🏭 Aplicação Legada</strong><br>
+                      <small style="color: #d8dee9;">(C++ / Node.js)</small>
+                      <div style="margin-top: 10px; padding: 6px; background: #2e3440; border-radius: 4px; font-size: 11px;">Envia Ponteiros Crus (Risco)</div>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; color: #ebcb8b; font-weight: bold; font-size: 11px; padding: 0 5px;">
+                      <span>ADAPTADOR</span>
+                      <span style="font-size: 24px;">➔</span>
+                      <span>(ABI C)</span>
+                    </div>
+                    
+                    <div style="flex: 1; background: rgba(163, 190, 140, 0.1); border: 2px dashed #a3be8c; padding: 15px; border-radius: 6px;">
+                      <strong style="color: #a3be8c; font-size: 14px;">🛡️ Núcleo Seguro</strong><br>
+                      <small style="color: #d8dee9;">(Rust)</small>
+                      <div style="margin-top: 10px; padding: 6px; background: #2e3440; border-radius: 4px; font-size: 11px;">Fatias (Slices) Higienizadas</div>
+                    </div>
+                    
+                  </div>
+                  <p style="margin-bottom: 0; font-size: 13px; color: #d8dee9; text-align: center; margin-top: 15px; line-height: 1.6;">
+                    O Adaptador FFI atua como a <strong>alfândega</strong>: ele recebe os dados perigosos do legado, valida os tamanhos e regras, e só então os converte em "fatias" (Slices) seguras para o núcleo em Rust processar.
+                  </p>
+                </div>
 
                 <p>A fronteira (Adaptador) recebe ponteiros crus inseguros do legado e os valida de forma estrita (limites de tamanho, ponteiros nulos) antes de enviar os dados higienizados para a lógica blindada do Rust.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Esclareça o funcionamento e a importância de blindagem de dados FFI conversando com o seu tutor de IA com o prompt:</p>
+                <h2>3. A Prática: Inspecionando a Alfândega de Código</h2>
+                <p>Para entender como a fronteira é codificada na prática, copie o trecho de código Rust abaixo (que expõe uma função segura para o mundo C++) e utilize o prompt estruturado na sua IA de estudos.</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Explique o que é a ABI (Application Binary Interface) e por que linguagens modernas como Rust usam a ABI da linguagem C para conversar com sistemas legados em C++."</code></pre></div>
+                <p><strong>Passo 1: O Código da "Alfândega" em Rust</strong></p>
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-rust">// Código da "Alfândega" em Rust
+#[no_mangle]
+pub extern "C" fn processar_pagamento_legado(dados_crus: *const u8, tamanho: usize) -> i32 {
+    // 1. O Rust recebe um ponteiro inseguro do C++
+    // 2. Transforma em uma "Fatia" (Slice) segura usando o tamanho fornecido
+    // 3. Processa a lógica de negócio blindada
+    // 4. Retorna um código numérico inteiro simples (i32) que o C++ entenda
+    
+    // ... lógica interna segura ...
+    return 1; // Sucesso
+}</code></pre></div>
 
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>ABI (Application Binary Interface):</strong> Regras físicas de hardware que ditam como os binários compilados por linguagens diferentes interagem na RAM.</li>
-                        <li><strong>ABI C:</strong> O padrão clássico comum da linguagem C usado para interoperar chamadas nativas de baixo nível.</li>
-                        <li><strong>Arquitetura Hexagonal:</strong> Estrutura de design de software que isola as regras de negócio de agentes e infraestruturas externas.</li>
-                        <li><strong>Backpressure (Retrocesso / Estresse de Fila):</strong> Controle de velocidade que impede a saturação da fila de CPU diante de alta demanda.</li>
-                        <li><strong>extern "C":</strong> Bloco de declaração no Rust para usar convenções de chamadas de baixo nível nativas de C.</li>
-                        <li><strong>Fatia (Slice):</strong> Estrutura segura que aponta para uma sequência contínua de memória sem assumir a propriedade dela.</li>
-                        <li><strong>Interface de Funções Estrangeiras (FFI):</strong> A tecnologia que permite a uma linguagem invocar métodos compilados em outra.</li>
-                        <li><strong>#[no_mangle]:</strong> Atributo que desativa a modificação de nomes de funções pelo compilador, garantindo nomes estáticos.</li>
-                        <li><strong>Vazamento de Integridade (Safety Leak):</strong> Quando rotinas inseguras de código externo burlam e danificam o ambiente seguro do Rust.</li>
-                    </ul>
+                <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal Moderno)</strong></p>
+                <div class="terminal-block" style="background-color: #1a1c23; border-left: 4px solid #b48ead; border-radius: 4px; padding: 18px 50px 18px 18px; margin: 20px 0; line-height: 1.6; position: relative;">
+                    <span style="color: #b48ead; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
+                    <pre><code class="language-text">"Analise o código Rust acima. Explique a importância das anotações '#[no_mangle]' e 'extern \"C\"' para que um sistema legado em C++ consiga encontrar e chamar essa função. Use a analogia das 'placas de direcionamento' e do 'idioma aduaneiro' para ilustrar."</code></pre>
+                </div>
+
+                <h2>4. Reflexão Final: O Pragmatismo da Migração Cirúrgica</h2>
+                <div class="reflection-note-green">
+                    <p style="margin-top: 0;">Existe uma armadilha comum na mente de desenvolvedores que acabam de descobrir garantias de segurança modernas: o desejo incontrolável de reescrever tudo do zero. A indústria de software até tem um nome para isso: a síndrome do <em>"Rewrite in Rust"</em>.</p>
+                    
+                    <p>A dura realidade financeira é que o código legado, por mais feio ou inseguro que seja, é o que paga as contas da empresa. Paralisar a entrega de novos recursos por dois anos para reescrever um monólito gigante é um risco que poucas diretorias aceitam correr. É aqui que o domínio da FFI (Interface de Funções Estrangeiras) transforma você de um simples programador em um Engenheiro Estratégico.</p>
+                    
+                    <p style="margin-bottom: 0;">Ao entender as "pontes e alfândegas" da ABI C, você se capacita a aplicar o <strong>Padrão do Figo Estrangulador (Strangler Fig Pattern)</strong>. Você identifica a única artéria do sistema C++ que está sangrando vulnerabilidades e a substitui silenciosamente por um componente blindado em Rust, sem que o restante do monólito perceba. Segurança real não é sobre queimar o passado, mas sobre construir pontes resistentes para o futuro.</p>
+                </div>
+
+                <h2>5. Dicionário de Trincheira</h2>
+                <div style="overflow-x: auto; margin: 2rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color);">
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 25%;">Termo Técnico</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 45%;">Visão de Trincheira (Leiga)</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Objetivo na Segurança</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Interface FFI</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A ponte diplomática entre duas linguagens diferentes.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Permitir migração parcial de sistemas legados.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">ABI C</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O idioma técnico universal do hardware (o "inglês aduaneiro").</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Garantir que os dados não sejam corrompidos ao cruzar a ponte.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">extern "C"</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O acordo de usar o idioma C na fronteira.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Padronizar como a memória é empacotada.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">#[no_mangle]</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A placa de rua estática e inalterável.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Impedir que o compilador mude o nome da função, para que o legado a encontre.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Fatia (Slice)</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A lupa de leitura segura sobre o livro original.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Ler dados da memória sem precisar fazer cópias caras e sem risco de posse.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
