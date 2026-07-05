@@ -50,6 +50,66 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
+        .reflection-note-gold {
+            background: #fffbeb;
+            border-left: 4px solid #ebcb8b;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note-gold {
+            background: #251d10;
+            border-left-color: #ebcb8b;
+            color: #e2e8f0;
+        }
+        .reflection-note-gold strong {
+            color: #b45309;
+        }
+        [data-theme="dark"] .reflection-note-gold strong {
+            color: #fde047;
+        }
     </style>
 </head>
 <body>
@@ -99,31 +159,102 @@
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
                 <p>Veja a separação física do ecossistema de memória da JVM HotSpot:</p>
 
-                <div class="chalkboard"><pre><code class="language-text">[Estrutura de RAM sob Execução Java]
-|-----------------------------|----------------------------|
-| JVM On-Heap (Gerido pelo GC)| Off-Heap (Memória Nativa)  |
-| Objetos Java Comuns         | JNI Buffers / C++ Alloc    |
-|-----------------------------|----------------------------|</code></pre></div>
+                <div class="memory-architecture" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0;">
+                  <p style="margin-top: 0; color: #88c0d0; font-family: monospace; text-align: center;">[Fronteiras de Memória da JVM HotSpot]</p>
+                  
+                  <div style="display: flex; gap: 15px; font-family: monospace; font-size: 13px; color: #eceff4; align-items: center; justify-content: center; margin-bottom: 10px;">
+                    
+                    <div style="flex: 1; background: rgba(163, 190, 140, 0.1); border: 2px solid #a3be8c; padding: 15px; text-align: center; border-radius: 6px;">
+                      <strong style="color: #a3be8c; font-size: 15px;">🪴 Jardim (On-Heap)</strong><br>
+                      <small style="color: #d8dee9;">Monitorado pelo Garbage Collector</small>
+                      <div style="margin-top: 10px; padding: 8px; background: #2e3440; border-radius: 4px;">Objetos Java Seguros</div>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; align-items: center; color: #ebcb8b; font-weight: bold; font-size: 12px;">
+                      <span>PONTE JNI</span>
+                      <span style="font-size: 20px;">⟷</span>
+                      <span>(Risco)</span>
+                    </div>
+                    
+                    <div style="flex: 1; background: rgba(191, 97, 106, 0.1); border: 2px dashed #bf616a; padding: 15px; text-align: center; border-radius: 6px;">
+                      <strong style="color: #bf616a; font-size: 15px;">🏗️ Anexo (Off-Heap)</strong><br>
+                      <small style="color: #d8dee9;">Ponto Cego do Garbage Collector</small>
+                      <div style="margin-top: 10px; padding: 8px; background: #2e3440; border-radius: 4px; box-shadow: 0 0 8px rgba(191,97,106,0.3);">Buffers Diretos / C++ Alloc</div>
+                    </div>
+                    
+                  </div>
+                </div>
 
                 <p>O Garbage Collector monitora apenas a área esquerda da RAM (On-Heap). A área direita (Off-Heap) exige gerenciamento nativo do programador ou APIs estruturadas de controle.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Você pode interagir com o seu tutor de IA no navegador para compreender as técnicas de monitoramento de memória JVM enviando o prompt:</p>
+                <h2>3. A Prática: O Vazamento Fora dos Muros</h2>
+                <p>Para entender como a JVM pode derrubar um servidor sem que o <em>Garbage Collector</em> perceba, copie o código Java abaixo (que aloca memória nativa) e utilize o prompt estruturado na sua IA de estudos.</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Como o Native Memory Tracking (NMT) da JVM me ajuda a monitorar vazamentos de memória nativa que o Garbage Collector não consegue enxergar?"</code></pre></div>
+                <p><strong>Passo 1: O Código Vulnerável em Java</strong></p>
+                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-java">import java.nio.ByteBuffer;
 
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>Estouro Sistêmico de Memória (OOM Killer):</strong> Mecanismo de kernel que encerra processos de forma abrupta para economizar RAM do servidor.</li>
-                        <li><strong>Garbage Collector (GC):</strong> O limpador de lixo automático da JVM que gerencia a liberação de objetos no Heap.</li>
-                        <li><strong>JNI (Java Native Interface):</strong> Ponte de acoplamento convencional para ligar códigos Java a bibliotecas nativas C/C++.</li>
-                        <li><strong>Memory Leak (Vazamento):</strong> Omissão crônica de liberação de recursos alocados que esgota a capacidade física do host.</li>
-                        <li><strong>Off-Heap (Alocação Nativa Direta):</strong> Blocos de memória RAM reservados externamente ao controle direto da sandbox da JVM.</li>
-                        <li><strong>Rastreamento de Memória Nativa (NMT):</strong> Diagnóstico interno da JVM para logar alocações físicas externas da JVM HotSpot.</li>
-                        <li><strong>Soberania do Processo:</strong> Filosofia de assegurar o controle e a monitoração completa dos limites físicos por um processo em execução.</li>
-                        <li><strong>Try-with-Resources / Arenas:</strong> Estruturas de controle de escopo que automatizam o drop de recursos ao final do processamento.</li>
-                    </ul>
+public class SimuladorDeVazamento {
+    public static void main(String[] args) {
+        System.out.println("Iniciando alocação pesada no Anexo (Off-Heap)...");
+        
+        while (true) {
+            // Aloca 10 Megabytes DIRETAMENTE na memória RAM (fora da proteção da JVM)
+            ByteBuffer bufferNativo = ByteBuffer.allocateDirect(10 * 1024 * 1024);
+            
+            // Omitimos a liberação manual do buffer. O GC não varre essa área com eficiência.
+            // O servidor fatalmente sofrerá um colapso (OOM Killer).
+        }
+    }
+}</code></pre></div>
+
+                <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal Moderno)</strong></p>
+                <div class="terminal-block" style="background-color: #1a1c23; border-left: 4px solid #d08770; border-radius: 4px; padding: 18px 50px 18px 18px; margin: 20px 0; line-height: 1.6; position: relative;">
+                    <span style="color: #ebcb8b; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
+                    <pre><code class="language-text">"Analise o código Java acima. Explique por que o uso de 'ByteBuffer.allocateDirect' cria um ponto cego para o Garbage Collector. Utilize a analogia do 'jardineiro que não tem a chave do anexo externo' para me explicar como esse código causará um colapso (OOM) no servidor, e como o Project Panama (Arenas) resolve isso."</code></pre>
+                </div>
+
+                <h2>4. Reflexão Final: A Ilusão da Fortaleza de Vidro</h2>
+                <div class="reflection-note-gold">
+                    <p style="margin-top: 0;">Durante décadas, a linguagem Java foi vendida às corporações com uma premissa imbatível: <em>"Escreva uma vez, rode em qualquer lugar... com total segurança"</em>. O Garbage Collector foi aclamado como a solução definitiva para os horrores dos ponteiros em C e C++.</p>
+                    
+                    <p>A realidade que o Módulo 04 expõe, no entanto, é que a alta performance exige sacrifícios. Bancos, sistemas de <em>trading</em> de alta frequência e bancos de dados em nuvem (como Kafka ou Cassandra) descobriram que o "jardineiro" da JVM é lento demais para certas tarefas. Para ganhar velocidade, o mercado começou a construir "anexos clandestinos" via Off-Heap e JNI, furando a própria bolha de segurança que o Java prometia.</p>
+                    
+                    <p style="margin-bottom: 0;">Como especialista, o seu papel aqui não é condenar o Java, mas <strong>auditar as fronteiras</strong>. Quando um servidor corporativo colapsa e os painéis da JVM mostram que a memória On-Heap está vazia, 99% dos desenvolvedores entram em pânico. Você, munido deste conhecimento, saberá exatamente onde procurar o vazamento invisível no anexo nativo.</p>
+                </div>
+
+                <h2>5. Dicionário de Trincheira</h2>
+                <div style="overflow-x: auto; margin: 2rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color);">
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 25%;">Termo Técnico</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 45%;">Visão de Trincheira (Leiga)</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Objetivo na Segurança</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">On-Heap</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O jardim interno, cercado e limpo automaticamente.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Garantir que desenvolvedores comuns não criem vazamentos acidentais.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Off-Heap</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O terreno baldio anexado, sem supervisão.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Ganhar velocidade máxima de processamento, ignorando as regras da JVM.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">OOM Killer</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A tropa de choque do sistema operacional.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Derrubar a força qualquer programa que ameace consumir 100% da RAM do servidor.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Project Panama (Arenas)</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A tenda temporária de eventos.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Permitir alocação externa rápida, mas garantindo que tudo seja desmontado de uma só vez no final.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
