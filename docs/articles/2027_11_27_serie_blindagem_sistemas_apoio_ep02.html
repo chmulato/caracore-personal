@@ -143,22 +143,22 @@
                 <div class="memory-container" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0;">
                   <p style="margin-top: 0; color: #88c0d0; font-family: monospace;">[Visualização de Colisão no Endereço 0x00FF]</p>
                   
-                  <div style="display: flex; gap: 8px; font-family: monospace; font-size: 13px; color: #eceff4;">
-                    <div style="flex: 1; background: #2e3440; border: 2px solid #4c566a; padding: 10px; text-align: center; text-decoration: line-through; opacity: 0.6; border-radius: 4px;">
+                  <div style="display: flex; gap: 8px; font-family: monospace; font-size: 13px; color: #eceff4; align-items: center; margin-bottom: 15px;">
+                    <div style="flex: 1; background: #2e3440; border: 2px solid #4c566a; padding: 12px; text-align: center; text-decoration: line-through; opacity: 0.5; border-radius: 4px;">
                       <strong>Sessão Privada (A)</strong><br>
                       <small>free() executado</small>
                     </div>
                     
-                    <div style="display: flex; align-items: center; color: #bf616a; font-weight: bold;">➔</div>
+                    <div style="color: #bf616a; font-weight: bold; font-size: 18px;">➔</div>
                     
-                    <div style="flex: 1; background: #bf616a; border: 2px solid #88c0d0; padding: 10px; text-align: center; box-shadow: 0 0 10px rgba(191,97,106,0.3); border-radius: 4px;">
+                    <div style="flex: 1; background: #bf616a; border: 2px solid #88c0d0; padding: 12px; text-align: center; border-radius: 4px; box-shadow: 0 0 12px rgba(191,97,106,0.4);">
                       <strong>Token do Cliente B</strong><br>
                       <small>Mesmo endereço físico!</small>
                     </div>
                   </div>
                   
-                  <p style="margin-bottom: 0; font-size: 14px; color: #d8dee9; margin-top: 15px; line-height: 1.6;">
-                    <strong>O Perigo:</strong> O Cliente A ainda possui o crachá (ponteiro) para o endereço <code>0x00FF</code>. Ao tentar ler a memória antiga, ele acaba roubando o Token ativo do Cliente B.
+                  <p style="margin-bottom: 0; font-size: 14px; color: #d8dee9; line-height: 1.6;">
+                    <strong>O Perigo:</strong> O Cliente A ainda possui o crachá (ponteiro) para o endereço <code>0x00FF</code>. Ao tentar ler a memória antiga, ele acaba capturando o Token ativo do Cliente B.
                   </p>
                 </div>
 
@@ -187,12 +187,12 @@ int main() {
 }</code></pre></div>
 
                 <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal)</strong></p>
-                <div class="terminal-block">
-                    <span style="color: #38bdf8; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR:</span>
+                <div class="terminal-block" style="background-color: #1a1c23; border-left: 4px solid #81a1c1; border-radius: 4px; padding: 18px 50px 18px 18px; margin: 20px 0; line-height: 1.6; position: relative;">
+                    <span style="color: #61afef; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
                     <pre><code class="language-text">"Analise o código C acima. Explique o que é a vulnerabilidade 'Use-After-Free' que ocorre após a linha free(user);. Para a explicação, utilize a analogia de limpar a mesa de trabalho imediata (Stack) versus esquecer um post-it com a localização de uma pasta dentro do arquivo morto compartilhado (Heap)."</code></pre>
                 </div>
 
-                 <h2>5. Dicionário de Trincheira</h2>
+                 <h2>4. Dicionário de Trincheira</h2>
                  <div style="overflow-x: auto; margin: 2rem 0;">
                      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
                          <thead>
