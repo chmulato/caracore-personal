@@ -50,6 +50,47 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
     </style>
 </head>
 <body>
@@ -99,35 +140,92 @@
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
                 <p>Veja como o Heap se corrompe no Use-After-Free:</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">[Fluxo de Colisão de Heap]
-Passo 1: Cliente A aloca bloco de memória (Sessão Privada) no endereço 0x00FF.
-Passo 2: Sistema faz free() no bloco, mas mantém o ponteiro.
-Passo 3: Cliente B faz nova requisição. O alocador reutiliza o endereço 0x00FF por eficiência.
-Passo 4: Cliente A lê usando o ponteiro antigo e visualiza o Token do Cliente B.</code></pre></div>
+                <div class="memory-container" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0;">
+                  <p style="margin-top: 0; color: #88c0d0; font-family: monospace;">[Visualização de Colisão no Endereço 0x00FF]</p>
+                  
+                  <div style="display: flex; gap: 8px; font-family: monospace; font-size: 13px; color: #eceff4;">
+                    <div style="flex: 1; background: #2e3440; border: 2px solid #4c566a; padding: 10px; text-align: center; text-decoration: line-through; opacity: 0.6; border-radius: 4px;">
+                      <strong>Sessão Privada (A)</strong><br>
+                      <small>free() executado</small>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; color: #bf616a; font-weight: bold;">➔</div>
+                    
+                    <div style="flex: 1; background: #bf616a; border: 2px solid #88c0d0; padding: 10px; text-align: center; box-shadow: 0 0 10px rgba(191,97,106,0.3); border-radius: 4px;">
+                      <strong>Token do Cliente B</strong><br>
+                      <small>Mesmo endereço físico!</small>
+                    </div>
+                  </div>
+                  
+                  <p style="margin-bottom: 0; font-size: 14px; color: #d8dee9; margin-top: 15px; line-height: 1.6;">
+                    <strong>O Perigo:</strong> O Cliente A ainda possui o crachá (ponteiro) para o endereço <code>0x00FF</code>. Ao tentar ler a memória antiga, ele acaba roubando o Token ativo do Cliente B.
+                  </p>
+                </div>
 
                 <p>O reaproveitamento automático de blocos de memória livres pelo alocador do sistema operacional é o fator que torna o ataque previsível e extremamente crítico.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Você pode testar e simular as mecânicas de degradação da memória do Módulo 02 enviando o seguinte prompt para a IA tutor:</p>
+                <h2>3. A Prática: O Laboratório do Ponteiro Fantasma</h2>
+                <p>Peça para a IA do navegador atuar como seu inspetor de memória. Copie o código abaixo e utilize o roteiro de prompt estruturado:</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Crie uma simulação conceitual em português de um ataque Use-After-Free, explicando o que acontece com a memória RAM física quando o endereço do Cliente A é reutilizado para o Cliente B."</code></pre></div>
+                <p><strong>Passo 1: O Código Vulnerável em C</strong></p>
+                <div class="chalkboard"><pre><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
 
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>Alocador de Memória (malloc/new):</strong> Componente do sistema que gerencia e reserva blocos livres de RAM no Heap.</li>
-                        <li><strong>ASan (AddressSanitizer):</strong> Ferramenta que insere zonas de alerta (shadow bytes) na memória para detectar acessos inválidos em runtime.</li>
-                        <li><strong>Bin (Arena de Memória):</strong> Estrutura de lista do alocador que organiza blocos livres de tamanhos parecidos.</li>
-                        <li><strong>Coalescimento (Coalescing):</strong> Processo no qual o alocador junta dois blocos de memória livres vizinhos para reduzir a fragmentação.</li>
-                        <li><strong>Dangling Pointer (Ponteiro Órfão):</strong> Um ponteiro que continua apontando para um endereço de memória que já foi desalocado.</li>
-                        <li><strong>Fragmentação de Heap:</strong> O espalhamento de pequenos blocos de memória livres que impede o aproveitamento de espaços maiores.</li>
-                        <li><strong>Monte (Heap):</strong> Área dinâmica e ampla da RAM reservada para alocações flexíveis e de longo prazo.</li>
-                        <li><strong>Pilha (Stack):</strong> A memória temporária local de alta velocidade gerenciada automaticamente pelo processador.</li>
-                        <li><strong>Ponteiro Inteligente (Smart Pointer):</strong> Tipo de dado que gerencia e desaloca automaticamente o recurso do heap assim que sai de escopo.</li>
-                        <li><strong>Thread:</strong> A unidade de execução básica paralela que roda tarefas de um processo na CPU.</li>
-                        <li><strong>Uso de Memória Órfã (Use-After-Free):</strong> A vulnerabilidade causada por acessar dados de um ponteiro após a desalocação do bloco de memória.</li>
-                    </ul>
+struct Usuario { char nome[16]; int eh_admin; };
+
+int main() {
+    struct Usuario *user = (struct Usuario*)malloc(sizeof(struct Usuario));
+    user->eh_admin = 0;
+    free(user); // Memória liberada, mas o ponteiro permanece vivo!
+
+    int *config_sistema = (int*)malloc(sizeof(int));
+    *config_sistema = 1; // Sobrescreve o espaço antigo de 'eh_admin'
+
+    if (user->eh_admin == 1) {
+        // Exploração bem-sucedida via Use-After-Free
+    }
+}</code></pre></div>
+
+                <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal)</strong></p>
+                <div class="terminal-block">
+                    <span style="color: #38bdf8; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR:</span>
+                    <pre><code class="language-text">"Analise o código C acima. Explique o que é a vulnerabilidade 'Use-After-Free' que ocorre após a linha free(user);. Para a explicação, utilize a analogia de limpar a mesa de trabalho imediata (Stack) versus esquecer um post-it com a localização de uma pasta dentro do arquivo morto compartilhado (Heap)."</code></pre>
                 </div>
+
+                 <h2>5. Dicionário de Trincheira</h2>
+                 <div style="overflow-x: auto; margin: 2rem 0;">
+                     <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                         <thead>
+                             <tr style="border-bottom: 2px solid var(--border-color);">
+                                 <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 25%;">Termo Técnico</th>
+                                 <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 45%;">Visão de Trincheira (Leiga)</th>
+                                 <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Objetivo na Segurança</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Monte (Heap)</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">O arquivo morto gigante e dinâmico da RAM.</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Onde a maioria dos vazamentos perigosos acontece.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Pilha (Stack)</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">A mesa de trabalho limpa automaticamente pelo processador.</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Segura e veloz, mas com espaço muito limitado.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Dangling Pointer</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">O crachá de acesso ativo de um funcionário demitido.</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">O elo perdido que permite ler dados desalocados.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">ASan</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">O guarda de trânsito que coloca cones em zonas proibidas da memória.</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Detectar acessos inválidos imediatamente durante os testes.</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
             </div>
 
             <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
