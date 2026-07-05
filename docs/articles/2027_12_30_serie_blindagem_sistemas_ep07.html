@@ -78,7 +78,7 @@
             </header>
 
             <div class="post-content">
-                <figure class="hero-image-frame" style="text-align: center; margin: 0 0 1.5rem 0;">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
                     <img src="assets/img/2027_12_30_IMAGE_001.png" alt="Defesa de Tese: Sandboxing e Soberania" class="hero-image" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Diagrama de arquitetura de múltiplos sandboxes e domínios de isolamento protegidos por filtros de chamadas de sistema baseados em eBPF e microVMs.</figcaption>
                 </figure>
@@ -97,6 +97,15 @@
                     "A gente não constrói um submarino como se fosse um salão de festas amplo. Se bater em um iceberg de dados, o submarino inteiro afunda. Você cria anteparas e portas estanques blindadas de ferro. Se a água entrar no Módulo 02, você sela a porta e o restante do submarino continua flutuando. Na engenharia, isso significa isolar código legado em microVMs e aplicar filtros de sistema com eBPF."
                 </div>
 
+                <!-- Simulação de Contenção de Danos e Sandboxing -->
+                <figure class="article-video-frame" style="text-align: center; margin: 2rem 0;">
+                    <video controls style="max-width: 100%; border-radius: 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                        <source src="assets/videos/2027_12_30_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Vídeo: Demonstração prática do isolamento de processos (Sandboxing) e bloqueio de chamadas via kernel.</figcaption>
+                </figure>
+
                 <h2>2. O Diagnóstico: Domínios de Contenção e Tecnologias de Isolamento</h2>
                 <figure class="article-image-frame" style="text-align: center; margin: 1.5rem 0;">
                     <img src="assets/img/2027_12_30_IMAGE_002.png" alt="Arquitetura de isolamento eBPF no Kernel" style="max-width: 100%; height: auto; border-radius: 6px;" />
@@ -106,10 +115,10 @@
 
                 <ul>
                     <li><strong>eBPF (Extended Berkeley Packet Filter):</strong> Permite injetar programas seguros e leves diretamente no kernel do Linux para auditar e bloquear requisições de rede ou chamadas de arquivos por aplicações comprometidas, sem causar lentidão no processamento do servidor.
-                        <pre><code class="language-c">// Exemplo conceitual de filtro eBPF interceptando chamadas (Syscalls):
+                        <div class="chalkboard"><pre><code class="language-c">// Exemplo conceitual de filtro eBPF interceptando chamadas (Syscalls):
 if (syscall == SYS_OPEN &amp;&amp; path != "/tmp" &amp;&amp; process == "legacy_parser") {
     return BLOCK_SYSCALL; // Bloqueia a leitura do arquivo fora de /tmp
-}</code></pre>
+}</code></pre></div>
                     </li>
                     <li><strong>MicroVMs (Isolamento por Hardware):</strong> Tecnologias como Firecracker executam cada processo inseguro (como interpretadores de documentos legados ou códigos antigos compilados em C) dentro de mini-máquinas virtuais que inicializam em milissegundos, limitando o acesso a discos rígidos e placas de rede físicas.</li>
                 </ul>

@@ -78,7 +78,7 @@
             </header>
 
             <div class="post-content">
-                <figure class="hero-image-frame" style="text-align: center; margin: 0 0 1.5rem 0;">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
                     <img src="assets/img/2027_12_02_IMAGE_001.png" alt="O Cinto de Segurança do Rust: Ownership e Lifetimes" class="hero-image" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Diagrama conceitual do ciclo de vida e tempo de escopo de dados gerenciados sob as restrições rígidas do compilador Rust.</figcaption>
                 </figure>
@@ -111,22 +111,22 @@
 
                 <p>Se o código tentar compartilhar recursos simultaneamente de forma insegura (criando data races ou abrindo caminhos para double-free), o <strong>Borrow Checker</strong> impede a compilação do software, exigindo que o engenheiro estruture referências explícitas (imutáveis ou apenas uma mutável por vez).</p>
                 
-                <pre><code class="language-rust">// Exemplo de erro interceptado pelo Borrow Checker:
+                <div class="chalkboard"><pre><code class="language-rust">// Exemplo de erro interceptado pelo Borrow Checker:
 let mut x = 10;
 let y = &amp;mut x; // Ok, primeiro empréstimo mutável ativo
-let z = &amp;mut x; // ERRO EM TEMPO DE COMPILAÇÃO! Não é permitido ter outro empréstimo mutável simultâneo.</code></pre>
+let z = &amp;mut x; // ERRO EM TEMPO DE COMPILAÇÃO! Não é permitido ter outro empréstimo mutável simultâneo.</code></pre></div>
 
                 <h2>3. Mitigação: Re-engenheirando com Segurança</h2>
                 <p>A substituição do serviço antigo por Rust foi conduzida com foco em isolamento absoluto do estado mutável:</p>
 
                 <ul>
                     <li><strong>Borrowing controlado:</strong> Utilizar referências imutáveis temporárias (<code>&amp;T</code>) para ler os tokens de login sem perder ou transferir a propriedade dos dados primários da requisição.
-                        <pre><code class="language-rust">fn autenticar(req: &amp;LoginRequest) {
+                        <div class="chalkboard"><pre><code class="language-rust">fn autenticar(req: &amp;LoginRequest) {
     let token = req.token.as_ref(); // Borrowing imutável temporário
     if token.expirado() {
         return; // Memória limpa automaticamente e com segurança ao sair do escopo (Drop)
     }
-}</code></pre>
+}</code></pre></div>
                     </li>
                     <li><strong>Evitar Unsafe:</strong> Manter o código 100% livre do bloco especial <code>unsafe</code>, permitindo que a própria linguagem seja a fiadora da saúde e estabilidade do fluxo de dados sob concorrência maciça.</li>
                 </ul>

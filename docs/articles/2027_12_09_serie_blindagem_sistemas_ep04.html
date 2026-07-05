@@ -78,7 +78,7 @@
             </header>
 
             <div class="post-content">
-                <figure class="hero-image-frame" style="text-align: center; margin: 0 0 1.5rem 0;">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
                     <img src="assets/img/2027_12_09_IMAGE_001.png" alt="A Ilusão da Sandbox: JVM On-Heap vs Off-Heap" class="hero-image" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Esquema arquitetural da Máquina Virtual Java detalhando as fronteiras de memória gerenciada (On-Heap) e as integrações externas perigosas via memória nativa (Off-Heap).</figcaption>
                 </figure>
@@ -88,9 +88,9 @@
 
                 <p>O diagnóstico aprofundado revelou um vazamento de memória silencioso ocorrendo na área <em>Off-Heap</em>. O sistema de criptografia legado da empresa conectava-se a uma biblioteca externa compilada em C++ usando pontes JNI (Java Native Interface) convencionais. A cada chamada de descriptografia, os buffers de rede eram alocados na memória nativa fora da gerência do Garbage Collector e, por uma falha de encerramento do recurso na ponte, nunca eram desalocados:</p>
                 
-                <pre><code class="language-java">// Exemplo conceitual do vazamento via JNI:
+                                <div class="chalkboard"><pre><code class="language-java">// Exemplo conceitual do vazamento via JNI:
 byte[] data = decryptNative(buffer); 
-// A função JNI aloca memória nativa Off-Heap internamente, mas falha em liberá-la.</code></pre>
+// A função JNI aloca memória nativa Off-Heap internamente, mas falha em liberá-la.</code></pre></div>
 
                 <div class="tutor-note">
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
@@ -118,10 +118,10 @@ byte[] data = decryptNative(buffer);
                 <ol>
                     <li><strong>Substituição do JNI:</strong> O Project Panama remove a necessidade de escrever código intermediário em C/C++ para integrar bibliotecas externas, permitindo mapear layouts de memória de hardware de forma tipada e segura direto no código Java.</li>
                     <li><strong>Arenas de Alocação Segura:</strong> Gerenciar a memória Off-Heap utilizando objetos de controle de escopo chamados Arenas. Ao encerrar o escopo da Arena (usando estruturas do tipo <code>try-with-resources</code>), toda a memória nativa alocada no sistema operacional é liberada de forma 100% garantida, sem dependência do Garbage Collector:
-                        <pre><code class="language-java">try (Arena arena = Arena.ofConfined()) {
+                        <div class="chalkboard"><pre><code class="language-java">try (Arena arena = Arena.ofConfined()) {
     MemorySegment seg = arena.allocate(1024); // Alocação segura Off-Heap
     // Uso seguro da memória nativa com validação física de limites
-} // Toda a memória alocada na arena é desalocada automaticamente ao fechar o bloco</code></pre>
+} // Toda a memória alocada na arena é desalocada automaticamente ao fechar o bloco</code></pre></div>
                     </li>
                 </ol>
 

@@ -78,7 +78,7 @@
             </header>
 
             <div class="post-content">
-                <figure class="hero-image-frame" style="text-align: center; margin: 0 0 1.5rem 0;">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
                     <img src="assets/img/2027_12_23_IMAGE_001.png" alt="Copilotos de Defesa: Segurança de Software com IA" class="hero-image" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Esquema técnico do pipeline de testes dinâmicos automatizados integrados à esteira de publicação contínua.</figcaption>
                 </figure>
@@ -120,11 +120,11 @@
  
                 <ol>
                     <li><strong>Fuzzing no Build:</strong> Configurar motores de análise de dados nativos integrados ao compilador da linguagem durante a esteira de construção (Build Pipeline).
-                        <pre><code class="language-yaml"># Exemplo de estágio na esteira CI/CD (GitHub Actions):
+                        <div class="chalkboard"><pre><code class="language-yaml"># Exemplo de estágio na esteira CI/CD (GitHub Actions):
 - name: Audit Memory &amp; Run Fuzzer
   run: |
     cargo fuzz run fuzz_target_1 -- -max_total_time=300
-    ai-security-agent --path ./src --threshold high</code></pre>
+    ai-security-agent --path ./src --threshold high</code></pre></div>
                     </li>
                     <li><strong>Agentes Locais de Triagem:</strong> Utilizar IAs leves rodando localmente no CI/CD para catalogar falsos positivos nos logs de exceção gerados, evitando ruídos excessivos para as equipes de engenharia durante o desenvolvimento.</li>
                 </ol>

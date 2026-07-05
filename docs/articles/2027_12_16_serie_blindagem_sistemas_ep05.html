@@ -78,7 +78,7 @@
             </header>
 
             <div class="post-content">
-                <figure class="hero-image-frame" style="text-align: center; margin: 0 0 1.5rem 0;">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
                     <img src="assets/img/2027_12_16_IMAGE_001.png" alt="A Rampa de Alto Nível: FFI e WebAssembly" class="hero-image" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Esquema arquitetural de Portas e Adaptadores (Hexagonal) demonstrando a integração segura de bibliotecas compiladas em Rust com APIs de alto nível.</figcaption>
                 </figure>
@@ -104,14 +104,14 @@
  
                 <ul>
                     <li><strong>FFI (Foreign Function Interface):</strong> Permite que uma aplicação em Python, Java ou Node.js carregue e execute uma biblioteca compilada (arquivo .dll ou .so) escrita em Rust diretamente no espaço de memória nativa da aplicação mãe.
-                        <pre><code class="language-javascript">// FFI (Node.js carregando Rust de forma nativa via napi-rs):
+                        <div class="chalkboard"><pre><code class="language-javascript">// FFI (Node.js carregando Rust de forma nativa via napi-rs):
 const { assinarPDF } = require('crypto_rust');
-const assinatura = await assinarPDF(buffer);</code></pre>
+const assinatura = await assinarPDF(buffer);</code></pre></div>
                     </li>
                     <li><strong>WebAssembly (Wasm) no Server-Side:</strong> Compilar o módulo Rust para bytecode Wasm e rodá-lo dentro de sandboxes isoladas e rápidas nativamente no Node.js ou em infraestruturas de borda (Edge Computing), sem riscos de segurança de ponteiros brutos.
-                        <pre><code class="language-javascript">// WebAssembly (Execução isolada de Rust compilado para Wasm):
+                        <div class="chalkboard"><pre><code class="language-javascript">// WebAssembly (Execução isolada de Rust compilado para Wasm):
 import wasmModule from './crypto_bg.wasm';
-const assinatura = wasmModule.assinar(buffer);</code></pre>
+const assinatura = wasmModule.assinar(buffer);</code></pre></div>
                     </li>
                 </ul>
  

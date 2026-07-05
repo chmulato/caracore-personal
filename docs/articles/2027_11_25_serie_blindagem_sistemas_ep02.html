@@ -78,7 +78,7 @@
             </header>
 
             <div class="post-content">
-                <figure class="hero-image-frame" style="text-align: center; margin: 0 0 1.5rem 0;">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
                     <img src="assets/img/2027_11_25_IMAGE_001.png" alt="A Praga Silenciosa: Use-After-Free e Bugs de Memória" class="hero-image" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Diagrama de mapeamento físico de memória RAM (Stack vs Heap) ilustrando um ponteiro órfão injetando dados em uma região desalocada do sistema.</figcaption>
                 </figure>
@@ -96,7 +96,16 @@
                     <strong>Nota da Trincheira (Mestre da Fita Crepe):</strong><br>
                     "Use-After-Free é a típica burrice de recepção de hotel: o atendente dá a chave do quarto 102 para um novo hóspede sem avisar que o hóspede antigo ainda está lá dentro pegando as malas. Em software, o invasor é o hóspede novo que entra no quarto e rouba o que o antigo deixou na mesa. Não dependa de torcer para que o hóspede seja honesto; a recepção do sistema operacional é o gerente que deveria travar a porta para impedir isso."
                 </div>
- 
+
+                <!-- Simulação de Exploração de Use-After-Free -->
+                <figure class="article-video-frame" style="text-align: center; margin: 2rem 0;">
+                    <video controls style="max-width: 100%; border-radius: 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                        <source src="assets/videos/2027_11_25_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Vídeo: Simulação prática de vazamento de dados no heap da memória via exploração de Use-After-Free.</figcaption>
+                </figure>
+
                 <h2>2. O Diagnóstico: A Mecânica de Stack e Heap</h2>
                 <figure class="article-image-frame" style="text-align: center; margin: 1.5rem 0;">
                     <img src="assets/img/2027_11_25_IMAGE_002.png" alt="Esquema de colisão e desalocação no Heap" style="max-width: 100%; height: auto; border-radius: 6px;" />
@@ -118,11 +127,11 @@
  
                 <ol>
                     <li><strong>Smart Pointers em C++:</strong> Substitua ponteiros brutos por ponteiros inteligentes (como <code>std::unique_ptr</code> ou <code>std::shared_ptr</code>) que gerenciam a contagem de referências e limpam a memória automaticamente ao final do escopo.
-                        <pre><code class="language-cpp">std::unique_ptr&lt;Cliente&gt; c = std::make_unique&lt;Cliente&gt;(); // Limpeza automática garantida</code></pre>
+                        <div class="chalkboard"><pre><code class="language-cpp">std::unique_ptr&lt;Cliente&gt; c = std::make_unique&lt;Cliente&gt;(); // Limpeza automática garantida</code></pre></div>
                     </li>
                     <li><strong>Zerar Ponteiros (Nulling out):</strong> Se for inevitável trabalhar com baixo nível puro, certifique-se de que todo comando de liberação seja imediatamente seguido por uma atribuição nula para evitar referências órfãs ativas.
-                        <pre><code class="language-cpp">delete usuario;
-usuario = nullptr; // Evita ponteiro órfão apontando para a RAM liberada</code></pre>
+                        <div class="chalkboard"><pre><code class="language-cpp">delete usuario;
+usuario = nullptr; // Evita ponteiro órfão apontando para a RAM liberada</code></pre></div>
                     </li>
                 </ol>
  
