@@ -96,15 +96,31 @@
                 </ul>
 
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
-                <p>Durante a exploração do buffer, o processador é enganado para mudar seu fluxo de trabalho normal. Veja como a memória se comporta:</p>
+                <p>Durante a exploração do buffer, o processador é enganado para mudar seu fluxo de trabalho normal. Veja abaixo como o transbordamento ocorre fisicamente na memória RAM:</p>
 
-                <div class="chalkboard"><pre><code class="language-text">[Estado Saudável da Stack]
-[ Espaço Reservado: 256 bytes ] ➔ [ Endereço de Retorno Legítimo (RIP) ]
+                <div style="margin: 1.5rem 0;">
+                    <p style="margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">[Estado Saudável da Stack]</p>
+                    <div class="stack-container" style="display: flex; gap: 4px; font-family: monospace; font-size: 0.85rem; margin-bottom: 1.5rem;">
+                        <div style="background: #2e3440; color: #d8dee9; padding: 12px; flex: 3; text-align: center; border: 2px solid #4c566a; border-radius: 6px;">
+                            <strong>Buffer Local (senha_digitada)</strong><br><small>10 Bytes (Vazio / Espaço Limpo)</small>
+                        </div>
+                        <div style="background: #a3be8c; color: #2e3440; padding: 12px; flex: 1.5; text-align: center; border: 2px solid #8fbcbb; border-radius: 6px;">
+                            <strong>acesso_concedido</strong><br><small>4 Bytes (Valor: 0 / Acesso Negado)</small>
+                        </div>
+                    </div>
 
-[Estado de Exploração (Buffer Overflow)]
-[ Lixo/Padding: 264 bytes de A   ] ➔ [ Endereço Alterado para o Shellcode ]</code></pre></div>
+                    <p style="margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #b91c1c;">[Estado de Exploração (Buffer Overflow)]</p>
+                    <div class="stack-container" style="display: flex; gap: 4px; font-family: monospace; font-size: 0.85rem;">
+                        <div style="background: #2e3440; color: #d8dee9; padding: 12px; flex: 3; text-align: center; border: 2px solid #bf616a; border-radius: 6px;">
+                            <strong>Buffer Local (senha_digitada)</strong><br><small>10 Bytes (Cheio com 'AAAAAAAAAA')</small>
+                        </div>
+                        <div style="background: #bf616a; color: #eceff4; padding: 12px; flex: 1.5; text-align: center; border: 2px solid #d8dee9; border-radius: 6px; box-shadow: 0 0 10px rgba(191, 97, 106, 0.5);">
+                            <strong>acesso_concedido</strong><br><small>Sobrescrito (Valor != 0 / Liberado)</small>
+                        </div>
+                    </div>
+                </div>
 
-                <p>Ao enviar um pacote excessivo, o atacante preenche o buffer local, sobrescreve o registrador de controle (RIP) e aponta o processador diretamente para instruções maliciosas injetadas (o Shellcode).</p>
+                <p>Ao enviar um pacote excessivo, o atacante preenche o buffer local, sobrescreve a variável de controle adjacente (ou o registrador de retorno RIP) e altera o fluxo lógico da aplicação sem passar pela autenticação.</p>
 
                 <h2>3. A Prática: A IA no Navegador</h2>
                 <p>A inteligência artificial no navegador atua como seu professor de plantão. Para fixar o aprendizado, abra o painel da IA e envie o seguinte prompt padrão:</p>
@@ -113,8 +129,9 @@
 
                 <p>Use este diálogo para sanar dúvidas imediatas de sintaxe de código sem medo ou vergonha de expor lacunas acadêmicas.</p>
 
-                <h2>4. Exercício Prático Guiado: Investigando a "Caixa Postal"</h2>
-                <p>Objetivo: Praticar a identificação de um Buffer Overflow (Estouro de Buffer) em um código real, usando a IA para traduzir a falha técnica para a analogia da caixa postal.</p>
+                 <h2>4. Laboratórios Práticos Supervisionados</h2>
+                 <h3>4.1 Caso A: Investigando a Caixa Postal (Buffer Overflow)</h3>
+                 <p>Objetivo: Praticar a identificação de um Buffer Overflow (Estouro de Buffer) em um código real, usando a IA para traduzir a falha técnica para a analogia da caixa postal.</p>
                 
                 <p><strong>O Cenário:</strong> Imagine que você encontrou o seguinte trecho de código antigo em C rodando em um servidor legado da empresa. Copie este código e o prompt abaixo, e cole no painel da sua IA de estudos.</p>
 
@@ -150,8 +167,8 @@ void verificar_acesso() {
                     <li><strong>A Consequência (O Raio-X):</strong> Ao transbordar letras (dados) para dentro da variável <code>acesso_concedido</code>, o valor dela deixa de ser 0 (Negado) e passa a ser um valor diferente de zero. No momento em que o sistema testa <code>if(acesso_concedido == 1)</code>, ele vê que a caixa não está mais vazia e, por uma falha lógica, libera o acesso, concedendo um controle indevido ao atacante.</li>
                 </ul>
  
-                <h2>5. Próximo Desafio: O Ponteiro Fantasma (Use-After-Free)</h2>
-                <p><strong>Objetivo:</strong> Compreender a diferença dinâmica entre a Stack e a Heap e identificar como a falta de limpeza de um ponteiro liberado gera uma falha crítica de segurança.</p>
+                 <h3>4.2 Caso B: O Ponteiro Fantasma (Use-After-Free)</h3>
+                 <p><strong>Objetivo:</strong> Compreender a diferença dinâmica entre a Stack e a Heap e identificar como a falta de limpeza de um ponteiro liberado gera uma falha crítica de segurança.</p>
                 
                 <p><strong>O Cenário:</strong> Imagine um sistema de autenticação de servidores que cria uma estrutura temporária na memória Heap para validar se um usuário tem permissões administrativas. Copie o código abaixo e utilize o prompt indicado no painel da sua IA de navegação.</p>
  
@@ -200,22 +217,63 @@ int main() {
                      <li><strong>A Consequência (O Raio-X):</strong> O programa lê uma região de memória que ele achava que continha o perfil do usuário "Convidado", mas que agora contém dados de configuração do sistema. O valor <code>1</code> injetado pela outra função engana o teste lógico <code>if (user->eh_admin == 1)</code>, promovendo um usuário comum a administrador sem autenticação real.</li>
                  </ul>
  
-                 <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>ASLR (Address Space Layout Randomization):</strong> Técnica que muda os endereços de memória a cada execução, dificultando previsões do invasor.</li>
-                        <li><strong>Árvore de Sintaxe Abstrata (AST):</strong> O mapa lógico estrutural que descreve a organização interna do código.</li>
-                        <li><strong>Binário ELF:</strong> O arquivo compilado final pronto para ser executado no sistema Linux.</li>
-                        <li><strong>Estouro de Buffer (Buffer Overflow):</strong> Quando uma aplicação recebe mais dados do que pode armazenar, corrompendo a memória RAM vizinha.</li>
-                        <li><strong>Execução de Código Remota (RCE):</strong> O ataque que permite controlar e executar comandos no servidor à distância.</li>
-                        <li><strong>Fuzzing Simbólico:</strong> Testar o programa tratando os dados de entrada como equações matemáticas para encontrar furos lógicos.</li>
-                        <li><strong>Grafo de Fluxo de Controle (CFG):</strong> O fluxograma de todas as rotas e decisões possíveis que a execução de um software pode seguir.</li>
-                        <li><strong>Pipeline CI/CD:</strong> A esteira automatizada que valida, testa e empacota o software a cada alteração.</li>
-                        <li><strong>Ponteiro de Instrução (EIP/RIP):</strong> O registrador do chip processador que aponta para a próxima tarefa a ser executada.</li>
-                        <li><strong>Sandboxing:</strong> Executar um software dentro de um recipiente fechado e isolado da máquina principal.</li>
-                        <li><strong>Shellcode:</strong> A carga útil de comandos enviada para abrir um canal de invasão no servidor.</li>
-                    </ul>
-                </div>
+                 <h2>5. Dicionário de Trincheira</h2>
+                 <div style="overflow-x: auto; margin: 2rem 0;">
+                     <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                         <thead>
+                             <tr style="border-bottom: 2px solid var(--border-color);">
+                                 <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Termo</th>
+                                 <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 70%;">Definição Leiga / Tradução de Trincheira</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">ASLR</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Address Space Layout Randomization. Técnica que muda os endereços de memória a cada execução, dificultando previsões de invasão do atacante.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">AST</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Árvore de Sintaxe Abstrata. O mapa lógico estrutural que descreve a organização interna do código do programa.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Binário ELF</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Executable and Linkable Format. O arquivo compilado final pronto para ser executado em sistemas operacionais baseados em Linux.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Estouro de Buffer</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Buffer Overflow. Quando uma aplicação recebe mais dados do que o espaço alocado pode armazenar, corrompendo a memória RAM vizinha.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">RCE</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Remote Code Execution. O ataque de alta gravidade que permite controlar o servidor e executar comandos arbitrários à distância.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Fuzzing Simbólico</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Testar o comportamento do programa tratando os dados de entrada como equações matemáticas em busca de caminhos ocultos e furos lógicos.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">CFG</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Grafo de Fluxo de Controle. O fluxograma que mapeia todas as rotas e decisões lógicas possíveis que a execução de um software pode seguir.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Pipeline CI/CD</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">A esteira automatizada que valida, testa, compila e empacota o software de forma contínua a cada alteração de código.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">RIP / EIP</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Ponteiro de Instrução. Registradores do chip da CPU que guardam o endereço da próxima instrução física a ser executada.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Sandboxing</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">Executar um processo dentro de um contêiner fechado, restrito e isolado dos recursos principais do sistema operacional host.</td>
+                             </tr>
+                             <tr style="border-bottom: 1px solid var(--border-color);">
+                                 <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Shellcode</td>
+                                 <td style="padding: 12px 10px; color: var(--text-main);">A carga útil de comandos injetada na memória do processo para abrir um terminal de controle não autorizado no sistema alvo.</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
             </div>
 
             <div class="study-note" style="font-size: 0.92rem; margin-top: 2rem;">
