@@ -50,6 +50,43 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
     </style>
 </head>
 <body>
@@ -125,7 +162,7 @@
                 <h2>3. A Prática: A IA no Navegador</h2>
                 <p>A inteligência artificial no navegador atua como seu professor de plantão. Para fixar o aprendizado, abra o painel da IA e envie o seguinte prompt padrão:</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Explique o conceito de AST (Árvore de Sintaxe Abstrata) como se eu fosse um aluno do primeiro período de computação, usando como exemplo uma receita de bolo simples."</code></pre></div>
+                <div class="terminal-block"><pre><code class="language-text">"Explique o conceito de AST (Árvore de Sintaxe Abstrata) como se eu fosse um aluno do primeiro período de computação, usando como exemplo uma receita de bolo simples."</code></pre></div>
 
                 <p>Use este diálogo para sanar dúvidas imediatas de sintaxe de código sem medo ou vergonha de expor lacunas acadêmicas.</p>
 
@@ -158,7 +195,7 @@ void verificar_acesso() {
 }</code></pre></div>
 
                 <p><strong>Passo 2: O Prompt do Aluno (Copie e Cole na IA)</strong></p>
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Analise o código C acima. Identifique onde está a falha de segurança e explique como um atacante poderia ganhar 'Acesso Liberado' mesmo sem saber a senha 'admin123'. Para explicar, use a analogia da 'caixa postal transbordando e sujando a mesa vizinha'."</code></pre></div>
+                <div class="terminal-block"><pre><code class="language-text">"Analise o código C acima. Identifique onde está a falha de segurança e explique como um atacante poderia ganhar 'Acesso Liberado' mesmo sem saber a senha 'admin123'. Para explicar, use a analogia da 'caixa postal transbordando e sujando a mesa vizinha'."</code></pre></div>
 
                 <p><strong>Passo 3: O que você deve esperar da resposta da IA (Gabarito Metodológico)</strong></p>
                 <ul>
@@ -208,7 +245,7 @@ int main() {
 }</code></pre></div>
  
                  <p><strong>Passo 2: O Prompt do Aluno (Copie e Cole na IA)</strong></p>
-                 <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Analise o código acima. Explique o que é a vulnerabilidade 'Use-After-Free' que ocorre após a linha `free(user);`. Para a explicação, utilize a analogia de 'limpar a mesa de trabalho temporária (Stack) versus esquecer um post-it com a localização de uma pasta no arquivo morto compartilhado (Heap)'."</code></pre></div>
+                 <div class="terminal-block"><pre><code class="language-text">"Analise o código acima. Explique o que é a vulnerabilidade 'Use-After-Free' que ocorre após a linha `free(user);`. Para a explicação, utilize a analogia de 'limpar a mesa de trabalho temporária (Stack) versus esquecer um post-it com a localização de uma pasta no arquivo morto compartilhado (Heap)'."</code></pre></div>
  
                  <p><strong>Passo 3: O que esperar da resposta da IA (Gabarito Metodológico)</strong></p>
                  <ul>
