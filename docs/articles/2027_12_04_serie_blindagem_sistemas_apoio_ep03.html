@@ -50,6 +50,66 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
+        .reflection-note-blue {
+            background: #f0f9ff;
+            border-left: 4px solid #38bdf8;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note-blue {
+            background: #0c1921;
+            border-left-color: #38bdf8;
+            color: #e2e8f0;
+        }
+        .reflection-note-blue strong {
+            color: #0369a1;
+        }
+        [data-theme="dark"] .reflection-note-blue strong {
+            color: #7dd3fc;
+        }
     </style>
 </head>
 <body>
@@ -99,33 +159,92 @@
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
                 <p>O Rust substitui a desalocação manual (como o free do C++) por um controle determinístico chamado RAII (Resource Acquisition Is Initialization):</p>
 
-                <div class="chalkboard"><pre><code class="language-text">[Fluxo de Vida em Rust]
-Passo 1: Abertura de Escopo {
-Passo 2:     let x = String::from("Dados"); // Alocação segura no Heap
-Passo 3: } // Fim de Escopo. x sai de cena.
-Passo 4: Chamada automática do drop() pelo compilador para limpar o Heap.</code></pre></div>
+                <div class="scope-container" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0; font-family: monospace;">
+                  <p style="margin-top: 0; color: #81a1c1;">[Gerenciamento Determinístico de Memória (RAII)]</p>
+                  
+                  <div style="border-left: 3px dashed #4c566a; padding-left: 15px; margin: 15px 0;">
+                    <span style="color: #61afef;">{</span> <span style="color: #4c566a; font-size: 12px;">// Abertura do Escopo</span><br>
+                    
+                    <div style="margin: 10px 0; padding: 6px 10px; background: #2e3440; border-radius: 4px; display: inline-block;">
+                      <span style="color: #e5c07b;">let</span> x = String::from(<span style="color: #98c379;">"Dados Críticos"</span>); 
+                      <span style="color: #4c566a; font-size: 12px;">➔ Alocação ativa no Heap</span>
+                    </div>
+                    <br>
+                    <span style="color: #4c566a; font-size: 12px;">... o programa utiliza a variável x aqui ...</span><br>
+                    
+                    <span style="color: #61afef;">}</span> <span style="color: #4c566a; font-size: 12px;">// Fim do Escopo (x sai de cena)</span>
+                  </div>
+
+                  <div style="background: rgba(152, 195, 121, 0.1); border: 1px solid #98c379; color: #98c379; padding: 10px; border-radius: 4px; font-size: 13px; display: flex; align-items: center; gap: 10px;">
+                    <span>⚡</span>
+                    <span><strong>Chamada automática do drop():</strong> O compilador injeta a liberação do Heap aqui. Zero chance de esquecimento humano.</span>
+                  </div>
+                </div>
 
                 <p>Essa liberação automática no encerramento do escopo elimina qualquer possibilidade humana de esquecimento ou vazamento crônico.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Use a IA do seu navegador para compreender as regras de referências e empréstimo do Rust de forma intuitiva com o seguinte prompt:</p>
+                <h2>3. A Prática: Desafiando o Inspetor de Empréstimos</h2>
+                <p>Para entender como o cinto de segurança mecânico do Rust impede um erro em tempo de compilação, copie o código abaixo (que tenta violar a posse única) e cole na IA do seu navegador.</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Explique a regra do Borrow Checker do Rust sobre empréstimo imutável e mutável usando uma analogia de pessoas editando uma planilha compartilhada no Excel."</code></pre></div>
+                <p><strong>Passo 1: O Código Vulnerável em Rust</strong></p>
+                <div class="chalkboard"><pre><code class="language-rust">fn main() {
+    let carro_forte = String::from("R$ 1.000.000");
 
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>Blocos unsafe:</strong> Regiões isoladas do Rust onde o compilador desativa suas restrições estáticas de segurança.</li>
-                        <li><strong>Data Race (Corrida de Dados):</strong> Concorrência indesejada na qual duas threads modificam a mesma memória simultaneamente.</li>
-                        <li><strong>Determinismo:</strong> Garantia de que a aplicação se comportará sempre de forma idêntica sob as mesmas entradas.</li>
-                        <li><strong>FFI (Foreign Function Interface / Interface Externa):</strong> Mecanismo de acoplamento para chamar funções compiladas de outras linguagens.</li>
-                        <li><strong>Heap:</strong> A ampla memória dinâmica onde objetos de longo ciclo de vida permanecem salvos.</li>
-                        <li><strong>Instrução Drop:</strong> A rotina interna de liberação automática de recursos ao fim da vida de uma variável.</li>
-                        <li><strong>OOM Killer (Out-Of-Memory):</strong> O mecanismo do kernel que finaliza processos se a memória física RAM esgotar.</li>
-                        <li><strong>Posse Única (Ownership):</strong> O sistema de controle no qual apenas um escopo possui a propriedade exclusiva de um recurso de memória.</li>
-                        <li><strong>Vazamento de Heap (Memory Leak):</strong> Consumo contínuo de memória sem desalocação que leva à indisponibilidade do servidor.</li>
-                        <li><strong>Verificador de Empréstimos (Borrow Checker):</strong> O sistema do compilador que audita o uso de referências na compilação.</li>
-                    </ul>
+    // Passando a chave (Ownership) para a empresa de custódia
+    let empresa_custodia = carro_forte; 
+
+    // PERIGO: Tentando dirigir o carro forte após passar a chave!
+    println!("Tentando acessar os dados: {}", carro_forte); 
+}</code></pre></div>
+
+                <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal Moderno)</strong></p>
+                <div class="terminal-block" style="background-color: #1a1c23; border-left: 4px solid #88c0d0; border-radius: 4px; padding: 18px 50px 18px 18px; margin: 20px 0; line-height: 1.6; position: relative;">
+                    <span style="color: #81a1c1; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
+                    <pre><code class="language-text">"Explique por que o compilador do Rust vai recusar a compilar o código acima. Use a analogia de passar a chave única do 'carro forte' para explicar o erro de 'use of moved value' para um desenvolvedor de software iniciante."</code></pre>
+                </div>
+
+                <h2>4. Reflexão Final: O Guardião Benevolente e o Fim do Desperdício</h2>
+                <div class="reflection-note-blue">
+                    <p style="margin-top: 0;">A primeira experiência de um programador tradicional com o Rust costuma ser de frustração. O <em>Borrow Checker</em> parece um supervisor implacável que rejeita o código por motivos aparentemente insignificantes. No entanto, a maturidade profissional reside em compreender que <strong>o Rust não está brigando com você; ele está brigando pelo seu cliente em produção.</strong></p>
+                    
+                    <p>Nas lições anteriores, vimos o custo catastrófico de dar liberdade total ao gerenciamento manual de memória no C. O Rust altera radicalmente essa filosofia: ele transfere o estresse do monitoramento de segurança do seu cérebro para o motor de compilação da máquina. Se o código possui um risco oculto de ponteiro fantasma, ele simplesmente não vira um executável.</p>
+                    
+                    <p style="margin-bottom: 0;">Para a sua carreira e para o seu modelo de negócio, isso representa um divisor de águas econômico. Empresas gastam bilhões de dólares anualmente caçando bugs pós-lançamento. Dominar as garantias de um compilador estático transforma você em um engenheiro de alta previsibilidade — alguém capaz de assinar softwares matematicamente blindados contra falhas humanas estruturais. O rigor da compilação é a sua maior vantagem competitiva.</p>
+                </div>
+
+                <h2>5. Dicionário de Trincheira</h2>
+                <div style="overflow-x: auto; margin: 2rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color);">
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 25%;">Termo Técnico</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 45%;">Visão de Trincheira (Leiga)</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Objetivo na Segurança</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Posse Única (Ownership)</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O sistema de chave única onde apenas um dono manda no dado por vez.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Elimina colisões e duplicações perigosas na RAM.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Verificador (Borrow Checker)</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O auditor de segurança que checa as regras de chaves na compilação.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Impede que o código saia da fábrica se houver riscos de vazamento.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Instrução Drop</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O triturador de documentos ativado assim que o dono do dado sai da sala.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Garante a limpeza instantânea da memória sem precisar de um fiscal lento (Garbage Collector).</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Blocos Unsafe</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A zona perigosa onde você desativa o cinto de segurança do compilador.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Necessário para conversar com o hardware ou com códigos antigos em C (FFI).</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
