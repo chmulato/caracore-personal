@@ -5,9 +5,17 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Sat, 01 Jan 2028 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jan 2028 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[A Arquitetura de Sistemas Híbridos (Versão 2.0)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_01_05_a_arquitetura_de_sistemas_hibridos_versao_2_0.html</link>
+      <description><![CDATA[Como blindar sua carreira de tecnologia entre os 20 e 30 anos, equilibrando aprendizado prático, conexões humanas reais e proteção contra o romantismo corporativo.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_01_05_a_arquitetura_de_sistemas_hibridos_versao_2_0.html</guid>
+      <pubDate>Wed, 05 Jan 2028 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[Blindagem de Sistemas — Lição de Apoio 07 (Fim): Consolidação de Kernel, eBPF e microVMs]]></title>
