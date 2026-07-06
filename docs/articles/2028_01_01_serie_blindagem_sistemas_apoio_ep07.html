@@ -50,6 +50,66 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
+        .reflection-note-purple {
+            background: #faf5ff;
+            border-left: 4px solid #b48ead;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note-purple {
+            background: #1c1421;
+            border-left-color: #b48ead;
+            color: #e2e8f0;
+        }
+        .reflection-note-purple strong {
+            color: #701a75;
+        }
+        [data-theme="dark"] .reflection-note-purple strong {
+            color: #f5d0fe;
+        }
     </style>
 </head>
 <body>
@@ -99,34 +159,112 @@
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
                 <p>Veja o fluxo integrado de isolamento de infraestrutura que consolida os 7 capítulos da nossa pós-graduação:</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">[Fluxo de Isolamento de Infraestrutura]
-[ Hardware Físico (vCPU/RAM) ]
-       ▲
-[ Hipervisor KVM / microVMs Firecracker ] ➔ Confinamento Físico Hermético (Módulo 07)
-       ▲
-[ Filtros de Kernel Space (eBPF LSM)    ] ➔ Bloqueio Instantâneo de Syscalls (Módulo 07)
-       ▲
-[ Processo Confinado (Java Off-Heap/C)  ] ➔ Origem de Riscos de Leaks (Módulo 02/04)</code></pre></div>
+                <div class="kernel-stack-container" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0;">
+                  <p style="margin-top: 0; color: #88c0d0; font-family: monospace; text-align: center; margin-bottom: 20px;">[Topologia de Isolamento Hermético - Módulo 07]</p>
+                  
+                  <div style="display: flex; flex-direction: column; gap: 10px; font-family: monospace; font-size: 13px; color: #eceff4; max-width: 500px; margin: 0 auto;">
+                    
+                    <div style="background: rgba(191, 97, 106, 0.1); border: 2px dashed #bf616a; padding: 12px; text-align: center; border-radius: 4px;">
+                      <strong style="color: #bf616a;">1. Processo Confinado (User Space)</strong><br>
+                      <small style="color: #d8dee9;">Ex: Java Off-Heap / App C (Onde o ataque nasce)</small>
+                    </div>
+                    
+                    <div style="text-align: center; color: #ebcb8b; font-weight: bold; font-size: 16px;">⬇️ (Tenta fazer uma Syscall Maliciosa)</div>
+                    
+                    <div style="background: rgba(235, 203, 139, 0.1); border: 2px solid #ebcb8b; padding: 12px; text-align: center; border-radius: 4px;">
+                      <strong style="color: #ebcb8b;">2. Filtros Dinâmicos (eBPF / LSM)</strong><br>
+                      <small style="color: #d8dee9;">Kernel Space: Avalia e bloqueia o pedido na hora.</small>
+                    </div>
+                    
+                    <div style="text-align: center; color: #a3be8c; font-weight: bold; font-size: 16px;">⬇️ (Se passar pelo filtro...)</div>
+                    
+                    <div style="background: rgba(163, 190, 140, 0.1); border: 2px solid #a3be8c; padding: 12px; text-align: center; border-radius: 4px;">
+                      <strong style="color: #a3be8c;">3. Confinamento Físico (microVMs)</strong><br>
+                      <small style="color: #d8dee9;">Isolamento por Hipervisor. O invasor não vê as outras VMs.</small>
+                    </div>
+                    
+                    <div style="background: #2e3440; border: 2px solid #4c566a; padding: 12px; text-align: center; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                      <strong style="color: #81a1c1;">4. Hardware Físico (CPU / RAM Real)</strong><br>
+                      <small style="color: #d8dee9;">Soberano e Protegido.</small>
+                    </div>
+                    
+                  </div>
+                </div>
 
                 <p>Se as falhas de código ou pontes do software de usuário (nível inferior) falharem, as camadas superiores de kernel e hardware do Módulo 07 impedem o vazamento ou contágio para a máquina principal.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Para o fechamento e revisão da sua tese, instrua a IA a conduzir um questionário de fixação dinâmico enviando o prompt:</p>
+                <h2>3. A Prática: Inspecionando as Câmeras do Cofre</h2>
+                <p>Para visualizar como o eBPF atua como uma câmera de segurança autônoma instalada diretamente dentro do Kernel, copie o pseudo-código abaixo e jogue no painel da IA do seu navegador.</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Faça três perguntas curtas sobre eBPF e microVMs baseadas na metodologia de anteparas de submarino para testar o meu conhecimento no Módulo 07."</code></pre></div>
+                <p><strong>Passo 1: Pseudo-código de um Filtro eBPF (Kernel Space)</strong></p>
+                <div class="chalkboard"><pre><code class="language-c">// Pseudo-código de um Filtro eBPF (Kernel Space)
+SEC("tracepoint/syscalls/sys_enter_openat")
+int bloquear_leitura_critica(struct trace_event_raw_sys_enter *ctx) {
+    char arquivo_alvo[256];
+    
+    // Captura o nome do arquivo que a aplicação está tentando abrir
+    bpf_probe_read_user_str(arquivo_alvo, sizeof(arquivo_alvo), ctx->args[1]);
 
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>Anteparas (Bulkheads):</strong> Estrutura metálica naval de isolamento usada para conter inundações em áreas restritas do navio.</li>
-                        <li><strong>Chamada de Sistema (Syscall):</strong> A requisição feita pela aplicação ao núcleo do sistema operacional para operações de hardware.</li>
-                        <li><strong>Filtro de Kernel (eBPF):</strong> Programas verificados e seguros que rodam no kernel space para monitorar e auditar tráfego de rede e chamadas.</li>
-                        <li><strong>JNDI Lookup:</strong> A interface lógica do Java usada para buscar recursos dinâmicos, explorada no ataque Log4j.</li>
-                        <li><strong>MicroVM:</strong> Uma máquina virtual de emulação enxuta (como o Firecracker) de inicialização e parada ultra-rápidas.</li>
-                        <li><strong>OOB (Out-of-Bounds):</strong> Acesso de dados fora dos limites pré-determinados e permitidos de um array ou buffer na RAM.</li>
-                        <li><strong>RCE (Remote Code Execution):</strong> A execução de comandos não permitidos de forma remota pelo atacante.</li>
-                        <li><strong>Soberania Digital:</strong> A independência e capacidade de controle autônomo sobre sistemas, dados e infraestruturas locais.</li>
-                    </ul>
+    // O Cão de Guarda verifica a lista proibida
+    if (comparar_string(arquivo_alvo, "/etc/shadow")) {
+        bpf_printk("ALERTA: Tentativa de leitura de senhas bloqueada na raiz!\n");
+        return -EPERM; // Retorna "Operação Não Permitida" instantaneamente.
+    }
+    
+    return 0; // Libera o acesso normal.
+}</code></pre></div>
+
+                <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal Moderno)</strong></p>
+                <div class="terminal-block" style="background-color: #1a1c23; border-left: 4px solid #88c0d0; border-radius: 4px; padding: 18px 50px 18px 18px; margin: 20px 0; line-height: 1.6; position: relative;">
+                    <span style="color: #81a1c1; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
+                    <pre><code class="language-text">"Analise o pseudo-código de filtro eBPF acima. Explique para um gestor de TI como essa tecnologia consegue barrar um ataque de RCE (Remote Code Execution) em uma aplicação web antes mesmo de o atacante conseguir ler o arquivo '/etc/shadow'. Use a analogia de 'interceptar a ligação para a diretoria'."</code></pre>
+                </div>
+
+                <h2>4. Reflexão Final: A Arte da Soberania Digital</h2>
+                <div class="reflection-note-purple">
+                    <p style="margin-top: 0;">Você percorreu uma longa jornada. Do transbordamento de uma pequena variável no Módulo 01 até a orquestração do núcleo do sistema operacional no Módulo 07. A grande revelação desta pós-graduação não é apenas técnica, é arquitetônica.</p>
+                    <p>O mercado atual vende a ilusão de que basta migrar tudo para uma nuvem pública estrangeira e apertar um botão para estar seguro. O preço dessa conveniência é a perda do controle. Quando você domina tecnologias abertas como <strong>eBPF</strong> (para observabilidade e bloqueio cirúrgico) e <strong>microVMs</strong> (para isolamento ultrarrápido), você recupera as rédeas da sua infraestrutura.</p>
+                    <p style="margin-bottom: 0;">Isso é <strong>Soberania Digital</strong>. Você não é mais refém de caixas-pretas de fornecedores de cloud. Como Especialista em Blindagem de Sistemas, você agora tem a capacidade de arquitetar o seu próprio "submarino", ditando exatamente como o hardware, o kernel e o código vão operar para garantir a sobrevivência e a estabilidade da sua corporação. O domínio do baixo nível te deu o poder máximo sobre o alto nível. Parabéns!</p>
+                </div>
+
+                <h2>5. Dicionário de Trincheira</h2>
+                <div style="overflow-x: auto; margin: 2rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color);">
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 25%;">Termo Técnico</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 45%;">Visão de Trincheira (Leiga)</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Objetivo na Segurança</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">MicroVM (Firecracker)</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O mini-submarino descartável.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Isolar processos perigosos em milissegundos sem pesar o servidor.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Filtro eBPF</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A câmera de segurança com IA dentro do cofre.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Monitorar e bloquear operações no Kernel sem precisar reiniciar a máquina.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Syscall</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A ligação telefônica pedindo autorização à diretoria.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">O gargalo obrigatório por onde todo ataque precisa passar.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Soberania Digital</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">Plantar sua própria comida tecnológica.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Ter controle absoluto sobre a infraestrutura sem depender de caixas-pretas externas.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Anteparas (Bulkheads)</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">Portas metálicas que fecham o compartimento alagado.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Impedir que a queda de um serviço derrube o servidor inteiro.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
