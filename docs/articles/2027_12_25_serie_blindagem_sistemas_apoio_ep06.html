@@ -50,6 +50,66 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
+        .post-content h2, .post-content h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 1.15rem;
+        }
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .terminal-block {
+            background-color: #1e222a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .terminal-block pre {
+            white-space: pre-wrap;
+            margin: 0;
+            overflow: hidden;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        .terminal-block code {
+            color: #eceff4 !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+        [data-theme="light"] .terminal-block {
+            background-color: #f8fafc;
+            border-left-color: #0f766e;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="light"] .terminal-block code {
+            color: #1e293b !important;
+        }
+        .reflection-note-purple {
+            background: #faf5ff;
+            border-left: 4px solid #b48ead;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .reflection-note-purple {
+            background: #1c1421;
+            border-left-color: #b48ead;
+            color: #e2e8f0;
+        }
+        .reflection-note-purple strong {
+            color: #701a75;
+        }
+        [data-theme="dark"] .reflection-note-purple strong {
+            color: #f5d0fe;
+        }
     </style>
 </head>
 <body>
@@ -99,34 +159,112 @@
                 <h2>2. O Raio-X: Visualização Estrutural</h2>
                 <p>Veja o fluxo do pipeline de validação automatizada que integra fuzzers e IA defensiva no CI/CD:</p>
 
-                <div class="chalkboard"><pre><code class="language-text">[Pipeline DevSecOps Automatizado]
-Passo 1: Dev envia alteração de código (Commit)
-Passo 2: IA Defensiva audita AST e gera casos de teste deformados
-Passo 3: Fuzzer (AFL++) bombardeia o binário em Sandbox local
-Passo 4: Se ocorrer SIGSEGV (Crash), build é travado; senão, deploy liberado</code></pre></div>
+                <div class="pipeline-container" style="background: #1e222a; padding: 20px; border-radius: 6px; border: 1px solid #3b4252; margin: 20px 0;">
+                  <p style="margin-top: 0; color: #88c0d0; font-family: monospace; text-align: center;">[Pipeline DevSecOps Automatizado: O Filtro do Caos]</p>
+                  
+                  <div style="display: flex; gap: 8px; font-family: monospace; font-size: 11px; color: #eceff4; align-items: stretch; justify-content: center; text-align: center; flex-wrap: wrap;">
+                    
+                    <div style="flex: 1; min-width: 120px; background: #2e3440; border: 1px solid #4c566a; padding: 10px; border-radius: 4px;">
+                      <strong style="color: #81a1c1;">01. COMMIT</strong><br>
+                      <small>Dev altera código e envia</small>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; color: #4c566a; font-weight: bold;">➔</div>
+                    
+                    <div style="flex: 1; min-width: 120px; background: #2e3440; border: 1px solid #4c566a; padding: 10px; border-radius: 4px;">
+                      <strong style="color: #e5c07b;">02. AUDITORIA</strong><br>
+                      <small>IA analisa AST/Falhas estáticas</small>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; color: #4c566a; font-weight: bold;">➔</div>
+                    
+                    <div style="flex: 1; min-width: 120px; background: #3b4252; border: 1px solid #88c0d0; padding: 10px; border-radius: 4px;">
+                      <strong style="color: #88c0d0;">03. FUZZING</strong><br>
+                      <small>AFL++ bombardeia binário mutado</small>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; color: #bf616a; font-weight: bold;">➔</div>
+                    
+                    <div style="flex: 1; min-width: 140px; background: rgba(191, 97, 106, 0.1); border: 1px dashed #bf616a; padding: 10px; border-radius: 4px;">
+                      <strong style="color: #bf616a;">04. VERIFICAÇÃO</strong><br>
+                      <small>SIGSEGV (Crash)? <br><strong>TRAVA BUILD</strong></small>
+                    </div>
+                    
+                  </div>
+                </div>
 
                 <p>Essa rotina protege a infraestrutura, identificando furos de segurança antes que o código entre em contato com a rede pública de produção.</p>
 
-                <h2>3. A Prática: A IA no Navegador</h2>
-                <p>Consolide o aprendizado conceitual sobre fuzzing instruindo a IA do seu navegador a rodar cenários de simulação:</p>
+                <h2>3. A Prática: Destruindo o Filtro com a IA</h2>
+                <p>Para entender como um fuzzer descobre caminhos e furos lógicos sem ler o manual do sistema, copie o código em C abaixo (um parser frágil que aceita pacotes de dados da rede) e jogue no painel da IA do seu navegador.</p>
 
-                <div class="chalkboard" style="overflow: hidden;"><pre style="white-space: pre-wrap; margin: 0; overflow: hidden;"><code class="language-text">"Como um fuzzer como o AFL++ usa instrumentação de código para descobrir caminhos novos em um programa compilado e achar bugs de Use-After-Free?"</code></pre></div>
+                <p><strong>Passo 1: O Código Vulnerável em C</strong></p>
+                <div class="chalkboard"><pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
-                <div class="chalkboard" style="color: #ffffff; margin: 2rem 0; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
-                    <h3>Dicionário de Trincheira (Para Leigos e Executivos)</h3>
-                    <ul>
-                        <li><strong>AFL++:</strong> Um fuzzer de alta performance guiado por cobertura que altera dados de entrada para testar caminhos.</li>
-                        <li><strong>Análise Dinâmica de Cobertura:</strong> Monitorar de forma prática quais trechos do código-fonte foram executados nos testes.</li>
-                        <li><strong>CI/CD Pipeline (Esteira de Produção):</strong> A esteira automatizada que empacota, valida e distribui novos deploys.</li>
-                        <li><strong>Falsos Negativos:</strong> Bugs graves que passam sem acionar nenhum alerta pelas ferramentas de análise estática.</li>
-                        <li><strong>Filtro de Ruído Operacional:</strong> Rotina automática que limpa e elimina falsos alertas de segurança irrelevantes.</li>
-                        <li><strong>Fuzzing Guiado:</strong> Testes dinâmicos que adaptam as entradas de dados baseando-se no feedback de execução do processador.</li>
-                        <li><strong>Grafo de Fluxo de Controle (CFG):</strong> O mapa geométrico de rotas que a CPU pode seguir ao rodar um programa.</li>
-                        <li><strong>Mutação (Fuzzing):</strong> Alteração estruturada ou aleatória de partes de um payload de dados válido para induzir crashs.</li>
-                        <li><strong>Parser:</strong> O componente de software que decodifica dados brutos externos e os mapeia para variáveis da RAM.</li>
-                        <li><strong>Payload:</strong> A carga útil ou bloco de dados enviado para ser processado pela aplicação.</li>
-                        <li><strong>SIGSEGV (Segmentation Fault):</strong> Sinal de erro do sistema operacional quando um processo acessa memória física proibida.</li>
-                    </ul>
+void processar_pacote_rede(unsigned char *dados_crus) {
+    // O cabeçalho diz o tamanho real do conteúdo enviado
+    unsigned char tamanho_declarado = dados_crus[0]; 
+    char buffer_interno[32];
+
+    // PERIGO: Se o fuzzer enviar um pacote onde o byte dados_crus[0] for maior que 32,
+    // a cópia vai estourar a memória RAM e causar um SIGSEGV!
+    if (tamanho_declarado > 0) {
+        memcpy(buffer_interno, &dados_crus[1], tamanho_declarado);
+    }
+}</code></pre></div>
+
+                <p><strong>Passo 2: O Prompt do Aluno (Estilo Terminal Moderno)</strong></p>
+                <div class="terminal-block" style="background-color: #1a1c23; border-left: 4px solid #81a1c1; border-radius: 4px; padding: 18px 50px 18px 18px; margin: 20px 0; line-height: 1.6; position: relative;">
+                    <span style="color: #81a1c1; font-size: 12px; display: block; margin-bottom: 8px; font-weight: bold;">💻 PROMPT PARA COPIAR NA IA:</span>
+                    <pre><code class="language-text">"Analise o código do parser em C acima. Explique como um fuzzer baseado em mutação (como o AFL++) conseguiria, de forma totalmente automatizada, descobrir que alterar o primeiro byte (dados_crus[0]) para um valor gigante causa um crash do sistema. Use a analogia do 'chaveiro testando ranhuras' para explicar o feedback de cobertura."</code></pre>
+                </div>
+
+                <h2>4. Reflexão Final: A Automação do Caos</h2>
+                <div class="reflection-note-purple">
+                    <p style="margin-top: 0;">Durante décadas, as auditorias de segurança de software funcionavam como eventos artesanais. As empresas contrataravam equipes de <em>PenTest</em> uma ou duas vezes ao ano para procurar falhas manualmente. O problema desse modelo tradicional é óbvio: ele é caro, lento e se desatualiza no minuto em que o próximo desenvolvedor faz um novo commit.</p>
+                    <p>O Fuzzing Inteligente integrado ao pipeline de CI/CD muda completamente as regras do jogo. Em vez de torcer para que um humano encontre o bug, nós injetamos o caos de forma automatizada e contínua dentro da esteira de produção. Nós usamos a força bruta computacional guiada por feedback de código para fazer o trabalho pesado de achar furos lógicos e disparar disjuntores (SIGSEGV) antes que o cliente sofra o ataque.</p>
+                    <p style="margin-bottom: 0;">Para você como especialista, dominar a automação do caos é o passaporte para o topo da carreira em DevSecOps. Proteger sistemas modernos não é sobre escrever códigos perfeitos, mas sobre construir esteiras de validação brutais, capazes de testar e quebrar o software dentro de um ambiente seguro, garantindo resiliência em escala industrial.</p>
+                </div>
+ 
+                <h2>5. Dicionário de Trincheira</h2>
+                <div style="overflow-x: auto; margin: 2rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; line-height: 1.55;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color);">
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 25%;">Termo Técnico</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 45%;">Visão de Trincheira (Leiga)</th>
+                                <th style="padding: 12px 10px; font-weight: bold; color: var(--text-main); width: 30%;">Objetivo na Segurança</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">AFL++</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O chaveiro obstinado que lixa chaves para abrir o segredo.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Automatizar testes de força bruta inteligentes guiados por caminhos.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Fuzzing Mutacional</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">Deformar sutilmente um dado válido para ver onde quebra.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Forçar caminhos lógicos inesperados no código.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">SIGSEGV</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O disjuntor do sistema operacional que desarma no curto-circuito.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Interromper na hora um programa que tentou invadir a RAM alheia.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Parser</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">O filtro de ar do motor, que limpa e organiza o que vem da rua.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Validar e converter dados externos brutos antes de salvá-los na RAM.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 10px; font-weight: bold; color: var(--primary-color);">Pipeline CI/CD</td>
+                                <td style="padding: 12px 10px; color: var(--text-main);">A esteira automatizada de montagem da fábrica de software.</td>
+                                <td style="padding: 12px 10px; color: var(--text-main); font-style: italic;">Garantir que testes de segurança rodem sozinhos a cada pequena alteração.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
