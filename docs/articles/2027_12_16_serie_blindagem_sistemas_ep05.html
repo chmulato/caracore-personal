@@ -102,6 +102,15 @@
                     "Se você tentar ensinar baixo nível clássico com aritmética de ponteiros direto para programadores web acostumados com Node.js ou Java, a turma foge correndo. A rampa de acesso inteligente é a integração híbrida. Pontes de FFI e WebAssembly funcionam como tradutores expressos na fronteira: em vez de construir um aeroporto internacional totalmente novo do zero (que seria reescrever o sistema inteiro), você instala apenas uma alfândega moderna e blindada (o módulo em Rust) dentro do aeroporto que você já tem funcionando (a API Node.js/Spring Boot). O aeroporto continua funcionando normalmente e as requisições comuns pousam com fluidez, mas a carga crítica passa por uma alfândega altamente blindada operada por especialistas."
                 </div>
 
+                <!-- Simulação de FFI e Execução Rust em Legado -->
+                <figure class="article-video-frame" style="text-align: center; margin: 2rem 0;">
+                    <video controls style="max-width: 100%; border-radius: 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                        <source src="assets/videos/2027_12_16_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Vídeo: Demonstração da chamada nativa FFI de função em Rust a partir de um runtime Node.js sem gargalos no Event Loop.</figcaption>
+                </figure>
+
                 <h2>2. A Ponte de Integração: Rust ↔ Legado</h2>
                 <p>Para interagir com o legado de forma segura, o código Rust exporta funções que seguem a convenção de chamadas do C (ABI C) usando `extern "C"` e anulando a otimização de nomes (`#[no_mangle]`):</p>
 
