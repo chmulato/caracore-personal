@@ -105,6 +105,15 @@
                     "Executivos costumam me perguntar por que a migração para Rust vale a pena. Eu explico: programar em C/C++ é como dirigir sem cinto de segurança a 200 km/h: é rápido até você encontrar um muro na pista. O compilador do Rust te obriga a colocar o cinto, ajustar os retrovisores e fazer o bafômetro antes de dar a partida. O carro pode até demorar um pouco mais para sair da garagem por conta da rigidez de compilação, mas ele definitivamente não explode no meio da estrada."
                 </div>
 
+                <!-- Simulação de Segurança de Memória e Rust Compilação -->
+                <figure class="article-video-frame" style="text-align: center; margin: 2rem 0;">
+                    <video controls style="max-width: 100%; border-radius: 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                        <source src="assets/videos/2027_12_02_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Vídeo: Demonstração do compilador do Rust (Borrow Checker) interceptando vazamento de escopo e garantindo drop determinístico de heap.</figcaption>
+                </figure>
+
                 <h2>2. Anatomia do Bug: O Caminho de Exceção em C++</h2>
                 <p>Veja o fragmento vulnerável do código C++ legado responsável pelo leak:</p>
 

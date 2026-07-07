@@ -102,6 +102,15 @@
                     "O Garbage Collector do Java é como aquela equipe de limpeza que passa todas as noites nos escritórios recolhendo o lixo que você jogou no cesto (On-Heap). O problema é a memória Off-Heap: é o lixo industrial que você resolveu empilhar no quintal dos fundos. E o JNI tradicional é como contratar um caminhão de lixo terceirizado sem contrato: se ele não aparecer para buscar o entulho por uma falha de comunicação na ponte nativa, o quintal vira um lixão e o sistema operacional vai interditar o prédio inteiro (matando o processo com o OOM Killer)."
                 </div>
 
+                <!-- Simulação de Sandbox JVM e Vazamento Off-Heap -->
+                <figure class="article-video-frame" style="text-align: center; margin: 2rem 0;">
+                    <video controls style="max-width: 100%; border-radius: 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                        <source src="assets/videos/2027_12_09_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Vídeo: Monitoramento do vazamento de memória Off-Heap via Native Memory Tracking (NMT) sob concorrência.</figcaption>
+                </figure>
+
                 <h2>2. Anatomia do Off-Heap: A Ponte JNI Danificada</h2>
                 <p>O fragmento a seguir ilustra a implementação nativa C++ vulnerável associada ao JNI:</p>
 
