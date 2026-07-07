@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/editorial/sobre-o-autor.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/editorial/sobre-o-autor.html" />
+    <meta property="og:image" content="../articles/assets/img/foto_chri.jpg" />
+    <title>Sobre o Autor - Christian Mulato Dev Blog</title>
+    <meta name="description" content="A trajetória de Christian Mulato: Engenheiro Químico de formação, especialista em Java e arquiteto autodidata focado na resiliência do baixo nível.">
+    <meta name="author" content="Christian Mulato">
+    <link rel="icon" type="image/png" href="../articles/assets/img/favicon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../articles/assets/css/main.css">
+    <link rel="stylesheet" href="../articles/assets/css/article.css">
+    <style>
+        .author-page-hero {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .author-page-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.75rem;
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: calc(-2rem - 6px);
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 2px solid var(--bg-color);
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .timeline-title {
+            font-weight: 700;
+            margin: 0.15rem 0;
+            color: var(--text-main);
+        }
+        .timeline-company {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        @media (max-width: 600px) {
+            .author-page-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+            .author-page-avatar {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="sobre-o-autor.html">Sobre</a>
+            <a href="comece-aqui.html">Comece Aqui</a>
+            <a href="humanidade-engenharia.html">Humanização</a>
+            <a href="linha-editorial.html">Linha Editorial</a>
+            <a href="manifesto.html">Manifesto</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Sobre o Autor</h1>
+                <p class="post-serie-kicker">Christian Mulato — Arquiteto de Software e Engenheiro de Sistemas</p>
+            </header>
+
+            <div class="post-content">
+                <div class="author-page-hero">
+                    <img src="../articles/assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-page-avatar">
+                    <div>
+                        <h2>Quem sou eu</h2>
+                        <p>Sou desenvolvedor back-end Java sênior com mais de 18 anos de experiência na linha de frente de sistemas críticos. Minha formação original é em <strong>Engenharia Química pela UFPR</strong> (1991–2000), o que moldou minha obsessão pelo empirismo físico, termodinâmica operacional e trade-offs matemáticos de escala — conceitos que importei para o universo de software.</p>
+                        <p>Especializei-me em <strong>Tecnologia Java pela UTFPR</strong> (2007–2008) e, desde então, atuo blindando arquiteturas legadas e modernas nos setores financeiro, de saúde, seguros e industrial.</p>
+                    </div>
+                </div>
+
+                <h2>Trajetória e Filosofia Pragmática</h2>
+                <p>Ao longo de quase duas décadas de commits, vi a engenharia de software transitar de monolitos manuais para a era ágil e, mais recentemente, para a automação acelerada por Inteligência Artificial. Nesse percurso, atuei em grandes players corporativos como a <strong>Compass UOL, Develcode (RD Saúde), EY, Atos e RPerformance</strong>.</p>
+                <p>Também fundei a <strong>Cara Core Informática</strong> como veículo empresarial para sustentação e entrega de soluções corporativas complexas (parceria e desenvolvimento PJ).</p>
+                <p>Minha postura profissional afasta-se de modismos corporativos ou discursos românticos de RH. Acredito na mitigação cirúrgica de sistemas legados de forma economicamente viável, na estabilidade física do hardware e no papel do programador sênior como curador crítico, capaz de calibrar a tecnologia em vez de ser substituído por ela.</p>
+
+                <h2>Resumo da Linha de Frente (Histórico Consolidado)</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">set/2025 – abr/2026</span>
+                        <div class="timeline-title">Desenvolvedor Java Sênior</div>
+                        <span class="timeline-company">Compass UOL</span>
+                        <p>Desenvolvimento back-end de serviços integrados e documentação de arquitetura baseada em Modelagem C4 com IA.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">mar/2023 – jul/2025</span>
+                        <div class="timeline-title">Desenvolvedor Java Sênior</div>
+                        <span class="timeline-company">Develcode Tecnologia em Sistemas (Contexto RD Saúde)</span>
+                        <p>Manutenção evolutiva e otimização de APIs críticas em ambiente de altíssima escala e complexidade operacional.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">set/2022 – mar/2023</span>
+                        <div class="timeline-title">Desenvolvedor Java Sênior</div>
+                        <span class="timeline-company">RPerformance Group</span>
+                        <p>Suporte e codificação de aplicações back-end robustas direcionadas ao setor de saúde suplementar.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">out/2021 – ago/2022</span>
+                        <div class="timeline-title">Senior Java Software Engineer</div>
+                        <span class="timeline-company">EY (Ernst & Young)</span>
+                        <p>Desenvolvimento de soluções financeiras em ecossistema altamente regulamentado.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">out/2020 – set/2021</span>
+                        <div class="timeline-title">Senior Java Software Engineer</div>
+                        <span class="timeline-company">Atos</span>
+                        <p>Sustentação e evolução de sistemas corporativos da intranet do Grupo Volkswagen.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">jan/2016 – Presente</span>
+                        <div class="timeline-title">Fundador e Líder Técnico</div>
+                        <span class="timeline-company">Cara Core Informática (MEI)</span>
+                        <p>Consultorias cirúrgicas PJ e estruturação de ambientes de automação com auxílio de LLMs locais.</p>
+                    </div>
+                </div>
+
+                <h2>Contato e Comunidades</h2>
+                <ul>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chmulato" target="_blank" rel="noopener">linkedin.com/in/chmulato</a></li>
+                    <li><strong>Website Cara Core:</strong> <a href="https://www.caracore.com.br" target="_blank" rel="noopener">caracore.com.br</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/chmulato" target="_blank" rel="noopener">github.com/chmulato</a></li>
+                </ul>
+            </div>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2028 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="../articles/assets/js/main.js"></script>
+</body>
+</html>

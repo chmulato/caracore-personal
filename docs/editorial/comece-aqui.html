@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/editorial/comece-aqui.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/editorial/comece-aqui.html" />
+    <title>Comece Aqui - Christian Mulato Dev Blog</title>
+    <meta name="description" content="Seu ponto de partida no blog de Christian Mulato: trilhas de estudo estruturadas com assuntos agrupados e séries recomendadas.">
+    <meta name="author" content="Christian Mulato">
+    <link rel="icon" type="image/png" href="../articles/assets/img/favicon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../articles/assets/css/main.css">
+    <link rel="stylesheet" href="../articles/assets/css/article.css">
+    <style>
+        .grid-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin: 2rem 0;
+        }
+        .category-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        .category-card h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+        .topic-group {
+            margin: 1rem 0;
+            font-size: 0.88rem;
+            background: rgba(15, 118, 110, 0.04);
+            padding: 0.85rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            line-height: 1.5;
+        }
+        .topic-group strong {
+            color: var(--primary-color);
+        }
+        .article-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.25rem 0 0 0;
+            flex-grow: 1;
+        }
+        .article-link-list li {
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .article-link-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .article-link-list a {
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+        }
+        .article-link-list a:hover {
+            color: var(--primary-color);
+        }
+        .read-more-btn {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0.25rem;
+            transition: transform 0.2s ease;
+        }
+        .article-link-list li:hover .read-more-btn {
+            transform: translateX(4px);
+        }
+        .faq-section {
+            margin-top: 3.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+        }
+        .faq-item {
+            margin-bottom: 1.75rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+        .faq-question {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="sobre-o-autor.html">Sobre</a>
+            <a href="comece-aqui.html">Comece Aqui</a>
+            <a href="linha-editorial.html">Linha Editorial</a>
+            <a href="manifesto.html">Manifesto</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Comece Aqui</h1>
+                <p class="post-serie-kicker">Trilhas de Estudo e Agrupamento Temático do Acervo</p>
+            </header>
+
+            <div class="post-content">
+                <p>Seja bem-vindo ao portal. Este acervo técnico é amplo e multidisciplinar, projetado para ir além da digitação mecânica de código. Para guiar seus passos iniciais de forma estruturada, agrupamos os assuntos correlacionados e as séries do blog em <strong>quatro programas de estudo centrais</strong>. Clique nos artigos recomendados em cada card para acessar diretamente os conteúdos originais:</p>
+
+                <div class="grid-categories">
+                    <div class="category-card">
+                        <h3>🛠️ Trilha 1: Chão de Fábrica do Baixo Nível</h3>
+                        <p class="small">A física e a mecânica real do hardware, isolamento de processos a nível de kernel e segurança de memória.</p>
+                        
+                        <div class="topic-group">
+                            <strong>Assuntos Correlacionados:</strong>
+                            <br>Heap vs. Stack, estouro de buffer, vazamento de recursos, confinamento em kernel com eBPF LSM, anteparas com WebAssembly, microVMs (Firecracker), concorrência nativa e segurança física de memória.
+                        </div>
+
+                        <p class="small"><strong>Séries Recomendadas:</strong>
+                        <br>• <strong>Blindagem de Sistemas</strong> — <em>Pós-graduação online autodidata. Enfatizamos fortemente que o estudante utilize a inteligência artificial dentro do navegador para interagir, auditar e testar os limites dos desafios propostos. Essa interação direta é essencial para compreender os futuros desafios de estabilização tecnológica.</em>
+                        <br>• <em>O Mito da Eficiência</em>
+                        <br>• <em>Protocolo de Lucerna</em></p>
+
+                        <ul class="article-link-list">
+                            <li>
+                                <a href="../articles/2027_11_18_serie_blindagem_sistemas_ep01.html">O Ataque Autônomo e o Rito de Passagem</a>
+                                <br><small>Por que entender o estouro de buffer física na memória é essencial para arquitetar sistemas seguros.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2027_12_09_serie_blindagem_sistemas_ep04.html">A Ilusão da Sandbox: JVM Off-Heap</a>
+                                <br><small>Como o Garbage Collector é ignorado pelas APIs modernas de memória estrangeira na JVM.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2027_12_30_serie_blindagem_sistemas_ep07.html">Defesa de Tese e Soberania Digital</a>
+                                <br><small>O limite do confinamento operacional: unindo eBPF LSM e microVMs em produção.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>👨‍💻 Trilha 2: Robustez e Mitigação Corporativa</h3>
+                        <p class="small">A engenharia prática na empresa: evolução de sistemas legados críticos, transição segura e integração híbrida.</p>
+                        
+                        <div class="topic-group">
+                            <strong>Assuntos Correlacionados:</strong>
+                            <br>Java EE, Jakarta EE, Spring Boot, APIs REST/SOAP, mensageria com RabbitMQ, integração via FFI (Project Panama), modelagem arquitetural com C4 Model e mitigação de débitos técnicos.
+                        </div>
+
+                        <p class="small"><strong>Séries Recomendadas:</strong>
+                        <br>• <em>Recolocacao Java &amp; Testes Práticos</em>
+                        <br>• <em>Além do Hype</em> (Monolitos vs. Microsserviços)
+                        <br>• <em>Do Silício ao Chão de Fábrica</em></p>
+
+                        <ul class="article-link-list">
+                            <li>
+                                <a href="../articles/2028_01_05_a_arquitetura_de_sistemas_hibridos_versao_2_0.html">A Arquitetura de Sistemas Híbridos</a>
+                                <br><small>Como programar sua carreira profissional entre os 20 e 30 anos sem queimar no burnout.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2026_08_30_alem_do_codigo_como_a_falha_da_automacao_se_torna_o_verdadeiro_teste_de_senioridade.html">Além do Código e a Falha da Automação</a>
+                                <br><small>Quando o script quebra, a postura humana é o verdadeiro termômetro de senioridade.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2025_06_22_ceo_de_si_mesmo_o_brasil_que_terceiriza_ate_a_dignidade.html">CEO de Si Mesmo e a Terceirização</a>
+                                <br><small>Uma crítica ácida sobre as illusions do empreendedorismo e a dignidade na TI.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>🌍 Trilha 3: Soberania frente à Geopolítica do Silício</h3>
+                        <p class="small">A infraestrutura física da internet, soberania nacional de código e o mercado de trabalho global.</p>
+                        
+                        <div class="topic-group">
+                            <strong>Assuntos Correlacionados:</strong>
+                            <br>Geopolítica física do silício (TSMC, ASML), soberania nacional de dados, datacenters offline-first, IA como commodity de controle, concorrência global e refúgios de carreira na TI.
+                        </div>
+
+                        <p class="small"><strong>Séries Recomendadas:</strong>
+                        <br>• <em>O Novo Tabuleiro do Mundo</em>
+                        <br>• <em>As Redes Invisíveis</em>
+                        <br>• <em>Brasil, SDK e Soberania</em>
+                        <br>• <em>Depois do Debate</em>
+                        <br>• <em>Horizonte do Essencial</em></p>
+
+                        <ul class="article-link-list">
+                            <li>
+                                <a href="../articles/2027_07_22_a_ilusao_do_quintal_por_que_a_soberania_de_hardware_nao_se_compra_na_china.html">A Ilusão do Quintal</a>
+                                <br><small>A geopolítica física do hardware e por que a soberania de dados começa no silício local.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2025_09_23_o_novo_petroleo_a_inteligencia_artificial_como_commodity_geopolítica.html">O Novo Petróleo e a Commodity de IA</a>
+                                <br><small>A infraestrutura de datacenters e energia como fatores de soberania entre as nações.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html">Do Silício ao Chão de Fábrica</a>
+                                <br><small>A introdução prática para o desenvolvimento offline-first focado na indústria real do país.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h3>🕵️‍♂️ Trilha 4: Forense &amp; Resgate de Sistemas Legados</h3>
+                        <p class="small">Arqueologia de software, análise defensiva de sistemas corporativos e mitigação de vulnerabilidades históricas.</p>
+                        
+                        <div class="topic-group">
+                            <strong>Assuntos Correlacionados:</strong>
+                            <br>Engenharia reversa em transacionais antigos, auditoria de código legado, combate a fraudes de bilhetagem e sistemas de pagamento, e padrões seguros de banco de dados legados.
+                        </div>
+
+                        <p class="small"><strong>Séries Recomendadas:</strong>
+                        <br>• <em>Protocolo de Lucerna</em>
+                        <br>• <em>As Redes Invisíveis</em> (Módulos de Bilhetagem/Transporte)</p>
+
+                        <ul class="article-link-list">
+                            <li>
+                                <a href="../articles/2026_06_13_protocolo_lucerna_ep04_anatomia_rastro_digital.html">Anatomia do Rastro Digital</a>
+                                <br><small>Como auditorias forenses detectam vestígios em servidores transacionais históricos de grande porte.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2026_06_30_protocolo_lucerna_ep05_identidade_fluida_sombra_lucerna.html">Identidade Fluida na Sombra de Lucerna</a>
+                                <br><small>Análise forense e engenharia de mitigação de vulnerabilidades em segurança de dados.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                            <li>
+                                <a href="../articles/2027_02_12_serie_redes_invisiveis_index.html">As Redes Invisíveis (Início da Série)</a>
+                                <br><small>A geopolítica operacional dos sistemas de transporte de massa e bilhetagem inteligente.</small>
+                                <br><span class="read-more-btn">Abrir Artigo ➔</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2>Perguntas que mais recebo (FAQ)</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">1. Devo largar o Java e focar apenas em Rust?</div>
+                        <p>Não. O Java sustenta a infraestrutura financeira e corporativa global e continuará rodando os principais gateways mundiais. O Rust entra como uma ferramenta de precisão cirúrgica: reescrevemos nele os módulos críticos de alta performance e exposição física à rede (FFI/Wasm), integrando-os progressivamente ao ecossistema existente.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">2. Como estudar de forma eficiente os artigos densos do acervo?</div>
+                        <p>Adote o método da <strong>Reserva de Sessão</strong>: dedique uma primeira leitura de 10 a 15 minutos focada na analogia e no diagnóstico do incidente real. Em uma segunda sessão concentrada, clone os laboratórios descritos nas lições de apoio e execute-os interagindo diretamente com a IA no painel lateral do seu navegador, simulando cenários e antecipando comportamentos para consolidar a estabilidade arquitetural.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">3. O que você quer dizer com "Soberania Digital"?</div>
+                        <p>É a convicção de que um país ou profissional de tecnologia não pode ser mero importador de caixas-pretas e APIs estrangeiras. Significa ter a capacidade de entender, auditar, blindar e gerenciar a própria infraestrutura e lógica operacional, de ponta a ponta, desde o chip físico ao kernel.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2028 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="../articles/assets/js/main.js"></script>
+</body>
+</html>
