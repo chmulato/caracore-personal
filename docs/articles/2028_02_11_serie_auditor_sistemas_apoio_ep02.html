@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2028_02_11_serie_auditor_sistemas_apoio_ep02.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2028_02_11_serie_auditor_sistemas_apoio_ep02.html" />
+    <meta property="og:image" content="assets/img/2028_02_11_IMAGE_001.png" />
+    <title>Material de Apoio 02: A Prova dos Autos — Auditor de Sistemas</title>
+    <meta name="description" content="Material de Apoio 02 (11/02/2028): A validade jurídica de evidências digitais e a cadeia de custódia segundo as normas ISO/IEC 27037.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Cadeia de Custódia, Perícia Forense, ISO/IEC 27037, Prova Digital, Perito Judicial, Integridade de Dados">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Série: Auditor de Sistemas — Módulo 02 (Apoio)</p>
+                <h1 class="post-title">A Prova dos Autos: Cadeia de Custódia</h1>
+                <div class="post-meta">
+                    <time datetime="2028-02-11">11/02/2028</time> | ⏱️ 7 min de leitura
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
+                    <img src="assets/img/2028_02_11_IMAGE_001.png" alt="A Prova dos Autos: Perícia Científica" class="hero-image" />
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Um setup de trabalho sereno e analítico, focado na coleta e verificação estruturada de evidências digitais periciais.</figcaption>
+                </figure>
+
+                <p>No Módulo 02, explicamos como commits no Git, tickets de tarefas no Jira e logs de infraestrutura servem de pegadas digitais de esforço real. Agora, estudaremos o <strong>lado legal</strong> da questão: como assegurar que essas evidências técnicas tenham validade jurídica nos tribunais e não sejam anuladas por advogados de defesa.</p>
+
+                <h2>1. A Ciência da Cadeia de Custódia (ISO/IEC 27037)</h2>
+                <p>Em direito digital, a evidência eletrônica é considerada <strong>altamente volátil</strong>. Um log de servidor em formato de texto pode ser facilmente alterado com um editor de texto comum em segundos. Se o perito simplesmente copiar o arquivo de log para um pendrive e apresentar ao juiz, a defesa da parte contrária alegará que a prova foi adulterada (contaminada).</p>
+
+                <p>Para evitar isso, a perícia forense segue a <strong>Cadeia de Custódia</strong>, um processo documentado de preservação que garante a rastreabilidade da prova desde o momento da coleta até a sua apresentação na justiça. A diretriz internacional <strong>ISO/IEC 27037</strong> orienta que as evidências devem ser coletadas usando métodos que não alterem o dispositivo original (como bloqueadores de escrita física) e que a integridade matemática deve ser imediatamente selada gerando um <strong>hash criptográfico</strong> (como SHA-256) do arquivo original.</p>
+
+                <h2>2. Perito Judicial vs. Perito Assistente</h2>
+                <p>Em uma disputa na justiça sobre propriedade intelectual de software, atuam duas figuras fundamentais:</p>
+                <ul>
+                    <li><strong>Perito Judicial:</strong> O profissional de confiança do juiz, encarregado de atuar com total imparcialidade e emitir o Laudo Pericial principal respondendo aos quesitos técnicos do processo.</li>
+                    <li><strong>Perito Assistente (ou Assistente Técnico):</strong> O profissional contratado por uma das partes (autor ou réu) para acompanhar a perícia, sugerir caminhos técnicos e emitir um Parecer Técnico defendendo a tese de seu contratante.</li>
+                </ul>
+
+                <div class="chalkboard">
+                    <h3>Casos Práticos (Exercícios interativos para a IA do Navegador)</h3>
+                    
+                    <h4>Caso 1: Roteiro de Preservação e e-Discovery</h4>
+                    <p><strong>Cenário:</strong> Um ex-desenvolvedor sênior é acusado de clonar o repositório Git proprietário de uma empresa antes de pedir demissão. O perito precisa coletar os metadados do histórico do Git na máquina corporativa dele.</p>
+                    <p><strong>Atividade:</strong> Use a IA de seu navegador para responder: <em>"De acordo com a norma ISO/IEC 27037, elabore um passo a passo prático para coletar o diretório oculto '.git' da máquina do ex-colaborador, descrevendo o comando de hash que sela a integridade do arquivo compactado."</em></p>
+
+                    <h4>Caso 2: Auditoria de Integridade de Evidências Fiscais</h4>
+                    <p><strong>Cenário:</strong> O fisco contesta a legitimidade de logs de deploy que atestam que um módulo de microcrédito rodou em computadores nacionais em 2026. A empresa possui os logs salvos em formato ZIP, mas o hash SHA-256 do arquivo original mudou em relação à ata notarial de 2026.</p>
+                    <p><strong>Atividade:</strong> Elabore um prompt para a IA de seu navegador: <em>"Aja como um perito assistente técnico. Explique quais fatores (como alteração de metadados, descompactação simples ou modificação de data de sistema) podem ter alterado o hash do arquivo ZIP, e como provar que o conteúdo interno dos logs permanece intacto."</em></p>
+                </div>
+
+                <div class="chalkboard">
+                    <h3>Dicionário de Lousa (Apoio Módulo 02)</h3>
+                    <ul>
+                        <li><strong>Cadeia de Custódia:</strong> O conjunto de procedimentos formais que documentam a história cronológica de uma evidência física ou digital, impedindo sua adulteração ou contaminação.</li>
+                        <li><strong>Hash Criptográfico:</strong> Algoritmo matemático unidirecional que converte um volume de dados em uma sequência de caracteres de tamanho fixo, servindo como uma "impressão digital" digital inviolável do arquivo.</li>
+                        <li><strong>ISO/IEC 27037:</strong> Norma técnica internacional que define diretrizes para a identificação, coleta, aquisição e preservação de evidências digitais de forma forense.</li>
+                        <li><strong>Perito Assistente:</strong> O profissional técnico de confiança contratado por uma das partes em um processo judicial para auditar os trabalhos do perito do juiz e emitir parecer técnico.</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
+                    — Anterior: <a href="2028_02_09_serie_auditor_sistemas_ep02.html">Episódio 2: A Pegada de Carbono e de Bits</a> | Próximo: <a href="2028_02_21_serie_auditor_sistemas_ep03.html">Episódio 3: O Preço das Ideias</a> | Índice da série: <a href="2028_01_18_serie_auditor_sistemas_chamada.html">Chamada e Índice</a>.
+                </p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2028 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>

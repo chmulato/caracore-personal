@@ -16,9 +16,9 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 
 ## 📈 Status Atual (Ciclo Ativo: jun/2026 a mai/2029)
 
-* **Total de Artigos Publicados:** 211 artigos
-* **Total de Séries com Índice Próprio:** 13 séries
-* **Período do Acervo:** março de 2024 a janeiro de 2028 (datas futuras em 2027 são usadas para agendamento de séries editoriais)
+* **Total de Artigos Publicados:** 220 artigos
+* **Total de Séries com Índice Próprio:** 15 séries
+* **Período do Acervo:** março de 2024 a março de 2028
 * **Lista de Séries Ativas:**
   1. **Além do Hype** (Index + 5 Episódios) — Arquitetura de software, matemática de escala e FinOps.
   2. **O Novo Tabuleiro do Mundo** (Index + 6 Episódios + Epílogo) — IA como commodity física e matriz energética.
@@ -32,8 +32,10 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
   10. **Depois do debate** (Index + 3 Episódios) — O futuro do programador na era dos LLMs.
   11. **Do Silício ao Chão de Fábrica** (Index + 8 Episódios) — Geopolítica física, soberania de dados híbrida e telemetria offline-first na economia real produtiva do país.
   12. **A Ilusão da Interface** (Index + 3 Episódios + 1 Apêndice) — Crítica geopolítica e social sobre o petrodólar, as panelinhas locais, a economia da atenção dos algoritmos e o desdobramento da linguagem de controle para leitores adultos e jovens.
-  13. **Blindagem de Sistemas** (Index + 7 Episódios) — Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital.
-  14. **Blindagem de Sistemas — Lições de Apoio** (7 Episódios) — Aulas de apoio e nivelamento prático utilizando analogias lógicas simples e tutoria de IA no navegador para estudantes de menor base técnica.
+  13. **Blindagem de Sistemas Autodidata 2027** (Chamada + 7 Episódios) — Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital.
+  14. **Blindagem de Sistemas Autodidata 2027 — Lições de Apoio** (7 Episódios) — Aulas de apoio e nivelamento prático utilizando analogias lógicas simples e tutoria de IA no navegador para estudantes de menor base técnica.
+  15. **Auditor de Sistemas Autodidata 2028** (Chamada + 4 Episódios) — Pós-graduação prática em perícia forense digital, auditoria contábil/fiscal, e compliance (SOX) em engenharia de sistemas.
+  16. **Auditor de Sistemas Autodidata 2028 — Lições de Apoio** (4 Episódios) — Aprofundamento legal, dicionários de termos jurídicos/compliance e dois exercícios práticos interativos com a IA do navegador.
 
 ---
 
@@ -123,6 +125,25 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
          </div>
      </footer>
      ```
+   * **Assinatura de Auditoria (Christian Mulato Autodidata):** Usada para a série de Auditoria de Sistemas e Compliance:
+     ```html
+     <footer class="post-footer">
+         <div class="author-info">
+             <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+             <div class="author-details">
+                 <strong>Christian Mulato Autodidata</strong>
+             </div>
+         </div>
+     </footer>
+     ```
+
+### ⚖️ Diretrizes para a Série "Auditor de Sistemas" (Pós-Graduação 2028)
+
+1. **Linguagem para Leigos no Post Principal:** O texto principal do módulo deve focar estritamente na desconstrução técnica e na análise do incidente através de analogias simples do cotidiano e do mundo físico (sem jargões jurídicos ou latim tributário complexo). O objetivo é apresentar a lógica do problema de forma compreensível e fascinante para o profissional de tecnologia.
+2. **Tradução e Aprofundamento Jurídico no Material de Apoio:** É no material de apoio (publicado 2 dias depois) que os termos e processos jurídicos reais (ex: *preços de transferência*, *acórdãos do CARF*, *legislações tributárias*, *cadeia de custódia forense*) devem ser explicados detalhadamente. A lição de apoio deve atuar como uma **ponte de transição**, mostrando a correspondência entre a engenharia do sistema e a lei, capturando o interesse do profissional de TI pelas questões legais e de compliance.
+3. **Norte da Pós-Graduação:** O norte absoluto desta série é mostrar como as evidências geradas por sistemas de software são o motor das defesas fiscais e contratuais. O foco é fazer com que o desenvolvedor/analista perceba o valor estratégico de sua profissão no tabuleiro de compliance e no direito digital.
+4. **Dicionários em Ambos os Materiais:** Tanto os episódios principais quanto os materiais de apoio devem conter obrigatoriamente um glossário/dicionário ao final do post, contido em um bloco `.chalkboard`, visando enriquecer o vocabulário técnico e jurídico do leitor autodidata.
+5. **Dois Exercícios Interativos no Material de Apoio:** O material de apoio deve sempre apresentar dois casos práticos em formato de exercícios projetados para serem resolvidos em conjunto com a IA do navegador (recurso que se tornou padrão e rotina nas interfaces web em 2028).
 
 ---
 

@@ -5,9 +5,81 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Wed, 05 Jan 2028 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Mar 2028 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Lição de Apoio 04 (Fim): A Linha do Caos (Auditoria de Sistemas Desorganizados)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_03_06_serie_auditor_sistemas_apoio_ep04.html</link>
+      <description><![CDATA[Estratégias de perícia e busca de evidências forenses em empresas sem documentação e com Git bagunçado.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_03_06_serie_auditor_sistemas_apoio_ep04.html</guid>
+      <pubDate>Mon, 06 Mar 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Módulo 04: A Voz que o Juiz Escuta (Tradução e Simplificação)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_03_04_serie_auditor_sistemas_ep04.html</link>
+      <description><![CDATA[Como redigir laudos periciais formais claros para leigos e conduzir entrevistas investigativas com equipes de TI.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_03_04_serie_auditor_sistemas_ep04.html</guid>
+      <pubDate>Sat, 04 Mar 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Lição de Apoio 03: O Crivo da Receita (Preços de Transferência)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_02_23_serie_auditor_sistemas_apoio_ep03.html</link>
+      <description><![CDATA[As regras tributárias do Transfer Pricing (OCDE/Receita Federal) e a dedutibilidade com registro no INPI.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_02_23_serie_auditor_sistemas_apoio_ep03.html</guid>
+      <pubDate>Wed, 23 Feb 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Módulo 03: O Preço das Ideias (Cost Sharing vs. Evasão)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_02_21_serie_auditor_sistemas_ep03.html</link>
+      <description><![CDATA[Rateio internacional de custos de software intragrupo e a comprovação contra evasão fiscal.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_02_21_serie_auditor_sistemas_ep03.html</guid>
+      <pubDate>Tue, 21 Feb 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Lição de Apoio 02: A Prova dos Autos (Cadeia de Custódia)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_02_11_serie_auditor_sistemas_apoio_ep02.html</link>
+      <description><![CDATA[Validade legal de evidências em processos eletrônicos e cadeia de custódia segundo a ISO/IEC 27037.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_02_11_serie_auditor_sistemas_apoio_ep02.html</guid>
+      <pubDate>Sat, 11 Feb 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Módulo 02: A Pegada de Carbono e de Bits (Coleta Forense)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_02_09_serie_auditor_sistemas_ep02.html</link>
+      <description><![CDATA[Rastreamento de histórico do Git, tickets do Jira e logs de nuvem como provas científicas de esforço.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_02_09_serie_auditor_sistemas_ep02.html</guid>
+      <pubDate>Thu, 09 Feb 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Lição de Apoio 01: A Burocracia Necessária (Mapeamento de Processos)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_01_30_serie_auditor_sistemas_apoio_ep01.html</link>
+      <description><![CDATA[Mapeamento de controles internos sob a Lei SOX, processamento batch com Spring Batch e malhas Control-M.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_01_30_serie_auditor_sistemas_apoio_ep01.html</guid>
+      <pubDate>Sat, 30 Jan 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Módulo 01: O Rastro da Decisão (Alinhamento Estratégico)]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_01_28_serie_auditor_sistemas_ep01.html</link>
+      <description><![CDATA[Como alinhar metas de diretoria à esteira de engenharia de software sob diretrizes do COBIT e CRISC.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_01_28_serie_auditor_sistemas_ep01.html</guid>
+      <pubDate>Thu, 28 Jan 2028 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title><![CDATA[Auditor de Sistemas Autodidata 2028 — Chamada e Índice Geral]]></title>
+      <link>https://personal.caracore.com.br/articles/2028_01_18_serie_auditor_sistemas_chamada.html</link>
+      <description><![CDATA[Apresentação oficial e cronograma da pós-graduação autodidata de 2028 em perícia e compliance de TI.]]></description>
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2028_01_18_serie_auditor_sistemas_chamada.html</guid>
+      <pubDate>Thu, 18 Jan 2028 00:00:00 +0000</pubDate>
+    </item>
 
     <item>
       <title><![CDATA[A Arquitetura de Sistemas Híbridos (Versão 2.0)]]></title>

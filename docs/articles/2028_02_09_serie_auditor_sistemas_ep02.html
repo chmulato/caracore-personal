@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2028_02_09_serie_auditor_sistemas_ep02.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2028_02_09_serie_auditor_sistemas_ep02.html" />
+    <meta property="og:image" content="assets/img/2028_02_09_IMAGE_001.png" />
+    <title>Módulo 02: A Pegada de Carbono e de Bits — Auditor de Sistemas</title>
+    <meta name="description" content="Módulo 02 (09/02/2028): Perícia digital e coleta de evidências. Como commits no Git, tickets de tarefas no Jira e metadados provam esforço real de trabalho.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Perícia Digital, Coleta Forense, Git, Commits, Jira, DevOps, Logs de Auditoria, Rastreamento Digital">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Série: Auditor de Sistemas — Módulo 02</p>
+                <h1 class="post-title">A Pegada de Carbono e de Bits: Coleta Forense</h1>
+                <div class="post-meta">
+                    <time datetime="2028-02-09">09/02/2028</time> | ⏱️ 6 min de leitura
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
+                    <img src="assets/img/2028_02_09_IMAGE_001.png" alt="A Pegada de Carbono e de Bits: Auditoria de Logs" class="hero-image" />
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Mapeamento e visualização forense de logs e históricos de commits no repositório de software como evidências de esforço.</figcaption>
+                </figure>
+
+                <p>Imagine que você contratou um arquiteto para planejar uma reforma complexa na sua casa. Ele diz que trabalhou 8 horas por dia durante exatas duas semanas no projeto, mas na hora de entregar ele apresenta apenas um rascunho de papel com uma única linha desenhada. Como você comprova se houve trabalho real ou se ele cobrou por tempo que não existiu? Na tecnologia, o <strong>Git</strong> e o <strong>Jira</strong> funcionam como a <strong>caixa preta</strong> desse histórico.</p>
+
+                <p>Muitas empresas tentam fraudar contratos de desenvolvimento de software de alta performance, declarando custos massivos de programação que nunca ocorreram de verdade (ou terceirizando para times ocultos sem autorização). O trabalho de um perito de sistemas de elite consiste em auditar os rastros digitais deixados nas plataformas de trabalho e na infraestrutura.</p>
+
+                <h2>1. O Caso Prático: A Empresa Fantasma de Software</h2>
+                <p>Durante um processo de auditoria tributária de um grande provedor varejista brasileiro, a Receita Federal suspeitou de um contrato de R$ 5 milhões para a criação de um gateway de pagamentos inovador em 2026. A empresa contratada apresentou apenas notas fiscais e relatórios gerenciais descritivos impressos em papel.</p>
+
+                <p>O auditor forense solicitou o acesso ao repositório de código da aplicação. Ao analisar o histórico do <strong>Git</strong>, descobriu-se que o repositório possuía apenas um commit inicial (`Initial Commit`) contendo toda a base do sistema enviado de uma única vez em um domingo à noite. Não havia discussões técnicas, histórico de commits de diferentes profissionais ao longo das semanas ou discussões de código (*Pull Requests*).</p>
+
+                <p>O cruzamento dos dados revelou a farsa: a empresa havia comprado uma biblioteca pronta de internet por U$ 200 e tentado faturar R$ 5 milhões sob a alegação de desenvolvimento de software proprietário do zero. O sistema funcionava perfeitamente, mas a evidência documental de esforço era inexistente.</p>
+
+                <div class="tutor-note">
+                    <strong>Nota da Trincheira (Comentário Sênior):</strong><br>
+                    "Lembre-se disso: o código-fonte de um sistema é apenas o resultado final da pintura. A prova do esforço de engenharia reside nas pinceladas intermediárias. Cada commit assinado, cada alteração e cada discussão de arquitetura registrada no Jira criam a linha do tempo que comprova o trabalho real e legitima os investimentos declarados."
+                </div>
+
+                <h2>2. Os Rastros Forenses Clássicos</h2>
+                <p>A auditoria forense baseia-se na coleta cruzada de três pegadas de bits fundamentais:</p>
+                <ul>
+                    <li><strong>Histórico Git:</strong> Logs contendo autoria, data exata, e-mail do autor e o identificador criptográfico (`hash`) de cada alteração de código.</li>
+                    <li><strong>Tickets do Jira/DevOps:</strong> A correlação entre o código escrito e a demanda de negócio cadastrada, provando que o programador agiu sob ordens formais da empresa.</li>
+                    <li><strong>Logs de Servidores e Nuvem:</strong> Metadados de compilação (*build*) e deploy em servidores (AWS/Azure) que atestam que o processamento ocorreu nos computadores declarados nas datas correspondentes.</li>
+                </ul>
+
+                <p>Como auditor, você aprende a buscar inconsistências temporais: por exemplo, commits no Git realizados por um programador nascido no Brasil durante o meio da noite no horário de Brasília, ou disparos de builds de nuvem em IPs estrangeiros não declarados no contrato, o que aponta para terceirização ilegal.</p>
+
+                <div class="chalkboard">
+                    <h3>Dicionário de Lousa (Módulo 02)</h3>
+                    <ul>
+                        <li><strong>Commit:</strong> O ato de salvar um conjunto de alterações feitas no código-fonte no histórico do repositório Git, registrando autor, data e metadados.</li>
+                        <li><strong>Hash:</strong> Identificador alfa-numérico único e criptográfico gerado automaticamente para representar a integridade matemática de um commit ou arquivo.</li>
+                        <li><strong>Jira:</strong> Software de gerenciamento de projetos e fluxos de tarefas utilizado por equipes de desenvolvimento para planejar, priorizar e documentar demandas de software.</li>
+                        <li><strong>Log de Auditoria:</strong> Registro temporal cronológico de atividades executadas em um sistema operacional ou aplicação, mapeando acessos e alterações de infraestrutura.</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
+                    — Anterior: <a href="2028_01_30_serie_auditor_sistemas_apoio_ep01.html">Material de Apoio 01: A Burocracia Necessária</a> | Próximo: <a href="2028_02_11_serie_auditor_sistemas_apoio_ep02.html">Material de Apoio 02: A Prova dos Autos</a> | Índice da série: <a href="2028_01_18_serie_auditor_sistemas_chamada.html">Chamada e Índice</a>.
+                </p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2028 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>
