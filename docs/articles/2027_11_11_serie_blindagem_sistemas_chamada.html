@@ -38,7 +38,8 @@
         }
         .episode-card-image {
             width: 100%;
-            height: 200px;
+            height: auto;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
@@ -188,9 +189,11 @@
 
                 <p>Nesse novo cenário de ameaças rápidas, a antiga mentalidade de apenas remendar falhas pontuais faliu. O desenvolvedor sênior contemporâneo precisa dominar a engenharia de riscos e a gestão mecânica de memória — as fundações sobre as quais toda a nossa infraestrutura de servidores, clusters de bancos de dados e gateways opera.</p>
 
-                <p>Esta página marca o início e funciona como o índice da nossa <strong>pós-graduação prática em formato de série: Blindagem de Sistemas</strong>. Ao longo de sete capítulos semanais veiculados nas quintas-feiras de novembro e dezembro de 2027, faremos uma jornada com o rigor de um livro-texto de engenharia de software.</p>
+                <p>Esta página marca o início e funciona como o índice da nossa <strong>pós-graduação prática em formato de série: Blindagem de Sistemas</strong>. Ao longo de sete módulos semanais veiculados nas quintas-feiras de novembro e dezembro de 2027, faremos uma jornada com o rigor de um livro-texto de engenharia de software.</p>
 
-                <p><em>Aviso de Concorrência e Risco: Todos os incidentes reais descritos nas lições a seguir são estudos de caso simulados sob condições controladas de laboratório. Eles representam cenários práticos e ocorrências realistas que podem surgir no dia a dia da produção de qualquer empresa tech, desenhados especificamente para fins pedagógicos de mitigação de vulnerabilidades.</em></p>
+                <p>Mais do que uma introdução à segurança ou um conjunto de checklists, esta é uma <strong>trilha autodidata e prática de blindagem de sistemas</strong>: uma formação orientada à engenharia de memória, à contenção de danos e à defesa de infraestrutura crítica.</p>
+
+                <p><em>Aviso de Concorrência e Risco: Os incidentes das lições a seguir são cenários simulados em laboratório, inspirados em padrões reais de falhas de produção. Cada um representa riscos capazes de interromper serviços, comprometer dados ou paralisar operações quando não são detectados e contidos a tempo; foram desenhados exclusivamente para o aprendizado seguro de mitigação de vulnerabilidades.</em></p>
 
                 <div class="tutor-intro-box" style="border-left-color: #0f766e; background: #f0fdfa; color: #115e59; margin: 2rem 0; padding: 1.5rem;">
                     <div class="tutor-intro-title" style="color: #0f766e; font-weight: bold; margin-bottom: 0.75rem; font-size: 1.15rem;">Diretrizes da Trincheira: O Nivelamento Pragmático</div>
@@ -205,7 +208,13 @@
                     </p>
                 </div>
 
-                <p>Cada episódio contará com um cenário real de incidentes de produção, o diagnóstico estrutural do código, a estratégia aplicada de mitigação em baixo nível, além de um resumo de aprendizado e um glossário de trincheira para traduzir os jargões complexos de forma didática para executivos e leigos.</p>
+                <p>Cada episódio contará com um cenário simulado inspirado em padrões reais de incidentes de produção, o diagnóstico estrutural do código, a estratégia aplicada de mitigação em baixo nível, além de um resumo de aprendizado e um glossário de trincheira para traduzir os jargões complexos de forma didática para executivos e leigos.</p>
+
+                <p>Ao concluir a trilha, você terá repertório para diagnosticar falhas críticas, priorizar a redução de exposição em módulos legados, reescrever componentes de maior risco e projetar camadas de isolamento compatíveis com a realidade operacional da sua equipe.</p>
+
+                <p>A inteligência artificial aparece em dois papéis complementares: como tutor nas lições de nivelamento e como instrumento técnico de análise, fuzzing e red team automatizado nos módulos de defesa. Ela não substitui o julgamento de engenharia; amplia a capacidade de investigar superfícies de ataque e validar hipóteses com método.</p>
+
+                <p><strong>Esta não é uma trilha de atalhos.</strong> A progressão é acessível para quem vem de outras stacks, mas exige leitura atenta, análise de código e disposição para enfrentar os limites mecânicos dos sistemas.</p>
 
                 <h2>O Desafio: Para quem é este guia?</h2>
                 <p>Esta pós-graduação foi desenhada tanto para o líder que gerencia riscos de tecnologia quanto para o desenvolvedor que deseja compreender e manipular os limites físicos do hardware. Não exigimos que você seja um especialista em Rust ou cibersegurança ofensiva; buscamos mentes curiosas e obstinadas. Os únicos pré-requisitos reais para iniciar a jornada são:</p>
@@ -218,7 +227,7 @@
 
                 <hr class="section-separator">
 
-                <h2>Grade Curricular e Grade de Aulas</h2>
+                <h2>Grade Curricular: 7 Módulos e 7 Lições de Apoio</h2>
 
                 <div class="episode-grid">
                     <!-- Módulo 1 -->

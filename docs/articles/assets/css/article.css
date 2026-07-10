@@ -1284,3 +1284,34 @@ body {
     border-left-color: #2dd4bf;
     background: var(--background-light);
 }
+
+/* Rodapé do autor */
+.post-footer {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-footer .author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+}
+
+.author-details {
+    min-width: 0;
+}
+
+.author-details p {
+    margin: 0.2rem 0 0;
+}
