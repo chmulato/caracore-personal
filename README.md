@@ -8,7 +8,7 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
 
 ## Visão Geral do Blog
 
-* **Total de Artigos:** 221 artigos publicados.
+* **Total de Artigos:** 222 artigos publicados.
 * **Período de Publicações:** de março de 2024 a março de 2028.
 * **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
   * [Auditor de Sistemas](https://personal.caracore.com.br/articles/2028_01_18_serie_auditor_sistemas_chamada.html): Pós-graduação autodidata de 2028 para profissionais com mais de 8 anos de estrada, cobrindo a governança de TI (COBIT/CRISC), perícia forense e cadeia de custódia (ISO/IEC 27037), e compliance fiscal internacional (cost sharing e preços de transferência).
