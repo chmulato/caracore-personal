@@ -147,7 +147,102 @@
         [data-theme="dark"] .section-separator {
             background: #334155;
         }
-    </style>
+        .differential-section,
+        .learning-path {
+            margin: 2.5rem 0;
+            padding: 1.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+        .differential-section h2,
+        .learning-path h2 {
+            margin-top: 0;
+        }
+        .differential-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+        .differential-card {
+            padding: 1rem;
+            border-radius: 8px;
+            background: #fff;
+            border-top: 3px solid #0f766e;
+        }
+        .differential-card strong {
+            display: block;
+            color: #0f172a;
+            margin-bottom: 0.35rem;
+        }
+        .differential-card p {
+            margin: 0;
+            font-size: 0.94rem;
+            line-height: 1.55;
+            color: #475569;
+        }
+        .path-steps {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(110px, 1fr));
+            gap: 0.65rem;
+            margin-top: 1.25rem;
+            overflow-x: auto;
+            padding-bottom: 0.35rem;
+        }
+        .path-step {
+            min-width: 110px;
+            padding: 0.9rem 0.75rem;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #e2e8f0;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 1.35;
+        }
+        .path-step span {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: #5eead4;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .series-cta {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0f172a, #134e4a);
+            color: #f8fafc;
+            text-align: center;
+        }
+        .series-cta p {
+            margin: 0 0 0.85rem;
+            font-size: 1.1rem;
+        }
+        .series-cta a {
+            display: inline-block;
+            padding: 0.65rem 1rem;
+            border-radius: 6px;
+            background: #5eead4;
+            color: #042f2e;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        [data-theme="dark"] .differential-section,
+        [data-theme="dark"] .learning-path {
+            background: #0f172a;
+            border-color: #334155;
+        }
+        [data-theme="dark"] .differential-card {
+            background: #1e293b;
+        }
+        [data-theme="dark"] .differential-card strong {
+            color: #f8fafc;
+        }
+        [data-theme="dark"] .differential-card p {
+            color: #cbd5e1;
+        }    </style>
 </head>
 <body>
 <button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
@@ -216,6 +311,36 @@
 
                 <p><strong>Esta não é uma trilha de atalhos.</strong> A progressão é acessível para quem vem de outras stacks, mas exige leitura atenta, análise de código e disposição para enfrentar os limites mecânicos dos sistemas.</p>
 
+                <section class="differential-section" aria-labelledby="diferenciais-title">
+                    <h2 id="diferenciais-title">Por que esta trilha é diferente?</h2>
+                    <div class="differential-grid">
+                        <div class="differential-card">
+                            <strong>Mitigação, não utopia</strong>
+                            <p>O foco é reduzir risco no sistema que já existe, com isolamento progressivo e decisões compatíveis com orçamento, prazo e operação.</p>
+                        </div>
+                        <div class="differential-card">
+                            <strong>Memória como fundamento</strong>
+                            <p>A trilha conecta falhas de baixo nível às consequências concretas em APIs, JVMs, serviços e infraestrutura.</p>
+                        </div>
+                        <div class="differential-card">
+                            <strong>IA com método</strong>
+                            <p>Modelos entram como apoio de estudo e análise técnica supervisionada, nunca como substitutos do julgamento de engenharia.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="learning-path" aria-labelledby="progressao-title">
+                    <h2 id="progressao-title">A progressão da trilha</h2>
+                    <div class="path-steps" aria-label="Ataque, memória, Rust, off-heap, integração, fuzzing e contenção">
+                        <div class="path-step"><span>01</span>Ataque e auditoria</div>
+                        <div class="path-step"><span>02</span>Memória e UAF</div>
+                        <div class="path-step"><span>03</span>Garantias do Rust</div>
+                        <div class="path-step"><span>04</span>JVM e off-heap</div>
+                        <div class="path-step"><span>05</span>FFI e legado</div>
+                        <div class="path-step"><span>06</span>Fuzzing e CI/CD</div>
+                        <div class="path-step"><span>07</span>Contenção e kernel</div>
+                    </div>
+                </section>
                 <h2>O Desafio: Para quem é este guia?</h2>
                 <p>Esta pós-graduação foi desenhada tanto para o líder que gerencia riscos de tecnologia quanto para o desenvolvedor que deseja compreender e manipular os limites físicos do hardware. Não exigimos que você seja um especialista em Rust ou cibersegurança ofensiva; buscamos mentes curiosas e obstinadas. Os únicos pré-requisitos reais para iniciar a jornada são:</p>
                 <ul>
@@ -470,9 +595,10 @@
                 </div>
 
                 <p style="margin-top: 3rem;"><strong>Lançamento da Série:</strong> Módulos técnicos semanais publicados às quintas-feiras, de <strong>18/11/2027</strong> a <strong>30/12/2027</strong>. As respectivas lições de apoio e nivelamento prático serão publicadas nos sábados subsequentes ao lançamento de cada módulo.</p>
-                
-                <p style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; font-style: italic;">
-                     — Comece a pós-graduação: <a href="2027_11_18_serie_blindagem_sistemas_ep01.html">Módulo 01: O Ataque Autônomo</a>.</p>
+                <section class="series-cta" aria-label="Início da série">
+                    <p><strong>Comece agora.</strong> O primeiro módulo mostra como ataques automatizados transformam a auditoria de código legado.</p>
+                    <a href="2027_11_18_serie_blindagem_sistemas_ep01.html">Iniciar Módulo 01 — O Ataque Autônomo</a>
+                </section>
             </div>
 
             <footer class="post-footer">
