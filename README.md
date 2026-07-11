@@ -22,6 +22,7 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
   * [Protocolo de Lucerna](https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html): Histórias e análises de segurança em sistemas corporativos legados.
   * [O Mito da Eficiência](https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html): IA, silício e a busca racional por otimização real.
   * [A Ilusão Informatizada](https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html): Ensaios críticos sobre o avanço tecnológico acelerado.
+  * [A Ilusão da Interface](https://personal.caracore.com.br/articles/2027_10_07_serie_ilusao_da_interface_chamada.html): Crítica geopolítica e social sobre o petrodólar, as panelinhas locais e a economia da atenção dos algoritmos.
   * [Brasil, SDK e Soberania](https://personal.caracore.com.br/articles/2026_02_15_serie_brasil_sdk_soberania_index.html): Análise de desenvolvimento nacional, regulação e soberania.
   * [Depois do debate](https://personal.caracore.com.br/articles/2026_10_06_serie_depois_do_debate_carreira_index.html): Reflexões sobre o futuro da carreira técnica na era dos LLMs.
   * [Do Silício ao Chão de Fábrica](https://personal.caracore.com.br/articles/2027_07_30_serie_do_silicio_ao_chao_de_fabrica_chamada.html): Geopolítica física, soberania de dados híbrida e telemetria offline-first na economia real produtiva do país.
