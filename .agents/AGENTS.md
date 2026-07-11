@@ -146,6 +146,24 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
 4. **Dicionários em Ambos os Materiais:** Tanto os episódios principais quanto os materiais de apoio devem conter obrigatoriamente um glossário/dicionário ao final do post, contido em um bloco `.chalkboard`, visando enriquecer o vocabulário técnico e jurídico do leitor autodidata.
 5. **Dois Exercícios Interativos no Material de Apoio:** O material de apoio deve sempre apresentar dois casos práticos em formato de exercícios projetados para serem resolvidos em conjunto com a IA do navegador (recurso que se tornou padrão e rotina nas interfaces web em 2028).
 
+### ⚖️ Diretrizes para a Série "Do RPA ao Silício" (A Grande Transformação)
+
+1. **Ficção com Fundo de Verdade:** A série rompe com o modelo clássico de ensaio técnico passivo. Conceitos geográficos, limitações de hardware (TSMC, ASML, Snapdragon) e amarras de infraestrutura nacional (SAP, SPED) devem ser vividos através da lente dramática de personagens reais (ex: Ana, a arquiteta de sistemas; Rafael, o analista tributário).
+2. **Micro-Cenas e Metáforas:** Substituir listas e manuais frios por tensão técnica. O leitor precisa sentir o calor do "Thermal Throttling", a restrição dolorosa do "Walled Garden" e o impacto geopolítico da "Diretriz 79" quebrando o pipeline da empresa.
+3. **O Dicionário de Lousa Obrigatório:** Inclusão de um quadro `.chalkboard` no final contendo os jargões, estrangeirismos e gírias corporativas alfabetizados e decodificados (ex: Xinchuang, Edge AI, Splinternet), blindando o blog contra a arrogância de *gatekeeping*.
+
+---
+
+## 📡 Infraestrutura e Syndication RSS (Substack & LinkedIn)
+
+Para garantir que o conteúdo seja perfeitamente exportado e consumido por redes sociais modernas e agregadores legados sem quebra de mídia ou autoria, todo script gerador de feed (`update_feed.py`) deve seguir restrições absolutas:
+
+1. **URLs Absolutas:** Nenhuma imagem ou link dentro do `feed.xml` pode ser relativo. Todos os caminhos de `<img src...>` devem ser forçados com o domínio oficial (`https://personal.caracore.com.br/`).
+2. **Dupla Identidade Visual de Capa:** O feed deve extrair a `hero-image` do artigo e obrigatoriamente injetar as tags `<enclosure url="..." length="0" type="image/png" />` e `<media:content url="..." medium="image" />` para satisfazer os parsers variados do LinkedIn e Substack.
+3. **Autoria Dublin Core:** É obrigatória a injeção do namespace `xmlns:dc` e a aplicação em todos os itens da tag explícita `<dc:creator><![CDATA[Christian Mulato]]></dc:creator>`.
+4. **Data Legada (RFC-822):** A tag `<pubDate>` de cada post deve seguir estritamente o formato clássico da web, por exemplo: `Mon, 06 Mar 2028 00:00:00 +0000`. Não utilizar formatação ISO 8601.
+5. **Blindagem CDATA:** Todo o conteúdo descritivo e o corpo interno na tag `<content:encoded>` devem ser isolados em tags `<![CDATA[ ... ]]>` para impedir que código fonte ou tags HTML dos artigos quebrem a árvore XML do feed.
+
 ---
 
 ## 🌐 Evitando Câmaras de Eco (Diretrizes de Evolução)
