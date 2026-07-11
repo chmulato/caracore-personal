@@ -8,7 +8,7 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
 
 ## Visão Geral do Blog
 
-* **Total de Artigos:** 222 artigos publicados.
+* **Total de Artigos:** 231 artigos publicados.
 * **Período de Publicações:** de março de 2024 a março de 2028.
 * **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
   * [Auditor de Sistemas](https://personal.caracore.com.br/articles/2028_01_18_serie_auditor_sistemas_chamada.html): Pós-graduação autodidata de 2028 para profissionais com mais de 8 anos de estrada, cobrindo a governança de TI (COBIT/CRISC), perícia forense e cadeia de custódia (ISO/IEC 27037), e compliance fiscal internacional (cost sharing e preços de transferência).
@@ -18,6 +18,7 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
   * [As Redes Invisíveis](https://personal.caracore.com.br/articles/2027_02_12_serie_redes_invisiveis_index.html): Telecomunicações, bilhetagem de transporte e resiliência cibernética.
   * [Horizonte do Essencial](https://personal.caracore.com.br/articles/2026_06_05_serie_horizonte_essencial_chamada.html): Reflexões sobre hardware local, soberania de código e desenvolvimento sustentável.
   * [Recolocação Java](https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html): Guias pragmáticos de carreira, contratação e testes práticos de arquitetura.
+  * [Do RPA ao Silício](https://personal.caracore.com.br/articles/2026_08_25_serie_do_rpa_ao_silicio_a_grande_transformacao_chamada.html): Crônica ficcional com fundo de verdade técnica e histórica sobre o futuro do desenvolvimento, automação cognitiva, sistemas operacionais e a geopolítica física do silício.
   * [Protocolo de Lucerna](https://personal.caracore.com.br/articles/2026_04_20_serie_protocolo_lucerna_index.html): Histórias e análises de segurança em sistemas corporativos legados.
   * [O Mito da Eficiência](https://personal.caracore.com.br/articles/2026_12_15_serie_mito_eficiencia_ia_silicio_index.html): IA, silício e a busca racional por otimização real.
   * [A Ilusão Informatizada](https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html): Ensaios críticos sobre o avanço tecnológico acelerado.

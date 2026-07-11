@@ -16,8 +16,8 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 
 ## 📈 Status Atual (Ciclo Ativo: jun/2026 a mai/2029)
 
-* **Total de Artigos Publicados:** 221 artigos
-* **Total de Séries com Índice Próprio:** 15 séries
+* **Total de Artigos Publicados:** 230 artigos
+* **Total de Séries com Índice Próprio:** 17 séries
 * **Período do Acervo:** março de 2024 a março de 2028
 * **Lista de Séries Ativas:**
   1. **Além do Hype** (Index + 5 Episódios) — Arquitetura de software, matemática de escala e FinOps.
@@ -36,6 +36,7 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
   14. **Blindagem de Sistemas Autodidata 2027 — Lições de Apoio** (7 Episódios) — Aulas de apoio e nivelamento prático utilizando analogias lógicas simples e tutoria de IA no navegador para estudantes de menor base técnica.
   15. **Auditor de Sistemas Autodidata 2028** (Chamada + 4 Episódios) — Pós-graduação prática em perícia forense digital, auditoria contábil/fiscal, e compliance (SOX) em engenharia de sistemas.
   16. **Auditor de Sistemas Autodidata 2028 — Lições de Apoio** (4 Episódios) — Aprofundamento legal, dicionários de termos jurídicos/compliance e dois exercícios práticos interativos com a IA do navegador.
+  17. **Do RPA ao Silício** (Chamada + 8 Episódios) — Crônica ficcional com fundo de verdade técnica e histórica sobre o futuro do desenvolvimento, automação cognitiva, sistemas operacionais e a geopolítica física do silício.
 
 ---
 
