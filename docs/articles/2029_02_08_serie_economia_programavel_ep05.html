@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2029_02_08_serie_economia_programavel_ep05.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2029_02_08_serie_economia_programavel_ep05.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2029_02_08_IMAGE_001.png" />
+    <title>Episódio 05: O Botão de Desliga e a Privacidade — Série Economia Programável</title>
+    <meta name="description" content="Discussão sobre a privacidade comercial na economia tokenizada: os dilemas de sigilo bancário em redes públicas e a segurança contra a computação quântica.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="ZKP, Prova de Conhecimento Zero, Criptografia Pós-Quantum, Privacidade, Drex, Sigilo Comercial">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <style>
+        /* Teaser Banner */
+        .teaser-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0 2.5rem 0;
+            border: 1px solid #334155;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .teaser-video {
+            width: 100%;
+            max-width: 720px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+        }
+        .teaser-caption {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 0.75rem;
+        }
+
+        /* Divisores de Seção */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 3.5rem 0;
+        }
+
+        /* Blocos Editoriais (Tese, Antítese, Síntese) */
+        .editorial-block {
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+            border-left: 5px solid var(--primary-color);
+            background: var(--background-light);
+            box-shadow: var(--shadow-sm);
+        }
+        .editorial-block.tese {
+            border-left-color: #0f766e;
+            background: rgba(15, 118, 110, 0.03);
+        }
+        .editorial-block.antitese {
+            border-left-color: #be123c;
+            background: rgba(190, 18, 60, 0.03);
+        }
+        .editorial-block.sintese {
+            border-left-color: #d97706;
+            background: rgba(217, 119, 6, 0.03);
+        }
+        [data-theme="dark"] .editorial-block.tese {
+            background: rgba(15, 118, 110, 0.08);
+        }
+        [data-theme="dark"] .editorial-block.antitese {
+            background: rgba(190, 18, 60, 0.08);
+        }
+        [data-theme="dark"] .editorial-block.sintese {
+            background: rgba(217, 119, 6, 0.08);
+        }
+        .block-summary {
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Cartões de Conceito */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .concept-card {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .concept-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #be123c;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .concept-card p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        /* Glossário em Cartões */
+        .chalkboard-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .chalkboard-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: background 0.3s ease;
+        }
+        .chalkboard-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .chalkboard-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #d7ede4;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .chalkboard-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #eef7f2;
+        }
+
+        /* Bloco de Takeaways */
+        .takeaway-block {
+            background: rgba(15, 118, 110, 0.05);
+            border-left: 4px solid #0f766e;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+        [data-theme="dark"] .takeaway-block {
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .takeaway-block h3 {
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .takeaway-block ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        .takeaway-block li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Bloco Pedagógico (Por que esta aula importa) */
+        .pedagogic-block {
+            background: rgba(15, 118, 110, 0.05);
+            border-left: 4px solid #0f766e;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        [data-theme="dark"] .pedagogic-block {
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .pedagogic-block h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            color: #0f766e;
+            font-weight: 700;
+        }
+        .pedagogic-block p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Mapa Visual/Fluxo da Aula */
+        .class-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            font-size: 0.88rem;
+            font-weight: 600;
+            overflow-x: auto;
+        }
+        .flow-step {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+        }
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="2029_01_04_serie_economia_programavel_chamada.html">Índice da Série</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Módulo 05: Gestão de Risco</p>
+                <h1 class="post-title">O Botão de Desliga e a Privacidade (Ep. 05)</h1>
+                <div class="post-meta">
+                    <time datetime="2029-02-08">08/02/2029</time> — Episódio 05 | Pós-Graduação Autodidata 2029 | O Sigilo de Balanços Corporativos vs. o Poder do Auditor Soberano
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
+                    <img src="assets/img/2029_02_08_IMAGE_001.png" alt="O Botão de Desliga e a Privacidade" class="hero-image" />
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">O cadeado digital na rede: a complexidade de desenhar travas lógicas imutáveis que garantam conformidade e privacidade ao mesmo tempo.</figcaption>
+                </figure>
+
+                <!-- Teaser Visual (Banner Escuro) -->
+                <div class="teaser-banner">
+                    <video class="teaser-video" autoplay loop muted playsinline>
+                        <source src="assets/videos/2029_02_08_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a exibição de vídeos em HTML5.
+                    </video>
+                    <p class="teaser-caption">Teaser: O cadeado digital na rede e a privacidade em balanços corporativos.</p>
+                </div>
+
+                <!-- Por que esta aula importa -->
+                <div class="pedagogic-block">
+                    <h4>Por que esta aula importa para a sua jornada na Pós-Graduação?</h4>
+                    <p>Esta aula aborda o equilíbrio entre a necessidade de conformidade regulatória estatal e a privacidade empresarial no ecossistema do Drex. Compreender como blindar dados financeiros em livros-razão compartilhados é essencial para profissionais que desenham soluções de <strong>criptografia aplicada</strong> e segurança contra a iminente ameaça dos computadores quânticos sobre as chaves públicas clássicas.</p>
+                </div>
+
+                <!-- O que você precisa saber antes de continuar (Base Comum) -->
+                <div style="background: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
+                    <h4 style="margin-top: 0; margin-bottom: 1rem; color: var(--primary-color); font-weight: 700; font-size: 1.1rem;">O que você precisa saber antes de continuar:</h4>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
+                        <li style="margin-bottom: 0.5rem;"><strong>Privacidade vs. Transparência:</strong> Redes públicas de blockchain expõem dados, o que exige o uso de tecnologias de anonimização para viabilizar o uso corporativo de CBDCs.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Ameaça Quântica:</strong> A computação quântica é capaz de quebrar algoritmos criptográficos amplamente utilizados hoje, exigindo uma transição para padrões de criptografia pós-quantum.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Conformidade e Sigilo:</strong> As Provas de Conhecimento Zero permitem comprovar a regularidade fiscal de uma transação sem expor detalhes confidenciais sobre os saldos e as partes envolvidas.</li>
+                    </ul>
+                </div>
+
+                <!-- Fluxo Visual da Aula -->
+                <div class="class-flow">
+                    <div class="flow-step">1. Transparência da CBDC</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">2. Risco de Espionagem</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">3. Vulnerabilidade Quântica</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">4. Resolução via ZKP</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">5. Auditoria Blindada</div>
+                </div>
+
+                <p>À medida que a economia mundial migra para as arquiteturas de livros-razão compartilhados (DLT — Distributed Ledger Technology, ou Tecnologia de Livro-Razão Distribuído), o antigo sigilo bancário herdado da era do papel enfrenta sua maior crise de integridade. Em redes de blockchain (cadeia de blocos) ou livros distribuídos tradicionais, a validação de saldos e transações exige um nível de transparência que, no mundo corporativo real, beira a insanidade operacional. Nenhuma empresa de capital consolidado quer que seus concorrentes consigam espiar o saldo de sua tesouraria na rede ou rastrear seus pagamentos a fornecedores estratégicos.</p>
+                <p>A tensão entre a necessidade de auditoria direta por governos (para impedir sonegações e lavagem de capitais) e a obrigação de sigilo comercial das corporações privadas é a linha de frente do desenvolvimento da segurança criptográfica moderna.</p>
+                <p>Essa exposição forçada acende o sinal de alerta sobre as salvaguardas da moeda digital soberana. A verdadeira pergunta que o investidor corporativo e o diretor de tesouraria devem fazer não é se a rede distribuída é segura, mas: <strong>como o Estado planeja conciliar a transparência exigida para auditoria fiscal em tempo real com a lei de sigilo bancário e a privacidade comercial de transações privadas?</strong></p>
+                <hr class="section-divider" />
+
+                <!-- Tese Editorial -->
+                <div class="editorial-block tese">
+                    <h3 style="margin-top:0; color:#0f766e; font-size:1.35rem; font-weight:800;">Tese — A Auditoria Central sem Vazamentos</h3>
+                    <div class="block-summary">
+                        Em uma frase: Os bancos centrais sustentam que a auditoria fiscal em tempo real de CBDCs (Moedas Digitais de Banco Central) preservará o sigilo tradicional por rodar sob validadores autorizados.
+                    </div>
+                    <p>Os bancos centrais sustentam que a migração para CBDCs (Moedas Digitais de Banco Central) como o Drex (a moeda digital brasileira) preserva a lei de sigilo bancário tradicional. No modelo proposto, a rede distribuída roda sob o crivo de validadores institucionais autorizados, garantindo que o cidadão comum não consiga bisbilhotar o saldo alheio.</p>
+                    <p>Isso permite um ambiente de controle centralizado de alta eficácia:</p>
+                    <ul>
+                        <li><strong>Auditoria em Tempo Real:</strong> A Receita Federal e os reguladores financeiros validam a conformidade fiscal das transações comerciais no momento exato em que elas ocorrem, minimizando fraudes tributárias crônicas e reduzindo o tempo de fiscalização.</li>
+                        <li><strong>Prevenção de Ilicitudes:</strong> Sistemas de inteligência de rede bloqueiam de forma imediata e automatizada fluxos financeiros suspeitos vinculados a atividades de lavagem de dinheiro ou lavagem de ativos RWA (Real World Assets, ou Ativos do Mundo Real), antes que o capital seja retirado da rede.</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider" />
+
+                <!-- Antítese Editorial -->
+                <div class="editorial-block antitese">
+                    <h3 style="margin-top:0; color:#be123c; font-size:1.35rem; font-weight:800;">Antítese — Os Furos do Panóptico Monetário</h3>
+                    <div class="block-summary">
+                        Em uma frase: A centralização de chaves de rede expõe empresas ao risco de espionagem, obsolescência por ataque quântico e bloqueios estatais unilaterais.
+                    </div>
+                    <p>Apesar da retórica de blindagem de dados, o modelo de governança centralizada carrega vulnerabilidades de segurança física e geopolítica gravíssimas:</p>
+
+                    <div class="cards-container">
+                        <div class="concept-card">
+                            <h4>1. O Perigo da Espionagem Comercial Concorrencial</h4>
+                            <p>Mesmo que a rede seja restrita e privada, os nós validadores são operados por consórcios de bancos de varejo e instituições financeiras privadas concorrentes. Se um administrador de rede mal-intencionado ou um invasor conseguir acesso às APIs (Application Programming Interfaces, ou Interfaces de Programação de Aplicação) de validação desses nós, ele poderá monitorar em tempo real a movimentação financeira de grandes indústrias e redes comerciais parceiras, obtendo inteligência competitiva e vazando segredos industriais valiosos.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>2. A Ameaça Silenciosa do Ataque Quântico</h4>
+                            <p>As chaves criptográficas que protegem o Drex (a moeda digital do Banco Central) e as assinaturas de smart contracts (contratos inteligentes) hoje baseiam-se em algoritmos matemáticos tradicionais (como RSA, um sistema de criptografia de chave assimétrica, e curva elíptica). O avanço célere da computação quântica indica que esses algoritmos serão quebrados na próxima década. Se um Estado adversário ou grupo cibercriminoso desenvolver computadores quânticos funcionais antes da transição da rede, ele poderá descriptografar saldos históricos gravados em blockchain e falsificar assinaturas de transferência de propriedades de forma invisível.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>3. O Abuso Regulatório do "Botão de Pânico"</h4>
+                            <p>Ao centralizar o código das chaves de segurança sob as regras de bancos centrais, o cidadão e a empresa perdem o poder sobre a auto-custódia (guarda própria das chaves privadas) patrimonial. Caso o poder político mude suas diretrizes ou aplique sanções unilaterais, o Estado ganha a habilidade de congelar ou fazer expirar fundos corporativos inteiros de forma imediata e sem fricção burocrática judicial, eliminando a soberania do ativo privado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider" />
+
+                <!-- Síntese Editorial -->
+                <div class="editorial-block sintese">
+                    <h3 style="margin-top:0; color:#d97706; font-size:1.35rem; font-weight:800;">Síntese — As Novas Defesas Matemáticas</h3>
+                    <div class="block-summary">
+                        Em uma frase: A tecnologia de Provas de Conhecimento Zero (ZKP, ou Zero-Knowledge Proofs) surge como solução criptográfica para validar balanços comerciais mantendo a privacidade.
+                    </div>
+                    <p>O desafio de equilibrar a soberania do ativo com a auditoria estatal não pode ser resolvido com leis tradicionais. A resposta está na própria matemática criptográfica. A ascensão de tecnologias de <strong>Zero-Knowledge Proofs (ZKP, ou Provas de Conhecimento Zero)</strong> permite provar a conformidade de um saldo comercial à fiscalização pública sem expor os valores brutos das contas na rede, mantendo o balanço empresarial seguro de olhares bisbilhoteiros.</p>
+                    <p>No próximo sábado, na nossa lição de apoio, desmitificaremos o funcionamento prático das Provas de Conhecimento Zero (ZKP, ou Zero-Knowledge Proofs), simulando exercícios e testando as defesas contra invasões de balanços.</p>
+                </div>
+
+                <!-- O que você deve levar deste episódio (Takeaways) -->
+                <div class="takeaway-block">
+                    <h3>O que você deve levar deste episódio:</h3>
+                    <ul>
+                        <li>As CBDCs (Moedas Digitais de Banco Central) e os livros-razão compartilhados aumentam a eficácia da auditoria fiscal estatal, mas expõem dados transacionais corporativos a vazamentos competitivos.</li>
+                        <li>O avanço dos computadores quânticos ameaça quebrar chaves criptográficas tradicionais, exigindo transição imediata para algoritmos de criptografia pós-quantum.</li>
+                        <li>As Provas de Conhecimento Zero (ZKP, ou Zero-Knowledge Proofs) permitem conciliar as obrigações regulatórias de transparência fiscal com o sigilo comercial necessário às corporações.</li>
+                    </ul>
+                </div>
+
+                <!-- Quadro Verde de Giz (Chalkboard) em Formato de Cartões -->
+                <div class="chalkboard">
+                    <div class="chalkboard-caption">Quadro de Giz: O Vocabulário do Módulo 05</div>
+                    
+                    <div class="chalkboard-cards">
+                        <div class="chalkboard-card">
+                            <h4>APIs (Application Programming Interfaces)</h4>
+                            <p>Interfaces de Programação de Aplicação. Conjunto de padrões e rotinas que permitem a comunicação e integração de dados entre diferentes sistemas de software de forma automatizada.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>CBDC (Central Bank Digital Currency)</h4>
+                            <p>Moeda Digital de Banco Central. A representação digital e oficial da moeda soberana de um país (como o Drex no Brasil), emitida e regulada pela autoridade monetária nacional.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Criptografia Pós-Quantum</h4>
+                            <p>O desenvolvimento de novos algoritmos de segurança matemática projetados para serem robustos e indestrutíveis mesmo contra ataques de decifração realizados por computadores quânticos ultravelozes.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>DLT (Distributed Ledger Technology)</h4>
+                            <p>Tecnologia de Livro-Razão Distribuído. Um ecossistema de bancos de dados descentralizados compartilhados e sincronizados entre múltiplos participantes, sem a necessidade de um administrador centralizado de dados.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Drex</h4>
+                            <p>A representação digital oficial do Real brasileiro, desenvolvida pelo Banco Central, que opera como uma plataforma programável para transações e liquidações financeiras eficientes.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>RWA (Real World Assets)</h4>
+                            <p>Ativos do Mundo Real. Bens tangíveis ou intangíveis do mundo real (como imóveis, commodities ou veículos) representados digitalmente sob a forma de tokens em uma blockchain.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Smart Contracts</h4>
+                            <p>Contratos Inteligentes. Programas de computador autoexecutáveis hospedados em uma rede distribuída que executam ações predefinidas automaticamente quando as condições contratuais são atendidas.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Zero-Knowledge Proofs (ZKP)</h4>
+                            <p>Provas de Conhecimento Zero. Protocolos criptográficos que permitem a uma parte comprovar a veracidade de uma informação a outra parte sem revelar qualquer dado adicional além da própria validade da afirmação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pergunta-Guia para Reflexão do Aluno -->
+                <div style="border-top: 1px dashed var(--border-color); padding-top: 1.5rem; margin-top: 2.5rem; margin-bottom: 2.5rem;">
+                    <h4 style="margin-top: 0; color: var(--primary-color); font-weight: 700; font-size: 1.1rem;">🧠 Pergunta-Guia de Reflexão para a Aula:</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-color); font-style: italic;">
+                        "Se o Estado detém o poder de auditar transações e congelar saldos em tempo real por meio de um 'botão de pânico' na rede, a implementação de criptografia avançada como as Provas de Conhecimento Zero realmente protege a soberania patrimonial das empresas ou apenas mascara temporariamente quem está sendo vigiado?"
+                    </p>
+                </div>
+
+                <div class="next-episode">
+                    <strong>Próximo Passo:</strong> Leia a lição prática de nivelamento <a href="2029_02_10_serie_economia_programavel_apoio_ep05.html">Apoio 05 — A Máscara Matemática</a>, onde explicaremos o ZKP e traremos exercícios de segurança com a IA.
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2029 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>
+
+

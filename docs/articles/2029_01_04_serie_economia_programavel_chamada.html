@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2029_01_04_serie_economia_programavel_chamada.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2029_01_04_serie_economia_programavel_chamada.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2029_01_04_IMAGE_001.png" />
+    <title>Série: Economia Programável e Soberania de Ativos — Chamada e Índice</title>
+    <meta name="description" content="Abertura oficial e índice de aulas da Pós-Graduação Autodidata de 2029 em Economia Programável, Tokenização de Ativos e Geopolítica Monetária.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Economia Programável, Tokenização, RWA, Drex, CBDC, Smart Contracts, BIS, BRICS, ZKP, Soberania Digital">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <style>
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        .episode-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .episode-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1f2937 0%, #0f766e 100%);
+        }
+        .episode-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .episode-number {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .episode-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .episode-title a:hover {
+            color: #0f766e;
+        }
+        .episode-teaser {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .episode-date {
+            font-size: 0.8rem;
+            color: #333;
+            margin-top: auto;
+        }
+        .episode-card-figure {
+            margin: 0;
+        }
+        .episode-card-caption {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.45;
+            padding: 0.5rem 0.85rem 0.65rem;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .episode-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        [data-theme="dark"] .episode-card-caption {
+            color: #94a3b8;
+            background: #0f172a;
+            border-top-color: #334155;
+        }
+        [data-theme="dark"] .episode-number {
+            color: #94a3b8;
+        }
+        [data-theme="dark"] .episode-title a {
+            color: #f1f5f9;
+        }
+        [data-theme="dark"] .episode-title a:hover {
+            color: #38bdf8;
+        }
+        [data-theme="dark"] .episode-teaser {
+            color: #cbd5e1;
+        }
+        [data-theme="dark"] .episode-date {
+            color: #cbd5e1;
+        }
+        .study-note {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+            color: #1f2937;
+        }
+        [data-theme="dark"] .study-note {
+            background: #2d200f;
+            border-left-color: #f59e0b;
+            color: #fef3c7;
+        }
+        .value-proposition {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            border-left: 5px solid #3b82f6;
+            color: #f8fafc;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="../editorial/sobre-o-autor.html">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Pós-Graduação Autodidata 2029</p>
+                <h1 class="post-title">Série: Economia Programável e Soberania de Ativos</h1>
+                <div class="post-meta">
+                    <time datetime="2029-01-04">04/01/2029</time> — Chamada e índice | Pós-Graduação Autodidata 2029 | Módulos e Material de Apoio
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
+                    <img src="assets/img/2029_01_04_IMAGE_001.png" alt="Série Economia Programável: chamada" class="hero-image" />
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">Capa editorial da pós-graduação: um farol de clareza guiando o investidor e o empresário na transição definitiva para a tokenização e o dinheiro programável.</figcaption>
+                </figure>
+
+                <p>A democratização da tecnologia financeira gerou um paradoxo: a nossa principal barreira não é a escassez de manuais, mas o ruído das redes sociais e o excesso de tecniquês inflado. Esta série é a <strong>Pós-Graduação Autodidata de 2029</strong> do blog. Se você é empresário ou investidor que precisa navegar a transição monetária com segurança e vantagem competitiva, esta série foi feita para você.</p>
+
+                <div class="value-proposition">
+                    “Em 8 semanas, você terá domínio prático sobre tokenização, dinheiro programável e soberania de ativos — sem depender de especialistas.”
+                </div>
+
+                <p>Em vez de consumir termos fragmentados como Drex, CBDC e RWA em feeds efêmeros, nosso propósito é construir uma linha de consulta permanente. Iremos conectar as pontas do tabuleiro global que se estende de Basileia ao Paraná de forma clara, dialética e pragmática.</p>
+
+                <div class="study-note">
+                    <strong>A Metodologia da "Escada do Vocabulário"</strong><br>
+                    Para garantir sua retenção, cada módulo proíbe siglas assustadoras no primeiro momento. Nós limparemos a sala de jargões e explicaremos o conceito por meio de analogias simples. Somente quando você entender a engrenagem, apresentaremos os termos formais. O jargão técnico vira ferramenta de poder, não barreira de entrada (Ex.: antes de falar em "CBDC", explicamos primeiro o que é "dinheiro com condições").
+                </div>
+
+                <h2>O Roadmap da Transição: Índice de Episódios</h2>
+                <p>Siga o índice cronológico de lançamentos (episódios conceituais às quintas-feiras e lições de apoio aos sábados). Use a IA de seu navegador nas lições de sábado para simular os casos práticos:</p>
+
+                <!-- Módulo 1 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 01: O Cenário Macro</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Iniciamos decifrando as pressões invisíveis que derretem o valor das moedas nacionais e as escolhas fiscais de governos devedores.</p>
+                
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_01_11_IMAGE_001.png" alt="Episódio 1" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A balança do Fed, inflação de governos e a dominância fiscal.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 01</div>
+                            <h3 class="episode-title"><a href="2029_01_11_serie_economia_programavel_ep01.html">A Escolha de Sofia dos Bancos Centrais</a></h3>
+                            <p class="episode-teaser">A inflação é um erro ou uma escolha calculada para derreter dívidas públicas? Desmistificamos a reatividade do Fed e do BCE.</p>
+                            <div class="episode-date"><strong>Lançamento: 11/01/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_01_13_IMAGE_001.png" alt="Apoio 1" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Conceitos fundamentais da economia sem economês.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 01</div>
+                            <h3 class="episode-title"><a href="2029_01_13_serie_economia_programavel_apoio_ep01.html">O Termômetro da Dívida</a></h3>
+                            <p class="episode-teaser">Entendendo as taxas de juros, inflação e passivos do Estado através de exemplos simples, sem precisar de diploma de economia.</p>
+                            <div class="episode-date"><strong>Lançamento: 13/01/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 2 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 02: O Plano do BIS</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Agora que você entende o estresse fiscal soberano, avançamos para o plano suíço de unificação global de dinheiro e propriedades.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_01_18_IMAGE_001.png" alt="Episódio 2" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A unificação do dinheiro e ativos no Blueprint do BIS.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 02</div>
+                            <h3 class="episode-title"><a href="2029_01_18_serie_economia_programavel_ep02.html">O Tabuleiro de Basileia / Unified Ledger</a></h3>
+                            <p class="episode-teaser">A estratégia suíça para unificar dinheiro do Banco Central, depósitos tokenizados e ativos reais. O que está por trás do código.</p>
+                            <div class="episode-date"><strong>Lançamento: 18/01/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_01_20_IMAGE_001.png" alt="Apoio 2" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Mapeamento de tabelas unificadas e dados imutáveis.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 02</div>
+                            <h3 class="episode-title"><a href="2029_01_20_serie_economia_programavel_apoio_ep02.html">O Cartório Único</a></h3>
+                            <p class="episode-teaser">Como as tabelas digitais e contratos de programabilidade de ativos garantem a liquidez, explicados por analogia.</p>
+                            <div class="episode-date"><strong>Lançamento: 20/01/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 3 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 03: O Caso Brasil</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Com a base teórica estruturada, investigamos como o Banco Central desenha o Drex sob a governança geopolítica ocidental.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_01_25_IMAGE_001.png" alt="Episódio 3" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Do Pix ao Drex: o sandbox financeiro do Banco Central do Brasil.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 03</div>
+                            <h3 class="episode-title"><a href="2029_01_25_serie_economia_programavel_ep03.html">O Sandbox Verde-Amarelo</a></h3>
+                            <p class="episode-teaser">Como a digitalização em massa preparou o consumidor brasileiro. O Drex sob a governança europeia/americana e as diretrizes do BIS.</p>
+                            <div class="episode-date"><strong>Lançamento: 25/01/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_01_27_IMAGE_001.png" alt="Apoio 3" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Como funcionam as transações condicionadas de dinheiro inteligente.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 03</div>
+                            <h3 class="episode-title"><a href="2029_01_27_serie_economia_programavel_apoio_ep03.html">Pix com Garantia</a></h3>
+                            <p class="episode-teaser">Explicando as CBDCs para leigos: contratos inteligentes automáticos para compras sem intermediários ou medo de calotes.</p>
+                            <div class="episode-date"><strong>Lançamento: 27/01/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 4 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 04: O Laboratório Paraná</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Aterrissamos no teste prático paranaense, onde chassis de frotas físicas fundem-se a registros de blockchains governamentais.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_01_IMAGE_001.png" alt="Episódio 4" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Tokenização de veículos e a blockchain governamental da Celepar.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 04</div>
+                            <h3 class="episode-title"><a href="2029_02_01_serie_economia_programavel_ep04.html">A Venda Atômica no Paraná</a></h3>
+                            <p class="episode-teaser">O Passaporte Veicular Digital do Detran-PR. A engenharia da Tecpar, Celepar e Vetrii gravando o DNA veicular na blockchain.</p>
+                            <div class="episode-date"><strong>Lançamento: 01/02/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_03_IMAGE_001.png" alt="Apoio 4" class="episode-card-image">
+                            <figcaption class="episode-card-caption">O fim dos despachantes e a velocidade de giro de capital.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 04</div>
+                            <h3 class="episode-title"><a href="2029_02_03_serie_economia_programavel_apoio_ep04.html">O Fim da Fricção</a></h3>
+                            <p class="episode-teaser">Como a transferência instantânea de propriedades físicas desburocratiza e aumenta o giro de capital para pequenas e médias empresas.</p>
+                            <div class="episode-date"><strong>Lançamento: 03/02/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 5 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 05: Gestão de Risco</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Subimos o tom técnico para analisar os dilemas de sigilo comercial e a iminente ameaça dos computadores quânticos.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_08_IMAGE_001.png" alt="Episódio 5" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Privacidade e conformidade comercial na blockchain.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 05</div>
+                            <h3 class="episode-title"><a href="2029_02_08_serie_economia_programavel_ep05.html">O Botão de Desliga e a Privacidade</a></h3>
+                            <p class="episode-teaser">O dilema entre conformidade de dados e sigilo comercial. Como proteger balanços de empresas em redes públicas.</p>
+                            <div class="episode-date"><strong>Lançamento: 08/02/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_10_IMAGE_001.png" alt="Apoio 5" class="episode-card-image">
+                            <figcaption class="episode-card-caption">A blindagem matemática aplicada ao patrimônio comercial.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 05</div>
+                            <h3 class="episode-title"><a href="2029_02_10_serie_economia_programavel_apoio_ep05.html">A Máscara Matemática</a></h3>
+                            <p class="episode-teaser">Como funcionam as Provas de Conhecimento Zero: validando saldos e conformidades sem revelar dados confidenciais.</p>
+                            <div class="episode-date"><strong>Lançamento: 10/02/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 6 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 06: Geopolítica</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Analisamos a diplomacia camaleão da moeda brasileira, dividida entre as normas ocidentais e a demanda dos BRICS Pay.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_15_IMAGE_001.png" alt="Episódio 6" class="episode-card-image">
+                            <figcaption class="episode-card-caption">O pragmatismo diplomático brasileiro: BIS vs BRICS.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 06</div>
+                            <h3 class="episode-title"><a href="2029_02_15_serie_economia_programavel_ep06.html">O DNA Camaleão e a Geopolítica</a></h3>
+                            <p class="episode-teaser">O histórico pragmatismo brasileiro e a lição Embraer-Boeing aplicada à programabilidade monetária contra sanções.</p>
+                            <div class="episode-date"><strong>Lançamento: 15/02/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_17_IMAGE_001.png" alt="Apoio 6" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Lições de soberania corporativa para ecossistemas híbridos.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 06</div>
+                            <h3 class="episode-title"><a href="2029_02_17_serie_economia_programavel_apoio_ep06.html">O Voo Independente</a></h3>
+                            <p class="episode-teaser">Como desenhar arquiteturas de negócios e de ativos híbridas para evitar o risco de alinhamento unilateral.</p>
+                            <div class="episode-date"><strong>Lançamento: 17/02/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 7 -->
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Módulo 07: O Futuro da Gestão</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; font-style: italic;">Concluímos decifrando a entrada das redes neurais e agentes de IA como atores autônomos na rede financeira digital.</p>
+
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_22_IMAGE_001.png" alt="Episódio 7" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Agentes autônomos de IA transacionando ativos com carteiras CBDC.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Episódio 07</div>
+                            <h3 class="episode-title"><a href="2029_02_22_serie_economia_programavel_ep07.html">A Convergência de 2029</a></h3>
+                            <p class="episode-teaser">Redes neurais atuando como agentes econômicos. A substituição do código manual pela arbitragem algorítmica de IA.</p>
+                            <div class="episode-date"><strong>Lançamento: 22/02/2029</strong></div>
+                        </div>
+                    </div>
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_02_24_IMAGE_001.png" alt="Apoio 7" class="episode-card-image">
+                            <figcaption class="episode-card-caption">Como liderar a automação de processos na economia inteligente.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Lição de Apoio 07</div>
+                            <h3 class="episode-title"><a href="2029_02_24_serie_economia_programavel_apoio_ep07.html">Máquinas no Mercado</a></h3>
+                            <p class="episode-teaser">O papel do gestor de ecossistemas integrados. Como coordenar e auditar agentes de IA operando sob regras financeiras.</p>
+                            <div class="episode-date"><strong>Lançamento: 24/02/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-separator" style="margin-top: 3rem;">
+
+                <h2>O Balanço Final</h2>
+                <div class="episode-grid" style="grid-template-columns: 1fr;">
+                    <div class="episode-card">
+                        <figure class="episode-card-figure">
+                            <img src="assets/img/2029_03_01_IMAGE_001.png" alt="Apêndice" class="episode-card-image" style="height: 250px;">
+                            <figcaption class="episode-card-caption">O canteiro de obras da destruição criativa na transição monetária global.</figcaption>
+                        </figure>
+                        <div class="episode-card-content">
+                            <div class="episode-number">Conclusão Pragmática</div>
+                            <h3 class="episode-title"><a href="2029_03_01_serie_economia_programavel_apendice.html">Apêndice: O Balanço da Transição</a></h3>
+                            <p class="episode-teaser">O inventário definitivo do choque de forças. Quais mercados serão aniquilados e quais oceanos azuis se abrem para quem se antecipar.</p>
+                            <div class="episode-date"><strong>Lançamento: 01/03/2029</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem;"><strong>Frequência de Publicações:</strong> Lançamentos semanais de episódios principais às quintas-feiras e materiais de apoio didático aos sábados, cobrindo o período de <strong>04/01/2029</strong> a <strong>01/03/2029</strong>.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2029 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2029_01_25_serie_economia_programavel_ep03.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2029_01_25_serie_economia_programavel_ep03.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2029_01_25_IMAGE_001.png" />
+    <title>Episódio 03: O Sandbox Verde-Amarelo — Série Economia Programável</title>
+    <meta name="description" content="Análise do Drex no Brasil: como o Banco Central construiu o sandbox regulatório sob as diretrizes do BIS e os impactos da moeda digital no mercado de crédito.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Drex, Pix, CBDC, Banco Central, Sandbox Regulatório, Programabilidade Monetária">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <style>
+        /* Teaser Banner */
+        .teaser-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0 2.5rem 0;
+            border: 1px solid #334155;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .teaser-video {
+            width: 100%;
+            max-width: 720px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+        }
+        .teaser-caption {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 0.75rem;
+        }
+
+        /* Divisores de Seção */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 3.5rem 0;
+        }
+
+        /* Blocos Editoriais (Tese, Antítese, Síntese) */
+        .editorial-block {
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+            border-left: 5px solid var(--primary-color);
+            background: var(--background-light);
+            box-shadow: var(--shadow-sm);
+        }
+        .editorial-block.tese {
+            border-left-color: #0f766e;
+            background: rgba(15, 118, 110, 0.03);
+        }
+        .editorial-block.antitese {
+            border-left-color: #be123c;
+            background: rgba(190, 18, 60, 0.03);
+        }
+        .editorial-block.sintese {
+            border-left-color: #d97706;
+            background: rgba(217, 119, 6, 0.03);
+        }
+        [data-theme="dark"] .editorial-block.tese {
+            background: rgba(15, 118, 110, 0.08);
+        }
+        [data-theme="dark"] .editorial-block.antitese {
+            background: rgba(190, 18, 60, 0.08);
+        }
+        [data-theme="dark"] .editorial-block.sintese {
+            background: rgba(217, 119, 6, 0.08);
+        }
+        .block-summary {
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Cartões de Conceito */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .concept-card {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .concept-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #be123c;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .concept-card p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        /* Glossário em Cartões */
+        .chalkboard-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .chalkboard-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: background 0.3s ease;
+        }
+        .chalkboard-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .chalkboard-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #d7ede4;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .chalkboard-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #eef7f2;
+        }
+
+        /* Bloco de Takeaways */
+        .takeaway-block {
+            background: rgba(15, 118, 110, 0.05);
+            border-left: 4px solid #0f766e;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+        [data-theme="dark"] .takeaway-block {
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .takeaway-block h3 {
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .takeaway-block ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        .takeaway-block li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Blocos Pedagógicos */
+        .pedagogic-block {
+            background: rgba(15, 118, 110, 0.05);
+            border-left: 4px solid #0f766e;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        [data-theme="dark"] .pedagogic-block {
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .pedagogic-block h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .pedagogic-block p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Mapa Visual/Fluxo da Aula */
+        .class-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            font-size: 0.88rem;
+            font-weight: 600;
+            overflow-x: auto;
+        }
+        .flow-step {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+        }
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="2029_01_04_serie_economia_programavel_chamada.html">Índice da Série</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Módulo 03: O Caso Brasil</p>
+                <h1 class="post-title">O Sandbox Verde-Amarelo (Ep. 03)</h1>
+                <div class="post-meta">
+                    <time datetime="2029-01-25">25/01/2029</time> — Episódio 03 | Pós-Graduação Autodidata 2029 | O Laboratório Brasileiro e as Regras do Drex
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
+                    <img src="assets/img/2029_01_25_IMAGE_001.png" alt="O Sandbox Verde-Amarelo" class="hero-image" />
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">O laboratório de testes do Banco Central: o Drex unindo a capilaridade da infraestrutura financeira brasileira ao plano de tokenização do BIS.</figcaption>
+                </figure>
+
+                <!-- Teaser Visual (Banner Escuro) -->
+                <div class="teaser-banner">
+                    <video class="teaser-video" autoplay loop muted playsinline>
+                        <source src="assets/videos/2029_01_25_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a exibição de vídeos em HTML5.
+                    </video>
+                    <p class="teaser-caption">Teaser: Os fluxos de dados e liquidez cruzando as fronteiras do dinheiro programável nacional.</p>
+                </div>
+
+                <!-- Por que esta aula importa -->
+                <div class="pedagogic-block">
+                    <h4>Por que esta aula importa para a sua jornada na Pós-Graduação?</h4>
+                    <p>Esta aula aprofunda o caso prático brasileiro: a transição do Pix para o Drex. Compreender a diferença entre trilhos de pagamentos simples e dinheiro inteligente nativo capacita você a modelar garantias de <strong>Escrow</strong> descentralizadas e automatizar fluxos de tesouraria sob regulação estrita do Banco Central.</p>
+                </div>
+
+                <!-- O que você precisa saber antes de continuar (Base Comum) -->
+                <div style="background: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
+                    <h4 style="margin-top: 0; margin-bottom: 1rem; color: var(--primary-color); font-weight: 700; font-size: 1.1rem;">O que você precisa saber antes de continuar:</h4>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
+                        <li style="margin-bottom: 0.5rem;"><strong>Pix vs. Drex:</strong> O Pix atua na camada de pagamentos (mensagem instantânea). O Drex atua na camada de liquidação (moeda digital inteligente que carrega regras de programação de negócios).</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Escrow (Depósito de Garantia):</strong> O processo de travar fundos comerciais sob custódia de um terceiro neutro até que as condições do contrato sejam cumpridas por ambas as partes.</li>
+                    </ul>
+                </div>
+
+                <!-- Fluxo Visual da Aula -->
+                <div class="class-flow">
+                    <div class="flow-step">1. Pix (Mensageria)</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">2. Sandbox Regulatório</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">3. Moeda Inteligente (Drex)</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">4. Trilhos de Conformidade</div>
+                </div>
+
+                <p>O Brasil é frequentemente citado em relatórios internacionais como um pioneiro inesperado em tecnologia financeira. A rápida adoção em massa do Pix em 2020 mudou profundamente a cultura de pagamentos do país, limpando os trilhos analógicos e forçando até mesmo as camadas informais da população a se digitalizarem. No entanto, o Banco Central do Brasil nunca viu o Pix como a linha de chegada, mas sim como a fundação de infraestrutura. O passo seguinte e definitivo chama-se Drex.</p>
+                <p>Sob a governança silenciosa do BIS (Bank for International Settlements — o "banco central dos bancos centrais", sediado em Basileia, na Suíça) e seguindo as normas europeias e americanas de prevenção à lavagem de dinheiro, o Banco Central brasileiro montou um dos maiores ambientes de testes controlados (sandboxes regulatórios) de moedas inteligentes do planeta. A meta é clara: transformar a moeda soberana em um ecossistema totalmente programável.</p>
+                <p>No debate público, a criação do Drex é vendida como uma evolução de conveniência digital para baratear serviços bancários. Mas a verdadeira pergunta que o empresário e o investidor estratégico devem fazer não é sobre quando o Drex substituirá o Pix, mas: <strong>por que o Banco Central gastaria bilhões para criar uma moeda programável se o Pix já realiza transferências instantâneas de graça?</strong></p>
+
+                <hr class="section-divider" />
+
+                <!-- Tese Editorial -->
+                <div class="editorial-block tese">
+                    <h3 style="margin-top:0; color:#0f766e; font-size:1.35rem; font-weight:800;">Tese — O Dinheiro com Inteligência Embutida</h3>
+                    <div class="block-summary">
+                        Em uma frase: O Banco Central do Brasil projeta o Drex como uma plataforma de moeda digital programável para baratear serviços sob as diretrizes técnicas do BIS.
+                    </div>
+                    <p>Na visão do Banco Central, a introdução do Drex representa o nascimento de uma plataforma de serviços financeiros interoperáveis. Em vez de simplesmente mover números de uma conta para outra, o Drex permite que o próprio dinheiro carregue as regras lógicas de sua transação.</p>
+                    <p>Para o ecossistema bancário, isso abre portas inéditas:</p>
+                    <ul>
+                        <li><strong>Redução de Custos de Garantias (Escrow):</strong> Transações comerciais complexas, que antes exigiam contratos de garantia caros administrados por terceiros, passam a executar suas regras de custódia e liberação de fundos de forma automática e descentralizada.</li>
+                        <li><strong>Interoperabilidade Rápida:</strong> Bancos de varejo, cooperativas de crédito e fintechs conectam-se na mesma rede distribuída do Banco Central, facilitando a portabilidade e a concorrência direta no mercado de crédito.</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider" />
+
+                <!-- Antítese Editorial -->
+                <div class="editorial-block antitese">
+                    <h3 style="margin-top:0; color:#be123c; font-size:1.35rem; font-weight:800;">Antítese — Os Furos do Modelo Verde-Amarelo</h3>
+                    <div class="block-summary">
+                        Em uma frase: A transição nacional enfrenta a barreira do Pix de varejo gratuito, os riscos de segregação digital e a dependência direta das normas de Basileia.
+                    </div>
+                    <p>Apesar da propaganda governamental de modernidade, o ambiente experimental brasileiro esbarra em desafios profundos de mercado e aceitação:</p>
+
+                    <div class="cards-container">
+                        <div class="concept-card">
+                            <h4>1. A Barreira da Inércia Cultural</h4>
+                            <p>Se o Pix foi adotado por ser instantâneo e gratuito para o cidadão comum, o Drex de varejo enfrenta uma barreira de utilidade imediata. O usuário médio olha para o dinheiro programável e questiona: <em>"Por que eu usaria o Drex se o Pix já transfere meu saldo de graça em segundos?"</em>. O Banco Central precisa provar que o Drex traz valor prático em compras complexas (como veículos e imóveis), sob o risco de a plataforma virar um deserto tecnológico de varejo.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>2. O Risco da Exclusão Financeira por Pressa</h4>
+                            <p>Ao forçar a tokenização e a digitalização acelerada dos ativos públicos, o Estado arrisca alienar parcelas significativas da população de mais idade ou de baixa renda, que carecem de alfabetização digital básica para operar carteiras inteligentes. Há um perigo real de criar um mercado de crédito de duas velocidades: um digital, barato e ágil para as elites, e outro analógico, caro e marginalizado para quem ficou de fora.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>3. A Dependência Externa de Padrões</h4>
+                            <p>O Banco Central do Brasil não constrói a arquitetura do Drex de forma autônoma. Ela é desenhada sob o estrito crivo de comitês internacionais em Basileia. Se o BIS decidir amanhã mudar o padrão de comunicação transfronteiriça de moedas soberanas para alinhar com o Dólar, o Brasil é obrigado a atualizar toda a sua malha interna, herdando riscos sistêmicos e custos de desenvolvimento decididos fora do território nacional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider" />
+
+                <!-- Síntese Editorial -->
+                <div class="editorial-block sintese">
+                    <h3 style="margin-top:0; color:#d97706; font-size:1.35rem; font-weight:800;">Síntese — A Consolidação da Infraestrutura</h3>
+                    <div class="block-summary">
+                        Em uma frase: A programabilidade é uma evolução inevitável que exige dos empresários a preparação operacional de seus fluxos de faturamento futuros.
+                    </div>
+                    <p>O dilema do Drex é a tensão natural de qualquer transição regulada. O sistema tradicional de crédito bancário não pode parar a marcha tecnológica sob pena de obsolescência geopolítica. O empresário pragmático não deve ignorar o Drex pela sua complexidade, mas sim entender como parametrizar seus próprios fluxos de faturamento para quando a programabilidade virar a regra padrão.</p>
+                    <p>No próximo sábado, na nossa lição de apoio, detalharemos como o Pix e o Drex se conectam para automatizar garantias comerciais, traduzindo o tecniquês do Banco Central em processos visuais de negócios.</p>
+                </div>
+
+                <!-- O que você deve levar deste episódio (Takeaways) -->
+                <div class="takeaway-block">
+                    <h3>O que você deve levar deste episódio:</h3>
+                    <ul>
+                        <li>O Drex introduz a programabilidade e contratos inteligentes na base monetária nacional, visando automatizar custódias de garantias e reduzir custos de intermediação.</li>
+                        <li>A rápida expansão do Pix dificulta a justificativa de utilidade de varejo do Drex, enquanto a transição acelerada arrisca acentuar a exclusão digital de populações de baixa renda.</li>
+                        <li>A arquitetura da moeda inteligente nacional é vinculada a diretrizes externas do BIS, atrelando o ambiente experimental de testes a decisões tomadas fora do país.</li>
+                    </ul>
+                </div>
+
+                <!-- Quadro Verde de Giz (Chalkboard) em Formato de Cartões -->
+                <div class="chalkboard">
+                    <div class="chalkboard-caption">Quadro de Giz: O Vocabulário do Módulo 03</div>
+                    
+                    <div class="chalkboard-cards">
+                        <div class="chalkboard-card">
+                            <h4>CBDC (Central Bank Digital Currency)</h4>
+                            <p>Moeda Digital de Banco Central (sigla em inglês). A representação digital e oficial da moeda física de um país, emitida, regulada e garantida diretamente pela autoridade monetária soberana.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Blockchain</h4>
+                            <p>Uma tecnologia de banco de dados compartilhado e descentralizado que funciona como um livro de registro público, gravando informações em blocos encadeados e protegidos por criptografia de forma totalmente imutável.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Drex</h4>
+                            <p>A moeda digital soberana oficial do Brasil (uma CBDC), criada e emitida pelo Banco Central do Brasil como uma plataforma digital inteligente baseada em blockchain para transações financeiras e contratos programáveis.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Escrow (Depósito em Garantia)</h4>
+                            <p>Mecanismo de segurança financeira onde os recursos da transação ficam retidos sob a custódia de um código automatizado (ou terceiro neutro) e são liberados apenas após a comprovação de entrega do bem ou serviço.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Fintechs</h4>
+                            <p>Empresas que unem tecnologia e finanças para criar serviços financeiros digitais inovadores (como crédito automatizado, contas digitais e soluções de pagamento), operando com menor burocracia e maior agilidade que as instituições bancárias tradicionais.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Interoperabilidade</h4>
+                            <p>A capacidade de diferentes sistemas, plataformas bancárias e redes de dados se comunicarem e transacionarem valores de forma direta, transparente e sem intermediários.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Liberação de Fundos</h4>
+                            <p>O ato de destravar e transferir o dinheiro ou os ativos retidos em garantia (escrow) para o vendedor, ocorrendo de forma automática por meio de contratos inteligentes assim que as condições acordadas são cumpridas.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Mercado de Crédito</h4>
+                            <p>O ecossistema financeiro onde ocorrem as operações de empréstimo e financiamento de dinheiro entre poupadores (quem tem recursos) e tomadores (empresas e pessoas que precisam de crédito), intermediadas por bancos e fintechs.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Normas de Basileia</h4>
+                            <p>Acordos de regulação bancária internacional desenvolvidos pelo Comitê de Basileia (no BIS, na Suíça) que impõem requisitos mínimos de capital, limites de risco e padrões de solvência para garantir a estabilidade do sistema financeiro global.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Portabilidade de Crédito</h4>
+                            <p>O direito legal do consumidor de transferir sua dívida ou saldo devedor de um banco para outro concorrente que ofereça melhores condições de juros e prazos.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Programabilidade Monetária</h4>
+                            <p>A capacidade de embutir regras de execução condicionais (contratos inteligentes) diretamente no código do dinheiro digital, determinando como, quando, por quem e para qual finalidade aquele capital pode ser transferido.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Regras de Custódia</h4>
+                            <p>O conjunto de normas técnicas, jurídicas ou lógicas de código que determinam quem tem a posse física ou o controle e guarda digital autorizada de um ativo financeiro ou propriedade tokenizada.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Sandbox Regulatório</h4>
+                            <p>Um ambiente de testes seguro, autorizado e supervisionado por órgãos reguladores (como o Banco Central) que permite a empresas testarem tecnologias e produtos financeiros sob regras flexíveis antes do lançamento oficial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pergunta-Guia para Reflexão do Aluno -->
+                <div style="background: rgba(217, 119, 6, 0.05); border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 1.5rem; margin: 2.5rem 0;">
+                    <h4 style="margin-top: 0; color: var(--primary-color); font-weight: 700; font-size: 1.1rem;">🧠 Pergunta-Guia de Reflexão para a Aula:</h4>
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-color); font-style: italic;">
+                        "Se o Drex permite que o Banco Central do Brasil incorpore travas de conformidade internacional e controle de destino direto no código da moeda, em que medida a soberania financeira de uma empresa depende de manter ativos fora desse cercado digital regulado?"
+                    </p>
+                </div>
+
+                <div class="next-episode">
+                    <strong>Próximo Passo:</strong> Acompanhe a lição prática de nivelamento <a href="2029_01_27_serie_economia_programavel_apoio_ep03.html">Apoio 03 — Pix com Garantia</a>, onde explicaremos o escrow automatizado e exercícios para simular o dinheiro programável.
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2029 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>
+
+

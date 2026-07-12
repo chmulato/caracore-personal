@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2029_01_18_serie_economia_programavel_ep02.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2029_01_18_serie_economia_programavel_ep02.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2029_01_18_IMAGE_001.png" />
+    <title>Episódio 02: O Tabuleiro de Basileia — Série Economia Programável</title>
+    <meta name="description" content="Análise crítica sobre o plano do Unified Ledger do BIS, o Projeto Ágora e as desconfianças do capital institucional sobre o dinheiro programável.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="BIS, Unified Ledger, Project Agora, RWA, Tokenização, Moeda Programável, Basileia">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+    <style>
+        /* Teaser Banner */
+        .teaser-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0 2.5rem 0;
+            border: 1px solid #334155;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .teaser-video {
+            width: 100%;
+            max-width: 720px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+        }
+        .teaser-caption {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 0.75rem;
+        }
+
+        /* Divisores de Seção */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 3.5rem 0;
+        }
+
+        /* Blocos Editoriais (Tese, Antítese, Síntese) */
+        .editorial-block {
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+            border-left: 5px solid var(--primary-color);
+            background: var(--background-light);
+            box-shadow: var(--shadow-sm);
+        }
+        .editorial-block.tese {
+            border-left-color: #0f766e;
+            background: rgba(15, 118, 110, 0.03);
+        }
+        .editorial-block.antitese {
+            border-left-color: #be123c;
+            background: rgba(190, 18, 60, 0.03);
+        }
+        .editorial-block.sintese {
+            border-left-color: #d97706;
+            background: rgba(217, 119, 6, 0.03);
+        }
+        [data-theme="dark"] .editorial-block.tese {
+            background: rgba(15, 118, 110, 0.08);
+        }
+        [data-theme="dark"] .editorial-block.antitese {
+            background: rgba(190, 18, 60, 0.08);
+        }
+        [data-theme="dark"] .editorial-block.sintese {
+            background: rgba(217, 119, 6, 0.08);
+        }
+        .block-summary {
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Diagrama de Pilares */
+        .diagram-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            border-left: 2px dashed var(--border-color);
+        }
+        .diagram-node {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: var(--background-light);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .diagram-icon {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f766e;
+            min-width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .diagram-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Cartões de Medo do Investidor */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .concept-card {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .concept-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #be123c;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .concept-card p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        /* Diagrama do Project Ágora */
+        .flow-diagram {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .flow-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flow-step {
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 0.6rem 1rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #374151;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        [data-theme="dark"] .flow-step {
+            background: #1e293b;
+            border-color: #334155;
+            color: #cbd5e1;
+        }
+        .flow-arrow {
+            font-weight: 700;
+            color: #0f766e;
+            font-size: 1.1rem;
+        }
+
+        /* Glossário em Cartões */
+        .chalkboard-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .chalkboard-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: background 0.3s ease;
+        }
+        .chalkboard-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .chalkboard-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #d7ede4;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .chalkboard-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #eef7f2;
+        }
+
+        /* Bloco de Takeaways */
+        .takeaway-block {
+            background: rgba(15, 118, 110, 0.05);
+            border-left: 4px solid #0f766e;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+        [data-theme="dark"] .takeaway-block {
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .takeaway-block h3 {
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .takeaway-block ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        .takeaway-block li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Blocos Pedagógicos */
+        .pedagogic-block {
+            background: rgba(15, 118, 110, 0.05);
+            border-left: 4px solid #0f766e;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        [data-theme="dark"] .pedagogic-block {
+            background: rgba(15, 118, 110, 0.1);
+        }
+        .pedagogic-block h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .pedagogic-block p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Mapa Visual/Fluxo da Aula */
+        .class-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            font-size: 0.88rem;
+            font-weight: 600;
+            overflow-x: auto;
+        }
+        .flow-step {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+        }
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="2029_01_04_serie_economia_programavel_chamada.html">Índice da Série</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Módulo 02: O Plano do BIS</p>
+                <h1 class="post-title">O Tabuleiro de Basileia / Unified Ledger (Ep. 02)</h1>
+                <div class="post-meta">
+                    <time datetime="2029-01-18">18/01/2029</time> — Episódio 02 | Pós-Graduação Autodidata 2029 | A Unificação do Tabuleiro Financeiro do Futuro
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame" style="text-align: center; margin: 0 auto 1.5rem auto;">
+                    <img src="assets/img/2029_01_18_IMAGE_001.png" alt="O Tabuleiro de Basileia" class="hero-image" />
+                    <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.95rem;">O tabuleiro de xadrez digital: a arquitetura do BIS para alinhar a custódia do dinheiro soberano à propriedade dos ativos reais sob o mesmo código de governança.</figcaption>
+                </figure>
+
+                <!-- Teaser Visual (Banner Escuro) -->
+                <div class="teaser-banner">
+                    <video class="teaser-video" autoplay loop muted playsinline>
+                        <source src="assets/videos/2029_01_18_VIDEO_001.mp4" type="video/mp4">
+                        Seu navegador não suporta a exibição de vídeos em HTML5.
+                    </video>
+                    <p class="teaser-caption">Teaser: A pulsação da poeira suspensa sobre o tabuleiro de xadrez holográfico da nova economia.</p>
+                </div>
+
+                <!-- Por que esta aula importa -->
+                <div class="pedagogic-block">
+                    <h4>Por que esta aula importa para a sua jornada na Pós-Graduação?</h4>
+                    <p>Esta aula estuda a estratégia global do BIS (Bank for International Settlements - o "banco central dos bancos centrais") de unificação monetária e patrimonial. Compreender o funcionamento do <strong>Unified Ledger</strong> e a tokenização de <strong>RWAs</strong> (Real World Assets - Ativos do Mundo Real) é vital para identificar novos polos de liquidez e planejar arquiteturas seguras de custódia corporativa.</p>
+                </div>
+
+                <!-- O que você precisa saber antes de continuar (Base Comum) -->
+                <div style="background: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
+                    <h4 style="margin-top: 0; margin-bottom: 1rem; color: var(--primary-color); font-weight: 700; font-size: 1.1rem;">O que você precisa saber antes de continuar:</h4>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
+                        <li style="margin-bottom: 0.5rem;"><strong>Dinheiro Soberano vs. Depósitos Tokenizados:</strong> A diferença entre o dinheiro emitido pelo Banco Central e os saldos digitais sob custódia de bancos comerciais privados.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Liquidação Atômica:</strong> A transação em que a transferência de propriedade e o pagamento financeiro ocorrem de forma instantânea e simultânea, eliminando riscos de calote.</li>
+                    </ul>
+                </div>
+
+                <!-- Fluxo Visual da Aula -->
+                <div class="class-flow">
+                    <div class="flow-step">1. Fricção Transacional</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">2. Unified Ledger do BIS</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">3. Tokenização de RWAs</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-step">4. Custódia Integrada</div>
+                </div>
+
+                <p>Imagine que você queira comprar uma casa. No sistema tradicional, você precisa transferir fundos de um banco para outro, ir ao cartório de registro de imóveis, obter assinaturas, recolher impostos municipais e aguardar dias até que o cartório confirme que o imóvel de fato agora é seu. Há uma separação física e temporal absoluta entre o registro da propriedade e a liquidação financeira.</p>
+                <p>Na Suíça, mais especificamente nas mesas de discussão do BIS (<em>Bank for International Settlements</em> — o "Banco Central dos Bancos Centrais" sediado em Basileia), essa divisão é vista como uma ineficiência perigosa. O plano diretor deles para o futuro das finanças mundiais visa a unificação total dessas engrenagens sob o conceito de <strong>Unified Ledger</strong> (Livro Razão Unificado). A meta deles é simples: colocar a sua conta bancária e as escrituras dos seus bens no mesmo tabuleiro digital.</p>
+                <p>Para a maioria das pessoas, isso soa apenas como uma modernização técnica bem-vinda de sistemas bancários lentos. Mas a verdadeira pergunta que o gestor de patrimônio maduro deve fazer não é sobre a velocidade da liquidação, mas: <strong>por que as instituições de Basileia têm tanta urgência em criar um tabuleiro único e o que elas pretendem fazer uma vez que todo o dinheiro e os ativos estejam sob o mesmo banco de dados?</strong></p>
+
+                <hr class="section-divider" />
+
+                <!-- Tese Editorial -->
+                <div class="editorial-block tese">
+                    <h3 style="margin-top:0; color:#0f766e; font-size:1.35rem; font-weight:800;">Tese — O Tabuleiro Único</h3>
+                    <div class="block-summary">
+                        Em uma frase: O BIS planeja unificar dinheiro do Banco Central, saldos comerciais e ativos reais sob a mesma blockchain para controle preciso de liquidez.
+                    </div>
+                    
+                    <p>O BIS percebeu que as criptomoedas descentralizadas (como o Bitcoin) provaram a viabilidade de mover ativos sem intermediários, mas falharam como moedas de confiança por falta de âncora estatal. A solução de Basileia foi copiar a tecnologia blockchain (<em>Distributed Ledger Technology</em>), mantendo o controle estritamente centralizado nas mãos dos Bancos Centrais.</p>
+                    
+                    <p>No <em>Unified Ledger</em>, o BIS coloca três pilares rodando na mesma infraestrutura programável:</p>
+
+                    <!-- Diagrama Vertical de Pilares -->
+                    <div class="diagram-container">
+                        <div class="diagram-node">
+                            <div class="diagram-icon">1</div>
+                            <div class="diagram-text"><strong>Wholesale CBDC</strong> — Âncora de liquidação. O dinheiro do Banco Central (como o Drex no Brasil) agindo como a garantia de liquidez de todo o sistema.</div>
+                        </div>
+                        <div class="diagram-node">
+                            <div class="diagram-icon">2</div>
+                            <div class="diagram-text"><strong>Depósitos Bancários Tokenizados</strong> — Saldo bancário imutável. O saldo das suas contas em bancos comerciais transformado em tokens imutáveis.</div>
+                        </div>
+                        <div class="diagram-node">
+                            <div class="diagram-icon">3</div>
+                            <div class="diagram-text"><strong>Real-World Assets (RWA)</strong> — Ativos reais fracionados. A digitalização de bens físicos (carros, imóveis, safras) representados no mesmo sistema.</div>
+                        </div>
+                    </div>
+
+                    <p>A cooperação para testar essa interoperabilidade transfronteiriça já está em andamento sob a governança do <strong>Project Agorá</strong> (Projeto Ágora):</p>
+
+                    <!-- Diagrama de Fluxo do Projeto Ágora -->
+                    <div class="flow-diagram">
+                        <div class="flow-title">Trilhos do Project Agorá</div>
+                        <div class="flow-steps">
+                            <span class="flow-step">FedNY</span>
+                            <span class="flow-arrow">➔</span>
+                            <span class="flow-step">BoE</span>
+                            <span class="flow-arrow">➔</span>
+                            <span class="flow-step">BdF</span>
+                            <span class="flow-arrow">➔</span>
+                            <span class="flow-step">BoJ</span>
+                            <span class="flow-arrow">➔</span>
+                            <span class="flow-step">Megabancos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider" />
+
+                <!-- Antítese Editorial -->
+                <div class="editorial-block antitese">
+                    <h3 style="margin-top:0; color:#be123c; font-size:1.35rem; font-weight:800;">Antítese — As Desconfianças do Smart Money</h3>
+                    <div class="block-summary">
+                        Em uma frase: O investidor institucional prefere observar de fora devido a medos de intervenção estatal instantânea e riscos de segurança da rede.
+                    </div>
+                    
+                    <p>Se o blueprint técnico parece perfeito nos relatórios suíços, o chamado <em>Smart Money</em> — os megainvestidores institucionais e fundos de investimento privados — está olhando para esse tabuleiro com o pé atrás por motivos muito específicos:</p>
+
+                    <!-- Cartões de Medo do Investidor -->
+                    <div class="cards-container">
+                        <div class="concept-card">
+                            <h4>1. Botão de Desliga</h4>
+                            <p>O investidor teme a perda de autonomia sob chaves de programabilidade que permitem ao Banco Central aplicar expirações ou bloqueios unilaterais e instantâneos em saldos sem direito prévio de defesa.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>2. Fraudes Cripto</h4>
+                            <p>A associação das CBDCs com os históricos escândalos de corretoras de varejo (FTX) cria repulsa. Há um receio latente sobre a real blindagem lógica das carteiras contra vazamentos ou invasões.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>3. Liquidez de Transição</h4>
+                            <p>A velocidade de saída é prioritária. Enquanto os trilhos do Drex não estiverem 100% integrados às contas de varejo, revender tokens de propriedades físicas de forma imediata é um gargalo operacional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider" />
+
+                <!-- Síntese Editorial -->
+                <div class="editorial-block sintese">
+                    <h3 style="margin-top:0; color:#d97706; font-size:1.35rem; font-weight:800;">Síntese — A Brecha Estratégica</h3>
+                    <div class="block-summary">
+                        Em uma frase: O distanciamento temporário do mercado tradicional abre caminhos de alta lucratividade para desenvolvedores e empresários que anteciparem as pontas da rede.
+                    </div>
+                    
+                    <p>Esse distanciamento do investidor tradicional é a maior assimetria de oportunidade para o empresário inovador. Se o mercado estivesse inundado e confiante, as margens seriam insignificantes. O receio geral cria um "oceano azul". Quem aprender a mapear esses riscos e entender as chaves desse tabuleiro construirá as pontas que o sistema inevitavelmente precisará.</p>
+                </div>
+
+                <!-- O que você deve levar deste episódio (Takeaways) -->
+                <div class="takeaway-block">
+                    <h3>O que você deve levar deste episódio:</h3>
+                    <ul>
+                        <li>O BIS visa centralizar moedas digitais (CBDCs) e registros de ativos físicos no mesmo livro razão (Unified Ledger).</li>
+                        <li>A hesitação do grande capital deve-se aos medos de intervenções algorítmicas, brechas de segurança de rede e baixa liquidez imediata.</li>
+                        <li>A lentidão das instituições em entrar cria uma assimetria lucrativa para quem construir ferramentas de lastro e conformidade nas pontas.</li>
+                    </ul>
+                </div>
+
+                <!-- Quadro Verde de Giz (Chalkboard) em Formato de Cartões -->
+                <div class="chalkboard">
+                    <div class="chalkboard-caption">Quadro de Giz: O Vocabulário do Módulo 02</div>
+                    
+                    <div class="chalkboard-cards">
+                        <div class="chalkboard-card">
+                            <h4>CBDC (Central Bank Digital Currency / Drex)</h4>
+                            <p>Moeda digital emitida por Bancos Centrais. Funciona como um Pix com garantia de entrega: dinheiro inteligente programado para só ser transferido se a outra parte cumprir o acordo (ex: entregar o carro ou registrar o imóvel).</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>RWA (Real-World Assets) / Tokenização</h4>
+                            <p>Ativos do Mundo Real. O processo de transformar propriedades físicas (imóveis, veículos, safras, contratos) em frações digitais únicas criptografadas que não podem ser clonadas ou roubadas.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Smart Contracts</h4>
+                            <p>Contratos autoexecutáveis. Protocolos lógicos na blockchain que realizam transações de forma automática quando as condições combinadas são atingidas, dispensando intermediários (ex.: uma máquina de refrigerante automática).</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>Unified Ledger</h4>
+                            <p>Livro Razão Unificado (O Tabuleiro Único). Um ambiente digital comum onde dinheiro oficial e registros de propriedades são atualizados de forma síncrona e integrada, em vez de usar sistemas separados de bancos e cartórios.</p>
+                        </div>
+                        <div class="chalkboard-card">
+                            <h4>ZKP (Zero-Knowledge Proofs)</h4>
+                            <p>Provas de Conhecimento Zero (A Máscara Matemática). Protocolos criptográficos que permitem provar que uma informação ou saldo é verdadeiro e válido sem a necessidade de revelar os dados confidenciais na rede.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pergunta-Guia para Reflexão do Aluno -->
+                <div style="background: rgba(217, 119, 6, 0.05); border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 1.5rem; margin: 2.5rem 0;">
+                    <h4 style="margin-top: 0; color: var(--primary-color); font-weight: 700; font-size: 1.1rem;">🧠 Pergunta-Guia de Reflexão para a Aula:</h4>
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-color); font-style: italic;">
+                        "Se o plano de unificação do BIS centraliza a custódia de escrituras e do dinheiro soberano sob o mesmo ledger, de que forma as empresas podem desenhar travas de redundância contratual para evitar que mudanças unilaterais nas regras da rede confisquem ou paralisem sua liquidez?"
+                    </p>
+                </div>
+
+                <div class="next-episode" style="margin-top:2.5rem;">
+                    <strong>Próximo Passo:</strong> Acompanhe a lição prática de nivelamento <a href="2029_01_20_serie_economia_programavel_apoio_ep02.html">Apoio 02 — O Cartório Único</a>, que desmistifica a unificação de depósitos e a programabilidade de ativos com exemplos visuais.
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato Autodidata</strong>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2029 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>

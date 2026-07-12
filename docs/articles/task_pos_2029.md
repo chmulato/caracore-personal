@@ -5,12 +5,12 @@
 
 ## 🏁 Estado Atual do Projeto
 
-Todos os alicerces conceituais, metodológicos, didáticos e de mídias foram definidos e salvos. O projeto está pronto para a **Fase de Produção Textual e Integração**.
+Todos os alicerces conceituais, metodológicos, didáticos, de mídias e de cronologia de publicação foram definidos e salvos. A **Fase de Produção Textual e Integração** foi concluída com sucesso.
 
 ### Arquivos de Referência Salvos no Workspace:
 1. **Base de Conhecimento:** [pos_2029.txt](file:///D:/onedrive/dev/caracore-personal/docs/articles/pos_2029.txt) (discussão original limpa e estruturada).
-2. **Ementa e Syllabus Dialético:** [syllabus_pos_2029.md](file:///D:/onedrive/dev/caracore-personal/docs/articles/syllabus_pos_2029.md) (roteiro completo dos 15 episódios/apoios e justificativa de posicionamento).
-3. **Catálogo de Prompts de Mídia:** [prompts_pos_2029.md](file:///D:/onedrive/dev/caracore-personal/docs/articles/prompts_pos_2029.md) (prompts de imagens Midjourney e roteiros de vídeos Sora para uso em IA externa).
+2. **Ementa e Syllabus Dialético:** [syllabus_pos_2029.md](file:///D:/onedrive/dev/caracore-personal/docs/articles/syllabus_pos_2029.md) (roteiro completo com datas de publicação de 2029, nomes de arquivos HTML e Casos Práticos detalhados).
+3. **Catálogo de Prompts de Mídia:** [prompts_pos_2029.md](file:///D:/onedrive/dev/caracore-personal/docs/articles/prompts_pos_2029.md) (prompts de imagem Midjourney e vídeos Sora associados aos arquivos de mídia finais).
 
 ---
 
@@ -19,19 +19,26 @@ Todos os alicerces conceituais, metodológicos, didáticos e de mídias foram de
 O checklist abaixo organiza a sequência linear de redação e montagem das páginas HTML dos posts no blog de Christian Mulato:
 
 ### Etapa Prévia: Preparação de Mídias
-- [ ] Gerar as 16 imagens do catálogo em IA especializada (Midjourney/DALL-E 3) e salvá-las na pasta de imagens do blog.
-- [ ] Gerar os 7 vídeos de 10 segundos para os episódios de quinta-feira (Sora/Runway/Pika) e salvá-los na pasta de vídeos do blog.
+- [x] Gerar as 16 imagens do catálogo em IA especializada (Midjourney/DALL-E 3) com os nomes `YYYY_MM_DD_IMAGE_001.png` e salvá-las na pasta de imagens do blog. *(16/16 concluídas)*
+- [x] Gerar os 7 vídeos de 10 segundos para os episódios de quinta-feira (Sora/Runway/Pika) com os nomes `YYYY_MM_DD_VIDEO_001.mp4` e salvá-los na pasta de vídeos do blog. *(2/7 concluídos: 11/01/2029 e 18/01/2029. Os 5 vídeos restantes foram suspensos por restrições de custos).*
 
 ### Bloco de Redação (16 Posts HTML com Chalkboards e Mídias Integradas)
-- [ ] **[ ]** Criar o artigo da **Chamada Geral** da série.
-- [ ] **[ ]** Desenvolver o **Episódio 01** (Macroeconomia) e sua **Lição de Apoio 01** (Termômetro da Dívida).
-- [ ] **[ ]** Desenvolver o **Episódio 02** (Plano do BIS) e sua **Lição de Apoio 02** (Cartório Único).
-- [ ] **[ ]** Desenvolver o **Episódio 03** (Caso Brasil) e sua **Lição de Apoio 03** (Pix com Garantia).
-- [ ] **[ ]** Desenvolver o **Episódio 04** (Caso Paraná) e sua **Lição de Apoio 04** (Fim da Fricção).
-- [ ] **[ ]** Desenvolver o **Episódio 05** (Botão de Desliga/Privacidade) e sua **Lição de Apoio 05** (Máscara Matemática).
-- [ ] **[ ]** Desenvolver o **Episódio 06** (DNA Camaleão) e sua **Lição de Apoio 06** (Voo Independente).
-- [ ] **[ ]** Desenvolver o **Episódio 07** (Convergência IA) e sua **Lição de Apoio 07** (Máquinas no Mercado).
-- [ ] **[ ]** Desenvolver o **Apêndice** final (Balanço da Transição: Mercados Aniquilados vs Oportunidades).
+- [x] **[x]** Criar o artigo da **Chamada Geral** (`2029_01_04_serie_economia_programavel_chamada.html` — Quinta, 04/01/2029).
+- [x] **[x]** Desenvolver o **Episódio 01** (`2029_01_11_serie_economia_programavel_ep01.html` — Quinta, 11/01/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 01** (`2029_01_13_serie_economia_programavel_apoio_ep01.html` — Sábado, 13/01/2029).
+- [x] **[x]** Desenvolver o **Episódio 02** (`2029_01_18_serie_economia_programavel_ep02.html` — Quinta, 18/01/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 02** (`2029_01_20_serie_economia_programavel_apoio_ep02.html` — Sábado, 20/01/2029).
+- [x] **[x]** Desenvolver o **Episódio 03** (`2029_01_25_serie_economia_programavel_ep03.html` — Quinta, 25/01/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 03** (`2029_01_27_serie_economia_programavel_apoio_ep03.html` — Sábado, 27/01/2029).
+- [x] **[x]** Desenvolver o **Episódio 04** (`2029_02_01_serie_economia_programavel_ep04.html` — Quinta, 01/02/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 04** (`2029_02_03_serie_economia_programavel_apoio_ep04.html` — Sábado, 03/02/2029).
+- [x] **[x]** Desenvolver o **Episódio 05** (`2029_02_08_serie_economia_programavel_ep05.html` — Quinta, 08/02/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 05** (`2029_02_10_serie_economia_programavel_apoio_ep05.html` — Sábado, 10/02/2029).
+- [x] **[x]** Desenvolver o **Episódio 06** (`2029_02_15_serie_economia_programavel_ep06.html` — Quinta, 15/02/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 06** (`2029_02_17_serie_economia_programavel_apoio_ep06.html` — Sábado, 17/02/2029).
+- [x] **[x]** Desenvolver o **Episódio 07** (`2029_02_22_serie_economia_programavel_ep07.html` — Quinta, 22/02/2029).
+- [x] **[x]** Desenvolver a **Lição de Apoio 07** (`2029_02_24_serie_economia_programavel_apoio_ep07.html` — Sábado, 24/02/2029).
+- [x] **[x]** Desenvolver o **Apêndice** final (`2029_03_01_serie_economia_programavel_apendice.html` — Quinta, 01/03/2029).
 
 ---
 

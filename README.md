@@ -8,9 +8,10 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
 
 ## Visão Geral do Blog
 
-* **Total de Artigos:** 231 artigos publicados.
-* **Período de Publicações:** de março de 2024 a março de 2028.
+* **Total de Artigos:** 247 artigos publicados.
+* **Período de Publicações:** de março de 2024 a março de 2029.
 * **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
+  * [Economia Programável e Soberania de Ativos](https://personal.caracore.com.br/articles/2029_01_04_serie_economia_programavel_chamada.html): Pós-graduação autodidata de 2029 focada na transição monetária do Drex/CBDC, tokenização de RWA, infraestrutura do BIS e BRICS Pay, e automação comercial com agentes autônomos de IA.
   * [Auditor de Sistemas](https://personal.caracore.com.br/articles/2028_01_18_serie_auditor_sistemas_chamada.html): Pós-graduação autodidata de 2028 para profissionais com mais de 8 anos de estrada, cobrindo a governança de TI (COBIT/CRISC), perícia forense e cadeia de custódia (ISO/IEC 27037), e compliance fiscal internacional (cost sharing e preços de transferência).
   * [Blindagem de Sistemas](https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html): Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital, acompanhada de 7 lições de apoio aos sábados para nivelamento didático.
   * [Além do Hype](https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html): Discussão matemática e financeira entre monolitos modulares e microsserviços.
