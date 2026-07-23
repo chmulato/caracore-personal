@@ -16,7 +16,7 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 
 ## 📈 Status Atual (Ciclo Ativo: jun/2026 a mai/2029)
 
-* **Total de Artigos Publicados:** 230 artigos
+* **Total de Artigos Publicados:** 248 artigos
 * **Total de Séries com Índice Próprio:** 17 séries
 * **Período do Acervo:** março de 2024 a março de 2028
 * **Lista de Séries Ativas:**

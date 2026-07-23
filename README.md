@@ -8,7 +8,7 @@ O blog busca equilibrar análises técnicas rigorosas com reflexões do dia a di
 
 ## Visão Geral do Blog
 
-* **Total de Artigos:** 247 artigos publicados.
+* **Total de Artigos:** 248 artigos publicados.
 * **Período de Publicações:** de março de 2024 a março de 2029.
 * **Séries Temáticas:** O conteúdo é agrupado em séries conceituais de leitura linear, facilitando o aprendizado contínuo. As principais séries ativas no acervo são:
   * [Economia Programável e Soberania de Ativos](https://personal.caracore.com.br/articles/2029_01_04_serie_economia_programavel_chamada.html): Pós-graduação autodidata de 2029 focada na transição monetária do Drex/CBDC, tokenização de RWA, infraestrutura do BIS e BRICS Pay, e automação comercial com agentes autônomos de IA.
