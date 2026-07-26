@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_07_27_o_mito_do_apague_tudo_como_dar_mais_20_anos_de_vida_util_ao_seu_monolito_com_o_java_moderno.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_07_27_o_mito_do_apague_tudo_como_dar_mais_20_anos_de_vida_util_ao_seu_monolito_com_o_java_moderno.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_07_27_IMAGE_001.png" />
+    <title>O mito do "Apague Tudo": Como Java 21 e 25 dão +20 anos de vida útil ao seu monolito com EJB e ActiveMQ - Christian Mulato Dev Blog</title>
+    <meta name="description" content="Modernização incremental de monolitos com EJB e ActiveMQ usando Java 21/25, Virtual Threads e arquitetura de borda para reduzir risco e escalar sem reescrita total.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Java, Monolito, Modernizacao, Virtual Threads, Structured Concurrency, Java 25, ActiveMQ Artemis, Kafka">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">O mito do "Apague Tudo": Como Java 21 e 25 dão +20 anos de vida útil ao seu monolito com EJB e ActiveMQ</h1>
+                <div class="post-meta">
+                    <time datetime="2026-07-27">27/07/2026</time>
+                    <span>Java &amp; Arquitetura</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame">
+                    <img src="assets/img/2026_07_27_IMAGE_001.png" alt="O mito do Apague Tudo e a modernização de monolitos Java" class="hero-image" />
+                    <figcaption class="hero-image-caption">A travessia da complexidade para a estabilidade.</figcaption>
+                </figure>
+
+                <p><strong>A maior parte das empresas brasileiras depende de monolitos que movimentam milhões todos os dias. Reescrever tudo é caro, arriscado e, na maioria dos casos, desnecessário.</strong></p>
+
+                <p>Java 21 e Java 25 abriram uma trilha prática para modernizar sem parar o negócio: ganhar desempenho, reduzir gargalo operacional e preservar o core que já funciona.</p>
+
+                <p>Durante anos, o mercado repetiu a receita do "apague tudo". Em muitos projetos, o resultado foi custo de nuvem disparando, esteira mais frágil e complexidade distribuída além da maturidade do time.</p>
+
+                <p><strong>Tenho trabalhado com sistemas que precisam continuar rodando por mais 10 a 20 anos, e a modernização incremental tem se mostrado o caminho mais seguro e eficiente.</strong></p>
+
+                <h2>1. Virtual Threads: mais concorrência sem travar o servidor</h2>
+                <p><strong>Em linguagem simples:</strong> Virtual Threads são uma forma nova de lidar com tarefas simultâneas, permitindo que o sistema faça muito mais ao mesmo tempo sem engasgar.</p>
+                <p>Em monolitos com EJB síncrono, JDBC e mensageria, o padrão clássico é thread bloqueada aguardando resposta externa. Isso satura pool e derruba throughput.</p>
+
+                <p><strong>Com Virtual Threads (Java 21+), a equação muda:</strong></p>
+                <ul>
+                    <li>Thread virtual bloqueia sem "segurar" uma thread cara do SO.</li>
+                    <li>A JVM remaneja execução com muito mais eficiência.</li>
+                    <li>O mesmo hardware passa a suportar mais concorrência útil.</li>
+                </ul>
+
+                <p>Em cenários I/O bound, é comum observar ganhos fortes de latência e throughput. Em bases legadas bem instrumentadas, reduções de latência na faixa de 40% a 80% podem ocorrer, dependendo de carga, desenho transacional e tuning.</p>
+
+                <h2>2. Thread pool tradicional vs Virtual Threads (comparação direta)</h2>
+                <p><strong>Quando você compara lado a lado, a diferença fica objetiva:</strong></p>
+                <ul>
+                    <li><strong>Thread Pool Tradicional:</strong> limitado por número fixo de threads, tuning sensível e risco alto de saturação em pico.</li>
+                    <li><strong>Virtual Threads:</strong> concorrência massiva, menor custo de gerenciamento e modelo de programação simples (estilo bloqueante com escala melhor).</li>
+                    <li><strong>Impacto operacional:</strong> menos timeout em cascata, menos fila interna e melhor previsibilidade sob carga.</li>
+                </ul>
+
+                <p><strong>Analogia rápida para gestão:</strong> é como trocar uma fila com poucos caixas por milhares de atendentes leves, coordenados por um gerente eficiente da JVM.</p>
+
+                <h2>3. Structured Concurrency: paralelismo sem caos</h2>
+                <p><strong>Em linguagem simples:</strong> Structured Concurrency agrupa tarefas paralelas como um pacote único, facilitando controle e erro.</p>
+                <p><strong>Concorrência sem governança vira dívida técnica.</strong></p>
+
+                <p>A Structured Concurrency organiza tarefas paralelas como uma unidade de trabalho única:</p>
+                <ul>
+                    <li>Se uma subtarefa falha, as demais são canceladas (fail-fast).</li>
+                    <li>O ciclo de vida fica explícito e auditável.</li>
+                    <li>A depuração em produção fica menos dolorosa.</li>
+                </ul>
+
+                <p>Para integrações com API externa, consulta de risco, antifraude e mensageria, isso reduz efeito dominó e melhora resposta em incidentes.</p>
+
+                <h2>4. Mini-caso plausível: modernização sem reescrita total</h2>
+                <p><strong>Um exemplo típico de campo (hipotético, mas realista):</strong></p>
+                <ul>
+                    <li>Base legada com EJB + ActiveMQ clássico.</li>
+                    <li>Sintoma: processamento de fila oscilando entre 10s e 12s em horário de pico.</li>
+                    <li>Ações: habilitar Virtual Threads para fluxos de I/O e migrar broker para Artemis.</li>
+                    <li>Resultado observado: processamento médio caindo para algo entre 3s e 4s, com menor variância.</li>
+                </ul>
+
+                <p>Não houve "big bang" arquitetural. Houve engenharia incremental com foco em gargalo real.</p>
+
+                <h2>5. Por que Java 25 importa para monolitos de missão crítica</h2>
+                <p><strong>Em linguagem simples:</strong> Java 25 melhora o motor interno da aplicação, reduzindo pausas e aumentando eficiência sem exigir reescrever regra de negócio.</p>
+                <p><strong>Java 25 não é só versão nova - é alavanca de longevidade técnica.</strong></p>
+                <ul>
+                    <li><strong>Generational ZGC:</strong> pausas extremamente curtas e comportamento mais estável com heaps grandes.</li>
+                    <li><strong>JIT e bytecode em evolução:</strong> mais desempenho sem reescrever regra de negócio.</li>
+                    <li><strong>Valhalla (roadmap):</strong> value objects com menor overhead de memória em estruturas densas.</li>
+                    <li><strong>Runtime mais eficiente:</strong> melhor relação entre custo computacional e volume processado.</li>
+                </ul>
+
+                <p>Em termos executivos: menor latência percebida, melhor uso de infraestrutura e mais fôlego para o legado gerar valor por anos.</p>
+
+                <h2>6. Artemis e borda moderna: escalar sem rasgar o core</h2>
+                <p><strong>Em linguagem simples:</strong> migrar ActiveMQ para Artemis é como trocar o motor sem trocar o carro. E um roteador na frente do monolito funciona como um gerente de fila distribuindo carga entre caixas.</p>
+                <p><strong>Modernização madura evita guerra ideológica.</strong></p>
+                <ul>
+                    <li>Mantenha o EJB onde está estável e testado.</li>
+                    <li>Encapsule pontos de I/O com Virtual Threads.</li>
+                    <li>Troque o broker nos bastidores (ActiveMQ para Artemis, por exemplo).</li>
+                    <li>Escale na borda com NGINX, Traefik ou Envoy.</li>
+                    <li>Entregue módulos novos com fronteiras limpas.</li>
+                </ul>
+
+                <p>Em workloads de mensageria, o Artemis pode entregar ganhos expressivos sobre gerações antigas do ActiveMQ, muitas vezes na ordem de 2x a 3x em throughput, conforme padrão de fila, persistência e disco.</p>
+
+                <h2>Plano de Modernização em 5 Passos</h2>
+                <ul>
+                    <li>Atualizar para Java 21 e planejar a trilha de adoção do Java 25.</li>
+                    <li>Ativar Virtual Threads nas partes mais pesadas de I/O e mensageria.</li>
+                    <li>Migrar ActiveMQ para Artemis com rollout progressivo e métricas de antes/depois.</li>
+                    <li>Criar módulos paralelos em Spring Boot 3 para funcionalidades novas.</li>
+                    <li>Colocar um roteador inteligente na frente para escalar horizontalmente com segurança.</li>
+                </ul>
+
+                <p><strong>Conclusão:</strong> monolito não é dívida por definição. Dívida é insistir em arquitetura sem contexto. Com Java moderno e estratégia incremental, o legado deixa de ser problema e volta a ser ativo estratégico.</p>
+
+                <p>Se você trabalha com sistemas legados e quer entender como aplicar Java 21/25 sem reescrever tudo, estou aberto para conversar sobre estratégias de modernização incremental com risco controlado.</p>
+
+                <div class="chalkboard">
+                    <h2>Dicionário de Termos: do técnico ao executivo</h2>
+                    <dl>
+                        <dt><strong>Monolito / Arquitetura Monolítica</strong></dt>
+                        <dd><strong>Técnico:</strong> Sistema de software onde regras de negócio, banco de dados e interfaces rodam dentro de uma única base de código integrada e executada em um único servidor de aplicação.<br><strong>Para leigos:</strong> É a "casa própria" da empresa: tudo centralizado sob o mesmo teto.</dd>
+
+                        <dt><strong>Virtual Threads (Projeto Loom)</strong></dt>
+                        <dd><strong>Técnico:</strong> Abstração de concorrência leve gerenciada pela JVM, permitindo milhões de execuções simultâneas sem alocar threads pesadas do sistema operacional.<br><strong>Para leigos:</strong> Um "turbo" inteligente que atende milhares de clientes ao mesmo tempo sem travar.</dd>
+
+                        <dt><strong>EJB (Enterprise JavaBeans)</strong></dt>
+                        <dd><strong>Técnico:</strong> Arquitetura de componentes padronizada do Java EE para aplicações corporativas distribuídas e transacionais.<br><strong>Para leigos:</strong> A fundação robusta que sustenta regras críticas de negócios tradicionais.</dd>
+
+                        <dt><strong>ActiveMQ / ActiveMQ Artemis / Kafka</strong></dt>
+                        <dd><strong>Técnico:</strong> Sistemas de mensageria assíncrona baseados em filas para garantir entrega entre subsistemas.<br><strong>Para leigos:</strong> O correio interno da empresa, que organiza entregas mesmo em picos de acesso.</dd>
+
+                        <dt><strong>Structured Concurrency</strong></dt>
+                        <dd><strong>Técnico:</strong> Recurso moderno que trata múltiplos fluxos concorrentes como uma única unidade de trabalho, com ciclo de vida e erros unificados.<br><strong>Para leigos:</strong> Um mecanismo de segurança que cancela tudo de forma limpa quando uma parte falha.</dd>
+
+                        <dt><strong>ZGC (Z Garbage Collector)</strong></dt>
+                        <dd><strong>Técnico:</strong> Coletor de lixo de baixa latência e geracional da JVM, capaz de operar com grandes volumes de memória sem pausas perceptíveis.<br><strong>Para leigos:</strong> A equipe de limpeza da memória RAM que evita travamentos em horário de pico.</dd>
+
+                        <dt><strong>API Gateway / Reverse Proxy</strong></dt>
+                        <dd><strong>Técnico:</strong> Camada de infraestrutura de rede na frente da aplicação para gerenciar tráfego, balancear carga, aplicar segurança e rotear requisições.<br><strong>Para leigos:</strong> O guarda de trânsito na entrada da empresa, distribuindo bem o fluxo e protegendo o sistema.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Desenvolvedor Java e Arquiteto de Software</p>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

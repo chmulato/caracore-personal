@@ -9,6 +9,36 @@
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
+        <item>
+            <title><![CDATA[O mito do "Apague Tudo": Como Java 21 e 25 dão +20 anos de vida útil ao seu monolito com EJB e ActiveMQ]]></title>
+            <link>https://personal.caracore.com.br/articles/2026_07_27_o_mito_do_apague_tudo_como_dar_mais_20_anos_de_vida_util_ao_seu_monolito_com_o_java_moderno.html</link>
+            <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+            <description><![CDATA[Uma abordagem híbrida para gestores e técnicos: modernização incremental com Java 21/25, Virtual Threads e evolução segura de EJB + ActiveMQ sem reescrita total.]]></description>
+            <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_07_27_IMAGE_001.png" length="0" type="image/png" />
+            <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_07_27_IMAGE_001.png" medium="image" />
+            <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_07_27_o_mito_do_apague_tudo_como_dar_mais_20_anos_de_vida_util_ao_seu_monolito_com_o_java_moderno.html</guid>
+            <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+            <content:encoded><![CDATA[<figure class="hero-image-frame">
+                                        <img src="https://personal.caracore.com.br/articles/assets/img/2026_07_27_IMAGE_001.png" alt="O mito do Apague Tudo e a modernização de monolitos Java" class="hero-image" />
+                                        <figcaption class="hero-image-caption">A travessia da complexidade para a estabilidade.</figcaption>
+                                </figure>
+
+                                <p>Monolito não é problema por definição. Em muitos contextos, o custo real está em manter motor antigo, não em manter arquitetura monolítica.</p>
+
+                                <p>Com Java 21/25, Virtual Threads, Structured Concurrency e evolução gradual da infraestrutura, é possível estender a vida útil de sistemas críticos por mais 10 a 20 anos sem ruptura operacional.</p>
+
+                                <h2>Plano de ação do arquiteto pragmático</h2>
+                                <ul>
+                                        <li>Subir a base para Java 21 ou 25.</li>
+                                        <li>Aplicar Virtual Threads nos gargalos de I/O e mensageria.</li>
+                                        <li>Modernizar o broker (como ActiveMQ Artemis) sem mexer no core.</li>
+                                        <li>Isolar funcionalidades novas em módulos limpos.</li>
+                                        <li>Escalar na borda com proxy reverso e balanceamento inteligente.</li>
+                                </ul>
+
+                                <p>Monolitos continuam sendo espinha dorsal de muitos negócios reais. Com as escolhas técnicas corretas, eles podem operar com desempenho, segurança e custo previsível por muitos anos.</p>]]></content:encoded>
+        </item>
+
     <item>
       <title><![CDATA[A autonomia como caminho para enfrentar as mudanças do mercado de trabalho]]></title>
       <link>https://personal.caracore.com.br/articles/2026_07_24_a_autonomia_como_caminho_para_enfrentar_as_mudancas_do_mercado_de_trabalho.html</link>
