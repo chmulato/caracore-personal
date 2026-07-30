@@ -10,6 +10,26 @@
     <generator>Cara Core RSS generator</generator>
 
         <item>
+            <title><![CDATA[O Desvio de Inteligência que Engavetou Projetos de TI]]></title>
+            <link>https://personal.caracore.com.br/articles/2026_07_30_o_desvio_de_inteligencia_que_engavetou_projetos_de_ti.html</link>
+            <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+            <description><![CDATA[Quando o hype da IA generativa desvia atenção e investimento, projetos estratégicos param e a engenharia perde protagonismo.]]></description>
+            <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_07_30_IMAGE_001.png" length="0" type="image/png" />
+            <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_07_30_IMAGE_001.png" medium="image" />
+            <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_07_30_o_desvio_de_inteligencia_que_engavetou_projetos_de_ti.html</guid>
+            <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
+            <content:encoded><![CDATA[<figure class="hero-image-frame">
+                                        <img src="https://personal.caracore.com.br/articles/assets/img/2026_07_30_IMAGE_001.png" alt="Desvio de inteligência e projetos de TI engavetados" class="hero-image" />
+                                        <figcaption class="hero-image-caption">Quando a promessa supera a maturidade, o projeto para.</figcaption>
+                                </figure>
+
+                                <p>Não é falta de tecnologia. É falta de direção.</p>
+                                <p>A inteligência desviou — e os projetos pararam.</p>
+                                <p>Nos últimos dois anos, vivemos um fenômeno curioso — e preocupante — no mercado de tecnologia. A chegada da IA generativa trouxe uma onda de entusiasmo tão grande que muitos executivos passaram a acreditar que estávamos diante de uma tecnologia capaz de substituir equipes inteiras, acelerar entregas complexas e resolver problemas estruturais sem esforço humano.</p>
+                                <p>O resultado foi quase inevitável: projetos de TI foram pausados, replanejados ou simplesmente engavetados.</p>]]></content:encoded>
+        </item>
+
+        <item>
             <title><![CDATA[O mito do "Apague Tudo": Como Java 21 e 25 dão +20 anos de vida útil ao seu monolito com EJB e ActiveMQ]]></title>
             <link>https://personal.caracore.com.br/articles/2026_07_27_o_mito_do_apague_tudo_como_dar_mais_20_anos_de_vida_util_ao_seu_monolito_com_o_java_moderno.html</link>
             <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
