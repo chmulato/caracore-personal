@@ -12582,6 +12582,22 @@ Mês 3 (Completo):   $6.500 [█████████████████
     </item>
 
     <item>
+      <title><![CDATA[FinOps B2B, Monetização por Pix e o Futuro Local-First: A Economia Real do CaraCore CSO]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_25_finops_b2b_monetizacao_pix_e_o_futuro_local_first.html</link>
+      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+      <description><![CDATA[Como construímos uma operação SaaS B2B sustentável para gestão de frotas com planos a partir de R$ 5,00/mês, liquidação direta via Pix e a ponte para a soberania Local-First.]]></description>
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_09_25_IMAGE_001.png" length="0" type="image/png" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_09_25_IMAGE_001.png" medium="image" />
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_25_finops_b2b_monetizacao_pix_e_o_futuro_local_first.html</guid>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><img alt="FinOps B2B e Monetização Pix" src="https://personal.caracore.com.br/articles/assets/img/2026_09_25_IMAGE_001.png" class="hero-image" /></p>
+                    <p><em>A Rota da Soberania: A união entre a eficiência financeira do Pix, planos sob medida para PMEs e a arquitetura resiliente Local-First.</em></p>
+                    <p>Tempo de leitura: 7 minutos</p>
+                    <p>Existe uma ilusão muito perigosa propagada pelo ecossistema de startups de tecnologia: a de que um software de assinatura (SaaS) precisa obrigatoriamente levantar milhões de investimento de risco, queimar caixas astronômicos em anúncios do Google e cobrar centenas de reais por mês do cliente para ser viável.</p>
+                    <p>No CaraCore CSO, estruturamos planos de R$ 0 a R$ 49/mês que geram margem líquida positiva desde o primeiro dia, com liquidação direta por Pix e a ponte para a arquitetura Local-First (Bunker Digital).</p>]]></content:encoded>
+    </item>
+
+    <item>
       <title><![CDATA[Série Recolocação Java — Episódio 07: Checklist final e entrega defensável]]></title>
       <link>https://personal.caracore.com.br/articles/2026_09_23_serie_recolocacao_java_teste_pratico_ep07.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
@@ -14072,6 +14088,22 @@ Mês 3 (Completo):   $6.500 [█████████████████
                         Engenheiro Construtor</p>
                         <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
                     </div>]]></content:encoded>
+    </item>
+
+    <item>
+      <title><![CDATA[Sessões Opacas e Segurança Pragmática: Adeus JWT no Browser e a Blindagem do CaraCore CSO]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_14_sessoes_opacas_e_seguranca_pragmatica_no_cso.html</link>
+      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+      <description><![CDATA[Por que abandonamos tokens JWT no navegador e adotamos sessões opacas no PostgreSQL, RBAC defensivo e trilha de auditoria LGPD na arquitetura do CaraCore CSO.]]></description>
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_09_14_IMAGE_001.png" length="0" type="image/png" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_09_14_IMAGE_001.png" medium="image" />
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_14_sessoes_opacas_e_seguranca_pragmatica_no_cso.html</guid>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><img alt="Sessões Opacas e Segurança Pragmática" src="https://personal.caracore.com.br/articles/assets/img/2026_09_14_IMAGE_001.png" class="hero-image" /></p>
+                    <p><em>A Fortaleza Relacional: A proteção de acessos corporativos por meio de sessões opacas, controle estrito de perfis e trilha de auditoria em banco de dados.</em></p>
+                    <p>Tempo de leitura: 7 minutos</p>
+                    <p>Nos últimos dez anos, a indústria de desenvolvimento de software foi engolida por um dogma quase inquestionável: "qualquer aplicação moderna deve utilizar JSON Web Tokens (JWT) armazenados no LocalStorage do navegador".</p>
+                    <p>Entretanto, na linha de frente dos sistemas corporativos e da gestão operacional de frotas, a teoria do manual acadêmico costuma ruir diante do primeiro incidente de segurança. Ao desenhar a segurança do CaraCore CSO, adotamos o modelo de Sessões Opacas com Estado no Banco Relacional.</p>]]></content:encoded>
     </item>
 
     <item>
@@ -17684,6 +17716,23 @@ quando sobe quebraria o que já funciona.</code></pre></div>
                         Engenheiro Construtor</p>
                         <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
                     </div>]]></content:encoded>
+    </item>
+
+    <item>
+      <title><![CDATA[A Dor da Frota no Mundo Real e a Arquitetura Sóbria: Por que escolhemos Quarkus, HTMX e PostgreSQL para o CaraCore CSO]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_31_a_dor_da_frota_e_a_arquitetura_sobria_com_quarkus.html</link>
+      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+      <description><![CDATA[Um ensaio sobre engenharia pragmática, os gargalos reais da gestão de frotas e a decisão de construir o CaraCore CSO com Quarkus, HTMX e PostgreSQL sem inflar a arquitetura.]]></description>
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_08_31_IMAGE_001.png" length="0" type="image/png" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_08_31_IMAGE_001.png" medium="image" />
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_31_a_dor_da_frota_e_a_arquitetura_sobria_com_quarkus.html</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><img alt="A Dor da Frota e a Arquitetura Sóbria" src="https://personal.caracore.com.br/articles/assets/img/2026_08_31_IMAGE_001.png" class="hero-image" /></p>
+                    <p><em>A Harmonia entre o Asfalto e o Código: O pragmatismo da engenharia de software aplicada ao chão de oficina e à gestão operacional de frotas.</em></p>
+                    <p>Tempo de leitura: 7 minutos</p>
+                    <p>Quem nunca pisou no pátio de uma transportadora ou no galpão de uma empresa de entregas rápidas tem a tendência de enxergar a logística como um diagrama abstrato de nós e arestas. Na tela do computador, veículos são pontinhos coloridos que se movem em um mapa vetorial; na vida real, veículos são toneladas de aço que queimam diesel caro, gastam pneus no asfalto castigado e quebram pivôs de suspensão no pior momento possível.</p>
+                    <p>Durante anos, o mercado de software corporativo tentou empurrar para o pequeno e médio transportador duas alternativas igualmente disfuncionais: de um lado, planilhas de Excel improvisadas que se corrompem na terceira semana de operação; do outro, ERPs gigantescos, lentos e inacessíveis, que cobram mensalidades exorbitantes e exigem três meses de treinamento para que um encarregado consiga registrar um simples abastecimento.</p>
+                    <p>Foi exatamente dessa constatação empírica que nasceu a decisão de construir o CaraCore CSO com Quarkus, HTMX e PostgreSQL.</p>]]></content:encoded>
     </item>
 
     <item>
