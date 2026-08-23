@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_08_23_a_grande_assinatura_da_borda_por_que_pagamos_caro_para_consertar_o_html_dos_anos_90.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_08_23_a_grande_assinatura_da_borda_por_que_pagamos_caro_para_consertar_o_html_dos_anos_90.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_08_23_IMAGE_001.png" />
+    <title>A Grande Assinatura da Borda: Por que pagamos caro para consertar o HTML dos anos 90 - Christian Mulato Dev Blog</title>
+    <meta name="description" content="A web nasceu com iframe sem trava de contexto. Trinta anos depois, pagamos WAF e infraestrutura de borda para injetar X-Frame-Options em vez de consertar o HTML na raiz.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Segurança, iframe, Clickjacking, CDN, WAF, X-Frame-Options, Borda, HTML legado">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/highlight.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">A Grande Assinatura da Borda: Por que pagamos caro para consertar o HTML dos anos 90</h1>
+                <div class="post-meta">
+                    <time datetime="2026-08-23">23/08/2026</time>
+                    <span>Categoria: Segurança &amp; Infraestrutura</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame">
+                    <img alt="A Grande Assinatura da Borda: o pedágio da nuvem sobre o legado HTML" src="assets/img/2026_08_23_IMAGE_001.png" class="hero-image" />
+                    <figcaption class="hero-image-caption">O pedágio da borda: segurança a pagar para atravessar uma estrada que a indústria prefere cercar em vez de repavimentar.</figcaption>
+                </figure>
+                <p>Tempo de leitura: 5 minutos</p>
+
+                <p>A fatura mensal da infraestrutura de borda não cobra só desempenho e certificado. Ela cobra uma assinatura: o carimbo que um proxy inteligente coloca em cada resposta para tapar um buraco que o HTML deixou aberto quando a web ainda era um campus acadêmico. Trinta anos depois, o remendo virou produto.</p>
+
+                <h2>A Porta dos Desesperados: Uma Herança de Trinta Anos</h2>
+                <p>A web em que vivemos foi desenhada em uma era acadêmica baseada na confiança mútua. Foi nesse cenário, em meados da década de 1990, que o elemento iframe foi introduzido para modularizar páginas estáticas. O problema estrutural é que ele nasceu sem travas de contexto: qualquer site podia emoldurar qualquer outro por padrão, abrindo uma brecha invisível onde elementos maliciosos podiam ser sobrepostos de forma transparente para roubar cliques de usuários desavisados.</p>
+
+                <p>O design original era falho porque ignorava a malícia da internet comercial moderna. E quando uma falha é estrutural, corrigi-la na raiz exigiria reescrever o protocolo da web — algo que quebraria instantaneamente bancos, governos e a infraestrutura digital global sob o dogma sagrado da “compatibilidade retroativa”.</p>
+
+                <h2>O Negócio Lucrativo do Remendo</h2>
+                <p>É aqui que a engrenagem comercial entra em ação de forma brilhante (e cínica).</p>
+
+                <p>Em vez de uma reformulação profunda dos padrões fundamentais da internet, a indústria optou por criar camadas artificiais de proteção. O desenvolvedor moderno se vê obrigado a comprar planos corporativos, contratar serviços de WAF (Web Application Firewall) e assinar plataformas de borda para gerenciar o que deveria vir resolvido de fábrica: a integridade básica de uma interface contra o sequestro de cliques.</p>
+
+                <p>As gigantes de infraestrutura e CDNs surfam em um modelo de negócios quase perfeito. Elas mantêm o ecossistema original vulnerável o suficiente para gerar pânico corporativo, mas oferecem a assinatura mensal como o “salvador da pátria”.</p>
+
+                <div class="chalkboard"><pre><code>A falha é de 1996.
+O pedágio é de 2026.
+A fatura não cobra inovação. Cobra areia.</code></pre></div>
+
+                <h2>O Pedágio que Ninguém Ousa Demolir</h2>
+                <p>No fim das contas, a segurança web contemporânea virou um mercado de pedágio. Pagamos taxas altíssimas para que proxies inteligentes inspecionem requisições, bloqueiem frames maliciosos e injetem X-Frame-Options em tempo de execução, apenas porque a fundação da casa foi construída com areia em 1996.</p>
+
+                <p>A próxima vez que você olhar para a fatura da sua infraestrutura de borda, lembre-se: você não está pagando apenas por inovação tecnológica de ponta. Você está pagando uma taxa de manutenção perpétua para cobrir os buracos de uma estrada que a indústria prefere cercar com pedágios em vez de repavimentar.</p>
+
+                <h2>Dicionário de Termos Técnicos</h2>
+                <p><em>Para nivelamento e consulta contínua dos conceitos fundamentais deste ensaio:</em></p>
+                <div class="chalkboard">
+                    <dl>
+                        <dt><strong>Borda (Edge)</strong></dt>
+                        <dd>Camada de servidores distribuídos, próxima ao usuário, onde CDNs e plataformas de nuvem interceptam o tráfego antes de chegar à origem. É nesse ponto que cabeçalhos de segurança, cache e regras de WAF são aplicados em tempo de execução — o “pedágio” da fatura mensal.</dd>
+
+                        <dt><strong>CDN (Content Delivery Network)</strong></dt>
+                        <dd>Rede de distribuição de conteúdo. Nasceu para aproximar arquivos estáticos do visitante; hoje vende também TLS, mitigação de DDoS e injeção de políticas de segurança, transformando transporte em produto de proteção.</dd>
+
+                        <dt><strong>Clickjacking (Sequestro de Cliques)</strong></dt>
+                        <dd>Ataque de redressamento de interface descrito publicamente em 2008 por Robert Hansen e Jeremiah Grossman: uma página transparente é sobreposta a um site legítimo emoldurado, de modo que o clique do usuário acione uma ação que ele não vê.</dd>
+
+                        <dt><strong>iframe</strong></dt>
+                        <dd>Elemento HTML introduzido na segunda metade dos anos 1990 (consolidado no HTML 4) para embutir um documento dentro de outro. Nasceu sem trava de contexto: por padrão, qualquer origem podia emoldurar qualquer outra — a porta que o clickjacking atravessa.</dd>
+
+                        <dt><strong>WAF (Web Application Firewall)</strong></dt>
+                        <dd>Filtro de aplicação web que inspeciona requisições HTTP em busca de padrões de ataque. Útil como camada extra; perigoso quando vira substituto da correção na origem — o remendo que se cobra por assinatura.</dd>
+
+                        <dt><strong>X-Frame-Options</strong></dt>
+                        <dd>Cabeçalho HTTP proposto pela Microsoft em 2009 para impedir que a página seja embutida em frames alheios (<code>DENY</code> ou <code>SAMEORIGIN</code>). O sucessor moderno é a diretiva <code>frame-ancestors</code> da Content-Security-Policy. Ambos deveriam sair da aplicação; com frequência, saem do proxy da borda.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="author-info">
+                    <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <div class="author-details">
+                        <strong>Christian Mulato</strong>
+                        <p>Arquiteto de Software e Engenheiro de Sistemas</p>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>

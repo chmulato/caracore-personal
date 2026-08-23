@@ -20910,6 +20910,24 @@ A empatia é o verdadeiro fallback do sistema.</code></pre></div>
     </item>
 
     <item>
+      <title><![CDATA[A Grande Assinatura da Borda: Por que pagamos caro para consertar o HTML dos anos 90]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_08_23_a_grande_assinatura_da_borda_por_que_pagamos_caro_para_consertar_o_html_dos_anos_90.html</link>
+      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+      <description><![CDATA[A web nasceu com iframe sem trava de contexto. Trinta anos depois, pagamos WAF e infraestrutura de borda para injetar X-Frame-Options em vez de consertar o HTML na raiz.]]></description>
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_08_23_IMAGE_001.png" length="0" type="image/png" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_08_23_IMAGE_001.png" medium="image" />
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_08_23_a_grande_assinatura_da_borda_por_que_pagamos_caro_para_consertar_o_html_dos_anos_90.html</guid>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<figure class="hero-image-frame">
+                    <img alt="A Grande Assinatura da Borda: o pedágio da nuvem sobre o legado HTML" src="https://personal.caracore.com.br/articles/assets/img/2026_08_23_IMAGE_001.png" class="hero-image" />
+                    <figcaption class="hero-image-caption">O pedágio da borda: segurança a pagar para atravessar uma estrada que a indústria prefere cercar em vez de repavimentar.</figcaption>
+                </figure>
+                <p>Tempo de leitura: 5 minutos</p>
+                <p>A fatura mensal da infraestrutura de borda não cobra só desempenho e certificado. Ela cobra uma assinatura: o carimbo que um proxy inteligente coloca em cada resposta para tapar um buraco que o HTML deixou aberto quando a web ainda era um campus acadêmico. Trinta anos depois, o remendo virou produto.</p>
+                <p>A próxima vez que você olhar para a fatura da sua infraestrutura de borda, lembre-se: você não está pagando apenas por inovação tecnológica de ponta. Você está pagando uma taxa de manutenção perpétua para cobrir os buracos de uma estrada que a indústria prefere cercar com pedágios em vez de repavimentar.</p>]]></content:encoded>
+    </item>
+
+    <item>
       <title><![CDATA[Episódio 07: Refatorando o Futuro do Brasil]]></title>
       <link>https://personal.caracore.com.br/articles/2026_08_21_serie_brasil_sdk_soberania_ep07.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
