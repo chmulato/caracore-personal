@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_11_19_serie_evolucao_ciclica_ti_ato01_passado.html" />
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_11_19_serie_evolucao_ciclica_ti_ato01_passado.html" />
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_11_19_IMAGE_001.png" />
+    <title>Ato I (1990–2012): A Era dos Fundamentos, a Bolha e o "Angu de Caroço" do Servidor | Christian Mulato Dev Blog</title>
+    <meta name="description" content="Episódio 01 da trilogia A Evolução Cíclica da TI: da bolha ponto-com de 2000 ao aprendizado denso no ecossistema Java (2007–2012), quando dominar o ciclo de vida do servidor era o único alicerce da engenharia real.">
+    <meta name="author" content="Christian Mulato">
+    <meta name="keywords" content="Java, JSF, JSP, Servlets, Bolha Ponto-Com, Arquitetura de Software, Histórico de TI, Christian Mulato">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro">
+  <span id="themeIcon">🌙</span>
+</button>
+<header class="site-header">
+    <div class="container">
+        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
+        <nav class="main-nav">
+            <a href="../index.html">Início</a>
+            <a href="2026_11_16_serie_evolucao_ciclica_ti_chamada.html">Índice da Série</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <article class="post">
+            <header class="post-header">
+                <p class="post-serie-kicker">Série: A Evolução Cíclica da TI — Episódio 01</p>
+                <h1 class="post-title">Ato I (1990–2012): A Era dos Fundamentos, a Bolha e o "Angu de Caroço" do Servidor</h1>
+                <div class="post-meta">
+                    <time datetime="2026-11-19">19/11/2026</time> — cerca de 9 min de leitura
+                </div>
+            </header>
+
+            <div class="post-content">
+                <figure class="hero-image-frame">
+                    <img src="assets/img/2026_11_19_IMAGE_001.png" alt="Ato I: A Era dos Fundamentos e o Servidor" class="hero-image" />
+                    <figcaption class="hero-image-caption">Capa do Episódio 01: Workstation clássica de engenharia nos anos 2000 — monitor CRT, manuais densos de arquitetura, servidores dedicados e a disciplina técnica do processamento integral no servidor.</figcaption>
+                </figure>
+
+                <p>Quem já tem alguma estrada na tecnologia costuma olhar para o discurso contemporâneo de "crise inédita na TI" com um sorriso meio amarelo. O sentimento de terra arrasada, a compressão de vagas e o pânico de obsolescência não nasceram com a inteligência artificial generativa. A história da computação corporativa é marcada por ciclos implacáveis de expansão agressiva seguidos de correções profundas — e quem sobreviveu às transições anteriores sabe que a única âncora confiável sempre foi a solidez dos fundamentos.</p>
+
+                <h3>A década de 90 e a ressaca da Bolha Ponto-Com</h3>
+                <p>Na década de 90, a consolidação da informática nas empresas e o surgimento comercial da internet criaram uma febre de contratação sem paralelo. Bastava adicionar um sufixo <code>.com</code> ao nome de qualquer empreendimento para captar milhões no mercado de capitais, mesmo sem ter produto consolidado, faturamento recorrente ou lucratividade mínima. Contratava-se qualquer um que soubesse o básico de HTML, tabelas e configuração de redes locais.</p>
+
+                <p>Quando a bolha estourou entre 2000 e 2001, a euforia virou poeira. Milhares de empresas sumiram do mapa da noite para o dia, profissionais experientes viram-se descolocados e a narrativa dominante na imprensa especializada era de que "a TI havia morrido". No entanto, o software não morreu: ele apenas expurgou a especulação vazia e passou a exigir sustentação financeira e engenharia de verdade.</p>
+
+                <h3>A seleção natural dos antigos "Webmasters"</h3>
+                <p>Foi nesse mesmo intervalo que a primeira grande espécie de profissionais da web foi extinta: a figura do <em>Webmaster</em>. Nos anos 90, o webmaster era aquele que editava algumas páginas estáticas, recortava imagens no Photoshop e dizia que "fazia sites". Quando a internet deixou de ser um mero folheto promocional eletrônico e passou a exigir sistemas transacionais complexos — com banco de dados relacional, controle de sessão, segurança e regras fiscais —, quem se recusou a estudar programação de verdade e arquitetura de dados simplesmente evaporou.</p>
+
+                <p>Quem permaneceu no jogo foi quem levantou o capô do carro, aprendeu lógica estruturada, entendeu como o protocolo HTTP funcionava em nível de bytes e dominou o tráfego do dado desde o disco até a renderização na tela.</p>
+
+                <h3>O ecossistema Java (2007–2012): o verdadeiro "Angu de Caroço"</h3>
+                <p>Quando comecei a estudar e trabalhar com Java por volta de 2007, a construção de sistemas corporativos exigia navegar por uma densidade técnica que assustaria muitos dos desenvolvedores formados nos últimos anos. Construir uma aplicação web corporativa robusta era um verdadeiro <em>angu de caroço</em>.</p>
+
+                <p>No modelo dominante da época — centrado no Java EE, servlets, JSP e especialmente no JavaServer Faces (JSF 1.x e 2.x) —, o desenvolvedor precisava entender com precisão cirúrgica o ciclo de vida de componentes no servidor:</p>
+
+                <ul>
+                    <li><strong>Restore View:</strong> reconstituir a árvore de componentes mantida em sessão no servidor;</li>
+                    <li><strong>Apply Request Values:</strong> decodificar parâmetros HTTP brutos para os componentes;</li>
+                    <li><strong>Process Validations:</strong> rodar validadores customizados e conversores de tipo;</li>
+                    <li><strong>Update Model Values:</strong> sincronizar dados validados nos managed beans;</li>
+                    <li><strong>Invoke Application:</strong> executar a regra de negócio e persistência;</li>
+                    <li><strong>Render Response:</strong> gerar a marcação HTML de volta para o cliente.</li>
+                </ul>
+
+                <p>Adicione a essa equação o uso de bibliotecas como RichFaces, PrimeFaces, AJAX embutido rudimentar, CSS artesanal e manipulação cirúrgica de DOM com JavaScript puro. Era uma arquitetura pesada, complexa e altamente acoplada ao servidor, que exigia anos de estudo dedicado para não deixar a sessão estourar a memória RAM da máquina ou corromper o estado das requisições.</p>
+
+                <h3>O Full-Stack de Verdade: Da Tabela ao HTML</h3>
+                <p>Apesar de toda a aspereza daquela pilha tecnológica, havia uma virtude fundamental que o mercado atual esqueceu: <strong>a coesão do ciclo de engenharia</strong>. O desenvolvedor Java daquela geração era um full-stack de fato. Ele criava a modelagem relacional no banco (tabelas, índices, chaves estrangeiras), escrevia os <code>prepared statements</code> ou mapeamentos JPA/Hibernate, geria as transações ACID no backend e amarrava a tela até a saída HTML.</p>
+
+                <p>Não existia a desculpa de "eu não olho banco de dados" ou "não sei como o dado chega no servidor". A responsabilidade pela entrega de ponta a ponta recaía sobre o mesmo engenheiro. O software podia ser denso, mas resolvia o problema do cliente sem a necessidade de manter três departamentos separados brigando por contratos de API ou árvores infinitas de pacotes.</p>
+
+                <p>Essa base sólida construída no servidor serviu como alicerce para tudo o que veio a seguir. No entanto, quando a indústria finalmente parecia ter domado o "angu de caroço" do processamento centralizado, o mercado decidiu puxar o pêndulo com violência para o lado oposto — dando início à era dos modismos de front-end e das camadas desnecessárias.</p>
+
+                <h2>Dicionário de Termos Técnicos e Jargões (para leigos)</h2>
+                <p>Conceitos fundamentais da era dos servidores e da computação corporativa clássica explicados de forma simples:</p>
+                <div class="chalkboard">
+                    <dl>
+                        <dt><strong>Bolha Ponto-Com (2000–2001)</strong></dt>
+                        <dd>Crise em que empresas com sites na internet receberam investimentos astronômicos sem gerar receita real, culminando em falências em massa e choque de maturidade no setor de TI.</dd>
+                        <dt><strong>Webmaster</strong></dt>
+                        <dd>Função dos anos 90 focada em montar páginas visuais e estáticas; desapareceu quando a web passou a exigir programação de bancos de dados e regras de negócio complexas.</dd>
+                        <dt><strong>JSF (JavaServer Faces)</strong></dt>
+                        <dd>Tecnologia do ecossistema Java que gerenciava a criação de telas inteiras no servidor da empresa, controlando o estado de cada botão, tabela e formulário diretamente na memória.</dd>
+                        <dt><strong>JSP e Servlets</strong></dt>
+                        <dd>Padrões históricos em Java para escutar conexões da web, buscar dados no banco relacional e gerar páginas HTML dinâmicas para os navegadores.</dd>
+                        <dt><strong>Transação ACID</strong></dt>
+                        <dd>Garantia de segurança máxima de banco de dados onde uma operação (ex: transferência financeira) só é confirmada se todas as etapas forem executadas perfeitamente, sem perda de dados.</dd>
+                        <dt><strong>Prepared Statement</strong></dt>
+                        <dd>Método de programação segura para consultar e gravar dados sem permitir que invasores injetem códigos maliciosos no banco (ataque de SQL Injection).</dd>
+                    </dl>
+                </div>
+
+                <hr style="margin: 2.5rem 0 1.5rem 0;">
+                <p><em><strong>Nota:</strong> Primeiro ensaio da trilogia A Evolução Cíclica da TI (Fiction-Based Technical Insights & Engineering Realism).</em></p>
+
+                <div class="author-signature">
+                    <p><strong>Christian Mulato</strong><br>
+                    Engenheiro Construtor</p>
+                    <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>Próximo episódio: <a href="2026_11_23_serie_evolucao_ciclica_ti_ato02_presente.html">Ato II (2010–2024): A Nuvem, o Boom da Pandemia e a Ilusão das Camadas Desnecessárias</a></p>
+        <p><a href="2026_11_16_serie_evolucao_ciclica_ti_chamada.html">Índice da série</a></p>
+    </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>

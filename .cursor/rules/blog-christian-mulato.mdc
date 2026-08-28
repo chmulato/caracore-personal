@@ -1,0 +1,35 @@
+---
+description: Memória, regras editoriais e checklist de publicação do Blog Christian Mulato (personal.caracore.com.br)
+globs: docs/articles/**/*.html, docs/*.html, update_feed.py
+alwaysApply: false
+---
+
+# Regras Editoriais e Técnicas — Blog Christian Mulato
+
+Este repositório (`caracore-personal`) gerencia as publicações estáticas e o feed RSS de `https://personal.caracore.com.br/`.
+
+## Regras Obrigatórias para Publicações
+
+1. **Nomenclatura:** `docs/articles/YYYY_MM_DD_slug.html`
+2. **Hero Image (16:9):**
+   - Imagens no padrão paisagem 16:9 em `docs/articles/assets/img/YYYY_MM_DD_IMAGE_001.png`.
+   - Incluir `<figure class="hero-image-frame">` com `<figcaption class="hero-image-caption">` e metadados `og:image`.
+3. **Dicionário Verde (`.chalkboard`):**
+   - Todo artigo técnico DEVE conter o quadro verde de lousa com termos e conceitos explicados para leigos:
+   ```html
+   <h2>Dicionário de Termos Técnicos e Negócios (para leigos)</h2>
+   <p>Glossário de termos essenciais:</p>
+   <div class="chalkboard">
+       <dl>
+           <dt><strong>Termo</strong></dt>
+           <dd>Definição direta para leigos e tomadores de decisão.</dd>
+       </dl>
+   </div>
+   ```
+4. **Navegação no Rodapé (`site-footer`):**
+   - Em séries: links para `Artigo anterior`, `Próximo episódio` e `Índice da série`.
+5. **Atualização de Índices e Feed:**
+   - Adicionar o card em `docs/index.html` e `docs/ciclo-ativo.html` em ordem cronológica decrescente.
+   - Executar `python update_feed.py` para regenerar `docs/feed.xml`.
+
+Para a memória completa e catálogo de séries, consulte `AGENTS.md`.

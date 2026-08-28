@@ -464,6 +464,34 @@ body {
     opacity: 0.9;
 }
 
+/* Listas de definição no quadro verde (Dicionário de Termos) */
+.chalkboard dl {
+    margin: 0;
+    padding: 0;
+    color: #eef7f2;
+}
+
+.chalkboard dt {
+    color: #a7f3d0;
+    font-weight: 700;
+    margin-top: 0.85rem;
+    font-size: 1rem;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.chalkboard dt:first-child {
+    margin-top: 0;
+}
+
+.chalkboard dd {
+    color: #eef7f2;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.08);
+}
+
 /* Tabelas em estilo quadro de lousa (suporta <pre> com tabela ASCII e <table>) */
 .chalkboard-table pre,
 .chalkboard-table table {
