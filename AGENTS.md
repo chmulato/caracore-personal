@@ -3,8 +3,8 @@
 > **Destinado a:** Todas as IAs, assistentes de código e agentes autônomos (Antigravity, Cursor, Copilot, Claude Code, Gemini).  
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
-> **Data de Atualização:** 28/08/2026  
-> **Total de Artigos:** 259 publicações (março de 2024 a março de 2029)  
+> **Data de Atualização:** 30/08/2026  
+> **Total de Artigos:** 260 publicações (março de 2024 a março de 2029)  
 
 ---
 

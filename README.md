@@ -13,7 +13,7 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
 
 ## Visão Geral do Acervo
 
-* **Total de Artigos:** 259 artigos publicados.
+* **Total de Artigos:** 260 artigos publicados.
 * **Período de Publicações:** De março de 2024 a março de 2029.
 * **Séries Temáticas Ativas no Acervo:**
   * [A Evolução Cíclica da TI](https://personal.caracore.com.br/articles/2026_11_16_serie_evolucao_ciclica_ti_chamada.html): Trilogia de novembro de 2026 analisando a trajetória de três décadas — do aprendizado denso no servidor (JSF/JSP nos anos 2000) à hipertrofia do front-end e o colapso do CRUD humano na era dos agentes autônomos.
