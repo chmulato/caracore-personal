@@ -204,3 +204,11 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+if (window.location.protocol !== 'file:' &&
+    ['personal.caracore.com.br', 'www.caracore.com.br', 'caracore.com.br'].indexOf(window.location.hostname) !== -1 &&
+    !document.querySelector('script[data-caracore-ga4]')) {
+    const analyticsScript = document.createElement('script');
+    analyticsScript.src = new URL('analytics.js', document.currentScript.src).href;
+    document.head.appendChild(analyticsScript);
+}
