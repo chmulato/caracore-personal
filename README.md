@@ -49,23 +49,36 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
    Lê todos os artigos de `docs/articles/`, extrai o conteúdo semântico, valida URLs absolutas e gera o `feed.xml` com ordenação cronológica decrescente estrita (RFC-822).
 
 6. **Publicação automática no LinkedIn:** O script [`linkedin_rss_auto.py`](./linkedin_rss_auto.py) identifica o arquivo de artigo adicionado ou alterado no commit atual, extrai o título do frontmatter YAML Markdown ou do HTML publicado e cria uma publicação de artigo pela API REST `https://api.linkedin.com/rest/posts`.
-  - O workflow [`publish-linkedin.yml`](./.github/workflows/publish-linkedin.yml) é executado em pushes para `master` ou `main` que alterem `docs/articles/**`.
-  - A URL pública é formada a partir de `BLOG_BASE_URL` e `PUBLIC_ARTICLES_PATH`. Neste repositório, o padrão é `https://personal.caracore.com.br/articles/`.
-  - O texto publicado contém o título, um resumo curto e o link permanente do artigo.
-  - A publicação usa uma chave de idempotência baseada no commit e na URL, reduzindo duplicações em reexecuções do workflow.
 
-### Configuração do LinkedIn
+### Como funciona para leigos
 
-No repositório GitHub, abra **Settings > Secrets and variables > Actions > New repository secret** e cadastre:
+Quando um novo artigo é enviado para o GitHub, o GitHub Actions inicia automaticamente o processo. O robô encontra o artigo alterado, prepara uma mensagem com título, resumo e link, e publica essa mensagem no perfil do LinkedIn. Nenhuma senha fica escrita no código: as informações sensíveis ficam guardadas de forma protegida no GitHub.
 
-| Secret | Conteúdo |
-|---|---|
-| `LINKEDIN_ACCESS_TOKEN` | Access token OAuth da aplicação LinkedIn com o escopo `w_member_social`. |
-| `PERSON_URN` | URN do perfil no formato `urn:li:person:SEU_ID`. |
+O processo é acionado apenas por alterações em `docs/articles/**` nas branches `master` ou `main`. Alterações no README, no feed ou em outros arquivos não geram uma publicação no LinkedIn.
 
-Na aplicação LinkedIn, os produtos **Share on LinkedIn** e **Sign In with LinkedIn using OpenID Connect** devem estar provisionados. Os escopos usados na autorização são `openid`, `profile` e `w_member_social`. O access token não deve ser incluído no código, nos commits ou em URLs.
+### Configuração e manutenção para desenvolvedores
 
-Para acompanhar uma publicação, acesse **GitHub > Actions > Publicar artigo no LinkedIn**. Uma execução concluída com sucesso indica que a API aceitou a publicação; a confirmação final deve ser feita no perfil do LinkedIn. Tokens do LinkedIn podem expirar e precisam ser renovados quando isso ocorrer.
+O workflow [`publish-linkedin.yml`](./.github/workflows/publish-linkedin.yml) instala Python e `requests`, fornece as configurações por variáveis de ambiente e executa [`linkedin_rss_auto.py`](./linkedin_rss_auto.py). A URL pública é formada por `BLOG_BASE_URL` e `PUBLIC_ARTICLES_PATH`; neste repositório, o padrão é `https://personal.caracore.com.br/articles/`.
+
+No repositório GitHub, abra **Settings > Secrets and variables > Actions > New repository secret** e mantenha estes Secrets:
+
+| Secret | Conteúdo | Renovação |
+|---|---|---|
+| `LINKEDIN_ACCESS_TOKEN` | Access token OAuth com o escopo `w_member_social`. | Renovar quando expirar, atualmente em aproximadamente 60 dias. |
+| `PERSON_URN` | URN no formato `urn:li:person:SEU_ID`. | Normalmente não muda para o mesmo perfil. |
+
+Na aplicação LinkedIn, os produtos **Share on LinkedIn** e **Sign In with LinkedIn using OpenID Connect** devem estar provisionados. A autorização utiliza `openid`, `profile` e `w_member_social`. O token não deve ser incluído no código, em commits, logs ou URLs.
+
+#### Renovação do token
+
+O access token mostrado no painel do LinkedIn tem validade limitada. Quando ele expirar:
+
+1. Gere um novo token na ferramenta **OAuth 2.0** da aplicação LinkedIn, usando `openid`, `profile` e `w_member_social`.
+2. No GitHub, acesse **Settings > Secrets and variables > Actions**, edite `LINKEDIN_ACCESS_TOKEN` e substitua o valor antigo.
+3. Não altere `PERSON_URN`, salvo se a publicação passar para outro perfil.
+4. Faça um novo push em `docs/articles/**` e confirme o resultado em **GitHub > Actions > Publicar artigo no LinkedIn**.
+
+Uma execução concluída com sucesso indica que a API aceitou a publicação; a confirmação final deve ser feita no perfil do LinkedIn.
 
 ---
 
