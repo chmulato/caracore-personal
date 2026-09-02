@@ -48,6 +48,25 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
    ```
    Lê todos os artigos de `docs/articles/`, extrai o conteúdo semântico, valida URLs absolutas e gera o `feed.xml` com ordenação cronológica decrescente estrita (RFC-822).
 
+6. **Publicação automática no LinkedIn:** O script [`linkedin_rss_auto.py`](./linkedin_rss_auto.py) identifica o arquivo de artigo adicionado ou alterado no commit atual, extrai o título do frontmatter YAML Markdown ou do HTML publicado e cria uma publicação de artigo pela API REST `https://api.linkedin.com/rest/posts`.
+  - O workflow [`publish-linkedin.yml`](./.github/workflows/publish-linkedin.yml) é executado em pushes para `master` ou `main` que alterem `docs/articles/**`.
+  - A URL pública é formada a partir de `BLOG_BASE_URL` e `PUBLIC_ARTICLES_PATH`. Neste repositório, o padrão é `https://personal.caracore.com.br/articles/`.
+  - O texto publicado contém o título, um resumo curto e o link permanente do artigo.
+  - A publicação usa uma chave de idempotência baseada no commit e na URL, reduzindo duplicações em reexecuções do workflow.
+
+### Configuração do LinkedIn
+
+No repositório GitHub, abra **Settings > Secrets and variables > Actions > New repository secret** e cadastre:
+
+| Secret | Conteúdo |
+|---|---|
+| `LINKEDIN_ACCESS_TOKEN` | Access token OAuth da aplicação LinkedIn com o escopo `w_member_social`. |
+| `PERSON_URN` | URN do perfil no formato `urn:li:person:SEU_ID`. |
+
+Na aplicação LinkedIn, os produtos **Share on LinkedIn** e **Sign In with LinkedIn using OpenID Connect** devem estar provisionados. Os escopos usados na autorização são `openid`, `profile` e `w_member_social`. O access token não deve ser incluído no código, nos commits ou em URLs.
+
+Para acompanhar uma publicação, acesse **GitHub > Actions > Publicar artigo no LinkedIn**. Uma execução concluída com sucesso indica que a API aceitou a publicação; a confirmação final deve ser feita no perfil do LinkedIn. Tokens do LinkedIn podem expirar e precisam ser renovados quando isso ocorrer.
+
 ---
 
 ## Memória para IAs e Agentes
