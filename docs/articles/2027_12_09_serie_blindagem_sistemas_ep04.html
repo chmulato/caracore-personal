@@ -4,12 +4,152 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html" />
-    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html" />
-    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png" />
-    <title>Módulo 04: A Ilusão da Sandbox — Blindagem de Sistemas</title>
-    <meta name="description" content="Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno.">
+    <meta name="description" content="Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa">
     <meta name="author" content="Christian Mulato">
+    <meta property="og:title" content="A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco">
+    <meta property="og:description" content="Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html">
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="576">
+    <meta property="og:site_name" content="Christian Mulato Dev Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco">
+    <meta name="twitter:description" content="Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa">
+    <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html">
+    <meta property="article:published_time" content="2027-12-09">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco",
+    "description": "Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-09",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2027-12-09">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco",
+    "description": "Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-09",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2027-12-09">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco",
+    "description": "Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-09",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2027-12-09">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Ilusão da Sandbox: JVM Off-Heap e Pontes de Risco",
+    "description": "Módulo 04 (09/12/2027): Mitigando riscos de acesso de memória Off-Heap na JVM com a API de Memória Estrangeira do Project Panama no Java moderno Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Ilusão da Sa",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_09_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-09",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_09_serie_blindagem_sistemas_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    <title>Módulo 04: A Ilusão da Sandbox — Blindagem de Sistemas</title>
+    
+    
     <meta name="keywords" content="Java, JVM, Project Panama, Off-Heap, Memória Estrangeira, Garbage Collector, sun.misc.Unsafe, JNI, APIs Nativas Java">
 
     <!-- CSS -->

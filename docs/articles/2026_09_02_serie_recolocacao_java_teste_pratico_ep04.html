@@ -4,12 +4,152 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html" />
-    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html" />
-    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png" />
-    <title>Episódio 04: JPA, H2 e Flyway — Christian Mulato Dev Blog</title>
-    <meta name="description" content="Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda.">
+    <meta name="description" content="Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin">
     <meta name="author" content="Christian Mulato">
+    <meta property="og:title" content="Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway">
+    <meta property="og:description" content="Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html">
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png">
+    <meta property="og:image:width" content="1672">
+    <meta property="og:image:height" content="941">
+    <meta property="og:site_name" content="Christian Mulato Dev Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway">
+    <meta name="twitter:description" content="Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin">
+    <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html">
+    <meta property="article:published_time" content="2026-09-02">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway",
+    "description": "Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-09-02",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2026-09-02">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway",
+    "description": "Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-09-02",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2026-09-02">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway",
+    "description": "Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-09-02",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2026-09-02">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "Episódio 04: Da memória ao banco: persistindo veículos com JPA, H2 e Flyway",
+    "description": "Quarto episódio: persistência na Infra, migrations, repositório, paginação e tradução de ausência para 404 na borda Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Episódio 04: Da memória ao banco: persistin",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_09_02_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-09-02",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_09_02_serie_recolocacao_java_teste_pratico_ep04.html"
+    }
+}
+    </script>
+    
+    
+    
+    <title>Episódio 04: JPA, H2 e Flyway — Christian Mulato Dev Blog</title>
+    
+    
     <meta name="keywords" content="JPA, Flyway, H2, Spring Data, arquitetura em camadas">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/article.css">

@@ -3,20 +3,160 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html" />
-    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html" />
-<title>A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes - Christian Mulato Dev Blog</title>
-    <meta name="description" content="A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor.">
+    <meta name="description" content="A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor">
     <meta name="author" content="Christian Mulato">
+    <meta property="og:title" content="A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes">
+    <meta property="og:description" content="A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html">
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png">
+    <meta property="og:image:width" content="1820">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:site_name" content="Christian Mulato Dev Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes">
+    <meta name="twitter:description" content="A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor">
+    <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html">
+    <meta property="article:published_time" content="2026-01-31">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes",
+    "description": "A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-01-31",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2026-01-31">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes",
+    "description": "A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-01-31",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2026-01-31">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes",
+    "description": "A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-01-31",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2026-01-31">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes",
+    "description": "A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2026-01-31",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2026_01_31_a_anatomia_de_um_deploy_de_sucesso.html"
+    }
+}
+    </script>
+        
+    
+<title>A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes - Christian Mulato Dev Blog</title>
+    
+    
     <meta name="keywords" content="Java, Kubernetes, EKS, WildFly, JDBC, Docker, DevOps, Monolito, Modernização, SQL Server, JNDI, Deploy, Homologação">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/article.css">
     <link rel="stylesheet" href="assets/css/highlight.css">
     <link rel="icon" href="assets/img/favicon.ico">
-    <meta property="og:title" content="A Anatomia de um Deploy de Sucesso: Do Caos do Legado à Estabilidade no Kubernetes">
-    <meta property="og:description" content="A jornada completa de migração de um monolito Java para Kubernetes: desde o diagnóstico dos erros JDBC, passando pela cirurgia no Dockerfile, até a estabilização do ambiente e a autonomia do desenvolvedor.">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_01_31_IMAGE_001.png">
+    
+    
+    
+    
     <meta property="og:locale" content="pt_BR">
 </head>
 <body>

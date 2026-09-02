@@ -4,12 +4,152 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html" />
-    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html" />
-    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png" />
-    <title>Módulo 05: A Rampa de Alto Nível — Blindagem de Sistemas</title>
-    <meta name="description" content="Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal.">
+    <meta name="description" content="Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de">
     <meta name="author" content="Christian Mulato">
+    <meta property="og:title" content="A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado">
+    <meta property="og:description" content="Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html">
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="576">
+    <meta property="og:site_name" content="Christian Mulato Dev Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado">
+    <meta name="twitter:description" content="Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de">
+    <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html">
+    <meta property="article:published_time" content="2027-12-16">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado",
+    "description": "Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-16",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2027-12-16">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado",
+    "description": "Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-16",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2027-12-16">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado",
+    "description": "Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-16",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html"
+    }
+}
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta property="article:published_time" content="2027-12-16">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "name": "Christian Mulato Dev Blog",
+    "headline": "A Rampa de Alto Nível: Integrando Rust no Ecossistema Legado",
+    "description": "Módulo 05 (16/12/2027): Como acoplar módulos de Rust em APIs tradicionais Node.js e Java por meio de WebAssembly e FFI sob uma arquitetura hexagonal Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre A Rampa de",
+    "image": "https://personal.caracore.com.br/articles/assets/img/2027_12_16_IMAGE_001.png",
+    "author": {
+        "@type": "Person",
+        "name": "Christian Mulato"
+    },
+    "datePublished": "2027-12-16",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://personal.caracore.com.br/articles/2027_12_16_serie_blindagem_sistemas_ep05.html"
+    }
+}
+    </script>
+    
+    
+    
+    <title>Módulo 05: A Rampa de Alto Nível — Blindagem de Sistemas</title>
+    
+    
     <meta name="keywords" content="WebAssembly, Wasm, FFI, Node.js, Arquitetura Hexagonal, Ports and Adapters, Integração Rust, Interfaces Estrangeiras">
 
     <!-- CSS -->
