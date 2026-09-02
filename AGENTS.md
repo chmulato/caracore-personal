@@ -3,7 +3,7 @@
 > **Destinado a:** Todas as IAs, assistentes de código e agentes autônomos (Antigravity, Cursor, Copilot, Claude Code, Gemini).  
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
-> **Data de Atualização:** 30/08/2026  
+> **Data de Atualização:** 02/09/2026
 > **Total de Artigos:** 260 publicações (março de 2024 a março de 2029)  
 
 ---
@@ -34,7 +34,11 @@ caracore-personal/
 │   │       └── img/          # Imagens hero (YYYY_MM_DD_IMAGE_001.png)
 │   └── editorial/            # Páginas institucionais (linha editorial, manifesto, sobre o autor)
 ├── update_feed.py            # Script oficial em Python para regenerar docs/feed.xml
+├── linkedin_rss_auto.py      # Publica o artigo alterado no commit na API REST do LinkedIn
 ├── README.md                 # Visão geral do repositório
+├── .github/
+│   └── workflows/
+│       └── publish-linkedin.yml # Workflow de publicação automática no LinkedIn
 └── AGENTS.md                 # Este documento de memória e regras para IAs
 ```
 
@@ -124,7 +128,26 @@ E no `<footer class="site-footer">`:
 
 ---
 
-## 5. Checklist de Verificação para IAs
+## 5. Estado Operacional Atual (02/09/2026)
+
+- Aplicação LinkedIn: **Christian Mulato's Blog**.
+- Produtos LinkedIn provisionados: **Share on LinkedIn** e **Sign In with LinkedIn using OpenID Connect**.
+- Escopos autorizados: `openid`, `profile` e `w_member_social`.
+- Secrets de repositório configurados no GitHub: `LINKEDIN_ACCESS_TOKEN` e `PERSON_URN`. Nunca registrar seus valores nesta memória, em commits ou em logs.
+- Workflow validado com sucesso na branch `master`, no commit `d093885`, com duração aproximada de 33 segundos.
+- O `LINKEDIN_ACCESS_TOKEN` tem validade limitada, atualmente indicada pelo LinkedIn como aproximadamente 2 meses. Quando expirar, gerar novo token e substituir somente o Secret no GitHub.
+- O `PERSON_URN` normalmente permanece estável para o mesmo perfil; só deve ser alterado se a identidade autora mudar.
+- Para diagnóstico, consultar **GitHub > Actions > Publicar artigo no LinkedIn**. Não fazer chamadas reais à API em testes locais sem necessidade.
+
+## 6. Automação de Publicação no LinkedIn
+
+1. O workflow `.github/workflows/publish-linkedin.yml` é acionado por `push` nas branches `master` ou `main`, somente quando houver alteração em `docs/articles/**`.
+2. O script `linkedin_rss_auto.py` usa `GITHUB_BEFORE` e `GITHUB_SHA` para identificar arquivos adicionados ou modificados no push atual.
+3. O script aceita Markdown com frontmatter YAML e também os artigos HTML existentes. Para Markdown, a extensão `.md` é convertida para `.html` na URL pública.
+4. A publicação usa `POST https://api.linkedin.com/rest/posts`, o escopo `w_member_social` e uma chave de idempotência derivada do commit e da URL.
+5. Os parâmetros públicos padrão são `BLOG_BASE_URL=https://personal.caracore.com.br`, `POSTS_DIRECTORY=docs/articles` e `PUBLIC_ARTICLES_PATH=articles`.
+
+## 7. Checklist de Verificação para IAs
 
 Antes de finalizar qualquer tarefa no blog, valide os itens:
 - [ ] O artigo possui data no formato `YYYY_MM_DD_*.html`.
