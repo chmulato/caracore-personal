@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">Christian Mulato Dev Blog</title>
+  <desc id="logo-description">Simbolo Cara Core conectado ao nome Christian Mulato Dev Blog.</desc>
+  <defs>
+    <clipPath id="symbol-clip">
+      <circle cx="90" cy="90" r="78" />
+    </clipPath>
+  </defs>
+  <image href="favicon.png" x="12" y="12" width="156" height="156" preserveAspectRatio="xMidYMid slice" clip-path="url(#symbol-clip)" />
+  <circle cx="90" cy="90" r="78" fill="none" stroke="#19d3c5" stroke-width="3" />
+  <path d="M210 52h10v76h-10z" fill="#19d3c5" />
+  <text x="245" y="84" fill="#18232d" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" letter-spacing="0">CHRISTIAN MULATO</text>
+  <text x="248" y="125" fill="#159b9c" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="4">DEV BLOG</text>
+  <path d="M248 143h350" stroke="#d8e3e8" stroke-width="2" />
+</svg>
