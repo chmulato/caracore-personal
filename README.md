@@ -13,7 +13,7 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
 
 ## Visão Geral do Acervo
 
-* **Total de Artigos:** 260 artigos publicados.
+* **Total de Artigos:** 262 artigos publicados.
 * **Período de Publicações:** De março de 2024 a março de 2029.
 * **Séries Temáticas Ativas no Acervo:**
   * [A Evolução Cíclica da TI](https://personal.caracore.com.br/articles/2026_11_16_serie_evolucao_ciclica_ti_chamada.html): Trilogia de novembro de 2026 analisando a trajetória de três décadas — do aprendizado denso no servidor (JSF/JSP nos anos 2000) à hipertrofia do front-end e o colapso do CRUD humano na era dos agentes autônomos.
@@ -22,6 +22,7 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
   * [Blindagem de Sistemas](https://personal.caracore.com.br/articles/2027_11_11_serie_blindagem_sistemas_chamada.html): Pós-graduação prática em engenharia de riscos, resiliência de memória com Rust, mitigação na JVM, isolamento em kernel (eBPF) e soberania digital, acompanhada de 7 lições de apoio aos sábados.
   * [Do RPA ao Silício](https://personal.caracore.com.br/articles/2026_08_25_serie_do_rpa_ao_silicio_a_grande_transformacao_chamada.html): Crônica ficcional com fundo de verdade técnica sobre o futuro do desenvolvimento, automação cognitiva, sistemas operacionais e a geopolítica física do silício.
   * [A Ilusão Informatizada](https://personal.caracore.com.br/articles/2026_09_30_serie_ilusao_informatizada_index.html): Ensaios críticos sobre o avanço tecnológico acelerado, economia de tokens e o vácuo de responsabilidade.
+  * [A Bolha!](https://personal.caracore.com.br/articles/2026_09_30_a_bolha.html): Artigo avulso de 30/09/2026 sobre a lógica da bolha digital, atenção algorítmica e a classe média tecnológica.
   * [Recolocação Java](https://personal.caracore.com.br/articles/2026_08_10_serie_recolocacao_java_teste_pratico_index.html): Guias pragmáticos de carreira, contratação e testes práticos de arquitetura sob pressão.
   * [Além do Hype](https://personal.caracore.com.br/articles/2027_05_05_serie_alem_hype_monolitos_microservicos_index.html): Discussão matemática e financeira entre monolitos modulares e microsserviços.
   * [O Novo Tabuleiro do Mundo](https://personal.caracore.com.br/articles/2027_05_02_serie_novo_tabuleiro_index.html): A geopolítica de IA, data centers locais e soberania energética.
