@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap');
+
 /* === FINAIS DOS ARTIGOS DA SÉRIE BRASIL, SDK E SOBERANIA === */
 
 .final-note {
@@ -65,8 +67,6 @@
    ================================ */
 
 /* Importar fontes profissionais */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap');
-
 /* Variáveis CSS - Tema Claro */
 :root {
     --primary-color: #2563eb;
@@ -1087,6 +1087,120 @@ body {
     border-radius: 8px;
     padding: 1.5em;
     margin-bottom: 1.5em;
+}
+
+/* Estrutura atual dos artigos publicados */
+.site-header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 0;
+    margin-bottom: 2rem;
+}
+
+.site-header .container,
+.main-content .container,
+.site-footer .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.site-header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.site-header h1 a,
+.main-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.site-header h1 a:hover,
+.main-nav a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.post {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.post-title {
+    margin: 0 0 1rem;
+    color: var(--text-color);
+    font-size: 2.35rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.post-content h2 {
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1.65rem;
+}
+
+.post-content p {
+    margin: 0 0 1.15rem;
+}
+
+.post-content ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.75rem;
+}
+
+.site-footer {
+    padding: 1.5rem 0 2rem;
+    color: var(--text-light);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .site-header .container,
+    .main-content .container,
+    .site-footer .container,
+    .post {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
 }
 
 [data-theme="dark"] .day-box {
