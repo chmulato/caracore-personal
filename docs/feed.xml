@@ -70,30 +70,6 @@
                     <div class="section-summary">
                         <strong>Resumo da Seção:</strong> A transição monetária é profundamente disruptiva. Ela elimina intermediários históricos e transfere o poder econômico da produção física de bens para a posse das infraestruturas de rede digitais (os novos feudos). O leitor deve entender que o controle migrou do produto para a plataforma.
                     </div>
-                        <item>
-                          <title><![CDATA[Desmistificando a Inteligência Artificial nas Corporações: Conectando a IA com Segurança e Eficiência no VS Code]]></title>
-                          <link>https://personal.caracore.com.br/articles/2026_09_10_desmistificando_a_inteligencia_artificial_nas_corporacoes_conectando_a_ia_com_seguranca_e_eficiencia_no_vs_code.html</link>
-                          <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-                          <description><![CDATA[Integrar Inteligência Artificial no VS Code com Microsoft 365, Microsoft Graph, MCP e Python sem comprometer a segurança, os dados nem a estabilidade dos sistemas legados.]]></description>
-                          <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_001.png" length="0" type="image/png" />
-                          <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_001.png" medium="image" />
-                          <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_10_desmistificando_a_inteligencia_artificial_nas_corporacoes_conectando_a_ia_com_seguranca_e_eficiencia_no_vs_code.html</guid>
-                          <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
-                          <content:encoded><![CDATA[<p><img alt="Integrando o Microsoft Copilot 365 Corporativo dentro do VS Code com segurança e eficiência" src="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_001.png" class="hero-image" /></p>
-                    <p>A discussão sobre a adoção de Inteligência Artificial nas empresas frequentemente tropeça nos mesmos lugares: o comitê questiona o custo, o jurídico teme o vazamento de dados e a TI se preocupa com a estabilidade dos sistemas legados. O equívoco fundamental está em tratar a IA como se ela precisasse habitar o centro do sistema de missão crítica, ou pior, como se os dados da operação precisassem migrar para a nuvem de terceiros.</p>
-                    <p>A saída madura baseia-se no desacoplamento clássico: o cérebro é alugado; o braço é local.</p>
-                    <h2>O Desenho da Ponte: Cérebro, Protocolo e Execução Local</h2>
-                    <p>Para integrar IA sem comprometer o perímetro corporativo, a arquitetura divide-se em três partes essenciais:</p>
-                    <ul>
-                    <li><strong>Camada Cognitiva (O Cérebro):</strong> O modelo de linguagem interpreta intenções e devolve comandos estruturados.</li>
-                    <li><strong>Model Context Protocol - MCP (O Protocolo):</strong> Um padrão aberto que permite ao editor descobrir e acionar ferramentas locais de forma padronizada.</li>
-                    <li><strong>Execução Local (O Braço / Localhost):</strong> Seus scripts e servidores locais que leem os dados e acionam as APIs corporativas.</li>
-                    </ul>
-                    <figure class="hero-image-frame">
-                    <img alt="Arquitetura de integração entre Agente de IA, Microsoft 365, Microsoft Graph, MCP e scripts Python no Windows" src="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_002.png" class="hero-image" />
-                    <figcaption class="hero-image-caption">Figura 1. Arquitetura de IA corporativa baseada em MCP e Microsoft Graph, na qual o agente de IA realiza o raciocínio e a orquestração, enquanto a execução, os dados e as credenciais permanecem sob controle do ambiente local da organização.</figcaption>
-                    </figure>]]></content:encoded>
-                        </item>
                 </section>
 
                 <hr class="section-divider" />
@@ -10094,7 +10070,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
 
                 <div class="author-signature">
                     <p><strong>Christian Mulato</strong><br>
-                    Engenheiro Construtor</p>
+                    Cidadão Ativo</p>
                     <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
                 </div>]]></content:encoded>
     </item>
@@ -10714,6 +10690,70 @@ public class WebAuthFilter implements ContainerRequestFilter {
                     <div class="series-navigation" style="margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-color); font-size: 0.95rem; font-weight: 500;">
                         Anterior: <a href="https://personal.caracore.com.br/articles/2026_09_05_do_rpa_ao_silicio_a_grande_transformacao_cap_01.html">Capítulo 01</a> — <a href="https://personal.caracore.com.br/articles/2026_08_25_serie_do_rpa_ao_silicio_a_grande_transformacao_chamada.html">Índice da Série</a> — Próximo: <a href="https://personal.caracore.com.br/articles/2026_09_20_do_rpa_ao_silicio_a_grande_transformacao_cap_03.html">Capítulo 03</a>
                     </div>]]></content:encoded>
+    </item>
+
+    <item>
+      <title><![CDATA[Desmistificando a Inteligência Artificial nas Corporações: Conectando a IA com Segurança e Eficiência no VS Code]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_09_10_desmistificando_a_inteligencia_artificial_nas_corporacoes_conectando_a_ia_com_seguranca_e_eficiencia_no_vs_code.html</link>
+      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+      <description><![CDATA[Integrar Inteligência Artificial no VS Code com Microsoft 365, Microsoft Graph, MCP e Python sem comprometer a segurança, os dados nem a estabilidade dos sistemas legados.]]></description>
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_001.png" length="0" type="image/png" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_001.png" medium="image" />
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_09_10_desmistificando_a_inteligencia_artificial_nas_corporacoes_conectando_a_ia_com_seguranca_e_eficiencia_no_vs_code.html</guid>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<figure class="hero-image-frame">
+                    <img alt="Integrando o Microsoft Copilot 365 Corporativo dentro do VS Code com segurança e eficiência" src="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_001.png" class="hero-image" />
+                </figure>
+                <p>Tempo de leitura: 8 minutos</p>
+
+                <p>A discussão sobre a adoção de Inteligência Artificial nas empresas frequentemente tropeça nos mesmos lugares: o comitê questiona o custo, o jurídico teme o vazamento de dados e a TI se preocupa com a estabilidade dos sistemas legados. O equívoco fundamental está em tratar a IA como se ela precisasse habitar o centro do sistema de missão crítica, ou pior, como se os dados da operação precisassem migrar para a nuvem de terceiros.</p>
+
+                <p>A saída madura baseia-se no desacoplamento clássico: <strong>o cérebro é alugado; o braço é local.</strong></p>
+
+                <h2>O Desenho da Ponte: Cérebro, Protocolo e Execução Local</h2>
+                <p>Para integrar IA sem comprometer o perímetro corporativo, a arquitetura divide-se em três partes essenciais:</p>
+
+                <ul>
+                    <li><strong>Camada Cognitiva (O Cérebro):</strong> O modelo de linguagem (hospedado em VPC, SLM local ou serviço comercial) interpreta intenções e devolve comandos estruturados. Ele não armazena o banco de dados nem possui credenciais diretas.</li>
+                    <li><strong>Model Context Protocol - MCP (O Protocolo):</strong> Um padrão aberto (semelhante a um "USB" para o software) que permite ao editor descobrir e acionar ferramentas locais de forma padronizada, sem conexões artesanais.</li>
+                    <li><strong>Execução Local (O Braço / Localhost):</strong> Seus scripts e servidores locais (Python, Java, etc.) que já possuem as permissões e certificados de rede necessários. Eles leem os dados e acionam as APIs corporativas, garantindo que o núcleo ACID do legado permaneça intacto.</li>
+                </ul>
+
+                <figure class="hero-image-frame">
+                    <img alt="Arquitetura de integração entre Agente de IA, Microsoft 365, Microsoft Graph, MCP e scripts Python no Windows" src="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_002.png" class="hero-image" />
+                    <figcaption class="hero-image-caption">Figura 1. Arquitetura de IA corporativa baseada em MCP e Microsoft Graph, na qual o agente de IA realiza o raciocínio e a orquestração, enquanto a execução, os dados e as credenciais permanecem sob controle do ambiente local da organização.</figcaption>
+                </figure>
+
+                <h2>A Bancada Prática: Microsoft 365, VS Code e Python</h2>
+                <p>Muitas equipes operam em ambientes padrão (como máquinas de 16 GB rodando VS Code, Quarkus, Angular e bancos locais H2/PostgreSQL) e já possuem licenças do Microsoft 365 pagas pela instituição.</p>
+
+                <p>A conexão entre a IA do editor e os dados corporativos não exige quebrar regras ou criar brechas de segurança:</p>
+
+                <ul>
+                    <li><strong>O Papel do Script Python:</strong> O script atua como intermediário seguro (sidecar). Ele não burla o tenant, mas utiliza a conta corporativa já autorizada.</li>
+                    <li><strong>Autenticação via OAuth 2.0 (Entra ID):</strong> Toda requisição passa pelo diretório de identidades da Microsoft. O sistema aplica rigorosamente o Princípio do Menor Privilégio — a ferramenta local só executa o estritamente necessário.</li>
+                    <li><strong>Controle de Custos e Throttling:</strong> Enquanto o modelo de IA consome tokens baseados no uso do editor, as chamadas ao Microsoft Graph respeitam limites técnicos de tráfego (como o HTTP 429 - Too Many Requests), evitando faturas surpresa e garantindo previsibilidade financeira.</li>
+                </ul>
+
+                <h2>Segurança é Fronteira, Não Discurso</h2>
+                <p>Garantir conformidade com a LGPD e evitar o "sequestro de contexto" (onde dados corporativos alimentam bases de terceiros) depende de três pilares inegociáveis:</p>
+
+                <ul>
+                    <li><strong>Minimização de Dados:</strong> O modelo recebe apenas o trecho, schema ou identificador estritamente necessário para a tarefa imediata.</li>
+                    <li><strong>Ações Nomeadas e Auditáveis:</strong> Não existe acesso irrestrito; cada ação passa por uma ferramenta nomeada com logs rastreáveis.</li>
+                    <li><strong>Inspeção Humana:</strong> O desenvolvedor avalia o diff no VS Code antes de qualquer commit, garantindo que o ser humano continue assinando o comando final.</li>
+                </ul>
+
+                <p>Modernizar a operação não significa demolir o legado ou expor dados sensíveis. Ao desenhar a fronteira correta entre a inteligência do modelo e a soberania do código local, ganha-se agilidade com a segurança que o negócio exige.</p>
+
+                <div class="tags">
+                    <span class="tag">Inteligência Artificial</span>
+                    <span class="tag">Microsoft 365</span>
+                    <span class="tag">VS Code</span>
+                    <span class="tag">MCP</span>
+                    <span class="tag">Soberania de Dados</span>
+                </div>
+                <p><strong>Hashtags</strong>: #ArquiteturaDeSoftware #InteligênciaArtificial #Microsoft365 #VSCode #SoberaniaDeDados #Desenvolvimento</p>]]></content:encoded>
     </item>
 
     <item>

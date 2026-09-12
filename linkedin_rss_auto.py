@@ -244,21 +244,26 @@ def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     try:
         changed_files = git_changed_files()
-        if not changed_files:
-            logging.info("Nenhum artigo adicionado ou alterado neste commit")
-            return 0
-
-        # O nome do arquivo normalmente contem a data; o ultimo por ordem de
-        # caminho representa o artigo mais recente dentro do push.
-        path = changed_files[-1]
-        content = (REPOSITORY_ROOT / path).read_text(encoding="utf-8")
-        title = extract_title(path, content)
-        url = post_url(path)
-        publish(title, extract_summary(content, title), url)
-        return 0
-    except (OSError, RuntimeError, subprocess.CalledProcessError) as exc:
+    except subprocess.CalledProcessError as exc:
         logging.error("Publicacao interrompida: %s", exc)
         return 1
+
+    if not changed_files:
+        logging.info("Nenhum artigo adicionado ou alterado neste commit")
+        return 0
+
+    had_failure = False
+    for path in changed_files:
+        try:
+            content = (REPOSITORY_ROOT / path).read_text(encoding="utf-8")
+            title = extract_title(path, content)
+            url = post_url(path)
+            publish(title, extract_summary(content, title), url)
+        except (OSError, RuntimeError) as exc:
+            had_failure = True
+            logging.error("Falha ao publicar %s: %s", path, exc)
+
+    return 1 if had_failure else 0
 
 
 if __name__ == "__main__":
