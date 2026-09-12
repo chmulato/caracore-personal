@@ -193,17 +193,34 @@ def post_url(path: Path) -> str:
     return f"{BLOG_BASE_URL}/{encoded_path}"
 
 
-def build_post_text(title: str, summary: str, url: str) -> str:
-    """Monta o texto respeitando o limite pratico do LinkedIn."""
-    prefix = f"{title}\n\n"
-    suffix = f"\n\n{url}"
-    available = MAX_POST_LENGTH - len(prefix) - len(suffix)
+LINKEDIN_SPECIAL_CHARS = re.compile(r"([\\*_~()\[\]<>{}@|])")
+
+
+def escape_linkedin_text(text: str) -> str:
+    """Escapa caracteres reservados do 'Little Text Format' do LinkedIn.
+
+    Sem isso, sequencias como par de "_" em nomes de arquivo/URL sao
+    interpretadas como marcacao (ex.: italico) e o texto sai corrompido.
+    """
+    return LINKEDIN_SPECIAL_CHARS.sub(r"\\\1", text)
+
+
+def build_post_text(title: str, summary: str) -> str:
+    """Monta o texto respeitando o limite pratico do LinkedIn.
+
+    A URL nao entra como texto solto: o card de artigo (content.article.source)
+    ja exibe o link, e URLs com "_" no commentary sao corrompidas pelo parser
+    de marcacao do LinkedIn.
+    """
+    safe_title = escape_linkedin_text(title)
+    prefix = f"{safe_title}\n\n"
+    available = MAX_POST_LENGTH - len(prefix)
     if available <= 0:
-        return (title[: MAX_POST_LENGTH - len(url) - 2] + "\n\n" + url)[:MAX_POST_LENGTH]
-    shortened_summary = summary[:available].rstrip()
-    if len(shortened_summary) < len(summary):
-        shortened_summary = shortened_summary.rstrip(" .,;") + "..."
-    return f"{prefix}{shortened_summary}{suffix}"
+        return safe_title[:MAX_POST_LENGTH]
+    safe_summary = escape_linkedin_text(summary)[:available].rstrip()
+    if len(safe_summary) < len(escape_linkedin_text(summary)):
+        safe_summary = safe_summary.rstrip(" .,;") + "..."
+    return f"{prefix}{safe_summary}"
 
 
 def publish(title: str, summary: str, url: str) -> None:
@@ -217,7 +234,7 @@ def publish(title: str, summary: str, url: str) -> None:
     idempotency_key = hashlib.sha256(f"{commit_key}:{url}".encode()).hexdigest()
     payload = {
         "author": person_urn,
-        "commentary": build_post_text(title, summary, url),
+        "commentary": build_post_text(title, summary),
         "visibility": "PUBLIC",
         "distribution": {
             "feedDistribution": "MAIN_FEED",
