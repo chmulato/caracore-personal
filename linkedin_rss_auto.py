@@ -7,6 +7,7 @@ Funciona com posts Markdown com frontmatter YAML e com os artigos HTML atuais.
 from __future__ import annotations
 
 import hashlib
+import html
 import json
 import logging
 import os
@@ -31,6 +32,7 @@ REQUEST_TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 3
 MAX_POST_LENGTH = 3000
 PUBLISHED_LEDGER_PATH = REPOSITORY_ROOT / "linkedin_published.json"
+DRY_RUN = os.getenv("DRY_RUN", "").strip().lower() == "true"
 
 
 class _HTMLTextExtractor(HTMLParser):
@@ -163,15 +165,32 @@ def extract_title(path: Path, content: str) -> str:
     parser = _HTMLMetadataExtractor()
     parser.feed(content)
     title = parser.title()
-    if " - Christian Mulato Dev Blog" in title:
-        title = title.split(" - Christian Mulato Dev Blog", 1)[0].rstrip()
+    for separator in (" - Christian Mulato Dev Blog", " — Christian Mulato Dev Blog"):
+        if separator in title:
+            title = title.split(separator, 1)[0].rstrip()
+            break
     if title:
         return title
     raise RuntimeError(f"Nao foi possivel extrair o titulo de {path}")
 
 
+DESCRIPTION_META = re.compile(
+    r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', re.I | re.S
+)
+
+
 def extract_summary(content: str, title: str) -> str:
-    """Monta um resumo curto para acompanhar o link no LinkedIn."""
+    """Monta um resumo curto para acompanhar o link no LinkedIn.
+
+    Prioriza a meta description (curada e do tamanho certo) em vez de raspar
+    todo o texto visivel da pagina, que inclui menu, rodape e scripts.
+    """
+    meta_match = DESCRIPTION_META.search(content)
+    if meta_match:
+        description = html.unescape(meta_match.group(1)).strip()
+        if description:
+            return description[:500].rstrip()
+
     body = re.sub(r"^---.*?---\s*", "", content, count=1, flags=re.DOTALL)
     body = re.sub(r"!\[[^]]*\]\([^)]*\)", "", body)
     body = re.sub(r"[#>*_`~-]", " ", body)
@@ -244,6 +263,12 @@ def publish(title: str, summary: str, url: str) -> None:
         "lifecycleState": "PUBLISHED",
         "content": {"article": {"source": url, "title": title}},
     }
+
+    if DRY_RUN:
+        logging.info("DRY_RUN ativo; payload que seria enviado ao LinkedIn:")
+        logging.info(json.dumps(payload, ensure_ascii=False, indent=2))
+        return
+
     headers = {
         "Authorization": f"Bearer {access_token}",
         "Content-Type": "application/json",
@@ -310,8 +335,9 @@ def main() -> int:
             title = extract_title(path, content)
             url = post_url(path)
             publish(title, extract_summary(content, title), url)
-            ledger[key] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-            save_published_ledger(ledger)
+            if not DRY_RUN:
+                ledger[key] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                save_published_ledger(ledger)
         except (OSError, RuntimeError) as exc:
             had_failure = True
             logging.error("Falha ao publicar %s: %s", path, exc)

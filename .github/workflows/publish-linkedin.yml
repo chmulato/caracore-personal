@@ -16,6 +16,10 @@ on:
         description: "Ignorar linkedin_published.json e publicar mesmo se ja registrado"
         type: boolean
         default: false
+      dry_run:
+        description: "Apenas montar e logar o payload, sem chamar a API do LinkedIn"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -58,6 +62,7 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           ARTICLE_PATH: ${{ github.event.inputs.article_path }}
           FORCE_REPUBLISH: ${{ github.event.inputs.force }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: python linkedin_rss_auto.py
 
       - name: Commitar feed.xml, sitemap.xml e registro de publicacoes
