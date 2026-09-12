@@ -7,6 +7,15 @@ on:
       - master
     paths:
       - "docs/articles/**"
+  workflow_dispatch:
+    inputs:
+      article_path:
+        description: "Caminho do artigo a publicar (ex.: docs/articles/2026_09_10_arquivo.html)"
+        required: true
+      force:
+        description: "Ignorar linkedin_published.json e publicar mesmo se ja registrado"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -47,6 +56,8 @@ jobs:
           PUBLIC_ARTICLES_PATH: articles
           GITHUB_BEFORE: ${{ github.event.before }}
           GITHUB_SHA: ${{ github.sha }}
+          ARTICLE_PATH: ${{ github.event.inputs.article_path }}
+          FORCE_REPUBLISH: ${{ github.event.inputs.force }}
         run: python linkedin_rss_auto.py
 
       - name: Commitar feed.xml, sitemap.xml e registro de publicacoes

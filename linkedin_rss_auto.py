@@ -264,11 +264,18 @@ def publish(title: str, summary: str, url: str) -> None:
 
 def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-    try:
-        changed_files = git_changed_files()
-    except subprocess.CalledProcessError as exc:
-        logging.error("Publicacao interrompida: %s", exc)
-        return 1
+
+    forced_path = os.getenv("ARTICLE_PATH", "").strip()
+    force_republish = os.getenv("FORCE_REPUBLISH", "").strip().lower() == "true"
+
+    if forced_path:
+        changed_files = [Path(forced_path)]
+    else:
+        try:
+            changed_files = git_changed_files()
+        except subprocess.CalledProcessError as exc:
+            logging.error("Publicacao interrompida: %s", exc)
+            return 1
 
     if not changed_files:
         logging.info("Nenhum artigo adicionado ou alterado neste commit")
@@ -278,7 +285,7 @@ def main() -> int:
     had_failure = False
     for path in changed_files:
         key = path.as_posix()
-        if key in ledger:
+        if key in ledger and not force_republish:
             logging.info("Ja publicado em %s; ignorando %s", ledger[key], key)
             continue
         try:
