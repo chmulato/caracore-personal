@@ -41,6 +41,11 @@ def main() -> None:
         expected = "https://personal.caracore.com.br/" if path.name == "index.html" else f"https://personal.caracore.com.br/articles/{path.name}"
         if canonicals != [expected]:
             failures.append(f"{path.name}: canonical")
+        og_images = [values.get("content") for values in tags if values.get("property") == "og:image"]
+        if og_images:
+            rel = og_images[0].split("personal.caracore.com.br/", 1)[-1]
+            if not (ROOT / "docs" / rel).exists():
+                failures.append(f"{path.name}: og:image ausente no disco")
         scripts = SCRIPT.findall(source)
         try:
             schema = json.loads(scripts[0])
