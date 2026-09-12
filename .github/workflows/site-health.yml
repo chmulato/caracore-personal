@@ -1,0 +1,60 @@
+name: Saude do site
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "docs/**"
+      - "update_feed.py"
+      - "update_sitemap.py"
+      - "tools/**"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "update_feed.py"
+      - "update_sitemap.py"
+      - "tools/**"
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Validar metadados sociais e JSON-LD
+        run: python tools/validate_social_metadata.py
+
+      - name: Regenerar feed.xml e sitemap.xml
+        run: |
+          python update_feed.py
+          python update_sitemap.py
+
+      - name: Validar XML gerado
+        run: |
+          python -c "import xml.etree.ElementTree as ET; ET.parse('docs/feed.xml')"
+          python -c "import xml.etree.ElementTree as ET; ET.parse('docs/sitemap.xml')"
+
+      - name: Checar robots.txt e sitemap.xml publicados
+        run: |
+          test -f docs/robots.txt
+          grep -q "Sitemap: https://personal.caracore.com.br/sitemap.xml" docs/robots.txt
+
+      - name: Falhar se feed.xml ou sitemap.xml ficaram desatualizados
+        run: git diff --exit-code -- docs/feed.xml docs/sitemap.xml
