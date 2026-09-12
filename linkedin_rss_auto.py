@@ -7,11 +7,13 @@ Funciona com posts Markdown com frontmatter YAML e com os artigos HTML atuais.
 from __future__ import annotations
 
 import hashlib
+import json
 import logging
 import os
 import re
 import subprocess
 import sys
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote
@@ -28,6 +30,7 @@ LINKEDIN_VERSION = os.getenv("LINKEDIN_VERSION", "202601")
 REQUEST_TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 3
 MAX_POST_LENGTH = 3000
+PUBLISHED_LEDGER_PATH = REPOSITORY_ROOT / "linkedin_published.json"
 
 
 class _HTMLTextExtractor(HTMLParser):
@@ -80,6 +83,25 @@ def required_environment(name: str) -> str:
     if not value:
         raise RuntimeError(f"A variavel de ambiente {name} nao foi configurada")
     return value
+
+
+def load_published_ledger() -> dict[str, str]:
+    """Carrega o registro de artigos ja publicados (caminho -> data ISO)."""
+    if not PUBLISHED_LEDGER_PATH.exists():
+        return {}
+    try:
+        return json.loads(PUBLISHED_LEDGER_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        logging.warning("linkedin_published.json corrompido; tratando como vazio")
+        return {}
+
+
+def save_published_ledger(ledger: dict[str, str]) -> None:
+    """Grava o registro de artigos ja publicados, ordenado por caminho."""
+    ordered = dict(sorted(ledger.items()))
+    PUBLISHED_LEDGER_PATH.write_text(
+        json.dumps(ordered, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
 
 
 def git_changed_files() -> list[Path]:
@@ -252,13 +274,20 @@ def main() -> int:
         logging.info("Nenhum artigo adicionado ou alterado neste commit")
         return 0
 
+    ledger = load_published_ledger()
     had_failure = False
     for path in changed_files:
+        key = path.as_posix()
+        if key in ledger:
+            logging.info("Ja publicado em %s; ignorando %s", ledger[key], key)
+            continue
         try:
             content = (REPOSITORY_ROOT / path).read_text(encoding="utf-8")
             title = extract_title(path, content)
             url = post_url(path)
             publish(title, extract_summary(content, title), url)
+            ledger[key] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            save_published_ledger(ledger)
         except (OSError, RuntimeError) as exc:
             had_failure = True
             logging.error("Falha ao publicar %s: %s", path, exc)
