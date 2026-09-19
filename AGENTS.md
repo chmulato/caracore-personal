@@ -106,6 +106,22 @@ E no `<footer class="site-footer">`:
    & "D:\dev\.venv\Scripts\python.exe" "D:\dev\caracore-personal\update_feed.py"
    ```
 
+### Padrão obrigatório para citações de artigos internos
+Quando um artigo citar outro texto do próprio blog, a referência deve seguir sempre este formato:
+
+```html
+<h2>Fontes e referências</h2>
+<ul>
+  <li><strong>Artigo relacionado:</strong> <a href="2025_09_28_hub_local_de_integracao_para_pequenas_cidades.html">Hub local de integração para pequenas cidades</a> — visão inicial e contexto conceitual do tema.</li>
+</ul>
+```
+
+Regras:
+- Usar o título legível do artigo em vez do nome do arquivo bruto.
+- Manter a palavra `Fonte`, `Artigo relacionado` ou `Referência` em negrito na mesma linha.
+- Evitar URLs em texto puro e evitar nomes de arquivo sem contexto.
+- Quando houver mais de uma referência, manter a lista em ordem de relevância e com a mesma estrutura em todos os artigos.
+
 ---
 
 ## 4. Séries Temáticas Registradas no Acervo
