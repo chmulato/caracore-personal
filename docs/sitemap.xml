@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://personal.caracore.com.br/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://personal.caracore.com.br/articles.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -927,6 +927,12 @@
   <url>
     <loc>https://personal.caracore.com.br/articles/2026_09_25_finops_b2b_monetizacao_pix_e_o_futuro_local_first.html</loc>
     <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://personal.caracore.com.br/articles/2026_09_27_o_laboratorio_silencioso_como_o_brasil_viveu_no_futuro_e_o_mundo_rico_agora_esta_descobrindo_a_conta.html</loc>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
