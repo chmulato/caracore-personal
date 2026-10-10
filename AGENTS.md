@@ -131,6 +131,7 @@ Regras:
 |---|---|---|
 | **Out/2026** | **O Efeito Borboleta do Dinheiro** | Trilogia: política monetária chinesa, quebra do oligopólio automotivo brasileiro e a bateria sobre rodas (V2G, tarifa binômica). Calendário 10, 13 e 18/10/2026. |
 | **Nov/2026** | **A Evolução Cíclica da TI** | Trilogia do servidor clássico (JSF/JSP) ao fim do CRUD e à web para agentes autônomos. |
+| **Nov/2026** | **O Silêncio na Escala** | Dois episódios (02 e 26/11): gravidade institucional, silêncio operacional e o atalho de engenharia que a ata não registra. A instituição não é nomeada. |
 | **Jan-Mar/2029** | **Economia Programável** | Pós-graduação de 2029: Drex, CBDCs, tokenização de ativos reais (RWA), BIS e BRICS Pay. |
 | **Jan-Mar/2028** | **Auditor de Sistemas** | Pós-graduação de 2028: Governança de TI (COBIT/CRISC), perícia forense (ISO 27037) e compliance fiscal. |
 | **Nov-Dez/2027** | **Blindagem de Sistemas** | Pós-graduação de 2027: Engenharia de riscos, resiliência de memória com Rust, mitigação na JVM e eBPF. |
@@ -161,6 +162,24 @@ Checkout local em 09/10/2026. Quatro HTML, ainda sem commit e sem deploy.
 - Capas PNG 2752×1536: `2026_10_10_IMAGE_001.png` (chamada e Parte 1), `2026_10_13_IMAGE_001.png`, `2026_10_18_IMAGE_001.png`. O `og:image` usa essas medidas.
 - Home e ciclo ativo, no dia 10/10, listam a Parte 1 e depois a chamada. O feed, no empate de data, lista a chamada primeiro.
 - O rascunho `docs/articles/2026_10_10_artigo_novo.txt` fica fora do índice, do feed e do sitemap.
+
+### Série O Silêncio na Escala (02 e 26/11/2026)
+
+Checkout local em 10/10/2026. Três HTML, ainda sem commit e sem deploy.
+
+| Peça | Arquivo | Data | Capa |
+|---|---|---|---|
+| Chamada | `2026_11_02_serie_o_silencio_na_escala_chamada.html` | 02/11 | `2026_11_02_IMAGE_001.png` |
+| Episódio 1 | `2026_11_02_o_silencio_na_escala_ep01.html` | 02/11 | a mesma capa da chamada |
+| Episódio 2 | `2026_11_26_o_silencio_na_escala_ep02.html` | 26/11 | `2026_11_26_IMAGE_001.png` |
+
+- Filtro da home: `serie-silencio-escala`.
+- Assinatura: `author-signature` com Christian Mulato, Engenheiro Construtor. O `site-footer` fica com Início do blog e o copyright.
+- Navegação no corpo, depois da nota: o episódio 1 aponta o episódio 2; o episódio 2 volta ao episódio 1. O índice fica na nota e na chamada.
+- Capas PNG 2752×1536. O `og:image` usa essas medidas.
+- Home e ciclo ativo, no dia 02/11, listam o episódio 1 e depois a chamada. O feed, no empate de data, lista a chamada primeiro.
+- O rascunho `docs/articles/2026_11_02_artigo.txt` fica fora do índice, do feed e do sitemap. Não publicar nome de instituição, salário nem contrato.
+- O episódio 2 referencia, em **Fontes e referências**, o artigo de 10/09/2026 *Desmistificando a Inteligência Artificial nas Corporações*. A série é o relato de campo daquele desenho (modelo de um lado, execução local do outro, MCP no meio).
 
 ---
 

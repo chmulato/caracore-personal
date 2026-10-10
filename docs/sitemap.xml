@@ -1021,6 +1021,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://personal.caracore.com.br/articles/2026_11_02_o_silencio_na_escala_ep01.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://personal.caracore.com.br/articles/2026_11_02_serie_o_silencio_na_escala_chamada.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://personal.caracore.com.br/articles/2026_11_05_serie_ilusao_informatizada_ep03.html</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -1053,6 +1065,12 @@
   <url>
     <loc>https://personal.caracore.com.br/articles/2026_11_23_serie_evolucao_ciclica_ti_ato02_presente.html</loc>
     <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://personal.caracore.com.br/articles/2026_11_26_o_silencio_na_escala_ep02.html</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
