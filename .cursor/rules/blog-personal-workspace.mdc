@@ -10,16 +10,16 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **179** HTML em `docs/articles/` com `<article class="post">`
-- Ciclo ativo: **jun/2026 – mai/2029** | histórico anterior preservado antes de **04/06/2026**
-- **9 séries com página índice** (+ Horizonte do Essencial com *chamada*, sem `_index`)
-- **Última memória:** jun/2027 — série **Além do Hype** (10/06/2027), `index.html` e `feed.xml` alinhados.
-- **Última publicação inserida:** 01/09/2026 — Desmistificando a Inteligência Artificial nas Corporações: Como Conectar a IA aos Sistemas Locais com Segurança e Eficiência.
+- **268** HTML em `docs/articles/` (março de 2024 a março de 2029). O contador da home, o feed e o sitemap acompanham esse total.
+- Ciclo ativo: **jun/2026 – mar/2029** | histórico anterior preservado antes de **04/06/2026**
+- **Última memória:** 09/10/2026 — trilogia **O Efeito Borboleta do Dinheiro** (10, 13 e 18/10/2026). Checkout local, sem commit e sem deploy.
+- **Última série inserida:** chamada `2026_10_10_serie_o_efeito_borboleta_do_dinheiro_chamada.html` mais as Partes 1, 2 e 3. Filtro `serie-efeito-borboleta`. Assinatura do cartão: **Cidadão Global**. Navegação entre partes vizinhas no corpo; `site-footer` só com Início do blog. Capas PNG 2752×1536. O rascunho `2026_10_10_artigo_novo.txt` não entra nos índices.
 
 | Série | Índice / chamada | Slug filtro (`index.html`) | Slug ficheiros |
 |-------|------------------|----------------------------|----------------|
 | Brasil, SDK e Soberania | `2026_02_15_serie_brasil_sdk_soberania_index.html` | `serie-brasil-sdk` | `serie_brasil_sdk_soberania_epNN` |
 | Depois do debate | `2026_10_06_serie_depois_do_debate_carreira_index.html` | `serie-debate-carreira` | `serie_depois_do_debate_carreira_*` |
+| **O Efeito Borboleta do Dinheiro** | `2026_10_10_serie_o_efeito_borboleta_do_dinheiro_chamada.html` | `serie-efeito-borboleta` | `o_efeito_borboleta_do_dinheiro_parte_*` |
 | A Ilusão Informatizada | `2026_09_30_serie_ilusao_informatizada_index.html` | `serie-ilusao-informatizada` | `serie_ilusao_informatizada_epNN` / epílogo |
 | **O Mito da Eficiência** | `2026_12_15_serie_mito_eficiencia_ia_silicio_index.html` | `serie-mito-eficiencia` | `serie_mito_eficiencia_ia_silicio_epNN` |
 | Protocolo de Lucerna | `2026_04_20_serie_protocolo_lucerna_index.html` | `serie-lucerna` | `protocolo_lucerna_epNN` |
@@ -89,7 +89,7 @@ Hero do avulso 27/06: `2026_06_27_IMAGE_001.png`. Slug filtro no cartão: `ia me
 - CSS/JS/imagens só em `docs/articles/assets/` (ver regra `blog-articles-assets.mdc`)
 - Links internos **relativos**; canonical/og:url absolutos para `personal.caracore.com.br`
 - Rodapé do autor: `post-footer` + `foto_chri.jpg` + `author-avatar` (não só texto em `author-signature`)
-- Séries: nav «Índice da Série», `post-serie-kicker`, links anterior/próximo no `site-footer`
+- Séries: a ida e a volta ficam uma vez no corpo. O `site-footer` leva ao início do blog. **O Efeito Borboleta do Dinheiro** assina o cartão como Cidadão Global.
 
 ## Imagens
 

@@ -95,8 +95,9 @@ Todo artigo técnico ou ensaio deve conter, antes da assinatura do autor, um qua
 </div>
 ```
 E no `<footer class="site-footer">`:
-* **Em séries:** Links para `Artigo anterior`, `Próximo episódio` e `Índice da série`.
-* **Em artigos avulsos:** Link para a página inicial do blog.
+* Link para a página inicial do blog e o copyright.
+* A ida e a volta entre episódios, e o índice da série, ficam **uma vez** no corpo, depois da nota. Não repetir essa navegação no rodapé.
+* Séries anteriores podem conservar o rodapé antigo. Não reabrir esses HTML só para mover links.
 
 ### Passo 5: Atualização dos Índices e Regeneração do Feed
 1. **`docs/index.html`:** Adicionar o card na respectiva seção mensal, respeitando a **ordem cronológica decrescente**.
@@ -143,6 +144,24 @@ Regras:
 | **Jun-Ago/2026** | **Horizonte do Essencial** | Hardware local, sustentabilidade de código e limites de escala. |
 | **Abr-Jul/2026** | **Protocolo de Lucerna** | Segurança corporativa em legados e conformidade técnica. |
 
+### Série O Efeito Borboleta do Dinheiro (10–18/10/2026)
+
+Checkout local em 09/10/2026. Quatro HTML, ainda sem commit e sem deploy.
+
+| Peça | Arquivo | Data |
+|---|---|---|
+| Chamada | `2026_10_10_serie_o_efeito_borboleta_do_dinheiro_chamada.html` | 10/10 |
+| Parte 1 | `2026_10_10_o_efeito_borboleta_do_dinheiro_parte_1_da_canetada_em_pequim_a_tomada_da_sua_casa.html` | 10/10 |
+| Parte 2 | `2026_10_13_o_efeito_borboleta_do_dinheiro_parte_2_a_invasao_silenciosa_e_a_quebra_do_oligopolio_no_brasil.html` | 13/10 |
+| Parte 3 | `2026_10_18_o_efeito_borboleta_do_dinheiro_parte_3_a_bateria_sobre_rodas_e_o_contra_ataque_do_sistema.html` | 18/10 |
+
+- Filtro da home: `serie-efeito-borboleta`.
+- Assinatura visível: cartão `post-footer` só com **Cidadão Global**. Sem segundo bloco `author-signature` e sem cargo nesse cartão.
+- Navegação no corpo, depois da nota: Parte 1 segue para a Parte 2; a Parte 2 liga a Parte 1 e a Parte 3; a Parte 3 volta para a Parte 2. O índice fica na nota. O `site-footer` fica com Início do blog e o copyright.
+- Capas PNG 2752×1536: `2026_10_10_IMAGE_001.png` (chamada e Parte 1), `2026_10_13_IMAGE_001.png`, `2026_10_18_IMAGE_001.png`. O `og:image` usa essas medidas.
+- Home e ciclo ativo, no dia 10/10, listam a Parte 1 e depois a chamada. O feed, no empate de data, lista a chamada primeiro.
+- O rascunho `docs/articles/2026_10_10_artigo_novo.txt` fica fora do índice, do feed e do sitemap.
+
 ---
 
 ## 5. Estado Operacional Atual (02/09/2026)
@@ -170,6 +189,6 @@ Antes de finalizar qualquer tarefa no blog, valide os itens:
 - [ ] O artigo possui data no formato `YYYY_MM_DD_*.html`.
 - [ ] A imagem 16:9 está associada em `assets/img/` e referenciada nas tags `og:image` e `<figure>`.
 - [ ] O **Dicionário Verde (`.chalkboard`)** está presente com termos e definições para pessoas leigas.
-- [ ] O rodapé contém links funcionais de navegação bidirecional e link para o índice.
+- [ ] A navegação da série existe uma vez, no corpo. O `site-footer` leva ao início do blog. Nesta trilogia, a ida e a volta são entre partes vizinhas e o índice fica na nota.
 - [ ] O `docs/index.html` e `docs/ciclo-ativo.html` foram atualizados na ordem cronológica decrescente.
 - [ ] O `python update_feed.py` foi executado e `docs/feed.xml` foi atualizado com sucesso.
