@@ -3,8 +3,8 @@
 > **Destinado a:** Todas as IAs, assistentes de código e agentes autônomos (Antigravity, Cursor, Copilot, Claude Code, Gemini).  
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
-> **Data de Atualização:** 07/09/2026
-> **Total de Artigos:** 262 publicações (março de 2024 a março de 2029)  
+> **Data de Atualização:** 09/10/2026
+> **Total de Artigos:** 268 publicações (março de 2024 a março de 2029)  
 
 ---
 
@@ -128,6 +128,7 @@ Regras:
 
 | Período | Série | Foco Temático |
 |---|---|---|
+| **Out/2026** | **O Efeito Borboleta do Dinheiro** | Trilogia: política monetária chinesa, quebra do oligopólio automotivo brasileiro e a bateria sobre rodas (V2G, tarifa binômica). Calendário 10, 13 e 18/10/2026. |
 | **Nov/2026** | **A Evolução Cíclica da TI** | Trilogia do servidor clássico (JSF/JSP) ao fim do CRUD e à web para agentes autônomos. |
 | **Jan-Mar/2029** | **Economia Programável** | Pós-graduação de 2029: Drex, CBDCs, tokenização de ativos reais (RWA), BIS e BRICS Pay. |
 | **Jan-Mar/2028** | **Auditor de Sistemas** | Pós-graduação de 2028: Governança de TI (COBIT/CRISC), perícia forense (ISO 27037) e compliance fiscal. |

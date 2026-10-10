@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://personal.caracore.com.br/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://personal.caracore.com.br/articles.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -967,14 +967,38 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://personal.caracore.com.br/articles/2026_10_10_o_efeito_borboleta_do_dinheiro_parte_1_da_canetada_em_pequim_a_tomada_da_sua_casa.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://personal.caracore.com.br/articles/2026_10_10_serie_o_efeito_borboleta_do_dinheiro_chamada.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://personal.caracore.com.br/articles/2026_10_12_serie_ilusao_informatizada_ep01.html</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://personal.caracore.com.br/articles/2026_10_13_o_efeito_borboleta_do_dinheiro_parte_2_a_invasao_silenciosa_e_a_quebra_do_oligopolio_no_brasil.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://personal.caracore.com.br/articles/2026_10_15_do_rpa_ao_silicio_a_grande_transformacao_cap_06.html</loc>
     <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://personal.caracore.com.br/articles/2026_10_18_o_efeito_borboleta_do_dinheiro_parte_3_a_bateria_sobre_rodas_e_o_contra_ataque_do_sistema.html</loc>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
