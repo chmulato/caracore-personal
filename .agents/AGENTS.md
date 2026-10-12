@@ -16,9 +16,10 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
 
 ## 📈 Status Atual (Ciclo Ativo: jun/2026 a mai/2029)
 
-* **Total de Artigos Publicados:** 250 artigos
-* **Total de Séries com Índice Próprio:** 17 séries
-* **Período do Acervo:** março de 2024 a março de 2028
+* **Total de Artigos Publicados:** 271 artigos
+* **Total de Séries com Índice Próprio:** 18 séries
+* **Período do Acervo:** março de 2024 a março de 2029
+* **Design e Layout da Home:** Revista digital moderna com destaques widescreen, últimos artigos (com filtro temporal estrito para <= hoje), carrossel/mosaico de séries, leituras essenciais curadas e arquivo cronológico com busca em tempo real.
 * **Lista de Séries Ativas:**
   1. **Além do Hype** (Index + 5 Episódios) — Arquitetura de software, matemática de escala e FinOps.
   2. **O Novo Tabuleiro do Mundo** (Index + 6 Episódios + Epílogo) — IA como commodity física e matriz energética.
@@ -37,6 +38,9 @@ Este documento serve para contextualizar qualquer agente ou modelo de IA sobre a
   15. **Auditor de Sistemas Autodidata 2028** (Chamada + 4 Episódios) — Pós-graduação prática em perícia forense digital, auditoria contábil/fiscal, e compliance (SOX) em engenharia de sistemas.
   16. **Auditor de Sistemas Autodidata 2028 — Lições de Apoio** (4 Episódios) — Aprofundamento legal, dicionários de termos jurídicos/compliance e dois exercícios práticos interativos com a IA do navegador.
   17. **Do RPA ao Silício** (Chamada + 8 Episódios) — Crônica ficcional com fundo de verdade técnica e histórica sobre o futuro do desenvolvimento, automação cognitiva, sistemas operacionais e a geopolítica física do silício.
+  18. **O Efeito Borboleta do Dinheiro** (Chamada + 3 Partes) — Política monetária chinesa, colapso de oligopólios de montadoras no Brasil e a bateria sobre rodas (V2G, tarifa binômica).
+  19. **O Silêncio na Escala** (Chamada + 2 Episódios) — Gravidade institucional, silêncio operacional e o atalho de engenharia que a ata não registra.
+  20. **Economia Programável e Soberania de Ativos** (Chamada + 7 Episódios + Lições de Apoio + Apêndice de 2029) — Transição para Drex, CBDCs, tokenização de RWA, BIS e BRICS Pay.
 
 ---
 
@@ -55,11 +59,12 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
 * **Padrão de Nome:** `YYYY_MM_DD_IMAGE_NNN.png`
   * `YYYY_MM_DD` correspondendo exatamente à data no nome do arquivo HTML do artigo.
   * `NNN` = `001` para imagem de destaque/capa, `002+` para imagens complementares (ex: diagramas de arquitetura, mapas).
-* **Proporção Física:** Sempre **16:9 (Landscape/Paisagem)**, tipicamente 1920×1080 px ou 1024×576 px.
-* **Uso Semântico (Imagem Destaque):** As imagens principais no início de cada artigo devem ser declaradas utilizando a estrutura `<figure>` para garantir centralização:
+* **Proporção Física:** Sempre **16:9 (Landscape/Paisagem)**, tipicamente 1920×1080 px ou 1024×576 px para PNGs originais.
+* **Otimização WebP (Obrigatória para Produção):** Toda capa `_IMAGE_001.png` deve possuir sua versão otimizada `_IMAGE_001.webp` (máximo 960px de largura, qualidade 78, compressão 6 via FFmpeg) para os cards da home e tags do artigo. O PNG original é mantido para metadados Open Graph (`og:image`) e compartilhamentos sociais.
+* **Uso Semântico (Imagem Destaque):** As imagens principais no início de cada artigo devem ser declaradas utilizando a estrutura `<figure>` com o arquivo `.webp`:
   ```html
   <figure class="hero-image-frame">
-      <img src="assets/img/YYYY_MM_DD_IMAGE_001.png" alt="[Descrição]" class="hero-image" />
+      <img src="assets/img/YYYY_MM_DD_IMAGE_001.webp" alt="[Descrição]" class="hero-image" />
       <figcaption class="hero-image-caption">[Legenda Centralizada]</figcaption>
   </figure>
   ```
@@ -156,13 +161,13 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
 
 ## 📡 Infraestrutura e Syndication RSS (Substack & LinkedIn)
 
-Para garantir que o conteúdo seja perfeitamente exportado e consumido por redes sociais modernas e agregadores legados sem quebra de mídia ou autoria, todo script gerador de feed (`update_feed.py`) deve seguir restrições absolutas:
+Para garantir que o conteúdo seja perfeitamente exportado e consumido por redes sociais modernas e agregadores legados sem quebra de mídia ou autoria, o script gerador de feed (`update_feed.py`) segue restrições absolutas e testes em `test_update_feed.py`:
 
-1. **URLs Absolutas:** Nenhuma imagem ou link dentro do `feed.xml` pode ser relativo. Todos os caminhos de `<img src...>` devem ser forçados com o domínio oficial (`https://personal.caracore.com.br/`).
-2. **Dupla Identidade Visual de Capa:** O feed deve extrair a `hero-image` do artigo e obrigatoriamente injetar as tags `<enclosure url="..." length="0" type="image/png" />` e `<media:content url="..." medium="image" />` para satisfazer os parsers variados do LinkedIn e Substack.
+1. **URLs Absolutas e Validação Estrita:** Nenhuma imagem ou link dentro do `feed.xml` pode ser relativo. Links e recursos locais são validados no momento da geração para evitar links quebrados.
+2. **Dupla Identidade Visual com Tamanho Exato:** O feed extrai a `hero-image` do artigo e injeta as tags `<enclosure url="..." length="BYTES" type="MIME" />` e `<media:content url="..." medium="image" type="MIME" fileSize="BYTES" />` com os bytes reais do arquivo em disco e o tipo MIME correspondente (`image/webp` ou `image/png`).
 3. **Autoria Dublin Core:** É obrigatória a injeção do namespace `xmlns:dc` e a aplicação em todos os itens da tag explícita `<dc:creator><![CDATA[Christian Mulato]]></dc:creator>`.
-4. **Data Legada (RFC-822):** A tag `<pubDate>` de cada post deve seguir estritamente o formato clássico da web, por exemplo: `Mon, 06 Mar 2028 00:00:00 +0000`. Não utilizar formatação ISO 8601.
-5. **Blindagem CDATA:** Todo o conteúdo descritivo e o corpo interno na tag `<content:encoded>` devem ser isolados em tags `<![CDATA[ ... ]]>` para impedir que código fonte ou tags HTML dos artigos quebrem a árvore XML do feed.
+4. **Data em RFC-822:** A tag `<pubDate>` de cada post segue o formato clássico RFC-822 (ex: `Mon, 06 Mar 2028 00:00:00 +0000`). A tag `<lastBuildDate>` do canal registra a data e hora real em UTC da execução do script, garantindo integridade nos leitores RSS.
+5. **Geração Atômica e Proteção CDATA:** Todo o conteúdo descritivo e o corpo interno na tag `<content:encoded>` são isolados em `<![CDATA[ ... ]]>`. O XML é validado com `xml.etree.ElementTree` antes de substituir o arquivo `docs/feed.xml`. Se houver erro, o feed anterior permanece intacto.
 
 ---
 

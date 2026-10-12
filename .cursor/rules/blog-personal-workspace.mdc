@@ -10,10 +10,16 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **268** HTML em `docs/articles/` (março de 2024 a março de 2029). O contador da home, o feed e o sitemap acompanham esse total.
+- **271** HTML em `docs/articles/` (março de 2024 a março de 2029). O acervo completo, o feed RSS e o sitemap acompanham esse total.
 - Ciclo ativo: **jun/2026 – mar/2029** | histórico anterior preservado antes de **04/06/2026**
-- **Última memória:** 09/10/2026 — trilogia **O Efeito Borboleta do Dinheiro** (10, 13 e 18/10/2026). Checkout local, sem commit e sem deploy.
-- **Última série inserida:** chamada `2026_10_10_serie_o_efeito_borboleta_do_dinheiro_chamada.html` mais as Partes 1, 2 e 3. Filtro `serie-efeito-borboleta`. Assinatura do cartão: **Cidadão Global**. Navegação entre partes vizinhas no corpo; `site-footer` só com Início do blog. Capas PNG 2752×1536. O rascunho `2026_10_10_artigo_novo.txt` não entra nos índices.
+- **Última memória:** 12/10/2026 — redesign da home para revista digital moderna, migração para capas WebP otimizadas (960px), blindagem da esteira do LinkedIn contra assets e suíte de testes automatizados (`test_update_feed.py` e `test_linkedin_rss_auto.py`). Em produção no GitHub Pages.
+- **Home de Revista Digital:**
+  * Seções: Destaques (3), Últimos Artigos (6), Séries (6 tiles com filtro), Leituras Essenciais (curadoria editorial) e Arquivo (271 artigos em ordem decrescente).
+  * **Regra Temporal:** Destaques e Últimos Artigos mostram apenas textos com data `<= hoje` (`America/Sao_Paulo`). O acervo futuro fica integralmente preservado no `#arquivo`, nos filtros e nas buscas.
+  * **Capas WebP e Fallback:** Cada capa `_IMAGE_001.png` possui seu derivado `_IMAGE_001.webp` (FFmpeg, max 960px). Clones herdam fallback automático (`webp` -> `png` -> `.article-card--no-cover`).
+- **Últimas séries inseridas:**
+  * **O Efeito Borboleta do Dinheiro** (10, 13 e 18/10/2026) — chamada + 3 partes. Filtro `serie-efeito-borboleta`. Assinatura: **Cidadão Global**. Capas PNG e WebP. Publicada em produção.
+  * **O Silêncio na Escala** (02 e 26/11/2026) — chamada + 2 episódios. Filtro `serie-silencio-escala`. Assinatura: Christian Mulato, Engenheiro Construtor. Capas PNG e WebP. Publicada em produção.
 
 | Série | Índice / chamada | Slug filtro (`index.html`) | Slug ficheiros |
 |-------|------------------|----------------------------|----------------|

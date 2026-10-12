@@ -3,8 +3,9 @@
 > **Destinado a:** Todas as IAs, assistentes de código e agentes autônomos (Antigravity, Cursor, Copilot, Claude Code, Gemini).  
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
-> **Data de Atualização:** 09/10/2026
-> **Total de Artigos:** 268 publicações (março de 2024 a março de 2029)  
+> **Data de Atualização:** 12/10/2026
+> **Total de Artigos:** 271 publicações (março de 2024 a março de 2029)
+> **Status de Produção:** Ativo e saudável em `https://personal.caracore.com.br/` (Lighthouse Desktop 99-100, Mobile 95 em CDN/local)
 
 ---
 
@@ -22,23 +23,29 @@ O **Christian Mulato Dev Blog** é o espaço editorial e técnico de Christian M
 ```
 caracore-personal/
 ├── docs/
-│   ├── index.html            # Página inicial (listagem de todos os artigos em ordem cronológica decrescente)
+│   ├── index.html            # Página inicial (revista digital: Destaques, Últimos, Séries, Leituras e Arquivo)
 │   ├── ciclo-ativo.html      # Visualização exclusiva da janela do Ciclo Ativo oficial (2026-2029)
-│   ├── feed.xml              # Feed RSS 2.0 completo com CDATA, enclosures e RFC-822 (gerado via script)
+│   ├── feed.xml              # Feed RSS 2.0 completo com CDATA, enclosures exatos e RFC-822 (gerado via script)
+│   ├── sitemap.xml           # Mapa do site para indexação de motores de busca
 │   ├── CNAME                 # personal.caracore.com.br
 │   ├── articles/
-│   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados
+│   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados (271 publicações)
 │   │   └── assets/
-│   │       ├── css/          # main.css, article.css, highlight.css
-│   │       ├── js/           # main.js, article.js
-│   │       └── img/          # Imagens hero (YYYY_MM_DD_IMAGE_001.png)
+│   │       ├── css/          # main.css (revista digital responsiva), article.css, highlight.css
+│   │       ├── js/           # main.js (clonagem editorial, fallback de imagens, filtros), article.js, analytics.js
+│   │       └── img/          # Imagens hero PNG originais e derivados WebP otimizados (_IMAGE_001.webp)
 │   └── editorial/            # Páginas institucionais (linha editorial, manifesto, sobre o autor)
-├── update_feed.py            # Script oficial em Python para regenerar docs/feed.xml
-├── linkedin_rss_auto.py      # Publica o artigo alterado no commit na API REST do LinkedIn
-├── README.md                 # Visão geral do repositório
+├── update_feed.py            # Script oficial em Python para validar e regenerar docs/feed.xml atomicamente
+├── update_sitemap.py         # Script oficial em Python para regenerar docs/sitemap.xml
+├── linkedin_rss_auto.py      # Publica artigos alterados na API REST do LinkedIn (ignora assets/)
+├── linkedin_published.json   # Ledger com histórico de artigos já postados no LinkedIn
+├── test_update_feed.py       # Testes automatizados de integridade, MIME, bytes e atomismo do RSS
+├── test_linkedin_rss_auto.py # Testes automatizados de filtro de publicação do LinkedIn
+├── README.md                 # Visão geral do repositório e esteira
 ├── .github/
 │   └── workflows/
-│       └── publish-linkedin.yml # Workflow de publicação automática no LinkedIn
+│       ├── publish-linkedin.yml # Workflow de testes e publicação no LinkedIn via GitHub Actions
+│       └── pages-build-deployment.yml # Deploy automático no GitHub Pages
 └── AGENTS.md                 # Este documento de memória e regras para IAs
 ```
 
@@ -56,12 +63,16 @@ Ao redigir e publicar novos artigos ou séries, toda IA **DEVE** seguir rigorosa
   - `<meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/YYYY_MM_DD_IMAGE_001.png" />`
   - `<meta name="author" content="Christian Mulato">`
 
-### Passo 2: Imagem Hero 16:9 (Paisagem)
+### Passo 2: Imagem Hero 16:9 (Paisagem) e Otimização WebP
 * **Padrão visual:** Foto/render editorial cinematográfico, estilo realista de alta sobriedade, iluminação técnica, sem rostos humanos identificáveis e sem marcas comerciais terceiras.
-* **Markup:**
+* **Preservação de Formatos:** O arquivo PNG original de alta resolução (`YYYY_MM_DD_IMAGE_001.png`) deve ser mantido em `assets/img/` para compartilhamento social (`og:image`). Para o HTML e exibição rápida, deve-se gerar a versão WebP otimizada (`YYYY_MM_DD_IMAGE_001.webp`) com largura máxima de 960px:
+  ```powershell
+  ffmpeg -i YYYY_MM_DD_IMAGE_001.png -vf "scale='min(960,iw)':-2" -c:v libwebp -quality 78 -compression_level 6 YYYY_MM_DD_IMAGE_001.webp
+  ```
+* **Markup no artigo:**
   ```html
   <figure class="hero-image-frame">
-      <img src="assets/img/YYYY_MM_DD_IMAGE_001.png" alt="Descrição do tema" class="hero-image" />
+      <img src="assets/img/YYYY_MM_DD_IMAGE_001.webp" alt="Descrição do tema" class="hero-image" />
       <figcaption class="hero-image-caption">Legenda descritiva com tom editorial e técnico.</figcaption>
   </figure>
   ```
@@ -99,13 +110,38 @@ E no `<footer class="site-footer">`:
 * A ida e a volta entre episódios, e o índice da série, ficam **uma vez** no corpo, depois da nota. Não repetir essa navegação no rodapé.
 * Séries anteriores podem conservar o rodapé antigo. Não reabrir esses HTML só para mover links.
 
-### Passo 5: Atualização dos Índices e Regeneração do Feed
-1. **`docs/index.html`:** Adicionar o card na respectiva seção mensal, respeitando a **ordem cronológica decrescente**.
+### Passo 5: Atualização dos Índices, Testes e Regeneração do Feed
+1. **`docs/index.html`:** Adicionar o card na respectiva seção mensal de `#arquivo`, respeitando a **ordem cronológica decrescente**. As seções de Destaques e Últimos Artigos são alimentadas dinamicamente pelo JavaScript a partir do acervo (filtrando apenas artigos com data menor ou igual a hoje).
 2. **`docs/ciclo-ativo.html`:** Adicionar o link do artigo no mês correspondente do Ciclo Ativo.
-3. **Regenerar o Feed RSS:** Executar o script oficial utilizando o Python centralizado do workspace:
+3. **Executar Testes de Regressão e Regeneração:**
    ```powershell
-   & "D:\dev\.venv\Scripts\python.exe" "D:\dev\caracore-personal\update_feed.py"
+   & "D:\onedrive\dev\.venv\Scripts\python.exe" -m unittest test_update_feed test_linkedin_rss_auto -v
+   & "D:\onedrive\dev\.venv\Scripts\python.exe" "D:\onedrive\dev\caracore-personal\update_feed.py"
+   & "D:\onedrive\dev\.venv\Scripts\python.exe" "D:\onedrive\dev\caracore-personal\update_sitemap.py"
    ```
+
+---
+
+## 3.1 Arquitetura da Página Inicial (Revista Digital Moderna)
+
+A página inicial (`docs/index.html`) foi reprojetada com estética de revista digital e alta densidade visual:
+
+1. **Seções Principais:**
+   * **Destaques (`#destaques` / `#featuredGrid`):** Exibe os 3 artigos mais recentes em formato editorial widescreen, com imagem de destaque ocupando 65–75% do card e efeito suave de gradiente.
+   * **Diretriz do Ciclo Editorial (2026–2027):** Manifesto institucional posicionado como respiro de leitura entre os destaques e os últimos artigos.
+   * **Últimos Artigos (`#ultimos-artigos` / `#latestGrid`):** Grade responsiva com 6 artigos recentes.
+   * **Séries (`#series`):** Mosaico visual com as seis principais séries editoriais, fornecendo links diretos que filtram a categoria e rolam a tela suavemente para o acervo.
+   * **Leituras Essenciais (`#mais-lidos` / `#popularGrid`):** Curadoria editorial fixa representativa de séries fundamentais (*Horizonte do Essencial*, *Do RPA ao Silício*, *Além do Hype*), rotulada com precisão sem inventar métricas falsas de cliques.
+   * **Arquivo Geral (`#arquivo`):** Catálogo cronológico completo com todos os 271 artigos, filtro dinâmico por categoria/série e busca textual.
+
+2. **Regra Temporal Obrigatória (Data Limite de Destaques e Últimos):**
+   * Os **Destaques** e **Últimos Artigos** selecionam **estritamente artigos com data no nome do arquivo menor ou igual à data de hoje no fuso `America/Sao_Paulo`** (`YYYY-MM-DD <= today`).
+   * Artigos com datas futuras (ex.: séries e lições de 2027, 2028 e 2029) **permanecem integralmente preservados no Arquivo (`#arquivo`), nas páginas de séries e nos resultados de busca**, mas não ocupam os slots de capa contemporânea da revista digital.
+
+3. **Estratégia de Performance e Resiliência de Imagens:**
+   * **Imagens WebP Primárias:** A home carrega versões WebP de 960px com `loading="lazy"` e `decoding="async"`. O primeiro card de destaque e o logotipo usam `loading="eager"` e `fetchpriority="high"`.
+   * **Fallback Progressivo:** Caso o navegador ou rede falhe ao carregar o WebP, o evento `error` tenta automaticamente o PNG original (`.src.replace(/\.webp$/, '.png')`). Se o PNG também falhar, a imagem é removida com segurança e o card aplica a classe `.article-card--no-cover`. Todos os clones gerados herdam essa resiliência.
+   * **Renderização Eficiente do Arquivo:** O CSS aplica `content-visibility: auto` e `contain-intrinsic-block-size: auto 2000px` nas seções mensais de `#arquivo`, garantindo que 271 cards não bloqueiem a thread principal do navegador.
 
 ### Padrão obrigatório para citações de artigos internos
 Quando um artigo citar outro texto do próprio blog, a referência deve seguir sempre este formato:
@@ -147,7 +183,7 @@ Regras:
 
 ### Série O Efeito Borboleta do Dinheiro (10–18/10/2026)
 
-Checkout local em 09/10/2026. Quatro HTML, ainda sem commit e sem deploy.
+Integrada e publicada em produção em 12/10/2026. Quatro HTML publicados.
 
 | Peça | Arquivo | Data |
 |---|---|---|
@@ -159,55 +195,66 @@ Checkout local em 09/10/2026. Quatro HTML, ainda sem commit e sem deploy.
 - Filtro da home: `serie-efeito-borboleta`.
 - Assinatura visível: cartão `post-footer` só com **Cidadão Global**. Sem segundo bloco `author-signature` e sem cargo nesse cartão.
 - Navegação no corpo, depois da nota: Parte 1 segue para a Parte 2; a Parte 2 liga a Parte 1 e a Parte 3; a Parte 3 volta para a Parte 2. O índice fica na nota. O `site-footer` fica com Início do blog e o copyright.
-- Capas PNG 2752×1536: `2026_10_10_IMAGE_001.png` (chamada e Parte 1), `2026_10_13_IMAGE_001.png`, `2026_10_18_IMAGE_001.png`. O `og:image` usa essas medidas.
+- Capas PNG 2752×1536 e versões WebP otimizadas: `2026_10_10_IMAGE_001.webp` (chamada e Parte 1), `2026_10_13_IMAGE_001.webp`, `2026_10_18_IMAGE_001.webp`.
 - Home e ciclo ativo, no dia 10/10, listam a Parte 1 e depois a chamada. O feed, no empate de data, lista a chamada primeiro.
 - O rascunho `docs/articles/2026_10_10_artigo_novo.txt` fica fora do índice, do feed e do sitemap.
 
 ### Série O Silêncio na Escala (02 e 26/11/2026)
 
-Checkout local em 10/10/2026. Três HTML, ainda sem commit e sem deploy.
+Integrada e publicada em produção em 12/10/2026. Três HTML publicados.
 
 | Peça | Arquivo | Data | Capa |
 |---|---|---|---|
-| Chamada | `2026_11_02_serie_o_silencio_na_escala_chamada.html` | 02/11 | `2026_11_02_IMAGE_001.png` |
+| Chamada | `2026_11_02_serie_o_silencio_na_escala_chamada.html` | 02/11 | `2026_11_02_IMAGE_001.png` / `.webp` |
 | Episódio 1 | `2026_11_02_o_silencio_na_escala_ep01.html` | 02/11 | a mesma capa da chamada |
-| Episódio 2 | `2026_11_26_o_silencio_na_escala_ep02.html` | 26/11 | `2026_11_26_IMAGE_001.png` |
+| Episódio 2 | `2026_11_26_o_silencio_na_escala_ep02.html` | 26/11 | `2026_11_26_IMAGE_001.png` / `.webp` |
 
 - Filtro da home: `serie-silencio-escala`.
 - Assinatura: `author-signature` com Christian Mulato, Engenheiro Construtor. O `site-footer` fica com Início do blog e o copyright.
 - Navegação no corpo, depois da nota: o episódio 1 aponta o episódio 2; o episódio 2 volta ao episódio 1. O índice fica na nota e na chamada.
-- Capas PNG 2752×1536. O `og:image` usa essas medidas.
-- Home e ciclo ativo, no dia 02/11, listam o episódio 1 e depois a chamada. O feed, no empate de data, lista a chamada primeiro.
+- Capas PNG 2752×1536 e versões WebP 960px.
+- Home e ciclo ativo, no dia 02/11, listam o episódio 1 e depois a chamada no `#arquivo`. Como as datas são de novembro/2026, elas aparecem nos destaques apenas quando a data real for atingida.
 - O rascunho `docs/articles/2026_11_02_artigo.txt` fica fora do índice, do feed e do sitemap. Não publicar nome de instituição, salário nem contrato.
 - O episódio 2 referencia, em **Fontes e referências**, o artigo de 10/09/2026 *Desmistificando a Inteligência Artificial nas Corporações*. A série é o relato de campo daquele desenho (modelo de um lado, execução local do outro, MCP no meio).
 
 ---
 
-## 5. Estado Operacional Atual (02/09/2026)
+## 5. Estado Operacional Atual (12/10/2026)
 
 - Aplicação LinkedIn: **Christian Mulato's Blog**.
 - Produtos LinkedIn provisionados: **Share on LinkedIn** e **Sign In with LinkedIn using OpenID Connect**.
 - Escopos autorizados: `openid`, `profile` e `w_member_social`.
 - Secrets de repositório configurados no GitHub: `LINKEDIN_ACCESS_TOKEN` e `PERSON_URN`. Nunca registrar seus valores nesta memória, em commits ou em logs.
-- Workflow validado com sucesso na branch `master`, no commit `d093885`, com duração aproximada de 33 segundos.
-- O `LINKEDIN_ACCESS_TOKEN` tem validade limitada, atualmente indicada pelo LinkedIn como aproximadamente 2 meses. Quando expirar, gerar novo token e substituir somente o Secret no GitHub.
-- O `PERSON_URN` normalmente permanece estável para o mesmo perfil; só deve ser alterado se a identidade autora mudar.
-- Para diagnóstico, consultar **GitHub > Actions > Publicar artigo no LinkedIn**. Não fazer chamadas reais à API em testes locais sem necessidade.
+- Workflows validados com sucesso no GitHub Actions:
+  * **Publicar artigo no LinkedIn:** Executa a suíte de testes (`test_update_feed` e `test_linkedin_rss_auto`), atualiza feed/sitemap e publica artigos modificados. Duração aproximada de 30 segundos.
+  * **Pages Build and Deployment:** Concluído com sucesso no deploy de produção do GitHub Pages.
+- Testes automatizados locais:
+  * `python -m unittest test_update_feed test_linkedin_rss_auto -v` (12 testes passando em ~0.1s).
+- O `LINKEDIN_ACCESS_TOKEN` tem validade limitada (aproximadamente 2 meses). Quando expirar, gerar novo token e substituir somente o Secret no GitHub.
+- O `PERSON_URN` normalmente permanece estável para o mesmo perfil.
 
 ## 6. Automação de Publicação no LinkedIn
 
 1. O workflow `.github/workflows/publish-linkedin.yml` é acionado por `push` nas branches `master` ou `main`, somente quando houver alteração em `docs/articles/**`.
 2. O script `linkedin_rss_auto.py` usa `GITHUB_BEFORE` e `GITHUB_SHA` para identificar arquivos adicionados ou modificados no push atual.
-3. O script aceita Markdown com frontmatter YAML e também os artigos HTML existentes. Para Markdown, a extensão `.md` é convertida para `.html` na URL pública.
-4. A publicação usa `POST https://api.linkedin.com/rest/posts`, o escopo `w_member_social` e uma chave de idempotência derivada do commit e da URL.
-5. Os parâmetros públicos padrão são `BLOG_BASE_URL=https://personal.caracore.com.br`, `POSTS_DIRECTORY=docs/articles` e `PUBLIC_ARTICLES_PATH=articles`.
+3. **Filtro de Segurança:** O script ignora expressamente arquivos dentro de `docs/articles/assets/` (como `README.html`), garantindo que apenas artigos reais na raiz de `docs/articles/` sejam avaliados.
+4. O script aceita Markdown com frontmatter YAML e também os artigos HTML existentes. Para Markdown, a extensão `.md` é convertida para `.html` na URL pública.
+5. O histórico de artigos publicados fica registrado em `linkedin_published.json`. Arquivos já presentes no ledger não são republicados (evita disparos acidentais em lote em edições de manutenção).
+6. A publicação usa `POST https://api.linkedin.com/rest/posts`, o escopo `w_member_social` e uma chave de idempotência derivada do commit e da URL.
 
 ## 7. Checklist de Verificação para IAs
 
 Antes de finalizar qualquer tarefa no blog, valide os itens:
 - [ ] O artigo possui data no formato `YYYY_MM_DD_*.html`.
-- [ ] A imagem 16:9 está associada em `assets/img/` e referenciada nas tags `og:image` e `<figure>`.
+- [ ] A imagem 16:9 está associada em `assets/img/`:
+  - PNG original em `assets/img/YYYY_MM_DD_IMAGE_001.png` para `og:image`.
+  - Derivado WebP otimizado gerado com FFmpeg em `assets/img/YYYY_MM_DD_IMAGE_001.webp` e referenciado no `<figure>`.
 - [ ] O **Dicionário Verde (`.chalkboard`)** está presente com termos e definições para pessoas leigas.
-- [ ] A navegação da série existe uma vez, no corpo. O `site-footer` leva ao início do blog. Nesta trilogia, a ida e a volta são entre partes vizinhas e o índice fica na nota.
+- [ ] A navegação da série existe uma vez, no corpo. O `site-footer` leva ao início do blog.
 - [ ] O `docs/index.html` e `docs/ciclo-ativo.html` foram atualizados na ordem cronológica decrescente.
-- [ ] O `python update_feed.py` foi executado e `docs/feed.xml` foi atualizado com sucesso.
+- [ ] Os testes automatizados foram executados e passaram com sucesso:
+  ```powershell
+  python -m unittest test_update_feed test_linkedin_rss_auto -v
+  ```
+- [ ] O `python update_feed.py` e `python update_sitemap.py` foram executados e `docs/feed.xml` / `docs/sitemap.xml` foram atualizados com sucesso.
+- [ ] As regras temporais da home foram respeitadas (apenas artigos `<= hoje` nos destaques e últimos dinâmicos).
