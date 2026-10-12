@@ -505,6 +505,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
+    min-height: 280px;
 }
 
 .article-card {
@@ -532,6 +533,7 @@ body {
 .article-cover-frame {
     aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, var(--series-accent), #202b2a);
+    contain: layout paint;
     overflow: hidden;
     position: relative;
     width: 100%;

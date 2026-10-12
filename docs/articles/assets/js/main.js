@@ -214,6 +214,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const latestGrid = document.querySelector('#latestGrid');
         const popularGrid = document.querySelector('#popularGrid');
         const cloneCards = (target, cards, className) => {
+            if (!target) return;
+            // Se o container já possuir cards estáticos pré-renderizados no HTML, apenas anexa fallbacks
+            const existingCards = target.querySelectorAll('.article-card');
+            if (existingCards.length > 0) {
+                existingCards.forEach(card => {
+                    const cover = card.querySelector('.article-cover');
+                    if (cover) attachCoverFallback(cover, card);
+                });
+                return;
+            }
+
             cards.forEach((card, index) => {
                 prepareCard(card);
                 const clone = card.cloneNode(true);
@@ -250,22 +261,43 @@ document.addEventListener('DOMContentLoaded', function() {
             .sort((a, b) => publicationDate(b).localeCompare(publicationDate(a)));
 
         cloneCards(featuredGrid, publishedCards.slice(0, 3), 'featured-card');
-        cloneCards(latestGrid, publishedCards.slice(0, 6), 'latest-card');
 
-        const editorialSeries = ['horizonte-essencial', 'rpa-silicio', 'alem-hype'];
-        const popularCards = editorialSeries
-            .map(series => sourceCards.find(card => (card.dataset.categorySlug || '').includes(series))
-                || sourceCards.find(card => card.classList.contains(`series-${series}`)))
-            .filter(Boolean);
-        cloneCards(popularGrid, popularCards, 'popular-card');
+        // Adia a clonagem de latestGrid e popularGrid para não competir com a pintura inicial da tela
+        const populateRemainingGrids = () => {
+            cloneCards(latestGrid, publishedCards.slice(0, 6), 'latest-card');
+
+            const editorialSeries = ['horizonte-essencial', 'rpa-silicio', 'alem-hype'];
+            const popularCards = editorialSeries
+                .map(series => sourceCards.find(card => (card.dataset.categorySlug || '').includes(series))
+                    || sourceCards.find(card => card.classList.contains(`series-${series}`)))
+                .filter(Boolean);
+            cloneCards(popularGrid, popularCards, 'popular-card');
+        };
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(populateRemainingGrids, { timeout: 800 });
+        } else {
+            setTimeout(populateRemainingGrids, 60);
+        }
 
         let nextCard = 0;
         const prepareArchiveBatch = () => {
-            sourceCards.slice(nextCard, nextCard + 12).forEach(prepareCard);
-            nextCard += 12;
-            if (nextCard < sourceCards.length) setTimeout(prepareArchiveBatch, 16);
+            sourceCards.slice(nextCard, nextCard + 16).forEach(prepareCard);
+            nextCard += 16;
+            if (nextCard < sourceCards.length) {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(prepareArchiveBatch, { timeout: 1000 });
+                } else {
+                    setTimeout(prepareArchiveBatch, 32);
+                }
+            }
         };
-        setTimeout(prepareArchiveBatch, 0);
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(prepareArchiveBatch, { timeout: 1500 });
+        } else {
+            setTimeout(prepareArchiveBatch, 100);
+        }
     }
     
     // Smooth scroll para navegação interna
@@ -307,25 +339,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Adicionar estilos para animações
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .article-card {
-        transition: all 0.3s ease;
-    }
-    
-`;
-document.head.appendChild(style);
-
 if (window.location.protocol !== 'file:' &&
     ['personal.caracore.com.br', 'www.caracore.com.br', 'caracore.com.br'].indexOf(window.location.hostname) !== -1 &&
     !document.querySelector('script[data-caracore-ga4]')) {
     const analyticsScript = document.createElement('script');
     analyticsScript.src = new URL('analytics.js', document.currentScript.src).href;
+    analyticsScript.async = true;
     document.head.appendChild(analyticsScript);
 }
