@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="icon" type="image/png" href="articles/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="articles/assets/img/favicon-64.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ensaios de Christian Mulato sobre engenharia de software, arquitetura de sistemas, Java, inteligencia artificial, soberania digital e tecnologia aplicada ao mundo real.">
@@ -130,7 +130,6 @@
     
     <link rel="alternate" type="application/rss+xml" title="Christian Mulato Dev Blog" href="https://personal.caracore.com.br/feed.xml">
     <link rel="stylesheet" href="articles/assets/css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .footer-notes {
             margin-bottom: 1.75rem;
@@ -209,7 +208,7 @@
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <h1><img class="blog-logo" src="articles/assets/img/logo-blog.svg" alt="Christian Mulato Dev Blog"></h1>
+                <h1>                <img class="blog-logo" src="articles/assets/img/logo-blog.svg" alt="Christian Mulato Dev Blog" width="720" height="180" fetchpriority="high"></h1>
                 <p class="subtitle">Desenvolvedor Java Sênior | Arquitetura de Software | Microsserviços</p>
                 <div class="social-links" style="margin-top: 0.75rem;">
                     <a href="editorial/sobre-o-autor.html" style="font-weight: 700;">Sobre o Autor</a>
@@ -220,20 +219,105 @@
                     <a href="https://www.linkedin.com/company/cara-core/" target="_blank" rel="noopener">LinkedIn</a>
                     <a href="https://www.caracore.com.br" target="_blank" rel="noopener">Website</a>
                 </div>
-                <div class="cta-card" style="margin: 1.5rem auto 0; padding: 1.5rem; background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border-left: 5px solid #0f766e; border-radius: 8px; max-width: 740px; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05); text-align: center;">
-                    <h2 style="margin: 0 0 0.75rem; font-size: 1.1rem; color: #115e59; font-weight: 700; letter-spacing: 0.01em;">Diretriz do Ciclo Editorial (2026–2027)</h2>
-                    <p style="margin: 0 auto; color: #134e4a; font-size: 0.92rem; line-height: 1.65; text-align: justify; max-width: 680px; font-style: italic;">
-                        No cenário tecnológico de 2026, a democratização da informação gerou um paradoxo: a problemática contemporânea não reside na escassez de dados, mas no afogamento mental provocado pelo excesso de ruído digital. Nesse contexto de infobesidade, a inteligência artificial atua como um agente de aceleração que disponibiliza manuais e algoritmos de forma instantânea, contudo falha em prover o direcionamento crítico necessário para a consolidação de conhecimentos profundos. Diante disso, o presente blog surge como uma bússola pedagógica essencial, propondo uma ruptura metodológica fundamentada na curadoria humana e no pragmatismo físico. Em primeiro lugar, a plataforma combate a fragmentação intelectual ao estruturar caminhos lineares de aprendizado, traduzindo conceitos áridos de baixo nível por meio de analogias simples. Adicionalmente, o design educacional do portal insere ferramentas de respiro intelectivo, que desaceleram a pressa intrínseca das mídias modernas e estabelecem um espaço mental propício para a retenção do aprendizado. Por fim, a iniciativa estimula a autonomia do estudante, ensinando-o a interrogar ativamente a inteligência artificial de maneira a utilizá-la como copiloto, e não como um mero substituto do raciocínio. Desse modo, ao fundar suas diretrizes no equilíbrio entre o empirismo e a mentoria, a página fura as bolhas especulativas do mercado corporativo. Assim, consolida-se como um vetor indispensável de calibração de engenharia, preparando profissionais capacitados para blindar a infraestrutura nacional e exercer a soberania digital no chão de fábrica do país.
-                    </p>
-                </div>
             </div>
         </header>
+
+        <main class="main magazine-main">
+            <nav class="editorial-nav" aria-label="Navegação editorial">
+                <a href="#destaques">Destaques</a>
+                <a href="#ultimos-artigos">Últimos Artigos</a>
+                <a href="#series">Séries</a>
+                <a href="#mais-lidos">Leituras essenciais</a>
+                <a href="#arquivo">Arquivo</a>
+            </nav>
+
+            <section class="editorial-section featured-section" id="destaques" aria-labelledby="featured-heading">
+                <div class="editorial-heading">
+                    <div>
+                        <span class="editorial-kicker">Perspectivas que movem a tecnologia</span>
+                        <h2 id="featured-heading">Destaques</h2>
+                    </div>
+                    <p>Engenharia, estratégia e as forças que transformam o mundo real.</p>
+                </div>
+                <div class="featured-grid" id="featuredGrid"></div>
+            </section>
+
+            <aside class="editorial-brief" aria-labelledby="editorial-brief-heading">
+                <h2 id="editorial-brief-heading">Diretriz do Ciclo Editorial (2026–2027)</h2>
+                <p>
+                    No cenário tecnológico de 2026, a democratização da informação gerou um paradoxo: a problemática contemporânea não reside na escassez de dados, mas no afogamento mental provocado pelo excesso de ruído digital. Nesse contexto de infobesidade, a inteligência artificial atua como um agente de aceleração que disponibiliza manuais e algoritmos de forma instantânea, contudo falha em prover o direcionamento crítico necessário para a consolidação de conhecimentos profundos. Diante disso, o presente blog surge como uma bússola pedagógica essencial, propondo uma ruptura metodológica fundamentada na curadoria humana e no pragmatismo físico. Em primeiro lugar, a plataforma combate a fragmentação intelectual ao estruturar caminhos lineares de aprendizado, traduzindo conceitos áridos de baixo nível por meio de analogias simples. Adicionalmente, o design educacional do portal insere ferramentas de respiro intelectivo, que desaceleram a pressa intrínseca das mídias modernas e estabelecem um espaço mental propício para a retenção do aprendizado. Por fim, a iniciativa estimula a autonomia do estudante, ensinando-o a interrogar ativamente a inteligência artificial de maneira a utilizá-la como copiloto, e não como um mero substituto do raciocínio. Desse modo, ao fundar suas diretrizes no equilíbrio entre o empirismo e a mentoria, a página fura as bolhas especulativas do mercado corporativo. Assim, consolida-se como um vetor indispensável de calibração de engenharia, preparando profissionais capacitados para blindar a infraestrutura nacional e exercer a soberania digital no chão de fábrica do país.
+                </p>
+            </aside>
+
+            <section class="editorial-section latest-section" id="ultimos-artigos" aria-labelledby="latest-heading">
+                <div class="editorial-heading">
+                    <div>
+                        <span class="editorial-kicker">Do acervo editorial</span>
+                        <h2 id="latest-heading">Últimos Artigos</h2>
+                    </div>
+                    <a class="editorial-more" href="#arquivo">Explorar o arquivo <span aria-hidden="true">↘</span></a>
+                </div>
+                <div class="articles-grid showcase-grid" id="latestGrid"></div>
+            </section>
+
+            <section class="editorial-section series-section" id="series" aria-labelledby="series-heading">
+                <div class="editorial-heading">
+                    <div>
+                        <span class="editorial-kicker">Ideias em movimento</span>
+                        <h2 id="series-heading">Séries</h2>
+                    </div>
+                    <p>Explore cada assunto como uma jornada editorial.</p>
+                </div>
+                <div class="series-grid">
+                    <button class="series-card series-hype" type="button" data-series-filter="serie-alem-hype">
+                        <span class="series-number">01 / ARQUITETURA</span>
+                        <span class="series-name">Além do Hype</span>
+                        <span class="series-action">Explorar a série <span aria-hidden="true">↗</span></span>
+                    </button>
+                    <button class="series-card series-rpa" type="button" data-series-filter="serie-rpa-silicio">
+                        <span class="series-number">02 / AUTOMAÇÃO</span>
+                        <span class="series-name">Do RPA ao Silício</span>
+                        <span class="series-action">Explorar a série <span aria-hidden="true">↗</span></span>
+                    </button>
+                    <button class="series-card series-horizonte" type="button" data-series-filter="serie-horizonte-essencial">
+                        <span class="series-number">03 / SOBERANIA</span>
+                        <span class="series-name">Horizonte do Essencial</span>
+                        <span class="series-action">Explorar a série <span aria-hidden="true">↗</span></span>
+                    </button>
+                    <button class="series-card series-economia" type="button" data-series-filter="serie-economia-programavel">
+                        <span class="series-number">04 / ECONOMIA</span>
+                        <span class="series-name">Economia Programável</span>
+                        <span class="series-action">Explorar a série <span aria-hidden="true">↗</span></span>
+                    </button>
+                    <button class="series-card series-blindagem" type="button" data-series-filter="serie-blindagem">
+                        <span class="series-number">05 / SEGURANÇA</span>
+                        <span class="series-name">Blindagem de Sistemas</span>
+                        <span class="series-action">Explorar a série <span aria-hidden="true">↗</span></span>
+                    </button>
+                    <button class="series-card series-lucerna" type="button" data-series-filter="serie-lucerna">
+                        <span class="series-number">06 / CONFORMIDADE</span>
+                        <span class="series-name">O Protocolo de Lucerna</span>
+                        <span class="series-action">Explorar a série <span aria-hidden="true">↗</span></span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="editorial-section popular-section" id="mais-lidos" aria-labelledby="popular-heading">
+                <div class="editorial-heading">
+                    <div>
+                        <span class="editorial-kicker">Curadoria editorial</span>
+                        <h2 id="popular-heading">Leituras essenciais</h2>
+                    </div>
+                    <p>Leituras essenciais para entender as ideias que atravessam o acervo.</p>
+                </div>
+                <div class="articles-grid showcase-grid" id="popularGrid"></div>
+            </section>
 
         <!-- Filtros de Busca -->
         <section class="filters-section">
             <div class="filters-container">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Buscar artigos..." />
+                    <input type="text" id="searchInput" aria-label="Buscar artigos" placeholder="Buscar artigos..." />
                 </div>
                 <div class="category-filter">
                     <select id="categoryFilter" aria-label="Filtrar por categoria">
@@ -292,11 +376,11 @@
             </div>
         </section>
 
-        <main class="main">
-            <section class="articles-section">
+            <section class="articles-section" id="arquivo">
                 <div class="section-header">
-                    <h2>Artigos Técnicos</h2>
-                    <p>Ensaios sobre engenharia de baixo nível, resiliência de sistemas e soberania digital.</p>
+                    <span class="editorial-kicker">Todas as épocas, em um só lugar</span>
+                    <h2>Arquivo Editorial</h2>
+                    <p>Busque por tema ou explore a linha do tempo completa.</p>
                     <div class="stats">
                         <span class="stat">271 artigos publicados</span>
                         <span class="stat">Ciclo ativo: jun/2026 a mai/2029 | histórico anterior preservado</span>
@@ -3711,4 +3795,3 @@
     <script src="articles/assets/js/main.js"></script>
 </body>
 </html>
-

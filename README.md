@@ -39,6 +39,10 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
 
 ## Padrões Arquiteturais e de Publicação
 
+### Seleção editorial da home
+
+“Destaques” e “Últimos Artigos” selecionam apenas textos cuja data no nome do arquivo seja igual ou anterior ao dia atual no fuso `America/Sao_Paulo`, em ordem decrescente. Artigos com data futura continuam disponíveis no arquivo, nos filtros e nas séries. “Leituras essenciais” é uma curadoria por série, não um ranking de acessos.
+
 1. **Estrutura Estática e Leve:** Sem runtime dinâmico no servidor; páginas HTML5 semânticas com suporte a tema claro/escuro (`assets/css/main.css`, `assets/css/article.css`).
 2. **Dicionário Verde em Quadro de Lousa (`.chalkboard`):** Todo artigo técnico ou ensaio deve incluir uma seção final com glossário de termos técnicos e de negócios explicados para leigos (`<div class="chalkboard"><dl><dt><strong>...</strong></dt><dd>...</dd></dl></div>`).
 3. **Imagens Hero 16:9:** Fotografias cinematográficas e conceituais de engenharia, em formato paisagem 16:9, posicionadas no topo do artigo com `<figure>`, `<figcaption>` e metadados `og:image`.
@@ -47,7 +51,7 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
    ```powershell
    python update_feed.py
    ```
-   Lê todos os artigos de `docs/articles/`, extrai o conteúdo semântico, valida URLs absolutas e gera o `feed.xml` com ordenação cronológica decrescente estrita (RFC-822).
+   Lê todos os artigos de `docs/articles/`, incluindo datas futuras, extrai o conteúdo semântico e gera o `feed.xml` em ordem cronológica decrescente (RFC-822). O `lastBuildDate` indica a geração real em UTC, não a data do último artigo. As imagens usam os recursos indicados no HTML (incluindo WebP), com MIME e tamanho real em bytes. URLs relativas ou XML inválido interrompem a geração antes de substituir o feed.
 
 6. **Publicação automática no LinkedIn:** O script [`linkedin_rss_auto.py`](./linkedin_rss_auto.py) identifica o arquivo de artigo adicionado ou alterado no commit atual, extrai o título do frontmatter YAML Markdown ou do HTML publicado e cria uma publicação de artigo pela API REST `https://api.linkedin.com/rest/posts`.
 
@@ -55,7 +59,9 @@ O blog equilibra análises técnicas rigorosas com reflexões do dia a dia da en
 
 Quando um novo artigo é enviado para o GitHub, o GitHub Actions inicia automaticamente o processo. O robô encontra o artigo alterado, prepara uma mensagem com título, resumo e link, e publica essa mensagem no perfil do LinkedIn. Nenhuma senha fica escrita no código: as informações sensíveis ficam guardadas de forma protegida no GitHub.
 
-O processo é acionado apenas por alterações em `docs/articles/**` nas branches `master` ou `main`. Alterações no README, no feed ou em outros arquivos não geram uma publicação no LinkedIn.
+O processo é acionado apenas por alterações em `docs/articles/**` nas branches `master` ou `main`. A seleção para publicação ignora `docs/articles/assets/`, incluindo sua documentação HTML. Alterações no README, no feed ou em outros arquivos não geram uma publicação no LinkedIn.
+
+Antes de regenerar o RSS, o workflow executa `python -m unittest test_update_feed test_linkedin_rss_auto -v`. Os testes não chamam a API do LinkedIn.
 
 ### Configuração e manutenção para desenvolvedores
 

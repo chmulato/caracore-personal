@@ -108,6 +108,15 @@
         </section>
 
         <section class="section">
+            <h2>1.1 Capas otimizadas para os cards, artigos e RSS</h2>
+            <p>Para a home não baixar os PNGs originais de vários megabytes em miniaturas, cada imagem principal usada no acervo deve ter um derivado WebP com o mesmo nome-base e largura máxima de 960 pixels, por exemplo <code>2026_10_12_IMAGE_001.webp</code>. Preserve o PNG original para a imagem editorial e o compartilhamento social; o WebP é a versão leve dos cards e deve ser regenerado sempre que a capa mudar.</p>
+            <p>Com FFmpeg instalado, gere o derivado a partir desta pasta de imagens:</p>
+            <p><code>ffmpeg -i 2026_10_12_IMAGE_001.png -vf "scale='min(960,iw)':-2" -c:v libwebp -quality 78 -compression_level 6 2026_10_12_IMAGE_001.webp</code></p>
+            <p>A home carrega a capa WebP sob demanda, prioriza a primeira imagem de destaque e recorre ao PNG original quando necessário.</p>
+            <p>Os artigos e o RSS também usam as capas WebP indicadas no HTML. O logotipo usa <code>favicon.webp</code> (160 pixels) e a home usa <code>favicon-64.png</code> (64 pixels) como ícone do navegador; preserve <code>favicon.png</code> como original.</p>
+        </section>
+
+        <section class="section">
             <h2>2. Páginas í�ndice de Séries</h2>
             <p>Dez séries possuem página índice ou chamada que reúnem episódios com datas de publicação distintas. Nestes casos, a página índice pode reutilizar a imagem de destaque do primeiro episódio, sem necessidade de data correspondente (embora "As Redes Invisíveis" utilize uma imagem de data idêntica por alinhamento estrito de datas).</p>
             <ol>

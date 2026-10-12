@@ -139,6 +139,7 @@ def git_changed_files() -> list[Path]:
         if line.strip()
         and Path(line.strip()).suffix.lower() in allowed_suffixes
         and Path(line.strip()).as_posix().startswith(posts_prefix)
+        and not Path(line.strip()).as_posix().startswith(posts_prefix + "assets/")
     }
     return sorted(changed)
 

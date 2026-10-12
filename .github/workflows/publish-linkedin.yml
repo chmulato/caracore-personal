@@ -41,6 +41,9 @@ jobs:
       - name: Instalar dependencias
         run: python -m pip install --disable-pip-version-check requests
 
+      - name: Validar geracao do RSS e selecao de artigos
+        run: python -m unittest test_update_feed test_linkedin_rss_auto -v
+
       - name: Atualizar feed.xml e sitemap.xml
         run: |
           python update_feed.py

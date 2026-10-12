@@ -100,8 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const categoryEl = article.querySelector('.category');
                 const articleCategory = categoryEl ? categoryEl.textContent.toLowerCase() : '';
                 const articleSlug = article.dataset.categorySlug || slugify(articleCategory);
-                const articleTitle = article.querySelector('.article-title').textContent.toLowerCase();
-                const articleDescription = article.querySelector('.article-description').textContent.toLowerCase();
+                const titleElement = article.querySelector('.article-title');
+                const descriptionElement = article.querySelector('.article-description');
+                const articleTitle = titleElement ? titleElement.textContent.toLowerCase() : '';
+                const articleDescription = descriptionElement ? descriptionElement.textContent.toLowerCase() : '';
                 
                 const matchesCategory = !category || category === 'todas' || articleSlug.includes(category);
                 const matchesSearch = !searchTerm || 
@@ -118,10 +120,152 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Mostrar/ocultar seções vazias
             document.querySelectorAll('.month-section').forEach(section => {
-                const visibleArticles = section.querySelectorAll('.article-card[style*="display: block"], .article-card:not([style*="display: none"])');
-                section.style.display = visibleArticles.length > 0 ? 'block' : 'none';
+                const visibleArticles = [...section.querySelectorAll('.article-card')]
+                    .filter(article => article.style.display !== 'none');
+                section.style.display = visibleArticles.length ? 'block' : 'none';
+            });
+
+            document.querySelectorAll('.featured-grid, .showcase-grid').forEach(section => {
+                const visibleArticles = [...section.querySelectorAll('.article-card')]
+                    .filter(article => article.style.display !== 'none');
+                section.closest('.editorial-section').style.display = visibleArticles.length ? '' : 'none';
             });
         }
+
+        document.querySelectorAll('[data-series-filter]').forEach(button => {
+            button.addEventListener('click', () => {
+                if (categoryFilter) {
+                    categoryFilter.value = button.dataset.seriesFilter;
+                    categoryFilter.dispatchEvent(new Event('change'));
+                }
+                document.querySelector('#arquivo').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
+
+    function initializeEditorialCards() {
+        const archive = document.querySelector('#arquivo');
+        if (!archive) return;
+        const sourceCards = [...archive.querySelectorAll('.article-card')];
+        const coverFallbacks = {
+            '2026_02_15': '2026_02_22_IMAGE_001',
+            '2026_04_20': '2026_05_05_IMAGE_001',
+            '2026_06_05': '2026_08_05_IMAGE_002',
+            '2026_06_15': '2026_08_05_IMAGE_001',
+            '2026_08_25': '2026_09_05_IMAGE_001',
+            '2026_12_15': '2026_12_22_IMAGE_001',
+            '2027_07_30': '2027_08_05_IMAGE_001'
+        };
+        const seriesClasses = [
+            'economia-programavel',
+            'horizonte-essencial',
+            'rpa-silicio',
+            'alem-hype',
+            'blindagem',
+            'lucerna'
+        ];
+        const attachCoverFallback = (cover, card) => {
+            cover.addEventListener('error', function handleCoverError() {
+                if (cover.dataset.fallback !== 'used') {
+                    cover.dataset.fallback = 'used';
+                    cover.src = cover.src.replace(/\.webp$/, '.png');
+                    return;
+                }
+                cover.removeEventListener('error', handleCoverError);
+                cover.remove();
+                card.classList.add('article-card--no-cover');
+            });
+        };
+
+        const prepareCard = (card) => {
+            const articleLink = card.querySelector('.article-title a');
+            const category = card.querySelector('.category');
+            const categorySlug = card.dataset.categorySlug || '';
+            const dateMatch = articleLink && articleLink.getAttribute('href').match(/(\d{4}_\d{2}_\d{2})/);
+
+            seriesClasses.forEach(series => {
+                if (categorySlug.includes(series)) card.classList.add(`series-${series}`);
+            });
+
+            if (!articleLink || !dateMatch || card.querySelector('.article-cover')) return;
+
+            const title = articleLink.textContent.trim();
+            const cover = document.createElement('img');
+            cover.className = 'article-cover';
+            const coverFile = coverFallbacks[dateMatch[1]] || `${dateMatch[1]}_IMAGE_001`;
+            cover.src = `articles/assets/img/${coverFile}.webp`;
+            cover.alt = title;
+            cover.loading = 'lazy';
+            cover.decoding = 'async';
+            cover.width = 960;
+            cover.height = 540;
+            const coverFrame = document.createElement('div');
+            coverFrame.className = 'article-cover-frame';
+            coverFrame.appendChild(cover);
+            const articleMeta = card.querySelector('.article-meta');
+            if (articleMeta) coverFrame.appendChild(articleMeta);
+            attachCoverFallback(cover, card);
+            card.prepend(coverFrame);
+
+            if (category) category.title = category.textContent.trim();
+        };
+
+        const featuredGrid = document.querySelector('#featuredGrid');
+        const latestGrid = document.querySelector('#latestGrid');
+        const popularGrid = document.querySelector('#popularGrid');
+        const cloneCards = (target, cards, className) => {
+            cards.forEach((card, index) => {
+                prepareCard(card);
+                const clone = card.cloneNode(true);
+                clone.classList.add(className);
+                const cloneCover = clone.querySelector('.article-cover');
+                if (cloneCover) attachCoverFallback(cloneCover, clone);
+                if (index === 0) {
+                    clone.classList.add('is-leading');
+                    const leadingCover = clone.querySelector('.article-cover');
+                    if (className === 'featured-card' && leadingCover) {
+                        leadingCover.loading = 'eager';
+                        leadingCover.fetchPriority = 'high';
+                    }
+                }
+                target.appendChild(clone);
+            });
+        };
+
+        const publicationDate = (card) => {
+            const link = card.querySelector('.article-title a');
+            const match = link && link.getAttribute('href').match(/(\d{4})_(\d{2})_(\d{2})/);
+            return match ? `${match[1]}-${match[2]}-${match[3]}` : null;
+        };
+        const todayParts = new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'America/Sao_Paulo',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).formatToParts(new Date());
+        const datePart = (type) => todayParts.find(part => part.type === type).value;
+        const today = `${datePart('year')}-${datePart('month')}-${datePart('day')}`;
+        const publishedCards = sourceCards
+            .filter(card => publicationDate(card) && publicationDate(card) <= today)
+            .sort((a, b) => publicationDate(b).localeCompare(publicationDate(a)));
+
+        cloneCards(featuredGrid, publishedCards.slice(0, 3), 'featured-card');
+        cloneCards(latestGrid, publishedCards.slice(0, 6), 'latest-card');
+
+        const editorialSeries = ['horizonte-essencial', 'rpa-silicio', 'alem-hype'];
+        const popularCards = editorialSeries
+            .map(series => sourceCards.find(card => (card.dataset.categorySlug || '').includes(series))
+                || sourceCards.find(card => card.classList.contains(`series-${series}`)))
+            .filter(Boolean);
+        cloneCards(popularGrid, popularCards, 'popular-card');
+
+        let nextCard = 0;
+        const prepareArchiveBatch = () => {
+            sourceCards.slice(nextCard, nextCard + 12).forEach(prepareCard);
+            nextCard += 12;
+            if (nextCard < sourceCards.length) setTimeout(prepareArchiveBatch, 16);
+        };
+        setTimeout(prepareArchiveBatch, 0);
     }
     
     // Smooth scroll para navegação interna
@@ -140,41 +284,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Animações de scroll
-    function initializeScrollAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        document.querySelectorAll('.article-card, .year-section, .month-section').forEach(el => {
-            observer.observe(el);
-        });
-    }
-    
     // Estatísticas dinâmicas
     function updateStats() {
-        const totalArticles = document.querySelectorAll('.article-card').length;
+        const totalArticles = document.querySelectorAll('#arquivo .article-card').length;
         const statElement = document.querySelector('.stat');
         if (statElement) {
-            statElement.textContent = `${totalArticles} artigos publicados`;
+            statElement.textContent = `${totalArticles} artigos no acervo`;
         }
     }
     
     // Inicializar tudo
     new ThemeManager();
+    initializeEditorialCards();
     initializeFilters();
     initializeSmoothScroll();
-    initializeScrollAnimations();
     updateStats();
     
-    const articleCount = document.querySelectorAll('.article-card').length;
+    const articleCount = document.querySelectorAll('#arquivo .article-card').length;
     if (articleCount > 0) {
         console.log('🚀 Main.js carregado com sucesso!');
         console.log(`📊 Artigos carregados: ${articleCount}`);
@@ -193,15 +319,6 @@ style.textContent = `
         transition: all 0.3s ease;
     }
     
-    .article-card:not(.animate) {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    .article-card.animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
 `;
 document.head.appendChild(style);
 

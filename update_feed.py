@@ -7,9 +7,11 @@ from __future__ import annotations
 
 import html
 import re
-from datetime import datetime
+from datetime import datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import unquote, urljoin, urlsplit
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
 ARTICLES_DIR = ROOT / "docs" / "articles"
@@ -25,6 +27,7 @@ ATTR_URL = re.compile(
     r"""(?P<attr>src|href|poster|data-src)\s*=\s*(?P<q>['"])(?P<url>.*?)(?P=q)""",
     re.I,
 )
+HTML_TAG = re.compile(r"""<[A-Za-z][^\s/>]*(?:[^>"']|"[^"]*"|'[^']*')*>""")
 SCRIPT_BLOCK = re.compile(r"<script\b[^>]*>.*?</script>", re.I | re.S)
 STYLE_BLOCK = re.compile(r"<style\b[^>]*>.*?</style>", re.I | re.S)
 META_DESC = re.compile(
@@ -51,18 +54,22 @@ HERO_IMG = re.compile(
 IMG_SRC = re.compile(r"""src\s*=\s*['"]([^'"]+)['"]""", re.I)
 IMG_ALT = re.compile(r"""alt\s*=\s*['"]([^'"]*)['"]""", re.I)
 
-WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-MONTHS = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-]
-
-
 def rfc822(dt: datetime) -> str:
-    return (
-        f"{WEEKDAYS[dt.weekday()]}, {dt.day:02d} "
-        f"{MONTHS[dt.month - 1]} {dt.year} 00:00:00 +0000"
-    )
+    return format_datetime(dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc))
+
+
+def hero_size(url: str) -> int:
+    parsed = urlsplit(url)
+    if parsed.scheme != "https" or parsed.netloc != urlsplit(SITE).netloc:
+        raise ValueError(f"Imagem do RSS fora do dominio do blog: {url}")
+    docs = (ROOT / "docs").resolve()
+    asset = (docs / unquote(parsed.path).lstrip("/")).resolve()
+    if not asset.is_relative_to(docs):
+        raise ValueError(f"Caminho de imagem fora de docs: {url}")
+    size = asset.stat().st_size
+    if size == 0:
+        raise ValueError(f"Imagem vazia no RSS: {asset}")
+    return size
 
 
 def strip_tags(text: str) -> str:
@@ -114,7 +121,7 @@ def absolutize_html(markup: str) -> str:
         fixed = absolutize_url(url)
         return f'{match.group("attr")}={match.group("q")}{fixed}{match.group("q")}'
 
-    return ATTR_URL.sub(repl, markup)
+    return HTML_TAG.sub(lambda tag: ATTR_URL.sub(repl, tag.group(0)), markup)
 
 
 def mime_for(url: str) -> str:
@@ -194,7 +201,7 @@ def parse_article(path: Path) -> dict | None:
     if not match:
         return None
     dt = datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
-    raw = path.read_text(encoding="utf-8", errors="replace")
+    raw = path.read_text(encoding="utf-8")
     content = clean_content(extract_div_inner(raw, "post-content"))
     title = pick_title(raw)
     description = pick_description(raw) or title
@@ -223,16 +230,19 @@ def parse_article(path: Path) -> dict | None:
 def render_item(article: dict) -> str:
     hero = article["hero"]
     mime = mime_for(hero)
+    size = hero_size(hero)
+    hero = html.escape(hero, quote=True)
+    link = html.escape(article["link"])
     return "\n".join(
         [
             "    <item>",
             f"      <title>{cdata(article['title'])}</title>",
-            f"      <link>{article['link']}</link>",
+            f"      <link>{link}</link>",
             "      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>",
             f"      <description>{cdata(article['description'])}</description>",
-            f'      <enclosure url="{hero}" length="0" type="{mime}" />',
-            f'      <media:content url="{hero}" medium="image" />',
-            f'      <guid isPermaLink="true">{article["link"]}</guid>',
+            f'      <enclosure url="{hero}" length="{size}" type="{mime}" />',
+            f'      <media:content url="{hero}" medium="image" type="{mime}" fileSize="{size}" />',
+            f'      <guid isPermaLink="true">{link}</guid>',
             f"      <pubDate>{rfc822(article['date'])}</pubDate>",
             f"      <content:encoded>{cdata(article['content'])}</content:encoded>",
             "    </item>",
@@ -240,8 +250,8 @@ def render_item(article: dict) -> str:
     )
 
 
-def build_feed(articles: list[dict]) -> str:
-    newest = articles[0]["date"]
+def build_feed(articles: list[dict], built_at: datetime | None = None) -> str:
+    built_at = built_at or datetime.now(timezone.utc)
     items = "\n\n".join(render_item(article) for article in articles)
     return "\n".join(
         [
@@ -256,7 +266,7 @@ def build_feed(articles: list[dict]) -> str:
             "    <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, "
             "arquitetura de software e tecnologia.]]></description>",
             "    <language>pt-BR</language>",
-            f"    <lastBuildDate>{rfc822(newest)}</lastBuildDate>",
+            f"    <lastBuildDate>{rfc822(built_at)}</lastBuildDate>",
             f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml" />',
             "    <generator>Cara Core RSS generator</generator>",
             "",
@@ -285,27 +295,29 @@ def main() -> None:
     relative_attr = re.compile(
         r"""(?:src|href|poster)=['"](?!https?:|mailto:|#|javascript:|data:)"""
     )
-    relative = [a["file"] for a in articles if relative_attr.search(a["content"])]
+    relative = [
+        a["file"] for a in articles
+        if any(relative_attr.search(tag.group(0)) for tag in HTML_TAG.finditer(a["content"]))
+    ]
     empty = [a["file"] for a in articles if not a["content"].strip()]
 
-    FEED_PATH.write_text(build_feed(articles), encoding="utf-8", newline="\n")
+    if relative or empty:
+        raise ValueError(f"RSS invalido: URLs relativas em {relative}; conteudo vazio em {empty}")
+    feed = build_feed(articles)
+    ET.fromstring(feed)
+    temporary = FEED_PATH.with_suffix(".xml.tmp")
+    temporary.write_text(feed, encoding="utf-8", newline="\n")
+    temporary.replace(FEED_PATH)
 
     print(f"artigos lidos: {len(paths)}")
     print(f"itens gerados: {len(articles)}")
     print(f"gravado: {FEED_PATH}")
-    print(f"primeiro: {articles[0]['date'].date()} {articles[0]['file']}")
-    print(f"ultimo: {articles[-1]['date'].date()} {articles[-1]['file']}")
+    if articles:
+        print(f"primeiro: {articles[0]['date'].date()} {articles[0]['file']}")
+        print(f"ultimo: {articles[-1]['date'].date()} {articles[-1]['file']}")
     if skipped:
         print("ignorados sem data no nome:")
         for name in skipped:
-            print(f"  {name}")
-    if empty:
-        print("content vazio:")
-        for name in empty:
-            print(f"  {name}")
-    if relative:
-        print("ainda com URL relativa:")
-        for name in relative:
             print(f"  {name}")
 
 
