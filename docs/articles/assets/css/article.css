@@ -1190,6 +1190,10 @@ body {
 }
 
 @media (max-width: 640px) {
+    .site-header {
+        padding-top: 4.5rem;
+    }
+
     .site-header .container,
     .main-content .container,
     .site-footer .container,
@@ -1198,8 +1202,29 @@ body {
         padding-right: 1rem;
     }
 
+    .site-header h1 {
+        font-size: clamp(1.25rem, 5.8vw, 1.6rem);
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        justify-content: center;
+    }
+
     .post-title {
-        font-size: 1.8rem;
+        font-size: clamp(1.55rem, 7vw, 1.8rem);
+        overflow-wrap: anywhere;
+    }
+
+    .article-content p {
+        text-align: left;
+    }
+
+    .post-content {
+        overflow-wrap: anywhere;
     }
 }
 

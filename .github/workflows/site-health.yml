@@ -41,10 +41,10 @@ jobs:
       - name: Validar metadados sociais e JSON-LD
         run: python tools/validate_social_metadata.py
 
-      - name: Regenerar feed.xml e sitemap.xml
+      - name: Validar feed.xml e sitemap.xml
         run: |
-          python update_feed.py
-          python update_sitemap.py
+          python update_feed.py --check
+          python update_sitemap.py --check
 
       - name: Validar XML gerado
         run: |

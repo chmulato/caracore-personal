@@ -1,3 +1,4 @@
+import re
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
@@ -51,6 +52,59 @@ class FeedTests(unittest.TestCase):
         channel = ET.fromstring(feed.build_feed([])).find("channel")
         self.assertEqual(channel.findall("item"), [])
         self.assertIsNotNone(parsedate_to_datetime(channel.findtext("lastBuildDate")).tzinfo)
+
+    def test_without_build_date_ignores_only_volatile_timestamp(self) -> None:
+        first = feed.build_feed(
+            [self.article], datetime(2026, 10, 12, 17, 30, tzinfo=timezone.utc)
+        )
+        second = feed.build_feed(
+            [self.article], datetime(2026, 10, 14, 22, 0, tzinfo=timezone.utc)
+        )
+        self.assertEqual(feed.without_build_date(first), feed.without_build_date(second))
+
+        changed = {**self.article, "description": "Updated description"}
+        third = feed.build_feed(
+            [changed], datetime(2026, 10, 14, 22, 0, tzinfo=timezone.utc)
+        )
+        self.assertNotEqual(feed.without_build_date(first), feed.without_build_date(third))
+
+    def test_without_build_date_rejects_missing_timestamp(self) -> None:
+        with self.assertRaises(ValueError):
+            feed.without_build_date("<rss><channel></channel></rss>")
+
+    def test_without_build_date_rejects_invalid_timestamp(self) -> None:
+        invalid = feed.build_feed([])
+        invalid = re.sub(
+            r"(<lastBuildDate>).*?(</lastBuildDate>)",
+            r"\1not-a-date\2",
+            invalid,
+            count=1,
+            flags=re.S,
+        )
+        with self.assertRaises(ValueError):
+            feed.without_build_date(invalid)
+
+    def test_check_mode_leaves_feed_unchanged_and_detects_stale_content(self) -> None:
+        target = self.root / "docs" / "feed.xml"
+        empty_articles = self.root / "empty-articles"
+        empty_articles.mkdir()
+        previous = feed.build_feed(
+            [], datetime(2026, 10, 12, 17, 30, tzinfo=timezone.utc)
+        )
+        target.write_text(previous, encoding="utf-8")
+
+        with patch.object(feed, "FEED_PATH", target), \
+             patch.object(feed, "ARTICLES_DIR", empty_articles):
+            feed.main(check=True)
+            self.assertEqual(target.read_text(encoding="utf-8"), previous)
+
+            stale = feed.build_feed(
+                [self.article],
+                datetime(2026, 10, 12, 17, 30, tzinfo=timezone.utc),
+            )
+            target.write_text(stale, encoding="utf-8")
+            with self.assertRaises(SystemExit):
+                feed.main(check=True)
 
     def test_rfc822_preserves_time_and_timezone(self) -> None:
         value = datetime(2026, 10, 12, 14, 35, 42, tzinfo=timezone.utc)

@@ -5,7 +5,7 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 12 Oct 2026 20:42:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 02:48:47 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
@@ -221,7 +221,7 @@
 
             <footer class="post-footer">
                 <div class="author-info">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <img src="https://personal.caracore.com.br/articles/assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                     <div class="author-details">
                         <strong>Christian Mulato Autodidata</strong>
                     </div>
@@ -4174,7 +4174,7 @@ Requisicão HTTP ➔ Node.js Adapter ➔ Port (FFI C ABI) ➔ Core em Rust (Veri
 
             <footer class="post-footer">
                 <div class="author-info">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                    <img src="https://personal.caracore.com.br/articles/assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                     <div class="author-details">
                         <strong>Christian Mulato Autodidata</strong>
                     </div>
@@ -5329,7 +5329,7 @@ void process_packet(char *user_input) {
 
                 <h2>3. A Mecânica da IA Ofensiva: Do Binário ao Exploit</h2>
                 <figure class="article-image-frame" style="text-align: center; margin: 1.5rem 0;">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_11_18_IMAGE_002.png" alt="Esquema lógico de análise AST" style="max-width: 100%; height: auto; border-radius: 6px;" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_11_18_IMAGE_002.webp" alt="Esquema lógico de análise AST" style="max-width: 100%; height: auto; border-radius: 6px;" />
                     <figcaption style="margin-top: 0.5rem; font-style: italic; color: #64748b; font-size: 0.9rem;">Esquema de representação e desconstrução da Árvore de Sintaxe Abstrata (AST) para análise estrutural de binários.</figcaption>
                 </figure>
 
@@ -6081,7 +6081,7 @@ run_ai_auditor:
                 <p>Essas ilhas de excelência mostram que o Brasil é capaz de construir infraestruturas duradouras. São essas empresas e indústrias de missão crítica que realmente necessitam do critério da senioridade, da bússola dos fundamentos clássicos e do trabalho minucioso de auditoria de arquitetura.</p>
 
                 <div class="image-container">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_09_16_IMAGE_003.png" alt="Mapa das Ilhas de Excelência do Brasil Invisível" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_09_16_IMAGE_003.webp" alt="Mapa das Ilhas de Excelência do Brasil Invisível" />
                     <p class="image-caption">Infográfico ilustrando a rede descentralizada de inovação física e polos de engenharia no Brasil.</p>
                 </div>
 
@@ -6089,7 +6089,7 @@ run_ai_auditor:
                 <p>Para operar em ambientes sem conectividade garantida (como estradas de terra ou lavouras distantes), a arquitetura utiliza o padrão <strong>Offline-First</strong>. Os dados gerados pelos sensores são bufferizados localmente em bancos de dados de arquivo embarcados (como DuckDB para análise ou SQLite para escrita rápida) e enviados a uma fila de mensagens local (RabbitMQ ou broker MQTT). A sincronização com a nuvem central ocorre de forma eventual e assíncrona apenas quando a conexão física de rede é reestabelecida.</p>
 
                 <div class="image-container">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_09_16_IMAGE_002.png" alt="Telemetria Offline-First" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_09_16_IMAGE_002.webp" alt="Telemetria Offline-First" />
                     <p class="image-caption">Esquema de bufferização local e sincronização eventual assíncrona.</p>
                 </div>
 
@@ -6168,7 +6168,7 @@ run_ai_auditor:
                 <p>Para implementar IA local sem depender de conexões externas e manter a privacidade absoluta dos dados, a pilha tecnológica moderna utiliza containers leves. Rodando o <strong>Ollama</strong> via Docker para gerenciar e executar modelos menores altamente otimizados (quantizados), a aplicação escrita em Java usa o <strong>Spring AI</strong> para se conectar localmente a essa engine por meio de APIs locais rápidas, eliminando qualquer dependência da nuvem.</p>
 
                 <div class="image-container">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_09_02_IMAGE_002.png" alt="Pilha de IA Local" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_09_02_IMAGE_002.webp" alt="Pilha de IA Local" />
                     <p class="image-caption">Esquema da pilha tecnológica local usando Ollama e Spring AI.</p>
                 </div>
 
@@ -6247,7 +6247,7 @@ run_ai_auditor:
                 <p>Como aplicar a soberania tecnológica na Economia Real reduzindo em até 80% os custos de infraestrutura de nuvem? A resposta está no padrão <strong>Gateway Pass-Through</strong>. Em vez de persistir terabytes de dados operacionais e imagens fiscais pesadas em bancos de dados de nuvem de terceiros (o que gera cobranças abusivas e imprevisíveis), o backend em nuvem (escrito no leve <strong>Quarkus 3</strong>) atua estritamente como um roteador dinâmico de tráfego. Ele recebe as requisições dos dispositivos móveis de pista e as repassa de forma criptografada para um banco <strong>PostgreSQL</strong> hospedado em infraestrutura privada dedicada (como uma nuvem privada corporativa ou servidor local seguro), descartando-as da memória volátil da nuvem pública imediatamente.</p>
 
                 <div class="image-container">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_08_19_IMAGE_002.png" alt="Arquitetura Gateway Pass-Through" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_08_19_IMAGE_002.webp" alt="Arquitetura Gateway Pass-Through" />
                     <p class="image-caption">Esquema de roteamento de dados sem armazenamento persistente em servidores de nuvem.</p>
                 </div>
 
@@ -6300,7 +6300,7 @@ run_ai_auditor:
                 <p>O Programador Auditor não revisa código manualmente linha por linha; ele projeta uma <strong>esteira automatizada de validação</strong>. Utilizando testes de arquitetura estritos (como regras que garantem que nenhuma classe chame adaptadores externos de forma direta), analisadores de vulnerabilidade estática e perfis de testes de concorrência com foco em consumo de memória, a maior parte do código gerado por IA é validada antes de chegar à mesa do arquiteto.</p>
 
                 <div class="image-container">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_08_12_IMAGE_002.png" alt="Esteira de Auditoria Automatizada" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_08_12_IMAGE_002.webp" alt="Esteira de Auditoria Automatizada" />
                     <p class="image-caption">Esquema do pipeline de auditoria e validação de código proposto.</p>
                 </div>
 
@@ -6343,7 +6343,7 @@ run_ai_auditor:
                 <p>Para proteger as regras de negócio estáveis da volatilidade do código gerado por ferramentas automáticas, a solução é o isolamento arquitetural. Usando o padrão de <strong>Arquitetura Hexagonal (Portas e Adaptadores)</strong>, os frameworks e bibliotecas externas ficam restritos à camada externa. O núcleo da aplicação permanece limpo e fácil de ser auditado de forma manual por humanos.</p>
 
                 <div class="image-container">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_08_05_IMAGE_002.png" alt="Arquitetura Hexagonal" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2027_08_05_IMAGE_002.webp" alt="Arquitetura Hexagonal" />
                     <p class="image-caption">Esquema de isolamento de dependências e proteção do núcleo do negócio.</p>
                 </div>
 
@@ -9571,7 +9571,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
       <title><![CDATA[Série: O Silêncio na Escala — Chamada e índice]]></title>
       <link>https://personal.caracore.com.br/articles/2026_11_02_serie_o_silencio_na_escala_chamada.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[Chamada e índice (02/11/2026): dois episódios sobre escala, silêncio e o trabalho de engenharia que não entra na ata. Sem nome de instituição.]]></description>
+      <description><![CDATA[Chamada e índice: dois episódios (02/11/2026) sobre escala, silêncio e o trabalho de engenharia que não entra na ata. Série sobre burocracia, responsabilidade e decisões técnicas em sistemas institucionais complexos, sem identificar a instituição.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_11_02_IMAGE_001.webp" length="18838" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_11_02_IMAGE_001.webp" medium="image" type="image/webp" fileSize="18838" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_11_02_serie_o_silencio_na_escala_chamada.html</guid>
@@ -9644,7 +9644,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
       <title><![CDATA[O Silêncio Sobrevive à Escala — O Silêncio na Escala, episódio 1]]></title>
       <link>https://personal.caracore.com.br/articles/2026_11_02_o_silencio_na_escala_ep01.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[Episódio 1 (02/11/2026): operar a maior engrenagem de distribuição de renda do Ocidente e sobreviver à burocracia falando só o necessário.]]></description>
+      <description><![CDATA[Episódio 1 (02/11/2026): operar uma grande engrenagem de distribuição de renda exige mais que código. Um relato sobre escala, burocracia, prudência institucional e o silêncio como ferramenta de sobrevivência profissional.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_11_02_IMAGE_001.webp" length="18838" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_11_02_IMAGE_001.webp" medium="image" type="image/webp" fileSize="18838" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_11_02_o_silencio_na_escala_ep01.html</guid>
@@ -11301,7 +11301,7 @@ public class WebAuthFilter implements ContainerRequestFilter {
                 </ul>
 
                 <figure class="hero-image-frame">
-                    <img alt="Arquitetura de integração entre Agente de IA, Microsoft 365, Microsoft Graph, MCP e scripts Python no Windows" src="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_002.png" class="hero-image" />
+                    <img alt="Arquitetura de integração entre Agente de IA, Microsoft 365, Microsoft Graph, MCP e scripts Python no Windows" src="https://personal.caracore.com.br/articles/assets/img/2026_09_10_IMAGE_002.webp" class="hero-image" />
                     <figcaption class="hero-image-caption">Figura 1. Arquitetura de IA corporativa baseada em MCP e Microsoft Graph, na qual o agente de IA realiza o raciocínio e a orquestração, enquanto a execução, os dados e as credenciais permanecem sob controle do ambiente local da organização.</figcaption>
                 </figure>
 
@@ -11774,7 +11774,7 @@ public class WebAuthFilter implements ContainerRequestFilter {
                 <p>O desenho que desfaz o mito cabe em três caixas. Não é um framework novo. É desacoplamento clássico com um protocolo aberto no meio.</p>
 
                 <figure class="hero-image-frame">
-                    <img alt="Diagrama da arquitetura de integração desacoplada The Bridge: camada cognitiva, MCP e execução segura no localhost" src="https://personal.caracore.com.br/articles/assets/img/2026_09_01_IMAGE_002.png" class="hero-image" />
+                    <img alt="Diagrama da arquitetura de integração desacoplada The Bridge: camada cognitiva, MCP e execução segura no localhost" src="https://personal.caracore.com.br/articles/assets/img/2026_09_01_IMAGE_002.webp" class="hero-image" />
                     <figcaption class="hero-image-caption">Arquitetura de Integração Desacoplada — The Bridge: o cérebro cognitivo emite o comando; o MCP transporta o contrato; o braço local executa com dados, APIs e ferramentas que nunca saem do perímetro.</figcaption>
                 </figure>
 
@@ -13905,7 +13905,7 @@ de lidar com a realidade.</code></pre></div>
                         Mapeado como A09:2021. Se um sistema sofre uma tentativa de fraude ou invasão e os administradores não possuem registros (logs) organizados e seguros, a empresa fica completamente no escuro. Sem essa auditoria interna, é impossível descobrir a extensão do vazamento, quem realizou o acesso indevido e quando aconteceu.</p>
                     </div>
 
-                    <p><img alt="Fluxo de Validação de Segurança e Mapeamento de Riscos" src="https://personal.caracore.com.br/articles/assets/img/2026_06_19_IMAGE_002.png" class="hero-image" /></p>
+                    <p><img alt="Fluxo de Validação de Segurança e Mapeamento de Riscos" src="https://personal.caracore.com.br/articles/assets/img/2026_06_19_IMAGE_002.webp" class="hero-image" /></p>
                     <p style="text-align: center;"><em>Mapeamento de Riscos (OWASP): Representação simplificada de como o sistema deve verificar as permissões nas fronteiras da aplicação para impedir acessos indevidos e registrar atividades suspeitas.</em></p>
 
                     <h2>Análise Prática: Protegendo os Bastidores da Aplicação</h2>
@@ -13931,11 +13931,11 @@ de lidar com a realidade.</code></pre></div>
       <link>https://personal.caracore.com.br/articles/2026_06_15_horizonte_essencial_ep01_peso_do_hardware.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
       <description><![CDATA[Primeiro episódio da série. Energia, chips, custo por token e o impacto real da infraestrutura de IA para pequenos e médios negócios Este artigo de Christian Mulato apresenta contexto, decisoes e aprendizados praticos sobre Horizonte do Essencial — E]]></description>
-      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" length="2090868" type="image/png" />
-      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" medium="image" type="image/png" fileSize="2090868" />
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" length="65912" type="image/webp" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" medium="image" type="image/webp" fileSize="65912" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_15_horizonte_essencial_ep01_peso_do_hardware.html</guid>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><img alt="Horizonte do Essencial: O Peso do Hardware" src="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" class="hero-image" /></p>
+      <content:encoded><![CDATA[<p><img alt="Horizonte do Essencial: O Peso do Hardware" src="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" class="hero-image" /></p>
                 <p><em>Energia, chips e a conta que poucos veem.</em></p>
                 <p>Tempo de leitura: 4 minutos</p>
 
@@ -14286,12 +14286,12 @@ pelo pior momento para aparecer.</code></pre></div>
       <link>https://personal.caracore.com.br/articles/2026_06_05_serie_horizonte_essencial_chamada.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
       <description><![CDATA[Chamada e índice (05/06/2026): série curta e direta sobre tecnologia sem retórica, com foco no custo real, soberania local e automação invisível. São 5 artigos e 1 epílogo, com lançamentos de junho a agosto de 2026]]></description>
-      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" length="2090868" type="image/png" />
-      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" medium="image" type="image/png" fileSize="2090868" />
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" length="65912" type="image/webp" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" medium="image" type="image/webp" fileSize="65912" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_06_05_serie_horizonte_essencial_chamada.html</guid>
       <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<figure class="hero-image-frame">
-                    <img src="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" alt="Série Horizonte do Essencial: chamada" class="hero-image" />
+                    <img src="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" alt="Série Horizonte do Essencial: chamada" class="hero-image" />
                     <figcaption class="hero-image-caption">Capa alinhada ao episódio 05: a década da RAM infinita, o beco de Alice e o custo do inchaço de software.</figcaption>
                 </figure>
 
@@ -14302,7 +14302,7 @@ pelo pior momento para aparecer.</code></pre></div>
                 <div class="episode-grid">
                     <div class="episode-card">
                         <figure class="episode-card-figure">
-                            <img src="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.png" alt="Episódio 1 da série Horizonte do Essencial" class="episode-card-image">
+                            <img src="https://personal.caracore.com.br/articles/assets/img/2026_08_05_IMAGE_002.webp" alt="Episódio 1 da série Horizonte do Essencial" class="episode-card-image">
                             <figcaption class="episode-card-caption">Abertura da série: energia, chips e o custo real por trás da promessa de IA.</figcaption>
                         </figure>
                         <div class="episode-card-content">
@@ -15094,12 +15094,12 @@ não é lentidão.
       <link>https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
       <description><![CDATA[DeepSeek, Ollama e a metáfora da costura: por que o algoritmo e a quantização vencem a corrida só por silício — e como rodar IA de ponta no hardware que você já tem]]></description>
-      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.png" length="7780999" type="image/png" />
-      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.png" medium="image" type="image/png" fileSize="7780999" />
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.webp" length="459926" type="image/webp" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.webp" medium="image" type="image/webp" fileSize="459926" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</guid>
       <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<figure class="hero-image-frame">
-                    <img alt="A Era da IA Costurada: eficiência, Ollama e hardware acessível" src="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.png" class="hero-image" />
+                    <img alt="A Era da IA Costurada: eficiência, Ollama e hardware acessível" src="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.webp" class="hero-image" />
                     <figcaption class="hero-image-caption">A arte de costurar o futuro com as ferramentas do presente: Onde o código inteligente e o hardware resiliente se encontram para democratizar a IA local</figcaption>
                 </figure>
 
@@ -15267,12 +15267,12 @@ não é lentidão.
       <link>https://personal.caracore.com.br/articles/2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
       <description><![CDATA[Após anos de euforia com IA, 2026 expôs a distância entre investimento e resultado. Um artigo sobre o vale da desilusão, o peso do ROI e a migração do hype para a engenharia pragmática]]></description>
-      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_04_23_IMAGE_002.png" length="7679035" type="image/png" />
-      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_04_23_IMAGE_002.png" medium="image" type="image/png" fileSize="7679035" />
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_04_23_IMAGE_002.webp" length="209638" type="image/webp" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_04_23_IMAGE_002.webp" medium="image" type="image/webp" fileSize="209638" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial.html</guid>
       <pubDate>Thu, 23 Apr 2026 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<figure class="hero-image-frame">
-                    <img alt="Executivo pressionado por resultados diante da discrepância entre ganhos esperados e valor real da IA" src="https://personal.caracore.com.br/articles/assets/img/2026_04_23_IMAGE_002.png" class="hero-image" />
+                    <img alt="Executivo pressionado por resultados diante da discrepância entre ganhos esperados e valor real da IA" src="https://personal.caracore.com.br/articles/assets/img/2026_04_23_IMAGE_002.webp" class="hero-image" />
                     <figcaption class="hero-image-caption">O &quot;Vale da Desilusão&quot; chegou, mas ele não é o fim da linha. É o início da maturidade.</figcaption>
                 </figure>
 
@@ -15526,7 +15526,7 @@ não sendo uma aproximação empírica. O sistema alcançou soberania científic
 <p>Aos 54 anos, após 18 anos desenvolvendo em Java e uma trajetória que começou no Pascal dos anos 90, decidi me isolar. Não é solidão. É arquitetura. É rodar em <code>localhost</code> enquanto o mundo corre em <code>cloud</code>. É viver na minha torre.</p>
 <h2>A Crise da Conexão</h2>
 <p>Há um momento na carreira de todo desenvolvedor em que você percebe que está rodando em um <code>runtime</code> que não controla. Você não é mais o dono do seu código. Você é um módulo dentro de um sistema maior, e esse sistema pertence às "Sete Magníficas" – as Big Techs que definem quais <code>SDKs</code> você usa, quais <code>APIs</code> você consome, e, fundamentalmente, quais decisões você pode tomar.</p>
-<p><img alt="Corrida dos ratos nunca mais" src="https://personal.caracore.com.br/articles/assets/img/2026_04_06_IMAGE_002.png" class="secondary-image" /></p>
+<p><img alt="Corrida dos ratos nunca mais" src="https://personal.caracore.com.br/articles/assets/img/2026_04_06_IMAGE_002.webp" class="secondary-image" /></p>
 <p>A imagem acima não é apenas metáfora. É a realidade de milhões de profissionais que, como eu, descobriram que estar "conectado" significa ser refém. A corrida de hamster corporativa não é sobre produtividade – é sobre dependência. Cada <code>npm install</code>, cada <code>pip install</code>, cada atualização de framework que você aceita sem questionar, é um passo mais profundo na toca do coelho.</p>
 <p>Eu vivi isso. Durante anos, minha stack era definida por decisões tomadas em Mountain View, Redmond ou Seattle. Meu código Java rodava em JVMs que eu não controlava, em containers que eu não entendia completamente, em clouds que eu não auditava. Eu era um desenvolvedor, mas não era um engenheiro. Era um montador de kits.</p>
 <p>A exaustão não veio do trabalho em si – venho de uma formação em engenharia química, sei o que é trabalho duro. A exaustão veio da percepção de que eu estava construindo sobre areia movediça. Que cada linha de código que escrevia dependia de uma cadeia de confiança que eu não podia verificar. Que cada deploy era uma aposta em sistemas que eu não compreendia completamente.</p>
@@ -19282,7 +19282,7 @@ RESULTADO: Ambiente AWS local totalmente funcional</code></pre>
 <h3>1. GRAVAÇÃO DE VÍDEO CONTÍNUA</h3>
 <p>Cada teste Selenium inicia gravando a tela usando OpenCV e pyautogui. Não capturas de tela estáticas - vídeos completos em 1920x1080 a 30 FPS. Isso permite ver não apenas o estado final, mas toda a jornada: cada clique, cada campo preenchido, cada espera de carregamento.</p>
 
-<p style="text-align: center;"><img src="https://personal.caracore.com.br/articles/assets/img/2025_12_09_IMAGE_002.png" alt="Gravação de Testes Automatizados em Vídeo MP4" style="max-width: 70%; height: auto; margin: 1.5em auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block;"></p>
+<p style="text-align: center;"><img src="https://personal.caracore.com.br/articles/assets/img/2025_12_09_IMAGE_002.webp" alt="Gravação de Testes Automatizados em Vídeo MP4" style="max-width: 70%; height: auto; margin: 1.5em auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block;"></p>
 
 <h3>2. TIMESTAMPS E CONTEXTO</h3>
 <p>Cada ação importante é marcada no tempo. Quando o teste preenche um campo, o timestamp é registrado. Quando clica em salvar, outro timestamp. Quando verifica se o registro aparece na listagem, mais um timestamp. Isso permite correlacionar o vídeo com os logs de teste e até com logs do servidor.</p>
@@ -19777,7 +19777,7 @@ E cada card de bug é um capítulo na história de um sistema que se recusa a mo
           <li><strong>Processual:</strong> definir como novos contratos são aprovados, versionados e publicados, com regras claras de backward compatibility e testes de integração.</li>
           <li><strong>Organizacional:</strong> atribuir responsabilidades (donos de API), rotinas de revisão e critérios de aceitação para que a mudança perdure.</li>
         </ol>
-  <p><img src="https://personal.caracore.com.br/articles/assets/img/2025_11_24_IMAGE_002.png" alt="Arquitetura simplificada e governança" class="content-image"></p>
+  <p><img src="https://personal.caracore.com.br/articles/assets/img/2025_11_24_IMAGE_002.webp" alt="Arquitetura simplificada e governança" class="content-image"></p>
   <p><em>Figura 2 — arquitetura simplificada, testes e governança.</em></p>
 
         <h2>Abordagem recomendada: fases práticas e riscos controlados</h2>
@@ -20428,7 +20428,7 @@ Resposta unificada para o cliente: "Pedido confirmado!"</code></pre>
 
         <p>Tudo isso com logs claros e passos idempotentes, para que o mesmo comando funcione de forma confiável na sua máquina e no ambiente de testes.</p>
 
-        <p><img src="https://personal.caracore.com.br/articles/assets/img/2025_10_26_IMAGE_002.png" alt="Fluxo fim a fim: banco de dados, build, deploy e validação de login."></p>
+        <p><img src="https://personal.caracore.com.br/articles/assets/img/2025_10_26_IMAGE_002.webp" alt="Fluxo fim a fim: banco de dados, build, deploy e validação de login."></p>
         <p><em>Figura — Fluxo fim a fim: banco de dados, build, deploy e validação de login.</em></p>
 
         <h3>O que muda no dia a dia</h3>
@@ -20460,7 +20460,7 @@ Resposta unificada para o cliente: "Pedido confirmado!"</code></pre>
         <h3>Como acionamos (menu simples)</h3>
         <p>Para o time, tudo acontece a partir de um menu único (<code>main.py</code>). É possível executar o fluxo completo em um passo (opção 12) ou rodar etapas específicas quando necessário.</p>
 
-        <p><img src="https://personal.caracore.com.br/articles/assets/img/2025_10_26_IMAGE_003.png" alt="Opções do terminal (main.py)"></p>
+        <p><img src="https://personal.caracore.com.br/articles/assets/img/2025_10_26_IMAGE_003.webp" alt="Opções do terminal (main.py)"></p>
         <p><em>Figura — Menu do orquestrador: opções de build, deploy e validação. A opção 12 executa o fluxo fim a fim.</em></p>
 
         <h3>Próximos passos</h3>
@@ -24394,7 +24394,7 @@ public class SimpleConsumer {
 <p>mvn clean test</p>
 <p>O relatório será gerado em: target/site/jacoco/index.html</p>
 <p>Abra esse arquivo no navegador para visualizar a cobertura dos testes.</p>
-<p><img alt="Conteúdo do artigo" src="https://personal.caracore.com.br/articles/assets/img/2025_06_24_IMAGE_003.png" /></p>
+<p><img alt="Conteúdo do artigo" src="https://personal.caracore.com.br/articles/assets/img/2025_06_24_IMAGE_003.webp" /></p>
 <p>Exemplo de relatório JaCoCo</p>
 <p><strong>Recursos e Leituras Complementares</strong></p>
 <ul>
@@ -24734,7 +24734,7 @@ public class SimpleConsumer {
 <p><strong>Definição do <em>Schema</em>:</strong> Defina o <em>esquema (schema)</em> <em>GraphQL</em>, que descreve os tipos de dados e as operações disponíveis.</p>
 <p><strong>Resolvendo Consultas:</strong> Implemente <em>resolvers</em> que processam as consultas e retornam os dados solicitados.</p>
 <p><strong>Integração com Banco de Dados:</strong> Conecte seu servidor <em>GraphQL</em> a um banco de dados para buscar e manipular dados conforme necessário.</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_10_01_IMAGE_003.png"></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_10_01_IMAGE_003.webp"></p>
 <p>Exemplo de código Java para utilização GraphQL</p>
 <p><strong>Por que Migrar do JSON para GraphQL?</strong></p>
 <p>A migração de APIs baseadas em <em>JSON</em> para <em>GraphQL</em> oferece várias vantagens significativas que podem melhorar a eficiência e a flexibilidade das aplicações.</p>
@@ -24787,27 +24787,27 @@ public class SimpleConsumer {
 <p><strong>Atualização do Estoque:</strong> Reduzir a quantidade dos itens comprados.</p>
 <p><strong>Envio de Confirmação:</strong> Enviar um e-mail de confirmação ao cliente.</p>
 <p>Cada uma dessas operações pode ser implementada como um método síncrono, garantindo que uma etapa só comece após a conclusão da anterior.</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_003.png"></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_003.webp"></p>
 <p>Exemplo de classe Java com controle síncrono de métodos.</p>
 <p><strong>2. Consulta a Banco de Dados</strong></p>
 <p>Em uma aplicação de gerenciamento de clientes, métodos síncronos podem realizar operações de <strong><em>CRUD</em></strong> (<strong><em>Create, Read, Update, Delete</em></strong>). Por exemplo, ao buscar informações de um cliente, a conexão com o banco de dados e a consulta são realizadas de forma sequencial para garantir a integridade dos dados.</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_004.png"></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_004.webp"></p>
 <p>Exemplo de classe de serviço Java para u controle síncrono de acesso ao banco de dados.</p>
 <p><strong>3. Processamento de Arquivos</strong></p>
 <p>Para processar arquivos de forma sequencial, como a leitura de um arquivo <em>CSV</em> e a inserção dos dados em um banco de dados, métodos síncronos garantem que cada linha do arquivo seja processada antes de passar para a próxima.</p>
-<p><img alt="Interface gráfica do usuário, Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_005.png"></p>
+<p><img alt="Interface gráfica do usuário, Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_005.webp"></p>
 <p>Exemplo de classe Java para acesso a leitura de um arquivo</p>
 <p><strong>4. Controle de Acesso a Recursos Compartilhados</strong></p>
 <p>Em aplicações <strong><em>multithread</em><em>* [ vide rodapé]</em>, a sincronização é vital para evitar inconsistências nos dados. Por exemplo, em um sistema bancário, várias threads podem tentar atualizar o saldo de uma conta simultaneamente. Métodos sincronizados garantem que apenas uma </strong><em>thread</em><em>* [vide rodapé]</em> possa modificar o saldo por vez.</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_006.png"></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_006.webp"></p>
 <p>Exemplo de classe Java com controle sincronizado de saldo bancário.</p>
 <p><strong>5. Implementação de Filas e Pilhas Seguras</strong></p>
 <p>Estruturas de dados como filas e pilhas precisam ser sincronizadas em ambientes <em>multithread</em> para evitar condições de corrida, garantindo que apenas uma <em>thread</em> possa modificar a estrutura de dados por vez.</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_007.png"></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_007.webp"></p>
 <p>Exemplo de classe Java com controle de pilha com acesso sincronizado.</p>
 <p><strong>6. Sincronização de Blocos de Código</strong></p>
 <p>Além de métodos, blocos de código também podem ser sincronizados para proteger seções críticas, melhorando a eficiência ao sincronizar apenas a parte necessária do método.</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_008.png"></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_09_23_IMAGE_008.webp"></p>
 <p>Método Java não sincronizado.</p>
 <p><strong>Conclusão</strong></p>
 <p>A sincronização de métodos em Java é crucial para o desenvolvimento de aplicações robustas e seguras em ambientes <em>multithread</em>. Ela garante que os recursos compartilhados sejam acessados de maneira controlada, evitando inconsistências e condições de corrida.</p>
@@ -24884,7 +24884,7 @@ public class SimpleConsumer {
 <p><em>Evolução da linguagem Java.</em></p>
 <p><strong>Evolução da Linguagem Java</strong></p>
 <p>Java é uma das linguagens de programação mais populares e amplamente utilizadas no mundo. Criada pela <em>Sun Microsystems* [vide rodapé]</em> em 1995, ela se destaca por sua portabilidade, robustez e segurança.</p>
-<p><img alt="Evolução da linguagem Java." src="https://personal.caracore.com.br/articles/assets/img/2024_09_08_IMAGE_003.png"></p>
+<p><img alt="Evolução da linguagem Java." src="https://personal.caracore.com.br/articles/assets/img/2024_09_08_IMAGE_003.webp"></p>
 <p>Evolução da linguagem Java do ano de 1996 até 2023.</p>
 <p><strong>Principais Características</strong></p>
 <ol>
@@ -24938,16 +24938,16 @@ public class SimpleConsumer {
 <p>Em Java, filas são estruturas de dados que seguem o princípio <strong>FIFO (<em>First In, First Out</em>)</strong>, onde o primeiro elemento a entrar é o primeiro a sair. A interface <em>Queue</em> do <em>Java Collections Framework</em> fornece métodos essenciais para a manipulação de filas, como <em>add(), remove(), offer(), poll() e peek()</em>, permitindo a adição, remoção e inspeção de elementos de forma eficiente. Filas são fundamentais para o gerenciamento de tarefas em sistemas de software, permitindo a organização e processamento sequencial de elementos. Elas são amplamente utilizadas em diversas aplicações, como filas de impressão, processamento de tarefas assíncronas, gerenciamento de threads e sistemas de mensagens, garantindo eficiência e ordem na execução de processos. A classe <em>LinkedList</em> implementa a interface <em>Queue</em> e é frequentemente usada para criar filas devido à sua eficiência na inserção e remoção de elementos. Já a classe <em>PriorityQueue</em> ordena os elementos com base em sua prioridade natural ou por um comparador fornecido, sendo ideal para cenários onde a ordem de processamento é determinada por prioridades específicas. Essas classes e interfaces são essenciais para o gerenciamento eficiente de tarefas e recursos em sistemas de software, proporcionando flexibilidade e desempenho na manipulação de filas.</p>
 <p>Aqui estão alguns exemplos práticos de uso das classes <em>Queue</em>, <em>LinkedList</em> e <em>PriorityQueue</em> em Java:</p>
 <p><strong>1. Filas de Impressão:</strong> Utilizando <em>LinkedList</em> para gerenciar uma fila de documentos a serem impressos, onde os documentos são processados na ordem em que foram adicionados.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_010.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_010.webp" /></p>
 <p>Método em linguagem Java para gerenciamento de filas de Impressão.</p>
 <p><strong>2. Processamento de Tarefas Assíncronas:</strong> Usando <em>LinkedList</em> para gerenciar tarefas que precisam ser executadas em segundo plano.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_011.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_011.webp" /></p>
 <p>Método em linguagem Java para gerenciamento de filas de tarefas agendadas.</p>
 <p><strong>3. Gerenciamento de Threads:</strong> Utilizando <em>PriorityQueue</em> para gerenciar threads com diferentes prioridades.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_012.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_012.webp" /></p>
 <p>Método em linguagem Java para gerenciamento de filas de tarefas concorrentes.</p>
 <p><strong>4. Sistemas de Mensagens:</strong> Usando <em>LinkedList</em> para gerenciar mensagens em um sistema de chat, garantindo que as mensagens sejam processadas na ordem correta.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_013.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_013.webp" /></p>
 <p>Método em linguagem Java para gerenciamento de filas.</p>
 <p>Esses exemplos mostram como as filas podem ser aplicadas em diferentes contextos para gerenciar tarefas e recursos de forma eficiente.</p>
 <p><strong>3. Software Gerenciador de Filas:</strong></p>
@@ -24958,25 +24958,25 @@ public class SimpleConsumer {
 <p>A produção e consumo de mensagens em Java são processos fundamentais para a comunicação assíncrona em sistemas distribuídos. Utilizando bibliotecas como <em>RabbitMQ Java Client</em> e <em>Kafka Java API</em>, os produtores enviam mensagens para filas ou tópicos, enquanto os consumidores as recebem e processam. Esse mecanismo permite que diferentes partes de um sistema se comuniquem de forma eficiente e independente, melhorando a escalabilidade e resiliência. Por exemplo, um produtor pode enviar atualizações de status para um tópico Kafka, e múltiplos consumidores podem processar essas atualizações em paralelo, garantindo que as mensagens sejam entregues e processadas de maneira ordenada e confiável.</p>
 <p>Para usar o <strong><em>RabbitMQ Java Client</em></strong> em seu projeto, siga estes passos:</p>
 <p><strong>1. Adicionar a Dependência:</strong> Se você estiver usando <em>Maven</em>, adicione a dependência do <strong><em>RabbitMQ Java Client</em></strong> ao seu pom.xml:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_014.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_014.webp" /></p>
 <p>Arquivo XM do Maven para incluir a dependência do Rabbit MQ.</p>
 <p><strong>2. Configurar a Conexão:</strong> Crie uma conexão com o servidor <em>RabbitMQ</em>:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_015.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_015.webp" /></p>
 <p>Classe Java para conexão com o Rabbit MQ para enviar mensagens.</p>
 <p><strong>3. Consumir Mensagens:</strong> Crie um consumidor para receber mensagens da fila:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_016.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_016.webp" /></p>
 <p>Classe Java para conexão com o Rabbit MQ para receber mensagens.</p>
 <p>Esses exemplos mostram como configurar um produtor e um consumidor simples usando o <em>RabbitMQ Java Client</em>.</p>
 <p>Certifique-se de que o servidor <em>RabbitMQ</em> esteja em execução e acessível no host especificado.</p>
 <p>Para usar a <strong><em>Kafka Java API</em></strong> em seu projeto, siga estes passos:</p>
 <p><strong>1. Adicionar a Dependência:</strong> Se você estiver usando <em>Maven</em>, adicione a dependência do Kafka ao seu pom.xml:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_017.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_017.webp" /></p>
 <p>Arquivo XM do <em>Maven</em> para incluir a dependência do Kafka.</p>
 <p><strong>2. Configurar o Produtor:</strong> Crie um produtor para enviar mensagens ao <em>Kafka</em>:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_002.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_002.webp" /></p>
 <p>Classe Java para conexão com o Kafka para enviar mensagens.</p>
 <p><strong>3. Configurar o Consumidor:</strong> Crie um consumidor para receber mensagens do <em>Kafka</em>:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_003.webp" /></p>
 <p>Classe Java para conexão com o Kafka para receber mensagens.</p>
 <p>Certifique-se de que o servidor <em>Kafka</em> esteja em execução e acessível no host especificado. Esses exemplos mostram como configurar um produtor e um consumidor simples usando a <em>Kafka Java API</em>.</p>
 <p><strong>5. Tratamento de Erros e Reprocessamento:</strong></p>
@@ -24986,13 +24986,13 @@ public class SimpleConsumer {
 <p><strong>1. Configurar a Fila de Dead-Letter:</strong> Crie uma fila para mensagens que falharam no processamento.</p>
 <p><strong><em>channel.queueDeclare(\"dead-letter-queue\", true, false, false, null);</em></strong></p>
 <p><strong>2. Configurar a Fila Principal com <em>Dead-Letter Exchange</em>:</strong> Configure a fila principal para redirecionar mensagens falhadas para a <em>fila de dead-letter</em>.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_004.webp" /></p>
 <p>Método de comunicação de fila.</p>
 <p><strong>3. Consumir Mensagens com Tratamento de Erros:</strong> Implemente o consumidor para processar mensagens e redirecionar falhas.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_005.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_005.webp" /></p>
 <p>Exemplo de código Java para tratamento de erro.</p>
 <p><strong>4. Reprocessar Mensagens da <em>Fila de Dead-Letter</em>:</strong> Crie um consumidor para reprocessar mensagens da fila de <em>dead-letter</em>.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_006.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_006.webp" /></p>
 <p>Exemplo de código Java para tratamento de erro.</p>
 <p>Esse exemplo básico mostra como configurar uma fila de <em>dead-letter</em> e implementar o reprocessamento de mensagens em <em>RabbitMQ</em>.</p>
 <p>Para <em>Kafka</em>, você pode usar tópicos de <em>dead-letter</em> e configurar consumidores para reprocessar mensagens de forma semelhante.</p>
@@ -25019,13 +25019,13 @@ public class SimpleConsumer {
 </ul>
 <p>Passos para Implementação</p>
 <p><strong>1. Adicionar Dependência do RabbitMQ:</strong> Adicione a dependência do RabbitMQ ao seu projeto Maven:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_007.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_007.webp" /></p>
 <p>Arquivo XM do Maven para incluir a dependência do Rabbit MQ.</p>
 <p><strong>2. Configurar a Conexão com <em>RabbitMQ</em>:</strong> Crie uma conexão com o servidor <em>RabbitMQ</em>:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_008.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_008.webp" /></p>
 <p>Exemplo de código Java com conexão de fila para envio de mensagem.</p>
 <p><strong>3. Consumir Mensagens da Fila:</strong> Crie um consumidor para processar os pedidos:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_009.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_09_02_IMAGE_009.webp" /></p>
 <p>Exemplo de código Java com conexão de fila para recibo de mensagem.</p>
 <p><strong>4. Explicação dos Passos</strong></p>
 <p><strong>Adicionar Dependência:</strong> Incluímos a dependência do <em>RabbitMQ</em> no arquivo pom.xml para que possamos utilizar suas bibliotecas no projeto.</p>
@@ -25060,15 +25060,15 @@ public class SimpleConsumer {
 <p>Vamos começar com uma visão geral de como definir operações GET e POST usando <strong><em>OpenAPI</em></strong> e YAML.</p>
 <p><strong>3. Estrutura Básica do OpenAPI</strong></p>
 <p>Um arquivo <strong><em>OpenAPI</em></strong> geralmente começa com algumas informações básicas sobre a API, como título, descrição e versão. Aqui está um exemplo básico:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_005.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_005.webp" /></p>
 <p>Exemplo básico de um arquivo OpenAPI.</p>
 <p><strong>4. Definindo uma Operação GET</strong></p>
 <p>A operação GET é usada para recuperar dados de um servidor. Aqui está um exemplo de como definir uma operação GET para obter uma lista de usuários:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_006.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_006.webp" /></p>
 <p>Arquivo de configuração YAML para o endpoint de GET.</p>
 <p><strong>5. Definindo uma Operação POST</strong></p>
 <p>A operação POST é usada para enviar dados ao servidor, geralmente para criar um novo recurso. Aqui está um exemplo de como definir uma operação POST para adicionar um novo usuário:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_007.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_007.webp" /></p>
 <p>Arquivo de configuração YAML para o endpoint de POST.</p>
 <p><strong>6. Mapeamentos nos Arquivos YAML</strong></p>
 <p>No exemplo acima, usamos o campo paths para definir os <strong><em>endpoints</em></strong> /users e especificamos as operações GET e POST.</p>
@@ -25086,19 +25086,19 @@ public class SimpleConsumer {
 <p>Aqui no tópico 7 estão as principais classes e anotações que você precisará:</p>
 <p><strong>7. Classe Principal da Aplicação</strong></p>
 <p>A classe principal da sua aplicação Spring Boot deve ser anotada com \@SpringBootApplication. Aqui você também pode configurar o <strong><em>OpenAPI</em></strong>.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_008.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_008.webp" /></p>
 <p>Exemplo de classe Java com Spring Boot.</p>
 <p><strong>8. Controlador (Controller)</strong></p>
 <p>Os controladores são responsáveis por lidar com as requisições HTTP. Aqui está um exemplo de um controlador com operações GET e POST.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_009.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_009.webp" /></p>
 <p>Exemplo de classe Java do tipo Controller com o Spring Boot.</p>
 <p><strong>9. Modelo (Model)</strong></p>
 <p>A classe modelo representa os dados que serão manipulados pela API.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_010.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_010.webp" /></p>
 <p>Exemplo de classe Java bean.</p>
 <p><strong>10. Dependências no pom.xml</strong></p>
 <p>Para habilitar o suporte ao OpenAPI e Swagger, você precisa adicionar as seguintes dependências ao seu arquivo <strong><em>pom.xml</em></strong>:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_011.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_011.webp" /></p>
 <p>Exemplo de notação para a dependência Maven do OpenAPI.</p>
 <p>Para criar uma API com operações GET e POST usando OpenAPI e Spring Boot, é essencial configurar a classe principal da aplicação, definir controladores para os endpoints, criar modelos para representar os dados e adicionar as dependências necessárias no arquivo <strong><em>pom.xml</em></strong>. Essas etapas garantem que a API seja bem estruturada, documentada e fácil de manter, promovendo uma integração eficiente e uma comunicação clara entre os desenvolvedores.</p>
 <p>Resumo:</p>
@@ -25121,11 +25121,11 @@ public class SimpleConsumer {
 <p>Os arquivos YAML do OpenAPI geralmente são colocados na pasta <strong><em>src/main/resources</em></strong> do seu projeto <strong><em>Spring Boot</em></strong>.</p>
 <p>Esta é a localização padrão para arquivos de configuração e recursos estáticos em projetos Spring Boot.</p>
 <p>Aqui está um exemplo de como a estrutura do seu projeto pode ficar:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_002.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_002.webp" /></p>
 <p>Estrutura de pastas dentro do código Java.</p>
 <p><strong>12. Configuração do Spring Boot para Usar o Arquivo YAML</strong></p>
 <p>Para que o Spring Boot reconheça e utilize o arquivo YAML do OpenAPI, você pode configurar o caminho no seu arquivo <strong><em>application.yml</em></strong>:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_26_IMAGE_003.webp" /></p>
 <p>Arquivo de configuração YAML chamado.</p>
 <p><strong>13. Acessando a Documentação</strong></p>
 <p>Depois de configurar, você pode acessar a documentação gerada pelo <strong>OpenAPI</strong> no seguinte caminho:</p>
@@ -25173,27 +25173,27 @@ public class SimpleConsumer {
 <p>Neste artigo, vamos aprender a criar <strong><em>endpoints</em></strong> <strong>GET</strong> e em uma aplicação Java utilizando Spring Boot e OpenAPI. Além disso, vamos configurar a autenticação via <strong>token JWT</strong> para proteger nossos <strong><em>endpoints</em></strong>.</p>
 <p><strong>2. Configuração do Projeto</strong></p>
 <p>Primeiro, vamos configurar nosso projeto <strong><em>Spring Boot</em></strong> *[vide rodapé]. No pom.xml, adicione as seguintes dependências:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_003.webp" /></p>
 <p>Importando as dependências das bibliotecas necessárias para o Spring Boot.</p>
 <p><strong>3. Criando o Endpoint GET</strong></p>
 <p>Vamos criar um <strong><em>endpoint</em></strong> <strong>GET</strong> que retorna uma lista de itens. Primeiro, crie um controlador:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_004.webp" /></p>
 <p>Classe Java para a criação do endpoint GET</p>
 <p><strong>4. Criando o Endpoint POST</strong></p>
 <p>Agora, vamos criar um <strong><em>endpoint</em></strong> <strong>POST</strong> que adiciona um novo item:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_005.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_005.webp" /></p>
 <p>Classe Java para a criação do endpoint POST</p>
 <p><strong>5. Configurando a Autenticação via Token JWT</strong></p>
 <p>Para proteger nossos <strong><em>endpoints</em></strong>, vamos configurar a autenticação via <strong>token JWT</strong>. Primeiro, crie uma classe para gerar e validar tokens JWT:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_006.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_006.webp" /></p>
 <p>Classe Java para a criação do Token de autenticação.</p>
 <p><strong>6. Configurando o Spring Security</strong></p>
 <p>Agora, configure o <strong>Spring Security</strong> para usar o JWT:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_007.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_007.webp" /></p>
 <p>Classe Java para o controle de acesso ao endpoint.</p>
 <p><strong>7. Documentando com OpenAPI</strong></p>
 <p>Finalmente, vamos documentar nossos <strong><em>endpoints</em></strong> com <strong>OpenAPI</strong>. Adicione as anotações no controlador:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_008.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_08_18_IMAGE_008.webp" /></p>
 <p>Classe Java com os endpoint GET e POST.</p>
 <p><strong>8. Conclusão</strong></p>
 <p>Neste artigo, aprendemos a criar <strong><em>endpoints</em></strong> <strong>GET</strong> e <strong>POST</strong> em Java utilizando <strong>Spring Boot</strong> e <strong>OpenAPI</strong>, além de configurar a autenticação via <strong>token JWT</strong> para proteger nossos <strong><em>endpoints</em></strong>. Com essas ferramentas, podemos criar APIs seguras e bem documentadas.</p>
@@ -25260,7 +25260,7 @@ public class SimpleConsumer {
 <p>Essas práticas ajudam a garantir que suas aplicações <em>serverless</em> sejam eficientes, seguras e fáceis de gerenciar.</p>
 <p>Um exemplo popular de código e tutorial para começar com <em>serverless</em> é a criação de uma função simples usando o <strong>Serverless Framework</strong>. Aqui está um exemplo básico em Node.js:</p>
 
-<p><img alt="Exemplo de código node.js dentro de um serviço serverless" src="https://personal.caracore.com.br/articles/assets/img/2024_08_11_IMAGE_003.png" /></p>
+<p><img alt="Exemplo de código node.js dentro de um serviço serverless" src="https://personal.caracore.com.br/articles/assets/img/2024_08_11_IMAGE_003.webp" /></p>
 <p>Para implementar essa função, você pode seguir um tutorial como o da <a href="https://www.devmedia.com.br/introducao-a-computacao-serverless-com-azure-e-net/39389">DevMedia</a>, que explica como configurar o ambiente, escrever a função e implantá-la na nuvem. Esse tutorial é ótimo para iniciantes e cobre os conceitos fundamentais de <em>serverless</em>, além de fornecer exemplos práticos para ajudar você a começar rapidamente.</p>
 <p><strong>8. Segurança em Ambientes Serverless:</strong></p>
 <p>A segurança em ambientes <em>serverless</em> envolve práticas específicas para proteger aplicações e dados. É essencial aplicar o princípio do menor privilégio, garantindo que cada função tenha apenas as permissões necessárias. Avaliar a segurança de pacotes de terceiros e criptografar dados sensíveis são medidas cruciais para prevenir exposições. Implementar sistemas robustos de registros e monitoramento ajuda a detectar e responder rapidamente a incidentes de segurança. Além disso, proteger chaves de acesso e credenciais de login, e resguardar-se contra-ataques como SQL <em>Injection</em>, XSS e DDoS, são práticas recomendadas para manter a integridade e a segurança das aplicações <em>serverless</em>.</p>
@@ -25375,7 +25375,7 @@ public class SimpleConsumer {
 </ul>
 <p>Para criar uma imagem <strong>Docker</strong> a partir de um <strong>Dockerfile</strong>, você pode usar o comando docker build. E para criar e executar um <em>container</em> a partir dessa imagem, você pode usar o comando docker run.</p>
 <p>Um exemplo básico de um <em>Dockerfile</em> para uma aplicação Java:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_08_04_IMAGE_003.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_08_04_IMAGE_003.webp" /></p>
 <p>Exemplo de arquivo Dockerfile.</p>
 <p>Este <em>Dockerfile</em> cria uma imagem <em>Docker</em> que executa um arquivo JAR chamado \"meu-aplicativo.jar\". Ele usa a imagem base \"openjdk:8-jdk-alpine\", que é uma imagem leve que inclui o <strong>OpenJDK 8</strong>. O arquivo JAR da aplicação é adicionado ao diretório /app no <em>container</em> e a porta 8080 é exposta para conexões externas. O comando ENTRYPOINT especifica que a aplicação deve ser iniciada com o comando java -jar meu-aplicativo.jar.</p>
 <p>Por favor, substitua \"meu-aplicativo.jar\" pelo nome do seu arquivo JAR. E lembre-se de construir o JAR da sua aplicação no diretório target/ antes de construir a imagem <em>Docker</em>.</p>
@@ -25409,7 +25409,7 @@ public class SimpleConsumer {
 </li>
 </ol>
 <p>Aqui está um exemplo de um arquivo de fluxo de trabalho do <strong>GitHub Actions</strong> para uma aplicação Java:</p>
-<p><img alt="Interface gráfica do usuário, Aplicativo Descrição gerada automaticamente com confiança média" src="https://personal.caracore.com.br/articles/assets/img/2024_08_04_IMAGE_004.png" /></p>
+<p><img alt="Interface gráfica do usuário, Aplicativo Descrição gerada automaticamente com confiança média" src="https://personal.caracore.com.br/articles/assets/img/2024_08_04_IMAGE_004.webp" /></p>
 <p>Exemplo de um arquivo de fluxo de trabalho do GitHub Actions.</p>
 <p>Este é um exemplo simples e o seu <strong>pipeline de CI/CD</strong> pode precisar de configurações adicionais dependendo das necessidades do seu projeto.</p>
 <p>Lembre-se, a configuração de um <strong>pipeline de CI/CD</strong> é uma prática indispensável para o fornecimento eficiente de software de alta qualidade, pois permite que os desenvolvedores automatizem o processo de criação, teste e implantação de alterações de código, reduzindo o risco de erro humano e permitindo iterações mais rápidas.</p>
@@ -25566,7 +25566,7 @@ public class SimpleConsumer {
 <li><strong>Herança:</strong> A herança permite que uma classe filha herde membros (atributos e métodos) da classe pai. Por exemplo, uma classe <em>Cachorro</em> pode herdar da classe <em>Animal</em>, obtendo acesso aos métodos definidos na classe pai.</li>
 </ul>
 <p>Vamos considerar um exemplo de herança em Java. Suponhamos que temos uma superclasse chamada <em>Pessoa</em>, e três subclasses: <em>Aluno</em>, <em>Funcionario</em> e <em>Professor</em>. A classe <em>Pessoa</em> possui atributos como nome, CPF e data de nascimento. As subclasses herdam esses atributos da superclasse e podem adicionar características específicas. Veja como implementar essas classes:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_006.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_006.webp" /></p>
 <p>Exemplo de código Java aplicando a herança de classes.</p>
 <p>Nesse exemplo, a classe Pessoa é a superclasse, e as subclasses <em>Aluno</em>, <em>Funcionario</em> e <em>Professor</em> herdam seus atributos e métodos. Assim, podemos criar uma hierarquia de classes, tornando o código mais organizado e reutilizável.</p>
 <ul>
@@ -25574,7 +25574,7 @@ public class SimpleConsumer {
 </ul>
 <p>A composição em Java é o ato de passar um objeto para outro, permitindo que eles se comuniquem e troquem informações. Imagine uma biblioteca que contém livros. Nesse exemplo, criamos uma classe Book com atributos como autor e título. Em seguida, criamos uma classe Library que tem uma referência para a lista de livros. A biblioteca usa a composição para reutilizar dados, sem duplicação de código.</p>
 <p>Aqui está um exemplo simplificado:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_007.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_007.webp" /></p>
 <p>Exemplo de código Java aplicando a composição de classes.</p>
 <p>Nesse caso, a classe Library compõe-se de objetos da classe Book, permitindo que a biblioteca gerencie sua lista de livros.</p>
 <ul>
@@ -25582,7 +25582,7 @@ public class SimpleConsumer {
 </ul>
 <p>As interfaces em Java são semelhantes a classes, mas com uma diferença importante: elas contêm apenas assinaturas de métodos, campos e métodos padrão. Desde o Java 8, você também pode criar métodos padrão em interfaces.</p>
 <p>Vejamos um exemplo:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_008.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_008.webp" /></p>
 <p>Exemplo de código Java aplicando a implementação de interfaces.</p>
 <p>Neste exemplo, criamos a interface <em>ReprodutorMusical</em> com um método reproduzir. A classe <em>Smartphone</em> implementa essa interface e fornece uma implementação para o método reproduzir. Observe que chamamos o método estático comercial diretamente da interface, não da classe que a implementa.</p>
 <ul>
@@ -25593,11 +25593,11 @@ public class SimpleConsumer {
 <p>Para a instalação da dependência no código Java:</p>
 <p>Adicione a dependência do <em>Apache Commons Lang</em> ao seu projeto (por meio do <em>Maven</em>, <em>Gradle</em> ou manualmente). Para incluir a biblioteca <em>Apache Commons Lang</em> em um projeto Java usando o <em>Maven</em>, siga estas etapas:</p>
 <p>Vamos ver como incluir a dependência em <em>Maven</em> no arquivo <em>pom.xml</em> do seu projeto (geralmente localizado na raiz do projeto). Dentro da seção \&lt;<em>dependencies</em>&gt;, adicione a seguinte dependência para o Apache Commons Lang:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_009.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_009.webp" /></p>
 <p>Dependência Maven para a biblioteca Java Apache Commons Lang.</p>
 <p>O <em>Maven</em> baixará automaticamente a biblioteca <em>Apache Commons Lang</em> e a incluirá em seu projeto. Certifique-se de que o Maven esteja configurado corretamente e que você tenha acesso à internet para que ele possa buscar as dependências.</p>
 <p>Exemplo de Uso:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Carta, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_010.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Carta, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_010.webp" /></p>
 <p>Exemplo do código Java utilizando bibliotecas existentes.</p>
 <p>Neste exemplo, usamos métodos do <em>Apache Commons Lang</em> para verificar se uma string está vazia, capitalizar a primeira letra e remover espaços em branco. A biblioteca do <em>Apache Common</em>s, como <em>Collections</em>, para reutilizar componentes úteis em seu projeto Java.</p>
 <p>A reutilização de código promove eficiência e organização, tornando o desenvolvimento mais ágil e mantendo a qualidade do software.</p>
@@ -25649,7 +25649,7 @@ public class SimpleConsumer {
 <p><strong>Métodos públicos:</strong> Exponha apenas os métodos essenciais como public. Esses métodos devem fornecer uma interface clara para interagir com os atributos da classe. Por exemplo:</p>
 </li>
 </ul>
-<p><img alt="Interface gráfica do usuário, Texto, chat ou mensagem de texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_011.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, chat ou mensagem de texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_011.webp" /></p>
 <p>Exemplo de encapsulamento de comportamento de uma classe em Java.</p>
 <ul>
 <li>
@@ -25704,19 +25704,19 @@ public class SimpleConsumer {
 </li>
 </ol>
 <p>Por exemplo:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_012.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_012.webp" /></p>
 <p>Exemplo de uma classe para criação de um exceção específica.</p>
 <p>Lance a exceção e dentro do código, use a palavra-chave throw para lançar sua exceção personalizada.</p>
 <p>Por exemplo:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_002.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_002.webp" /></p>
 <p>Exemplo de código Java para lançamento de uma exceção de erro específica.</p>
 <p>Trate a exceção e em outro lugar do código, onde você chama o método <em>verificarNumero</em>, use um bloco <em>try-catch</em> para tratar a exceção.</p>
 <p>Por exemplo:</p>
-<p><img alt="Uma imagem contendo Linha do tempo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_003.png" /></p>
+<p><img alt="Uma imagem contendo Linha do tempo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_003.webp" /></p>
 <p>Exemplo de código Java para captura de uma exceção de erro.</p>
 <p>Ao criar exceções personalizadas ajuda a identificar e tratar erros específicos em seu código.</p>
 <p>Exemplo completo:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_004.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_28_IMAGE_004.webp" /></p>
 <p>Exemplo completo de um código Java com tratamento de erro.</p>
 <p>Nesta classe o método <em>NumeroNegativoException</em> é a exceção personalizada, e o método <em>verificarNumero</em> verifica se um número é negativo e lança a exceção personalizada se necessário. E no método <em>main</em>, estamos testando a exceção e tratando-a com um bloco <em>try-catch</em>.</p>
 <p><strong>9. Documentação e Comentários:</strong></p>
@@ -25813,7 +25813,7 @@ public class SimpleConsumer {
 <p><strong>Introdução ao Java HTTP Client:</strong></p>
 <p>O <strong>Java HTTP Client</strong> é uma API moderna e versátil introduzida no <strong>Java 11</strong> para lidar com requisições HTTP. Ele supera as limitações da antiga <strong>HttpURLConnection</strong> ao oferecer uma API mais intuitiva e fácil de usar, com suporte para HTTP/2 e WebSocket, além de permitir o envio de requisições síncronas e assíncronas. A capacidade de lidar com diferentes tipos de corpo de requisição e resposta, como String, InputStream, File e diretamente para um Subscriber do java.util.concurrent.Flow, torna o Java HTTP Client uma escolha superior. Além disso, ele também suporta a configuração de tempo limite de requisição, autenticação automática e redirecionamento, o que o torna uma alternativa moderna e poderosa para fazer chamadas HTTP em comparação com a HttpURLConnection.</p>
 <p>Para usar o Java HTTP Client, você precisa seguir alguns passos. Aqui está um exemplo simples de como fazer uma requisição GET:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_011.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_011.webp" /></p>
 <p>Exemplo simples de como fazer uma requisição GET com Java HTTP Client.</p>
 <p>Neste exemplo, primeiro criamos um <strong>HttpClient</strong> usando o método <strong>newHttpClient()</strong>.</p>
 <p>Em seguida, construímos uma requisição HTTP GET para "http://example.com" usando <strong>HttpRequest.newBuilder()</strong>.</p>
@@ -25821,7 +25821,7 @@ public class SimpleConsumer {
 <p>Este é um exemplo básico. O Java HTTP Client é muito mais poderoso e flexível, permitindo que você faça requisições POST, lidar com redirecionamentos, autenticação e muito mais.</p>
 <p><strong>Configuração do HttpClient:</strong></p>
 <p>Vamos abordar aqui um exemplo de como você pode criar uma instância de <strong>HttpClient</strong> e configurá-la com opções como <strong>timeout</strong>, <strong>proxy</strong> e <strong>autenticação</strong> em Java:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_012.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_012.webp" /></p>
 <p>Exemplo de como criar uma instância de HttpClient.</p>
 <p>Este código cria um <strong>HttpClient</strong> com as seguintes configurações:</p>
 <ul>
@@ -25845,7 +25845,7 @@ public class SimpleConsumer {
 <p>Por favor, substitua "proxy.example.com", "username", "password" e "http://example.com" pelos valores reais que você deseja usar.</p>
 <p>Você pode configurar o <strong>timeout</strong> de leitura usando o método <strong>ofSeconds</strong> da classe <strong>Duration</strong> no <strong>HttpClient</strong>.</p>
 <p>Aqui está um exemplo:</p>
-<p><img alt="Texto Descrição gerada automaticamente com confiança baixa" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_013.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente com confiança baixa" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_013.webp" /></p>
 <p>Exemplo de como criar uma instância de HttpClient com timeout.</p>
 <p>Neste exemplo, o timeout de conexão é configurado para 10 segundos. Se a conexão não for estabelecida dentro deste período, uma exceção será lançada.</p>
 <p>No entanto, a partir do Java 11, o HttpClient não fornece um método direto para configurar o timeout de leitura.</p>
@@ -25854,7 +25854,7 @@ public class SimpleConsumer {
 <p>Se você precisar de um controle mais granular sobre o timeout de leitura, pode ser necessário usar uma biblioteca de terceiros que ofereça esse recurso, como o <strong>Apache HttpClient</strong> ou o <strong>OkHttp</strong>.</p>
 <p><strong>Envio de Requisições GET:</strong></p>
 <p>Como podemos fazer uma requisição HTTP GET usando o Java HTTP Client:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_014.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_014.webp" /></p>
 <p>Exemplo de requisição HTTP GET em código Java com a biblioteca Java HTTP Client.</p>
 <p>Este exemplo, estamos criando um novo <strong>HttpClient</strong> e construindo uma solicitação <strong>HTTP GET</strong> para "http://example.com".</p>
 <p>Em seguida, enviamos a solicitação e imprimimos o código de status e o corpo da resposta.</p>
@@ -25862,7 +25862,7 @@ public class SimpleConsumer {
 <p>Além disso, este é um exemplo simples e não inclui o tratamento de erros adequado que você deve incluir no código de produção.</p>
 <p>Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções.</p>
 <p>Para analisar a resposta JSON e converter em objetos Java, você pode usar a biblioteca Jackson. Aqui está um exemplo de como você pode fazer isso:</p>
-<p><img alt="Interface gráfica do usuário Descrição gerada automaticamente com confiança baixa" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_015.png" /></p>
+<p><img alt="Interface gráfica do usuário Descrição gerada automaticamente com confiança baixa" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_015.webp" /></p>
 <p>Exemplo de uma requisição passando um objeto JSON com a bilbioteca Java HTTP Client.</p>
 <p>Neste exemplo, estamos usando a biblioteca Jackson para converter a resposta JSON em um <strong>Map\&lt;String, Object&gt;</strong>. Primeiro, criamos um novo <strong>ObjectMapper</strong>, que é a classe principal da biblioteca Jackson. Em seguida, usamos o método <strong>readValue</strong> para converter a resposta JSON em um mapa.</p>
 <p>Lembre-se de adicionar a dependência da biblioteca <strong>Jackson</strong> ao seu projeto.</p>
@@ -25873,24 +25873,24 @@ public class SimpleConsumer {
 <p><strong>Como faço para converter JSON em objetos Java usando outras bibliotecas, como o Gson?</strong></p>
 <p>Você pode usar a <strong>biblioteca Java Gson</strong>, do Google, para converter JSON em objetos Java.</p>
 <p>Aqui está um exemplo de como você pode fazer isso:</p>
-<p><img alt="Texto Descrição gerada automaticamente com confiança média" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_016.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente com confiança média" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_016.webp" /></p>
 <p>Exemplo de código Java para conversão de JSON para um objeto Java.</p>
 <p>Neste exemplo, estamos usando a biblioteca Gson para converter a resposta JSON em um <strong>Map\&lt;String, Object&gt;</strong>. Primeiro, criamos um novo objeto Gson. Em seguida, usamos o método fromJson para converter a resposta JSON em um mapa.</p>
 <p>Lembre-se de adicionar a dependência da biblioteca Gson ao seu projeto.</p>
 <p>Além disso, este é um exemplo simples e não inclui o tratamento de erros adequado que você deve incluir no código de produção. Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções. Além disso, você pode querer criar classes de modelo para representar a estrutura do seu JSON, em vez de usar um mapa genérico. Isso tornará seu código mais legível e seguro.</p>
 <p><strong>Envio de Requisições POST:</strong></p>
 <p>Vamos demostrar um outro exemplo de como você pode preparar e enviar uma solicitação HTTP POST usando o Java HTTP Client:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_017.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_017.webp" /></p>
 <p>Exemplo de requisição HTTP POST em código Java com a biblioteca Java HTTP Client.</p>
 <p>Neste exemplo, estamos criando um novo <strong>HttpClient</strong> e construindo uma solicitação <strong>HTTP POST</strong> para "http://example.com". Estamos enviando um JSON como corpo da solicitação. Em seguida, enviamos a solicitação e imprimimos o código de status e o corpo da resposta.</p>
 <p>Lembre-se de substituir "http://example.com" pelo URL do seu destino e \"{\\"key\\":\\"value\\"}\" pelo seu JSON. Além disso, este é um exemplo simples e não inclui o tratamento de erros adequado que você deve incluir no código de produção.</p>
 <p>Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções. Além disso, você pode querer adicionar mais cabeçalhos conforme necessário para a sua solicitação. Por exemplo, alguns servidores podem exigir um cabeçalho de autenticação.</p>
 <p>Aqui está um exemplo de como você pode enviar dados no corpo de uma solicitação HTTP POST usando o Java HTTP Client. Vamos mostrar dois exemplos, um para enviar dados JSON e outro para enviar dados de formulário.</p>
 <p><strong>Exemplo 1: Enviando dados JSON</strong></p>
-<p><img alt="Linha do tempo Descrição gerada automaticamente com confiança média" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_002.png" /></p>
+<p><img alt="Linha do tempo Descrição gerada automaticamente com confiança média" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_002.webp" /></p>
 <p>Exemplo de requisição HTTP POST em código Java com envio de dados JSON.</p>
 <p><strong>Exemplo 2: Enviando dados de formulário</strong></p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_003.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_003.webp" /></p>
 <p>Exemplo de requisição HTTP POST em código Java com envio de dados do formulário.</p>
 <p>No primeiro exemplo, estamos enviando um JSON como corpo da solicitação.</p>
 <p>No segundo exemplo, estamos enviando dados de formulário.</p>
@@ -25899,7 +25899,7 @@ public class SimpleConsumer {
 <p>Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções. Além disso, você pode querer adicionar mais cabeçalhos conforme necessário para a sua solicitação. Por exemplo, alguns servidores podem exigir um cabeçalho de autenticação.</p>
 <p><strong>Tratamento de Respostas, como lidar com diferentes códigos de status HTTP (200, 404, 500):</strong></p>
 <p>Aqui está um exemplo de como você pode lidar com diferentes códigos de status HTTP usando o Java HTTP Client:</p>
-<p><img alt="Uma imagem contendo Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_004.png" /></p>
+<p><img alt="Uma imagem contendo Texto Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_004.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client com tratamento do status de resposta.</p>
 <p>Neste exemplo, estamos verificando o código de status da resposta HTTP e lidando com diferentes códigos de status.</p>
 <p>Se o código de status for entre 200 e 299, isso significa que a solicitação foi bem-sucedida e podemos ler o corpo da resposta.</p>
@@ -25911,12 +25911,12 @@ public class SimpleConsumer {
 <p>Se a resposta for bem-sucedida (código de status HTTP 200), você pode extrair informações do corpo da resposta. O corpo da resposta pode ser um JSON, XML ou outro formato de dados. Para extrair informações, você pode usar bibliotecas como Jackson ou Gson para converter a resposta em objetos Java. Por exemplo, se a resposta for um JSON, você pode converter o JSON em um Map\&lt;String, Object&gt; ou em uma classe de modelo Java que corresponda à estrutura do JSON. Isso permite que você acesse facilmente as informações na resposta.</p>
 <p><strong>Trabalhando com Headers:</strong></p>
 <p>Vamos mostrar aqui como adicionar, modificar e ler cabeçalhos HTTP em solicitações e respostas. Um exemplo de como você pode adicionar, modificar e ler cabeçalhos HTTP usando o HttpClient do Java.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_005.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_005.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client com modificação do cabeçalho HTTP.</p>
 <p>Neste exemplo, primeiro criamos um <strong>HttpClient</strong> e uma <strong>HttpRequest</strong>. Adicionamos um cabeçalho personalizado à solicitação com o método <strong>.header()</strong>. Em seguida, enviamos a solicitação e obtemos a resposta. Para ler os cabeçalhos da resposta, usamos o método .headers() na resposta, que retorna um <strong>HttpHeaders</strong>. Em seguida, imprimimos todos os cabeçalhos. Para modificar um cabeçalho, criamos uma nova solicitação com o mesmo URI que a solicitação original, mas com um valor de cabeçalho diferente. Em seguida, enviamos a nova solicitação e lemos os cabeçalhos da nova resposta da mesma maneira.</p>
 <p><strong>Tratamento de Erros e Exceções:</strong></p>
 <p>Para o tratamento de erros e exceções, poderia explicar como tratar exceções relacionadas a conexões, timeouts e erros de servidor. Aqui está um exemplo de como você pode tratar exceções usando o HttpClient do Java.</p>
-<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_006.png" /></p>
+<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_006.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client tratamento de erro try-catch.</p>
 <p>Neste exemplo, primeiro criamos um <strong>HttpClient</strong> e uma <strong>HttpRequest</strong>. Em seguida, enviamos a solicitação dentro de um bloco <strong>try-catch</strong>.</p>
 <p>Se a solicitação for bem-sucedida, verificamos o código de status da resposta. Se o código de status for entre 200 e 299, a solicitação foi bem-sucedida. Se o código de status for 300 ou superior, houve um erro no servidor.</p>
@@ -25936,7 +25936,7 @@ public class SimpleConsumer {
 <p><strong>AsyncHttpClient e Chamadas Assíncronas:</strong></p>
 <p>O <strong>Java HTTP Client</strong> suporta tanto chamadas síncronas quanto assíncronas. As chamadas síncronas são bloqueantes, o que significa que o thread que faz a chamada é bloqueado até que a resposta seja recebida. As chamadas assíncronas, por outro lado, são não bloqueantes. Elas retornam imediatamente com um <strong>CompletableFuture</strong>, que pode ser usado para processar a resposta quando ela estiver disponível.</p>
 <p>Aqui está um exemplo de como você pode fazer uma chamada assíncrona com o <strong>HttpClient</strong>:</p>
-<p><img alt="Uma imagem contendo Linha do tempo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_007.png" /></p>
+<p><img alt="Uma imagem contendo Linha do tempo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_007.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client com chamada assíncrona.</p>
 <p>Neste exemplo, usamos o método <strong>sendAsync()</strong> para enviar a solicitação, que retorna um <strong>CompletableFuture</strong>. Usamos o método <strong>thenAccept()</strong> no <strong>CompletableFuture</strong> para processar a resposta quando ela estiver disponível.</p>
 <p>Se ocorrer um erro ao enviar a solicitação, ele será tratado no bloco <strong>exceptionally()</strong>.</p>
@@ -25956,10 +25956,10 @@ public class SimpleConsumer {
 <p><strong>Testes Unitários para Clientes HTTP:</strong></p>
 <p>Vamos abordar como testar suas chamadas HTTP usando bibliotecas como <strong>JUnit</strong> e <strong>Mockito</strong>. Aqui está um exemplo de como você pode testar suas chamadas HTTP usando JUnit e Mockito.</p>
 <p>Primeiro, você precisará adicionar as dependências do JUnit e Mockito ao seu arquivo pom.xml se estiver usando Maven:</p>
-<p><img alt="Texto, Linha do tempo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_008.png" /></p>
+<p><img alt="Texto, Linha do tempo Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_008.webp" /></p>
 <p>Dependências do JUnit e Mockito no Maven.</p>
 <p>Aqui está um exemplo de teste unitário para uma classe que faz uma chamada HTTP:</p>
-<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_009.png" /></p>
+<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_07_21_IMAGE_009.webp" /></p>
 <p>Exemplo de teste unitário com código aplicando a biblioteca Java HTTP Client.</p>
 <p>Neste exemplo, criamos um <strong>HttpClient</strong> e <strong>HttpResponse</strong> falsos usando <strong>Mockito.mock().</strong> Em seguida, definimos o comportamento do HttpClient falso para retornar a HttpResponse falsa quando o método <strong>send()</strong> é chamado. Definimos o comportamento da HttpResponse falsa para retornar uma string fixa quando o método <strong>body()</strong> é chamado.</p>
 <p>Em seguida, criamos uma <strong>HttpRequest</strong> e usamos o <strong>HttpClient</strong> falso para enviá-la. Verificamos se a resposta é a esperada usando <strong>assertEquals().</strong></p>
@@ -26037,17 +26037,17 @@ public class SimpleConsumer {
 <ul>
 <li><strong>Runnable:</strong></li>
 </ul>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_009.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_009.webp" /></p>
 <p>Exemplo de código Java aplicando o Lambda.</p>
 <ul>
 <li><strong>Consumer</strong> (recebe um argumento, não retorna valor):</li>
 </ul>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_010.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_010.webp" /></p>
 <p>Exemplo de código Java aplicando o Lambda.</p>
 <ul>
 <li><strong>Predicate</strong> (avalia uma condição):</li>
 </ul>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_011.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_011.webp" /></p>
 <p>Exemplo de código Java aplicando o Lambda.</p>
 <p><strong>4. Benefícios:</strong></p>
 <ul>
@@ -26084,20 +26084,20 @@ public class SimpleConsumer {
 <p>Esses métodos são apenas alguns exemplos. A API de Streams oferece muitas outras operações intermediárias e terminais para manipular dados de forma eficiente e declarativa.</p>
 <p>Alguns exemplos práticos:</p>
 <p>Vamos considerar um exemplo usando a API de Streams para processar uma lista de números inteiros. Suponha que temos a seguinte lista:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_012.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_012.webp" /></p>
 <p>Exemplo de código Java aplicando a API de Streams.</p>
 <p>Aqui estão alguns exemplos de operações que podemos realizar:</p>
 <p><strong>1. Filtrar números pares:</strong></p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_013.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_013.webp" /></p>
 <p>Exemplo de código Java com a API de Streams aplicando filtro.</p>
 <p><strong>2. Calcular a soma dos números:</strong></p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_014.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_014.webp" /></p>
 <p>Exemplo de código Java com a API de Streams utilizando cálculo.</p>
 <p><strong>3. Encontrar o maior número:</strong></p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_015.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_015.webp" /></p>
 <p>Exemplo de código Java com a API de Streams utilizando fórmula.</p>
 <p><strong>4. Verificar se há algum número maior que 5:</strong></p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_002.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_002.webp" /></p>
 <p>Exemplo de código Java com a API de Streams utilizando regra de negócio.</p>
 <p>Esses são apenas alguns exemplos básicos. A <strong>API de Streams</strong> oferece muitas outras possibilidades para manipular e processar dados de forma elegante e eficiente.</p>
 <p><strong>Quais são os benefícios de usar Streams em Java?</strong></p>
@@ -26153,10 +26153,10 @@ public class SimpleConsumer {
 <p>Lembre-se de que os streams são projetados para trabalhar com Expressões Lambda em Java, tornando o código ainda mais conciso.</p>
 <p>Aqui está um exemplo prático de como você pode usar a API de Streams do Java 8.</p>
 <p>Vamos supor que temos uma lista de nomes e queremos encontrar os nomes que começam com a letra \"A\" e imprimi-los:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_003.webp" /></p>
 <p>Exemplo de código Java para utilizar a API de Streams do Java 8.</p>
 <p>Quando você executa este código, ele imprimirá:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_004.webp" /></p>
 <p>Resultado do código Java acima.</p>
 <p>Este é um exemplo simples, mas a API de Streams é muito poderosa e pode ser usada para operações de processamento de dados muito mais complexas.</p>
 <p><strong>Java.time: Novo pacote para manipulação de datas e horas de forma mais eficiente e robusta:</strong></p>
@@ -26194,18 +26194,18 @@ public class SimpleConsumer {
 </ol>
 <p>Essas classes fornecem uma API abrangente para lidar com datas, horas e fusos horários de maneira eficiente e intuitiva.</p>
 <p>Aqui está um exemplo simples de como você pode usar a classe <strong>LocalDate</strong> do pacote java.time:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_005.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_005.webp" /></p>
 <p>Exemplo de código Java com aplicação da biblioteca Local.Date.</p>
 <p>Quando você executa este código, ele imprimirá a data atual, uma data específica, a data de amanhã e a data de ontem.</p>
 <p>A classe <strong>LocalDate</strong> fornece muitos outros métodos úteis para manipular datas de maneira eficiente e intuitiva.</p>
 <p>Aqui está um exemplo simples de como você pode usar a classe <strong>LocalTime</strong> do pacote java.time:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_006.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_006.webp" /></p>
 <p>Exemplo de código Java com aplicação da biblioteca Local.Time.</p>
 <p>Quando você executa este código, ele imprimirá a hora atual, uma hora específica, a hora de uma hora a partir de agora e a hora de trinta minutos atrás.</p>
 <p>A classe <strong>LocalTime</strong> fornece muitos outros métodos úteis para manipular horas de maneira eficiente e intuitiva.</p>
 <p><strong>Como posso converter uma hora para o formato ISO-8601 usando java.time?</strong></p>
 <p>Você pode usar a classe <strong>LocalTime</strong> do pacote java.time para converter uma hora para o formato ISO-8601. Aqui está um exemplo:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_007.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_07_14_IMAGE_007.webp" /></p>
 <p>Exemplo de código Java com aplicação da biblioteca Local.Time no formato (ISO-8601)</p>
 <p>Quando você executa este código, ele imprimirá a hora atual no <strong>formato ISO-8601</strong> (por exemplo, \"13:45:30.123\").</p>
 <p>A classe <strong>DateTimeFormatter</strong> fornece vários formatadores predefinidos, incluindo <strong>ISO_LOCAL_TIME</strong> para o formato de hora ISO-8601.</p>
@@ -26292,7 +26292,7 @@ public class SimpleConsumer {
 <p>Para um exemplo prático, suponha que você esteja criando uma aplicação Spring Boot que se conecta a um banco de dados PostgreSQL. Aqui estão os passos:</p>
 <p><strong>Dockerfile:</strong></p>
 <p>Crie um arquivo chamado <em>Dockerfile</em> na raiz do seu projeto Java.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_30_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_30_IMAGE_003.webp" /></p>
 <p>Exemplo de um dockerfile para um ambiente Java 11 OpenJDK</p>
 <p>Este <em>Dockerfile</em> começa com a imagem base <em>openjdk:11-jdk-slim</em>, que é uma imagem Docker oficial do OpenJDK que inclui os seguintes ambientes Java na imagem padrão: o <strong>JRE</strong> (Java Runtime Environment) e o <strong>JDK</strong> (Java Development Kit).</p>
 <p>Em seguida, copia o arquivo JAR do seu aplicativo (neste caso de exemplo o aquivo, <em>meu-aplicativo.jar</em>) para o contêiner.</p>
@@ -26305,7 +26305,7 @@ public class SimpleConsumer {
 <p>Execute o comando <em>docker build -t minha-aplicacao .</em> para criar a imagem do container.</p>
 <p><strong>Docker Compose:</strong></p>
 <p>Crie um arquivo YAML <em>docker-compose.yml</em>.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_30_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_30_IMAGE_004.webp" /></p>
 <p>Exemplo de um arquivo YAML docker-compose.yml</p>
 <p>Neste exemplo, o serviço db é o banco de dados PostgreSQL e o serviço app é a aplicação Java. As variáveis de ambiente necessárias para a conexão com o banco de dados são definidas no serviço app.</p>
 <p>Para o seu exemplo, substitua exemplo_senha, exemplo_usuario, exemplo_db, exemplo_imagem_java:tag pelos valores reais que você deseja usar.</p>
@@ -26369,7 +26369,7 @@ public class SimpleConsumer {
 <p><strong>Exemplo de Contrato (REST)</strong></p>
 <p>Vamos considerar um exemplo de contrato de API usando o padrão OpenAPI (anteriormente conhecido como Swagger). O OpenAPI é uma especificação que descreve APIs RESTful e permite que desenvolvedores gerem documentação, códigos de cliente e até mesmo testes automatizados.</p>
 <p>Podemos ver um exemplo simplificado de um contrato de API usando OpenAPI:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_23_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_23_IMAGE_003.webp" /></p>
 <p>Exemplo de um contrato de OpenAPI.</p>
 <p>Neste exemplo:</p>
 <p>A rota /tasks tem dois métodos: GET para obter uma lista de tarefas e POST para criar uma nova tarefa.</p>
@@ -26467,7 +26467,7 @@ public class SimpleConsumer {
 </ol>
 <p>Em aplicações distribuídas, essas estruturas de dados são úteis para gerenciar tarefas assíncronas, eventos de rede, mensagens em sistemas de mensagens e muito mais. Por exemplo, em sistemas de processamento distribuído, você pode usar filas para coordenar tarefas entre diferentes nós ou processos.</p>
 <p>Abaixo está um exemplo simples de como criar e usar uma fila em Java, utilizando a implementação padrão da interface Queue:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_09_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_06_09_IMAGE_003.webp" /></p>
 <p>Exemplo básico em código Java para gerenciamento de fila.</p>
 <p>Neste exemplo, uma fila é criada utilizando a implementação <em>LinkedList</em> da interface <em>Queue</em>. Em seguida, alguns elementos são adicionados à fila usando o método add(). Depois, o método poll() é utilizado para acessar e remover o elemento da frente da fila, e o método peek() é usado para acessar o elemento da frente sem removê-lo. Por fim, os elementos restantes na fila são exibidos.</p>
 <p>Este é apenas um exemplo básico de como trabalhar com filas em Java, e existem outras implementações e métodos disponíveis para manipulação de filas, dependendo das necessidades específicas do sistema.</p>
@@ -26588,10 +26588,10 @@ public class SimpleConsumer {
 <p>Essas ferramentas, quando usadas corretamente, podem ajudar a implementar a metodologia TDD de forma eficaz no desenvolvimento de aplicações Java. Cada uma delas tem suas próprias características e benefícios, então a escolha entre elas depende das necessidades específicas do seu projeto.</p>
 <p>Vamos considerar um exemplo simples de uma classe Calculator em Java que tem um método <em>add()</em>. Aqui está como você pode aplicar TDD para desenvolver essa funcionalidade.</p>
 <p>Primeiro, você escreveria um teste unitário que falha. Usando o JUnit, isso pode parecer algo assim:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_06_02_IMAGE_003.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Email Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_06_02_IMAGE_003.webp" /></p>
 <p>Código de teste para a classe CalculatorTest.java</p>
 <p>Neste ponto, o teste falhará porque a classe Calculator e o método <em>add()</em> ainda não foram implementados. Agora você escreveria o código mínimo necessário para passar no teste:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Word Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_06_02_IMAGE_004.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo, Word Descrição gerada automaticamente" src="https://personal.caracore.com.br/articles/assets/img/2024_06_02_IMAGE_004.webp" /></p>
 <p>Código da classe de Calculator.java.</p>
 <p>Agora, o teste deve passar. A próxima etapa é refatorar o código, se necessário. Neste caso, o código é bastante simples, então não há muito a refatorar.</p>
 <p>Para testes de integração, você pode querer testar como a classe <em>Calculator</em> interage com outras partes do seu sistema. Isso pode envolver o uso de bibliotecas de simulação, como <strong>Mockito</strong>, para simular essas interações.</p>
@@ -26647,11 +26647,11 @@ public class SimpleConsumer {
 <p><strong>Geração de Token:</strong> Quando um usuário faz login com sucesso, você precisará gerar um token JWT para eles. Isso pode ser feito usando a biblioteca jjwt. O token deve incluir detalhes do usuário e um carimbo de data/hora de expiração.</p>
 <p><strong>Validação de Token:</strong> Quando uma solicitação chega com um token JWT, você precisará validar o token. Isso inclui verificar a assinatura e a data de expiração do token, bem como quaisquer outras reivindicações que você possa ter incluído no token.</p>
 <p>Vamos ver um exemplo de código simplificado para ilustrar esses passos:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_05_26_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_05_26_IMAGE_003.webp" /></p>
 <p>Exemplo de código e a dependência JJWT em Maven para autenticação com JWT.</p>
 <p>A Autenticação JWT oferece escalabilidade ao permitir que sistemas distribuídos autentiquem usuários sem a necessidade de um estado de sessão centralizado, melhorando assim a capacidade de lidar com um grande número de solicitações. Além disso, os JWTs são compactos e podem ser transmitidos facilmente, o que melhora o desempenho ao reduzir a sobrecarga de rede. Finalmente, a natureza autocontida dos JWTs facilita a integração entre diferentes serviços em um ambiente de microserviços, pois cada serviço pode validar os tokens de forma independente.</p>
 <p>Agora vamos ver um exemplo simplificado de como você pode implementar a autenticação JWT em um microserviço usando Java e Spring Boot:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_05_26_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_05_26_IMAGE_004.webp" /></p>
 <p>Exemplo de autenticação com a biblioteca JJWT do Spring Boot.</p>
 <p>Este código define uma classe <em>JwtUtil</em> que tem dois métodos principais: addAuthentication e getAuthentication.</p>
 <p>O método addAuthentication é chamado quando um usuário faz login com sucesso. Ele gera um token JWT e o adiciona ao cabeçalho Authorization da resposta HTTP.</p>
@@ -26721,7 +26721,7 @@ public class SimpleConsumer {
 <p><strong>Curiosidade</strong></p>
 <p>A especificação Java EE trata o estado stateless de maneira interessante. Vamos explorar um pouco mais sobre isso:</p>
 <p>- Stateless Session Beans: Esses beans não mantêm um estado de conversação com o pedido. Quando um pedido invoca os métodos de um bean stateless, as variáveis de instância do bean podem conter um estado específico para aquele pedido, mas apenas durante a duração da invocação. Após a conclusão do método, o estado específico do pedido não deve ser retido.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_05_12_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_05_12_IMAGE_003.webp" /></p>
 <p>Exemplo esquemático em camada de classes em Java EE com acesso a um recurso Stateless</p>
 <p>Em outras palavras, os stateless session beans são projetados para serem efêmeros e sem memória. Eles não armazenam informações de estado entre chamadas de método, o que os torna ideais para processamento rápido e eficiente. Por exemplo, em um cenário de aplicativo da web, um bean stateless pode ser usado para executar operações de cálculo ou acesso a banco de dados sem a necessidade de manter informações de sessão específicas do pedido.</p>
 <p>Essa abordagem é especialmente útil quando se lida com tarefas que não exigem rastreamento de estado contínuo, como autenticação, validação de dados ou cálculos matemáticos. Portanto, os beans stateless são uma escolha poderosa para otimizar o desempenho e a escalabilidade em aplicativos Java EE.</p>
@@ -26790,7 +26790,7 @@ public class SimpleConsumer {
 <p><strong>2. Blocos</strong> try-catch<strong>:</strong></p>
 <p>- O tratamento de exceções em Java envolve os blocos try e catch.</p>
 <p>- A sintaxe básica é a seguinte:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_28_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_28_IMAGE_003.webp" /></p>
 <p>Exemplo de trecho para o tratamento de erro em linguagem de programação Java.</p>
 <p>- No bloco try, colocamos o código que pode lançar uma exceção.</p>
 <p>- Nos blocos catch, descrevemos a ação a ser tomada quando a exceção é capturada.</p>
@@ -26798,7 +26798,7 @@ public class SimpleConsumer {
 <p>- Suponha que temos uma classe com um método principal main que apresente um método de divisão com passagem de parâmetros.</p>
 <p>- Se o resultado for um valor tendendo para o infinito, no caso de uma divisão com o valor do denominador tendendo para o número zero, ocorrerá uma exceção de <strong>ArithmeticException</strong>.</p>
 <p>- Vejamos como ficaria o código com e sem o uso do try-catch:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_28_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_28_IMAGE_004.webp" /></p>
 <p>Um exemplo de classe Java para o tratamento de erro.</p>
 <p><strong>4. Benefícios do Tratamento de Exceções:</strong></p>
 <p>- Garante a integridade do programa.</p>
@@ -26839,7 +26839,7 @@ public class SimpleConsumer {
 <p><strong>4. <em>Gerenciamento de Ciclo de Vida</em>:</strong> O contêiner IoC gerencia o ciclo de vida dos beans, incluindo a inicialização e a destruição.</p>
 <p>Além disso, o Spring oferece suporte a programação assíncrona e manipulação de threads, o que pode ser relevante durante a execução de sequências de passos que envolvem processamento paralelo ou assíncrono.</p>
 <p>Abaixo podemos ver um exemplo de código simples de como um bean, um objeto em Java, pode ser configurado e gerenciado no Spring:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_21_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_21_IMAGE_003.webp" /></p>
 <p>Exemplo de código Java utilizando o Framework Spring.</p>
 <p>Neste exemplo, AppConfig é uma classe de configuração que define um método meuServico anotado com Bean, indicando ao Spring que ele deve gerenciar a criação e a instância desse objeto. A classe MeuServico é anotada com o arroba.</p>
 <p>A gestão de recursos em uma aplicação robusta é crucial para assegurar que o software funcione de maneira eficiente e confiável. Ela envolve o planejamento cuidadoso e a alocação de recursos como memória, processamento e armazenamento, além do monitoramento e otimização do uso desses recursos ao longo do tempo. Saiba que a gestão eficaz de recursos permite:</p>
@@ -26869,13 +26869,13 @@ public class SimpleConsumer {
 <p><strong><em>WebSockets em JavaEE:</em></strong></p>
 <p>WebSockets é uma tecnologia que permite comunicações bidirecionais e em tempo real entre clientes e servidores. Em Java EE, isso é implementado através da API de WebSocket, que faz parte da especificação desde o JavaEE 7. Com WebSockets, é possível estabelecer uma conexão persistente e de baixa latência que é ideal para aplicações que necessitam de atualizações em tempo real, como jogos online, chat, aplicações financeiras, entre outros.</p>
 <p>Aqui está um exemplo simplificado de como um servidor WebSocket pode ser implementado em Java EE:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_14_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_14_IMAGE_003.webp" /></p>
 <p>Exemplo de implementação do WebSocket para o JavaEE.</p>
 <p>Neste código, \@ServerEndpoint define a classe como um endpoint de WebSocket que escuta na rota \"/websocket\". Os métodos anotados com \@OnOpen, \@OnMessage e \@OnClose são chamados respectivamente quando uma nova conexão é estabelecida, uma mensagem é recebida e uma conexão é fechada.</p>
 <p>Essas funcionalidades permitem que os desenvolvedores criem aplicações web mais dinâmicas e responsivas, aproveitando as vantagens do protocolo WebSocket e as novas características do HTML5.</p>
 <p>Um exemplo de como o Java EE pode ser utilizado com HTML5 é através da criação de uma aplicação web que utiliza JSF (JavaServer Faces) para construir interfaces de usuário ricas e interativas. JSF é um framework MVC que simplifica a construção de interfaces de usuário para aplicações Java EE na web.</p>
 <p>Aqui está um exemplo simplificado de um formulário web utilizando JSF com elementos HTML5:</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_14_IMAGE_004.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_14_IMAGE_004.webp" /></p>
 <p>Um exemplo de código JSF para atender páginas HTML5</p>
 <p>Neste exemplo, utilizamos o elemento <em>h:inputText</em> com o atributo type definido como email, que é um tipo de entrada específico do HTML5 para endereços de e-mail. Isso permite que o navegador valide automaticamente o formato do e-mail antes de enviar o formulário. Além disso, o atributo type range cria um controle deslizante para selecionar um número dentro de um intervalo especificado.</p>
 <p>Este é apenas um exemplo básico, mas o Java EE com HTML5 permite a criação de interfaces de usuário muito mais complexas e interativas, aproveitando as diversas funcionalidades que o HTML5 oferece.</p>
@@ -26926,7 +26926,7 @@ public class SimpleConsumer {
 <p><strong>3. Implementação:</strong></p>
 <p>- Na prática, a IoC é alcançada por meio da dependência de abstrações (interfaces) em vez de implementações concretas.</p>
 <p>- Em vez de criar objetos dentro de uma classe, recebemos esses objetos como parâmetros (por exemplo, por meio de construtores).</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_07_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_04_07_IMAGE_003.webp" /></p>
 <p>Arquitetura Hexagonal aplicada com a IoC.</p>
 <p><strong>Arquitetura Hexagonal</strong> (Ports and Adapters)</p>
 <p>A Arquitetura Hexagonal, também conhecida como Ports and Adapters, é um padrão arquitetural que visa isolar a lógica de negócios da aplicação do mundo externo. Vejamos os principais pontos:</p>
@@ -27029,7 +27029,7 @@ public class SimpleConsumer {
 <p><strong>5. Educação e treinamento:</strong> Muitas vezes, os trabalhadores mais produtivos investem em sua própria educação e treinamento, o que pode levar a melhores oportunidades de emprego e, consequentemente, a um aumento na renda.</p>
 <p>No entanto, é importante notar que muitos outros fatores também podem influenciar a renda média do cidadão, incluindo o nível de educação, a indústria em que o trabalhador está empregado e a economia geral. Além disso, enquanto a produtividade do trabalhador pode levar a um aumento na renda, o inverso também pode ser verdadeiro - um aumento na renda pode permitir que os trabalhadores invistam em coisas que aumentam sua produtividade, como educação e treinamento. É uma relação complexa e interdependente.</p>
 <hr />
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_03_20_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_03_20_IMAGE_003.webp" /></p>
 <p>A tecnologia de Informação está diretamente ligada a produtividade.</p>
 <p>A <strong>tecnologia da informação</strong> (<strong>TI</strong>) pode aumentar a produtividade do cidadão brasileiro e, consequentemente, a renda média do país de várias maneiras:</p>
 <p><strong>1. Educação e Treinamento:</strong> A TI pode fornecer acesso a recursos educacionais e oportunidades de treinamento online. Isso pode ajudar os cidadãos a adquirir novas habilidades e melhorar suas perspectivas de emprego.</p>
@@ -27114,7 +27114,7 @@ public class SimpleConsumer {
 <p>Lembre-se de que essa é uma configuração básica para uso local.</p>
 <hr />
 <p>Implantar uma ação do <strong>Apache OpenWhisk</strong> em um ambiente de produção envolve algumas etapas importantes. Vou fornecer uma visão geral, mas lembre-se de que os detalhes específicos podem variar com base na sua infraestrutura e requisitos.</p>
-<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_03_17_IMAGE_003.png" /></p>
+<p><img alt="" src="https://personal.caracore.com.br/articles/assets/img/2024_03_17_IMAGE_003.webp" /></p>
 <p>Um exemplo esquemático das tecnologias envolvidas.</p>
 <p><strong>1. Configuração do Ambiente</strong>:</p>
 <p>- Ambiente OpenWhisk: Primeiro, você precisa ter um ambiente OpenWhisk configurado. Isso pode ser local (usando o OpenWhisk em um cluster Kubernetes ou Docker Compose) ou em uma nuvem pública (como IBM Cloud, AWS, Google Cloud, etc.).</p>

@@ -195,7 +195,7 @@
 <p><strong>Curiosidade</strong></p>
 <p>A especificação Java EE trata o estado stateless de maneira interessante. Vamos explorar um pouco mais sobre isso:</p>
 <p>- Stateless Session Beans: Esses beans não mantêm um estado de conversação com o pedido. Quando um pedido invoca os métodos de um bean stateless, as variáveis de instância do bean podem conter um estado específico para aquele pedido, mas apenas durante a duração da invocação. Após a conclusão do método, o estado específico do pedido não deve ser retido.</p>
-<p><img alt="" src="assets/img/2024_05_12_IMAGE_003.png" /></p>
+<p><img alt="" src="assets/img/2024_05_12_IMAGE_003.webp" /></p>
 <p>Exemplo esquemático em camada de classes em Java EE com acesso a um recurso Stateless</p>
 <p>Em outras palavras, os stateless session beans são projetados para serem efêmeros e sem memória. Eles não armazenam informações de estado entre chamadas de método, o que os torna ideais para processamento rápido e eficiente. Por exemplo, em um cenário de aplicativo da web, um bean stateless pode ser usado para executar operações de cálculo ou acesso a banco de dados sem a necessidade de manter informações de sessão específicas do pedido.</p>
 <p>Essa abordagem é especialmente útil quando se lida com tarefas que não exigem rastreamento de estado contínuo, como autenticação, validação de dados ou cálculos matemáticos. Portanto, os beans stateless são uma escolha poderosa para otimizar o desempenho e a escalabilidade em aplicativos Java EE.</p>
@@ -205,7 +205,7 @@
                 
                 <footer class="post-footer">
                     <div class="author-info">
-                        <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                        <img src="assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                         <div class="author-details">
                             <strong>Christian Mulato</strong>
                             <p>Desenvolvedor Java e Arquiteto de Software</p>

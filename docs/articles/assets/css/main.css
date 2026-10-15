@@ -889,10 +889,21 @@ body {
 
 @media (max-width: 520px) {
     .container { padding: 0 1rem; }
+    .header { padding-top: 4.5rem; }
     .blog-logo { max-height: 78px; }
     .subtitle { font-size: .88rem; }
-    .social-links { align-items: center; }
-    .social-links a { max-width: 100%; width: auto; }
+    .social-links {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+    .social-links a {
+        max-width: 100%;
+        width: auto;
+        font-size: .76rem;
+        padding: .4rem .65rem;
+    }
 
     .showcase-grid,
     .articles-grid {
@@ -914,9 +925,9 @@ body {
     .article-title a { font-size: 1.1rem; }
     .article-description {
         font-size: .8rem;
-        line-height: 1.3;
+        line-height: 1.45;
         margin-bottom: .5rem;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
     }
     .theme-toggle { right: 12px; top: 12px; }
 }

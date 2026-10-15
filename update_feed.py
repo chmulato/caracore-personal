@@ -5,10 +5,11 @@ pubDate RFC-822, CDATA em description e content:encoded.
 """
 from __future__ import annotations
 
+import argparse
 import html
 import re
 from datetime import datetime, timezone
-from email.utils import format_datetime
+from email.utils import format_datetime, parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
@@ -278,7 +279,26 @@ def build_feed(articles: list[dict], built_at: datetime | None = None) -> str:
     )
 
 
-def main() -> None:
+def without_build_date(feed: str) -> str:
+    root = ET.fromstring(feed)
+    channel = root.find("channel")
+    build_dates = channel.findall("lastBuildDate") if channel is not None else []
+    if len(build_dates) != 1 or not build_dates[0].text:
+        raise ValueError("RSS invalido: esperado exatamente um lastBuildDate")
+    parsedate_to_datetime(build_dates[0].text)
+    normalized, count = re.subn(
+        r"<lastBuildDate>.*?</lastBuildDate>",
+        "<lastBuildDate>BUILD_DATE</lastBuildDate>",
+        feed,
+        count=1,
+        flags=re.S,
+    )
+    if count != 1:
+        raise ValueError("RSS invalido: esperado exatamente um lastBuildDate")
+    return normalized
+
+
+def main(check: bool = False) -> None:
     paths = sorted(
         p for p in ARTICLES_DIR.glob("*.html") if p.name not in SKIP_NAMES
     )
@@ -305,6 +325,17 @@ def main() -> None:
         raise ValueError(f"RSS invalido: URLs relativas em {relative}; conteudo vazio em {empty}")
     feed = build_feed(articles)
     ET.fromstring(feed)
+    if check:
+        if not FEED_PATH.exists():
+            raise SystemExit(f"Feed ausente: {FEED_PATH}")
+        current = FEED_PATH.read_text(encoding="utf-8")
+        if without_build_date(current) != without_build_date(feed):
+            raise SystemExit(
+                "docs/feed.xml desatualizado; execute python update_feed.py"
+            )
+        print("docs/feed.xml atualizado (lastBuildDate validado separadamente).")
+        return
+
     temporary = FEED_PATH.with_suffix(".xml.tmp")
     temporary.write_text(feed, encoding="utf-8", newline="\n")
     temporary.replace(FEED_PATH)
@@ -322,4 +353,10 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="valida o feed sem gravar e ignora apenas o lastBuildDate variavel",
+    )
+    main(check=parser.parse_args().check)

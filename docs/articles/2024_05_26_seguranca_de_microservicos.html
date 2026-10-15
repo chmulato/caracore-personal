@@ -210,11 +210,11 @@
 <p><strong>Geração de Token:</strong> Quando um usuário faz login com sucesso, você precisará gerar um token JWT para eles. Isso pode ser feito usando a biblioteca jjwt. O token deve incluir detalhes do usuário e um carimbo de data/hora de expiração.</p>
 <p><strong>Validação de Token:</strong> Quando uma solicitação chega com um token JWT, você precisará validar o token. Isso inclui verificar a assinatura e a data de expiração do token, bem como quaisquer outras reivindicações que você possa ter incluído no token.</p>
 <p>Vamos ver um exemplo de código simplificado para ilustrar esses passos:</p>
-<p><img alt="" src="assets/img/2024_05_26_IMAGE_003.png" /></p>
+<p><img alt="" src="assets/img/2024_05_26_IMAGE_003.webp" /></p>
 <p>Exemplo de código e a dependência JJWT em Maven para autenticação com JWT.</p>
 <p>A Autenticação JWT oferece escalabilidade ao permitir que sistemas distribuídos autentiquem usuários sem a necessidade de um estado de sessão centralizado, melhorando assim a capacidade de lidar com um grande número de solicitações. Além disso, os JWTs são compactos e podem ser transmitidos facilmente, o que melhora o desempenho ao reduzir a sobrecarga de rede. Finalmente, a natureza autocontida dos JWTs facilita a integração entre diferentes serviços em um ambiente de microserviços, pois cada serviço pode validar os tokens de forma independente.</p>
 <p>Agora vamos ver um exemplo simplificado de como você pode implementar a autenticação JWT em um microserviço usando Java e Spring Boot:</p>
-<p><img alt="" src="assets/img/2024_05_26_IMAGE_004.png" /></p>
+<p><img alt="" src="assets/img/2024_05_26_IMAGE_004.webp" /></p>
 <p>Exemplo de autenticação com a biblioteca JJWT do Spring Boot.</p>
 <p>Este código define uma classe <em>JwtUtil</em> que tem dois métodos principais: addAuthentication e getAuthentication.</p>
 <p>O método addAuthentication é chamado quando um usuário faz login com sucesso. Ele gera um token JWT e o adiciona ao cabeçalho Authorization da resposta HTTP.</p>
@@ -225,7 +225,7 @@
                 
                 <footer class="post-footer">
                     <div class="author-info">
-                        <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                        <img src="assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                     </div>
                 </footer>
             </article>

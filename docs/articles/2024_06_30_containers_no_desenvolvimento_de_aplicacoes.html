@@ -208,7 +208,7 @@
 <p>Para um exemplo prático, suponha que você esteja criando uma aplicação Spring Boot que se conecta a um banco de dados PostgreSQL. Aqui estão os passos:</p>
 <p><strong>Dockerfile:</strong></p>
 <p>Crie um arquivo chamado <em>Dockerfile</em> na raiz do seu projeto Java.</p>
-<p><img alt="" src="assets/img/2024_06_30_IMAGE_003.png" /></p>
+<p><img alt="" src="assets/img/2024_06_30_IMAGE_003.webp" /></p>
 <p>Exemplo de um dockerfile para um ambiente Java 11 OpenJDK</p>
 <p>Este <em>Dockerfile</em> começa com a imagem base <em>openjdk:11-jdk-slim</em>, que é uma imagem Docker oficial do OpenJDK que inclui os seguintes ambientes Java na imagem padrão: o <strong>JRE</strong> (Java Runtime Environment) e o <strong>JDK</strong> (Java Development Kit).</p>
 <p>Em seguida, copia o arquivo JAR do seu aplicativo (neste caso de exemplo o aquivo, <em>meu-aplicativo.jar</em>) para o contêiner.</p>
@@ -221,7 +221,7 @@
 <p>Execute o comando <em>docker build -t minha-aplicacao .</em> para criar a imagem do container.</p>
 <p><strong>Docker Compose:</strong></p>
 <p>Crie um arquivo YAML <em>docker-compose.yml</em>.</p>
-<p><img alt="" src="assets/img/2024_06_30_IMAGE_004.png" /></p>
+<p><img alt="" src="assets/img/2024_06_30_IMAGE_004.webp" /></p>
 <p>Exemplo de um arquivo YAML docker-compose.yml</p>
 <p>Neste exemplo, o serviço db é o banco de dados PostgreSQL e o serviço app é a aplicação Java. As variáveis de ambiente necessárias para a conexão com o banco de dados são definidas no serviço app.</p>
 <p>Para o seu exemplo, substitua exemplo_senha, exemplo_usuario, exemplo_db, exemplo_imagem_java:tag pelos valores reais que você deseja usar.</p>
@@ -241,7 +241,7 @@
                 
                 <footer class="post-footer">
                     <div class="author-info">
-                        <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                        <img src="assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                     </div>
                 </footer>
             </article>

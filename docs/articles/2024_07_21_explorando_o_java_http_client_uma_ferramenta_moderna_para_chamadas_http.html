@@ -224,7 +224,7 @@
 <p><strong>Introdução ao Java HTTP Client:</strong></p>
 <p>O <strong>Java HTTP Client</strong> é uma API moderna e versátil introduzida no <strong>Java 11</strong> para lidar com requisições HTTP. Ele supera as limitações da antiga <strong>HttpURLConnection</strong> ao oferecer uma API mais intuitiva e fácil de usar, com suporte para HTTP/2 e WebSocket, além de permitir o envio de requisições síncronas e assíncronas. A capacidade de lidar com diferentes tipos de corpo de requisição e resposta, como String, InputStream, File e diretamente para um Subscriber do java.util.concurrent.Flow, torna o Java HTTP Client uma escolha superior. Além disso, ele também suporta a configuração de tempo limite de requisição, autenticação automática e redirecionamento, o que o torna uma alternativa moderna e poderosa para fazer chamadas HTTP em comparação com a HttpURLConnection.</p>
 <p>Para usar o Java HTTP Client, você precisa seguir alguns passos. Aqui está um exemplo simples de como fazer uma requisição GET:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_011.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_011.webp" /></p>
 <p>Exemplo simples de como fazer uma requisição GET com Java HTTP Client.</p>
 <p>Neste exemplo, primeiro criamos um <strong>HttpClient</strong> usando o método <strong>newHttpClient()</strong>.</p>
 <p>Em seguida, construímos uma requisição HTTP GET para "http://example.com" usando <strong>HttpRequest.newBuilder()</strong>.</p>
@@ -232,7 +232,7 @@
 <p>Este é um exemplo básico. O Java HTTP Client é muito mais poderoso e flexível, permitindo que você faça requisições POST, lidar com redirecionamentos, autenticação e muito mais.</p>
 <p><strong>Configuração do HttpClient:</strong></p>
 <p>Vamos abordar aqui um exemplo de como você pode criar uma instância de <strong>HttpClient</strong> e configurá-la com opções como <strong>timeout</strong>, <strong>proxy</strong> e <strong>autenticação</strong> em Java:</p>
-<p><img alt="Texto Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_012.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_012.webp" /></p>
 <p>Exemplo de como criar uma instância de HttpClient.</p>
 <p>Este código cria um <strong>HttpClient</strong> com as seguintes configurações:</p>
 <ul>
@@ -256,7 +256,7 @@
 <p>Por favor, substitua "proxy.example.com", "username", "password" e "http://example.com" pelos valores reais que você deseja usar.</p>
 <p>Você pode configurar o <strong>timeout</strong> de leitura usando o método <strong>ofSeconds</strong> da classe <strong>Duration</strong> no <strong>HttpClient</strong>.</p>
 <p>Aqui está um exemplo:</p>
-<p><img alt="Texto Descrição gerada automaticamente com confiança baixa" src="assets/img/2024_07_21_IMAGE_013.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente com confiança baixa" src="assets/img/2024_07_21_IMAGE_013.webp" /></p>
 <p>Exemplo de como criar uma instância de HttpClient com timeout.</p>
 <p>Neste exemplo, o timeout de conexão é configurado para 10 segundos. Se a conexão não for estabelecida dentro deste período, uma exceção será lançada.</p>
 <p>No entanto, a partir do Java 11, o HttpClient não fornece um método direto para configurar o timeout de leitura.</p>
@@ -265,7 +265,7 @@
 <p>Se você precisar de um controle mais granular sobre o timeout de leitura, pode ser necessário usar uma biblioteca de terceiros que ofereça esse recurso, como o <strong>Apache HttpClient</strong> ou o <strong>OkHttp</strong>.</p>
 <p><strong>Envio de Requisições GET:</strong></p>
 <p>Como podemos fazer uma requisição HTTP GET usando o Java HTTP Client:</p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_014.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_014.webp" /></p>
 <p>Exemplo de requisição HTTP GET em código Java com a biblioteca Java HTTP Client.</p>
 <p>Este exemplo, estamos criando um novo <strong>HttpClient</strong> e construindo uma solicitação <strong>HTTP GET</strong> para "http://example.com".</p>
 <p>Em seguida, enviamos a solicitação e imprimimos o código de status e o corpo da resposta.</p>
@@ -273,7 +273,7 @@
 <p>Além disso, este é um exemplo simples e não inclui o tratamento de erros adequado que você deve incluir no código de produção.</p>
 <p>Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções.</p>
 <p>Para analisar a resposta JSON e converter em objetos Java, você pode usar a biblioteca Jackson. Aqui está um exemplo de como você pode fazer isso:</p>
-<p><img alt="Interface gráfica do usuário Descrição gerada automaticamente com confiança baixa" src="assets/img/2024_07_21_IMAGE_015.png" /></p>
+<p><img alt="Interface gráfica do usuário Descrição gerada automaticamente com confiança baixa" src="assets/img/2024_07_21_IMAGE_015.webp" /></p>
 <p>Exemplo de uma requisição passando um objeto JSON com a bilbioteca Java HTTP Client.</p>
 <p>Neste exemplo, estamos usando a biblioteca Jackson para converter a resposta JSON em um <strong>Map\&lt;String, Object&gt;</strong>. Primeiro, criamos um novo <strong>ObjectMapper</strong>, que é a classe principal da biblioteca Jackson. Em seguida, usamos o método <strong>readValue</strong> para converter a resposta JSON em um mapa.</p>
 <p>Lembre-se de adicionar a dependência da biblioteca <strong>Jackson</strong> ao seu projeto.</p>
@@ -284,24 +284,24 @@
 <p><strong>Como faço para converter JSON em objetos Java usando outras bibliotecas, como o Gson?</strong></p>
 <p>Você pode usar a <strong>biblioteca Java Gson</strong>, do Google, para converter JSON em objetos Java.</p>
 <p>Aqui está um exemplo de como você pode fazer isso:</p>
-<p><img alt="Texto Descrição gerada automaticamente com confiança média" src="assets/img/2024_07_21_IMAGE_016.png" /></p>
+<p><img alt="Texto Descrição gerada automaticamente com confiança média" src="assets/img/2024_07_21_IMAGE_016.webp" /></p>
 <p>Exemplo de código Java para conversão de JSON para um objeto Java.</p>
 <p>Neste exemplo, estamos usando a biblioteca Gson para converter a resposta JSON em um <strong>Map\&lt;String, Object&gt;</strong>. Primeiro, criamos um novo objeto Gson. Em seguida, usamos o método fromJson para converter a resposta JSON em um mapa.</p>
 <p>Lembre-se de adicionar a dependência da biblioteca Gson ao seu projeto.</p>
 <p>Além disso, este é um exemplo simples e não inclui o tratamento de erros adequado que você deve incluir no código de produção. Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções. Além disso, você pode querer criar classes de modelo para representar a estrutura do seu JSON, em vez de usar um mapa genérico. Isso tornará seu código mais legível e seguro.</p>
 <p><strong>Envio de Requisições POST:</strong></p>
 <p>Vamos demostrar um outro exemplo de como você pode preparar e enviar uma solicitação HTTP POST usando o Java HTTP Client:</p>
-<p><img alt="" src="assets/img/2024_07_21_IMAGE_017.png" /></p>
+<p><img alt="" src="assets/img/2024_07_21_IMAGE_017.webp" /></p>
 <p>Exemplo de requisição HTTP POST em código Java com a biblioteca Java HTTP Client.</p>
 <p>Neste exemplo, estamos criando um novo <strong>HttpClient</strong> e construindo uma solicitação <strong>HTTP POST</strong> para "http://example.com". Estamos enviando um JSON como corpo da solicitação. Em seguida, enviamos a solicitação e imprimimos o código de status e o corpo da resposta.</p>
 <p>Lembre-se de substituir "http://example.com" pelo URL do seu destino e \"{\\"key\\":\\"value\\"}\" pelo seu JSON. Além disso, este é um exemplo simples e não inclui o tratamento de erros adequado que você deve incluir no código de produção.</p>
 <p>Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções. Além disso, você pode querer adicionar mais cabeçalhos conforme necessário para a sua solicitação. Por exemplo, alguns servidores podem exigir um cabeçalho de autenticação.</p>
 <p>Aqui está um exemplo de como você pode enviar dados no corpo de uma solicitação HTTP POST usando o Java HTTP Client. Vamos mostrar dois exemplos, um para enviar dados JSON e outro para enviar dados de formulário.</p>
 <p><strong>Exemplo 1: Enviando dados JSON</strong></p>
-<p><img alt="Linha do tempo Descrição gerada automaticamente com confiança média" src="assets/img/2024_07_21_IMAGE_002.png" /></p>
+<p><img alt="Linha do tempo Descrição gerada automaticamente com confiança média" src="assets/img/2024_07_21_IMAGE_002.webp" /></p>
 <p>Exemplo de requisição HTTP POST em código Java com envio de dados JSON.</p>
 <p><strong>Exemplo 2: Enviando dados de formulário</strong></p>
-<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_003.png" /></p>
+<p><img alt="Interface gráfica do usuário, Texto, Aplicativo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_003.webp" /></p>
 <p>Exemplo de requisição HTTP POST em código Java com envio de dados do formulário.</p>
 <p>No primeiro exemplo, estamos enviando um JSON como corpo da solicitação.</p>
 <p>No segundo exemplo, estamos enviando dados de formulário.</p>
@@ -310,7 +310,7 @@
 <p>Por exemplo, você pode querer adicionar um bloco try-catch para lidar com possíveis exceções. Além disso, você pode querer adicionar mais cabeçalhos conforme necessário para a sua solicitação. Por exemplo, alguns servidores podem exigir um cabeçalho de autenticação.</p>
 <p><strong>Tratamento de Respostas, como lidar com diferentes códigos de status HTTP (200, 404, 500):</strong></p>
 <p>Aqui está um exemplo de como você pode lidar com diferentes códigos de status HTTP usando o Java HTTP Client:</p>
-<p><img alt="Uma imagem contendo Texto Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_004.png" /></p>
+<p><img alt="Uma imagem contendo Texto Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_004.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client com tratamento do status de resposta.</p>
 <p>Neste exemplo, estamos verificando o código de status da resposta HTTP e lidando com diferentes códigos de status.</p>
 <p>Se o código de status for entre 200 e 299, isso significa que a solicitação foi bem-sucedida e podemos ler o corpo da resposta.</p>
@@ -322,12 +322,12 @@
 <p>Se a resposta for bem-sucedida (código de status HTTP 200), você pode extrair informações do corpo da resposta. O corpo da resposta pode ser um JSON, XML ou outro formato de dados. Para extrair informações, você pode usar bibliotecas como Jackson ou Gson para converter a resposta em objetos Java. Por exemplo, se a resposta for um JSON, você pode converter o JSON em um Map\&lt;String, Object&gt; ou em uma classe de modelo Java que corresponda à estrutura do JSON. Isso permite que você acesse facilmente as informações na resposta.</p>
 <p><strong>Trabalhando com Headers:</strong></p>
 <p>Vamos mostrar aqui como adicionar, modificar e ler cabeçalhos HTTP em solicitações e respostas. Um exemplo de como você pode adicionar, modificar e ler cabeçalhos HTTP usando o HttpClient do Java.</p>
-<p><img alt="" src="assets/img/2024_07_21_IMAGE_005.png" /></p>
+<p><img alt="" src="assets/img/2024_07_21_IMAGE_005.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client com modificação do cabeçalho HTTP.</p>
 <p>Neste exemplo, primeiro criamos um <strong>HttpClient</strong> e uma <strong>HttpRequest</strong>. Adicionamos um cabeçalho personalizado à solicitação com o método <strong>.header()</strong>. Em seguida, enviamos a solicitação e obtemos a resposta. Para ler os cabeçalhos da resposta, usamos o método .headers() na resposta, que retorna um <strong>HttpHeaders</strong>. Em seguida, imprimimos todos os cabeçalhos. Para modificar um cabeçalho, criamos uma nova solicitação com o mesmo URI que a solicitação original, mas com um valor de cabeçalho diferente. Em seguida, enviamos a nova solicitação e lemos os cabeçalhos da nova resposta da mesma maneira.</p>
 <p><strong>Tratamento de Erros e Exceções:</strong></p>
 <p>Para o tratamento de erros e exceções, poderia explicar como tratar exceções relacionadas a conexões, timeouts e erros de servidor. Aqui está um exemplo de como você pode tratar exceções usando o HttpClient do Java.</p>
-<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_006.png" /></p>
+<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_006.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client tratamento de erro try-catch.</p>
 <p>Neste exemplo, primeiro criamos um <strong>HttpClient</strong> e uma <strong>HttpRequest</strong>. Em seguida, enviamos a solicitação dentro de um bloco <strong>try-catch</strong>.</p>
 <p>Se a solicitação for bem-sucedida, verificamos o código de status da resposta. Se o código de status for entre 200 e 299, a solicitação foi bem-sucedida. Se o código de status for 300 ou superior, houve um erro no servidor.</p>
@@ -347,7 +347,7 @@
 <p><strong>AsyncHttpClient e Chamadas Assíncronas:</strong></p>
 <p>O <strong>Java HTTP Client</strong> suporta tanto chamadas síncronas quanto assíncronas. As chamadas síncronas são bloqueantes, o que significa que o thread que faz a chamada é bloqueado até que a resposta seja recebida. As chamadas assíncronas, por outro lado, são não bloqueantes. Elas retornam imediatamente com um <strong>CompletableFuture</strong>, que pode ser usado para processar a resposta quando ela estiver disponível.</p>
 <p>Aqui está um exemplo de como você pode fazer uma chamada assíncrona com o <strong>HttpClient</strong>:</p>
-<p><img alt="Uma imagem contendo Linha do tempo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_007.png" /></p>
+<p><img alt="Uma imagem contendo Linha do tempo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_007.webp" /></p>
 <p>Exemplo de código de requisição com Java HTTP Client com chamada assíncrona.</p>
 <p>Neste exemplo, usamos o método <strong>sendAsync()</strong> para enviar a solicitação, que retorna um <strong>CompletableFuture</strong>. Usamos o método <strong>thenAccept()</strong> no <strong>CompletableFuture</strong> para processar a resposta quando ela estiver disponível.</p>
 <p>Se ocorrer um erro ao enviar a solicitação, ele será tratado no bloco <strong>exceptionally()</strong>.</p>
@@ -367,10 +367,10 @@
 <p><strong>Testes Unitários para Clientes HTTP:</strong></p>
 <p>Vamos abordar como testar suas chamadas HTTP usando bibliotecas como <strong>JUnit</strong> e <strong>Mockito</strong>. Aqui está um exemplo de como você pode testar suas chamadas HTTP usando JUnit e Mockito.</p>
 <p>Primeiro, você precisará adicionar as dependências do JUnit e Mockito ao seu arquivo pom.xml se estiver usando Maven:</p>
-<p><img alt="Texto, Linha do tempo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_008.png" /></p>
+<p><img alt="Texto, Linha do tempo Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_008.webp" /></p>
 <p>Dependências do JUnit e Mockito no Maven.</p>
 <p>Aqui está um exemplo de teste unitário para uma classe que faz uma chamada HTTP:</p>
-<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_009.png" /></p>
+<p><img alt="Uma imagem contendo Tabela Descrição gerada automaticamente" src="assets/img/2024_07_21_IMAGE_009.webp" /></p>
 <p>Exemplo de teste unitário com código aplicando a biblioteca Java HTTP Client.</p>
 <p>Neste exemplo, criamos um <strong>HttpClient</strong> e <strong>HttpResponse</strong> falsos usando <strong>Mockito.mock().</strong> Em seguida, definimos o comportamento do HttpClient falso para retornar a HttpResponse falsa quando o método <strong>send()</strong> é chamado. Definimos o comportamento da HttpResponse falsa para retornar uma string fixa quando o método <strong>body()</strong> é chamado.</p>
 <p>Em seguida, criamos uma <strong>HttpRequest</strong> e usamos o <strong>HttpClient</strong> falso para enviá-la. Verificamos se a resposta é a esperada usando <strong>assertEquals().</strong></p>
@@ -401,7 +401,7 @@
                 
                 <footer class="post-footer">
                     <div class="author-info">
-                        <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                        <img src="assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                     </div>
                 </footer>
             </article>

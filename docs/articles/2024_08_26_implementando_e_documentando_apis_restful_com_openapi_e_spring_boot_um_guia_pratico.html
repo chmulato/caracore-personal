@@ -188,15 +188,15 @@
 <p>Vamos começar com uma visão geral de como definir operações GET e POST usando <strong><em>OpenAPI</em></strong> e YAML.</p>
 <p><strong>3. Estrutura Básica do OpenAPI</strong></p>
 <p>Um arquivo <strong><em>OpenAPI</em></strong> geralmente começa com algumas informações básicas sobre a API, como título, descrição e versão. Aqui está um exemplo básico:</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_005.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_005.webp" /></p>
 <p>Exemplo básico de um arquivo OpenAPI.</p>
 <p><strong>4. Definindo uma Operação GET</strong></p>
 <p>A operação GET é usada para recuperar dados de um servidor. Aqui está um exemplo de como definir uma operação GET para obter uma lista de usuários:</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_006.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_006.webp" /></p>
 <p>Arquivo de configuração YAML para o endpoint de GET.</p>
 <p><strong>5. Definindo uma Operação POST</strong></p>
 <p>A operação POST é usada para enviar dados ao servidor, geralmente para criar um novo recurso. Aqui está um exemplo de como definir uma operação POST para adicionar um novo usuário:</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_007.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_007.webp" /></p>
 <p>Arquivo de configuração YAML para o endpoint de POST.</p>
 <p><strong>6. Mapeamentos nos Arquivos YAML</strong></p>
 <p>No exemplo acima, usamos o campo paths para definir os <strong><em>endpoints</em></strong> /users e especificamos as operações GET e POST.</p>
@@ -214,19 +214,19 @@
 <p>Aqui no tópico 7 estão as principais classes e anotações que você precisará:</p>
 <p><strong>7. Classe Principal da Aplicação</strong></p>
 <p>A classe principal da sua aplicação Spring Boot deve ser anotada com \@SpringBootApplication. Aqui você também pode configurar o <strong><em>OpenAPI</em></strong>.</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_008.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_008.webp" /></p>
 <p>Exemplo de classe Java com Spring Boot.</p>
 <p><strong>8. Controlador (Controller)</strong></p>
 <p>Os controladores são responsáveis por lidar com as requisições HTTP. Aqui está um exemplo de um controlador com operações GET e POST.</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_009.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_009.webp" /></p>
 <p>Exemplo de classe Java do tipo Controller com o Spring Boot.</p>
 <p><strong>9. Modelo (Model)</strong></p>
 <p>A classe modelo representa os dados que serão manipulados pela API.</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_010.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_010.webp" /></p>
 <p>Exemplo de classe Java bean.</p>
 <p><strong>10. Dependências no pom.xml</strong></p>
 <p>Para habilitar o suporte ao OpenAPI e Swagger, você precisa adicionar as seguintes dependências ao seu arquivo <strong><em>pom.xml</em></strong>:</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_011.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_011.webp" /></p>
 <p>Exemplo de notação para a dependência Maven do OpenAPI.</p>
 <p>Para criar uma API com operações GET e POST usando OpenAPI e Spring Boot, é essencial configurar a classe principal da aplicação, definir controladores para os endpoints, criar modelos para representar os dados e adicionar as dependências necessárias no arquivo <strong><em>pom.xml</em></strong>. Essas etapas garantem que a API seja bem estruturada, documentada e fácil de manter, promovendo uma integração eficiente e uma comunicação clara entre os desenvolvedores.</p>
 <p>Resumo:</p>
@@ -249,11 +249,11 @@
 <p>Os arquivos YAML do OpenAPI geralmente são colocados na pasta <strong><em>src/main/resources</em></strong> do seu projeto <strong><em>Spring Boot</em></strong>.</p>
 <p>Esta é a localização padrão para arquivos de configuração e recursos estáticos em projetos Spring Boot.</p>
 <p>Aqui está um exemplo de como a estrutura do seu projeto pode ficar:</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_002.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_002.webp" /></p>
 <p>Estrutura de pastas dentro do código Java.</p>
 <p><strong>12. Configuração do Spring Boot para Usar o Arquivo YAML</strong></p>
 <p>Para que o Spring Boot reconheça e utilize o arquivo YAML do OpenAPI, você pode configurar o caminho no seu arquivo <strong><em>application.yml</em></strong>:</p>
-<p><img alt="" src="assets/img/2024_08_26_IMAGE_003.png" /></p>
+<p><img alt="" src="assets/img/2024_08_26_IMAGE_003.webp" /></p>
 <p>Arquivo de configuração YAML chamado.</p>
 <p><strong>13. Acessando a Documentação</strong></p>
 <p>Depois de configurar, você pode acessar a documentação gerada pelo <strong>OpenAPI</strong> no seguinte caminho:</p>
@@ -287,7 +287,7 @@
                 
                 <footer class="post-footer">
                     <div class="author-info">
-                        <img src="assets/img/foto_chri.jpg" alt="Christian Mulato" class="author-avatar">
+                        <img src="assets/img/foto_chri.webp" alt="Christian Mulato" class="author-avatar">
                         <div class="author-details">
                             <strong>Christian Mulato</strong>
                             <p>Desenvolvedor Java e Arquiteto de Software</p>
