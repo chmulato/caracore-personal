@@ -4,7 +4,7 @@
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
 > **Data de Atualização:** 12/10/2026
-> **Total de Artigos:** 271 publicações (março de 2024 a março de 2029)
+> **Total de Artigos:** 272 publicações (março de 2024 a março de 2029)
 > **Status de Produção:** Ativo e saudável em `https://personal.caracore.com.br/` (Lighthouse Desktop 99-100, Mobile 95 em CDN/local)
 
 ---

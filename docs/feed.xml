@@ -5,7 +5,7 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Thu, 15 Oct 2026 02:59:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 00:22:38 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
@@ -9771,6 +9771,126 @@ Mês 3 (Completo):   $6.500 [█████████████████
                     </div>
                     <div class="series-navigation" style="margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-color); font-size: 0.95rem; font-weight: 500;">
                         Anterior: <a href="https://personal.caracore.com.br/articles/2026_10_15_do_rpa_ao_silicio_a_grande_transformacao_cap_06.html">Capítulo 06</a> — <a href="https://personal.caracore.com.br/articles/2026_08_25_serie_do_rpa_ao_silicio_a_grande_transformacao_chamada.html">Índice da Série</a> — Próximo: <a href="https://personal.caracore.com.br/articles/2026_11_09_do_rpa_ao_silicio_a_grande_transformacao_cap_08.html">Capítulo 08</a>
+                    </div>]]></content:encoded>
+    </item>
+
+    <item>
+      <title><![CDATA[A Programação Não Morreu, Subiu de Nível: Como os Agentes de IA Estão Redefinindo a TI]]></title>
+      <link>https://personal.caracore.com.br/articles/2026_10_21_a_programacao_nao_morreu.html</link>
+      <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
+      <description><![CDATA[IA substitui programadores? Entenda o futuro da programação, como agentes de IA, copilots e automação mudam o desenvolvimento e por que a engenharia continua essencial.]]></description>
+      <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_10_21_IMAGE_001.webp" length="43220" type="image/webp" />
+      <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_10_21_IMAGE_001.webp" medium="image" type="image/webp" fileSize="43220" />
+      <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_10_21_a_programacao_nao_morreu.html</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<figure class="hero-image-frame">
+                        <img src="https://personal.caracore.com.br/articles/assets/img/2026_10_21_IMAGE_001.webp" alt="Profissional diante de ferramentas de desenvolvimento e agentes de IA em uma estação de trabalho" class="hero-image">
+                        <figcaption class="hero-image-caption">O agente conversa com o usuário; a engenharia conecta essa conversa aos sistemas reais, com limites e rastreabilidade.</figcaption>
+                    </figure>
+                    <p>Tempo de leitura: aproximadamente 6 minutos.</p>
+
+                    <p>Há um mito recorrente no mercado de tecnologia: a inteligência artificial vai extinguir a programação e tornar desnecessário o profissional de TI. A promessa de pedir qualquer coisa a um chatbot e receber um sistema pronto parece confirmar essa ideia. Mas uma resposta convincente não é, por si só, um sistema confiável.</p>
+
+                    <p>A programação não morreu. Em muitas situações, ela está subindo de nível de abstração: em vez de construir cada interação como uma sequência rígida de telas e cliques, profissionais passam a projetar sistemas que também podem ser acionados por linguagem natural — sem abandonar código, interfaces tradicionais ou regras explícitas.</p>
+
+                    <h2>Da tela ao diálogo — sem abolir a tela</h2>
+
+                    <p>Formulários, menus e botões continuam sendo a escolha certa para tarefas previsíveis, repetidas ou que exigem precisão visual. Uma interface bem desenhada reduz ambiguidades. O que muda é que o usuário ganha outra porta de entrada: pode descrever o que precisa por texto ou voz, e um agente pode interpretar o pedido e coordenar as próximas etapas.</p>
+
+                    <p>Imagine perguntar se um backup terminou, quanto espaço ainda há em um disco ou quais avisos aparecem nos registros de um serviço. Um agente pode consultar essas informações e apresentá-las em linguagem simples. Mas o modelo de IA não enxerga automaticamente o sistema operacional nem deve receber acesso irrestrito a ele. A equipe precisa construir e autorizar cada conexão.</p>
+
+                    <h2>O agente precisa de ferramentas — e de limites</h2>
+
+                    <p>Essa conexão costuma ser feita por APIs, scripts ou funções autorizadas, acionadas por mecanismos conhecidos como <strong>Tool Calling</strong>. O modelo identifica que precisa de uma ferramenta; a aplicação valida o pedido, executa a operação permitida e devolve o resultado para compor a resposta.</p>
+
+                    <p>Essa distinção é fundamental. Um agente configurado apenas para consultar logs pode explicar o estado de um backup, mas não deveria poder apagá-lo. Para ações com impacto — excluir arquivos, alterar configurações, enviar mensagens ou iniciar processos — são necessários controles proporcionais ao risco: permissões mínimas, confirmação humana, registro de atividade e meios de interromper a execução.</p>
+
+                    <h2>Um caso completo: do pedido à ação segura</h2>
+
+                    <p>Considere uma solicitação feita por alguém da equipe de operações: <em>“Prepare um relatório do último backup e, se houver cópias antigas fora da política de retenção, proponha a limpeza.”</em> O agente não recebe uma senha de administrador nem executa comandos arbitrários. Ele coordena ferramentas específicas, cada uma com acesso limitado:</p>
+
+                    <table>
+                        <thead>
+                            <tr><th>Etapa</th><th>O que acontece</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1. Interpretar</td><td>O agente identifica que precisa consultar o estado do backup e verificar a política de retenção.</td></tr>
+                            <tr><td>2. Consultar</td><td>A aplicação chama APIs de leitura para buscar o resultado, o horário e os registros relevantes.</td></tr>
+                            <tr><td>3. Autorizar</td><td>O sistema confere a identidade do usuário e valida se ele pode consultar esses dados e solicitar uma limpeza.</td></tr>
+                            <tr><td>4. Informar</td><td>O agente apresenta o relatório, cita os dados consultados e lista quais cópias parecem estar fora da política — sem apagá-las.</td></tr>
+                            <tr><td>5. Confirmar e executar</td><td>Se a limpeza for permitida, o agente pede confirmação explícita mostrando os alvos. Após a confirmação, a aplicação revalida a autorização, remove somente os itens aprovados e registra a operação.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>O relatório é uma consulta; a exclusão é uma ação de impacto. Separar essas etapas permite que a IA economize tempo sem transformar uma interpretação equivocada em perda de dados. Se a permissão, a política ou o resultado da verificação não estiverem claros, o fluxo deve parar e encaminhar a decisão a uma pessoa.</p>
+
+                    <h2>Três camadas de uma solução inteligente</h2>
+
+                    <p>Por trás de uma conversa simples, uma solução confiável combina pelo menos três partes:</p>
+
+                    <ul>
+                        <li><strong>Motor — sistemas, dados e infraestrutura:</strong> aplicações, APIs, bancos de dados e armazenamento. Quando o agente pesquisa documentos, podem ser necessários extração de texto, OCR e um índice de busca. A nuvem é uma opção, não uma exigência universal: a arquitetura depende da sensibilidade dos dados, do volume e dos custos.</li>
+                        <li><strong>Ferramentas — integrações e regras de execução:</strong> funções que o agente pode chamar, cada uma com um propósito definido. As permissões, validações e limites de cada operação determinam o que ele pode realmente fazer.</li>
+                        <li><strong>Interface — conversa e experiência de uso:</strong> chat e voz podem simplificar alguns pedidos, enquanto telas convencionais continuam úteis para acompanhar estados, revisar detalhes e confirmar decisões.</li>
+                    </ul>
+
+                    <p>Em uma pesquisa documental, por exemplo, uma arquitetura RAG localiza trechos relevantes em uma coleção de arquivos e os apresenta como contexto para o modelo elaborar uma resposta. Isso pode facilitar a consulta a um acervo histórico, mas não transforma a resposta em verdade garantida: a qualidade depende dos documentos, da busca e da forma como o sistema mostra suas fontes. Conferir o original continua importante.</p>
+
+                    <h2>O trabalho de TI muda — e continua indispensável</h2>
+
+                    <p>O centro do trabalho se desloca. Além de escrever código, profissionais precisam entender os processos do negócio, integrar sistemas, organizar dados, definir permissões e observar como a solução se comporta. O desafio não é apenas fazer o agente responder; é garantir que ele responda com contexto adequado, tenha acesso somente ao necessário e falhe de maneira segura quando não souber o que fazer.</p>
+
+                    <p>Essa mudança alcança diferentes especialidades, sem torná-las iguais ou dispensáveis:</p>
+
+                    <ul>
+                        <li><strong>Desenvolvedores</strong> projetam APIs e ferramentas, revisam o código gerado por copilots e testam o comportamento do agente.</li>
+                        <li><strong>Analistas de sistemas</strong> traduzem processos do negócio em requisitos, regras e fluxos que podem ser validados.</li>
+                        <li><strong>Arquitetos de software</strong> definem limites entre serviços, dados e modelos, além de planejar confiabilidade e evolução.</li>
+                        <li><strong>SREs e profissionais de DevOps</strong> cuidam de implantação, observabilidade, disponibilidade, custos e resposta a falhas.</li>
+                        <li><strong>Especialistas em dados</strong> preparam fontes, qualidade, governança e mecanismos de busca para que respostas tenham contexto verificável.</li>
+                        <li><strong>Profissionais de segurança</strong> avaliam identidade, permissões, registros de auditoria e riscos de ferramentas conectadas.</li>
+                    </ul>
+
+                    <p>Isso não torna obsoletos os fundamentos de programação. Pelo contrário: quanto mais sistemas são conectados a agentes, mais importantes ficam contratos de API, tratamento de erros, testes, controle de versão, logs, segurança e manutenção. A IA pode acelerar partes do trabalho, mas alguém ainda precisa decidir o que construir, testar os resultados e assumir responsabilidade pelas consequências.</p>
+
+                    <p>Também não existe uma interface universal que resolva tudo. Uma pessoa pode pedir um resumo por voz e depois conferir uma tabela na tela. Um agente pode iniciar um fluxo, enquanto regras convencionais validam os dados antes de uma alteração. O desenho adequado combina conversa e controles explícitos de acordo com a tarefa.</p>
+
+                    <h2>O futuro da programação: IA substitui programadores?</h2>
+
+                    <p>Agentes e copilots já podem automatizar etapas do desenvolvimento e da operação, mas isso não equivale a substituir, de forma geral, quem projeta, valida e mantém sistemas. O desenvolvimento com agentes de IA amplia o conjunto de ferramentas do profissional: o modelo interpreta linguagem; o software conectado fornece dados e executa ações; as regras definem o que é permitido; e as pessoas continuam responsáveis por supervisionar decisões relevantes.</p>
+
+                    <p>Por isso, a programação não desaparece quando surge um bot. Ela fica menos visível para o usuário final e mais decisiva nos bastidores. O profissional de TI não está apenas ensinando uma máquina a conversar: está construindo os caminhos, as barreiras e os mecanismos de verificação que tornam essa conversa útil no mundo real.</p>
+
+                    <p><strong>Quem acredita que a IA acabou com a programação está olhando para a interface. Quem trabalha com tecnologia sabe que a verdadeira complexidade continua existindo nos bastidores.</strong></p>
+
+                    <h2>Dicionário de Termos Técnicos e Negócios (para leigos)</h2>
+                    <p>Conceitos fundamentais abordados no artigo explicados de forma simples e direta:</p>
+                    <div class="chalkboard">
+                        <dl>
+                            <dt><strong>Agente de IA</strong></dt>
+                            <dd>Um sistema que usa um modelo de inteligência artificial para interpretar pedidos e, quando configurado, coordenar ferramentas dentro de limites definidos.</dd>
+
+                            <dt><strong>API</strong></dt>
+                            <dd>Uma forma padronizada de um programa pedir informações ou serviços a outro, sem precisar conhecer todos os detalhes internos dele.</dd>
+
+                            <dt><strong>Tool Calling</strong></dt>
+                            <dd>Mecanismo pelo qual o modelo solicita uma ferramenta disponível — como consultar um registro — e a aplicação decide se a chamada é válida e pode ser executada.</dd>
+
+                            <dt><strong>RAG</strong></dt>
+                            <dd>Uma técnica que busca trechos em documentos selecionados e os fornece como contexto para uma resposta. Ajuda a fundamentar a consulta, mas não elimina erros nem substitui a verificação das fontes.</dd>
+
+                            <dt><strong>Princípio do menor privilégio</strong></dt>
+                            <dd>Regra de segurança que concede a cada pessoa ou sistema apenas os acessos necessários para cumprir sua tarefa.</dd>
+                        </dl>
+                    </div>
+
+                    <hr style="margin: 2.5rem 0 1.5rem 0;">
+                    <p><em><strong>Nota:</strong> Ensaio sobre agentes de IA, engenharia de software e a evolução das interfaces — Fiction-Based Technical Insights &amp; Engineering Realism.</em></p>
+
+                    <div class="author-signature">
+                        <p><strong>Christian Mulato</strong><br>
+                        Engenheiro Construtor</p>
+                        <p>&copy; 2026 Christian Mulato. Todos os direitos reservados.</p>
                     </div>]]></content:encoded>
     </item>
 
