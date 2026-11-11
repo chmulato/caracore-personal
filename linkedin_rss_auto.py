@@ -360,7 +360,8 @@ def publish(title: str, summary: str, url: str, image_url: str = "") -> None:
             continue
 
         if 200 <= response.status_code < 300:
-            logging.info("Artigo publicado no LinkedIn: %s", url)
+            post_urn = response.headers.get("x-restli-id", "")
+            logging.info("Artigo publicado no LinkedIn: %s %s", url, post_urn)
             return
         if response.status_code in {400, 401, 403} or response.status_code < 500:
             raise RuntimeError(
