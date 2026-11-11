@@ -27,6 +27,7 @@ POSTS_DIRECTORY = Path(os.getenv("POSTS_DIRECTORY", "docs/articles"))
 PUBLIC_ARTICLES_PATH = os.getenv("PUBLIC_ARTICLES_PATH", "articles").strip("/")
 BLOG_BASE_URL = os.getenv("BLOG_BASE_URL", "https://personal.caracore.com.br").rstrip("/")
 LINKEDIN_API_URL = "https://api.linkedin.com/rest/posts"
+LINKEDIN_IMAGES_API_URL = "https://api.linkedin.com/rest/images?action=initializeUpload"
 LINKEDIN_VERSION = os.getenv("LINKEDIN_VERSION", "202601")
 REQUEST_TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 3
@@ -178,6 +179,9 @@ def extract_title(path: Path, content: str) -> str:
 DESCRIPTION_META = re.compile(
     r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', re.I | re.S
 )
+OG_IMAGE_META = re.compile(
+    r'<meta\s+property=["\']og:image["\']\s+content=["\'](.*?)["\']', re.I | re.S
+)
 
 
 def extract_summary(content: str, title: str) -> str:
@@ -201,6 +205,17 @@ def extract_summary(content: str, title: str) -> str:
     if summary.lower().startswith(title.lower()):
         summary = summary[len(title) :].strip(" .:-")
     return summary[:500].rstrip()
+
+
+def extract_og_image(content: str) -> str:
+    """Devolve a URL absoluta da imagem de capa (og:image), ou vazio."""
+    match = OG_IMAGE_META.search(content)
+    if not match:
+        return ""
+    image_url = html.unescape(match.group(1)).strip()
+    if image_url.startswith("/"):
+        image_url = f"{BLOG_BASE_URL}{image_url}"
+    return image_url
 
 
 def post_url(path: Path) -> str:
@@ -243,12 +258,63 @@ def build_post_text(title: str, summary: str) -> str:
     return f"{prefix}{safe_summary}"
 
 
-def publish(title: str, summary: str, url: str) -> None:
+def upload_image(image_url: str, access_token: str, person_urn: str) -> str | None:
+    """Sobe a imagem da capa para o LinkedIn e devolve o image URN.
+
+    O LinkedIn nao faz scraping de URL: o thumbnail do card de artigo
+    precisa ser um urn:li:image: obtido pelo fluxo da Images API
+    (initializeUpload -> PUT dos bytes). Falha devolve None — o post segue
+    sem thumbnail.
+    """
+    try:
+        image_response = requests.get(image_url, timeout=REQUEST_TIMEOUT_SECONDS)
+        image_response.raise_for_status()
+    except requests.RequestException as exc:
+        logging.warning("Download da imagem %s falhou: %s", image_url, exc)
+        return None
+
+    try:
+        init_response = requests.post(
+            LINKEDIN_IMAGES_API_URL,
+            headers={
+                "Authorization": f"Bearer {access_token}",
+                "Content-Type": "application/json",
+                "LinkedIn-Version": LINKEDIN_VERSION,
+                "X-Restli-Protocol-Version": "2.0.0",
+            },
+            json={"initializeUploadRequest": {"owner": person_urn}},
+            timeout=REQUEST_TIMEOUT_SECONDS,
+        )
+        init_response.raise_for_status()
+        init = init_response.json()["value"]
+        upload_response = requests.put(
+            init["uploadUrl"],
+            headers={
+                "Authorization": f"Bearer {access_token}",
+                "Content-Type": "application/octet-stream",
+            },
+            data=image_response.content,
+            timeout=REQUEST_TIMEOUT_SECONDS * 2,
+        )
+        upload_response.raise_for_status()
+    except (requests.RequestException, KeyError, ValueError) as exc:
+        logging.warning("Upload da imagem %s falhou: %s", image_url, exc)
+        return None
+    return init["image"]
+
+
+def publish(title: str, summary: str, url: str, image_url: str = "") -> None:
     """Publica um artigo usando a API REST atual de posts do LinkedIn."""
     access_token = required_environment("LINKEDIN_ACCESS_TOKEN")
     person_urn = required_environment("PERSON_URN")
     if not person_urn.startswith("urn:li:person:"):
         raise RuntimeError("PERSON_URN deve estar no formato urn:li:person:ID")
+
+    article = {"source": url, "title": title}
+    if image_url and not DRY_RUN:
+        image_urn = upload_image(image_url, access_token, person_urn)
+        if image_urn:
+            article["thumbnail"] = image_urn
 
     commit_key = os.getenv("GITHUB_SHA", url)
     idempotency_key = hashlib.sha256(f"{commit_key}:{url}".encode()).hexdigest()
@@ -262,11 +328,12 @@ def publish(title: str, summary: str, url: str) -> None:
             "thirdPartyDistributionChannels": [],
         },
         "lifecycleState": "PUBLISHED",
-        "content": {"article": {"source": url, "title": title}},
+        "content": {"article": article},
     }
 
     if DRY_RUN:
         logging.info("DRY_RUN ativo; payload que seria enviado ao LinkedIn:")
+        logging.info("Imagem da capa: %s", image_url or "(sem og:image)")
         logging.info(json.dumps(payload, ensure_ascii=False, indent=2))
         return
 
@@ -335,7 +402,7 @@ def main() -> int:
             content = (REPOSITORY_ROOT / path).read_text(encoding="utf-8")
             title = extract_title(path, content)
             url = post_url(path)
-            publish(title, extract_summary(content, title), url)
+            publish(title, extract_summary(content, title), url, extract_og_image(content))
             if not DRY_RUN:
                 ledger[key] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
                 save_published_ledger(ledger)
