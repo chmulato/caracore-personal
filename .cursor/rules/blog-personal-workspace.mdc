@@ -88,8 +88,9 @@ Hero do avulso 27/06: `2026_06_27_IMAGE_001.png`. Slug filtro no cartão: `ia me
 - **Secrets do repo:** `LINKEDIN_ACCESS_TOKEN` + `PERSON_URN` = `urn:li:person:xLkbJT0Y2` (o `sub` é pairwise por app — o URN do app «Artigos Retrô» **não** serve aqui; 403 silencioso se trocado)
 - **Token atual:** gerado em **10/11/2026**, expira **~09/01/2027** → renovar até **05/01/2027** (gerador: https://www.linkedin.com/developers/tools/oauth/token-generator, marcar os três escopos)
 - **Fluxo:** `.github/workflows/publish-linkedin.yml` → `linkedin_rss_auto.py` (usa `requests`, header `LinkedIn-Version: 202601`, `X-RestLi-Idempotency-Key`); ledger `linkedin_published.json` (272 entradas desde 12/09/2026); gatilho em push de `docs/articles/**` + `workflow_dispatch` (inputs: `article_path`, `force`, `dry_run` padrão `true`)
+- **Thumbnail:** o `og:image` sobe pela Images API (`initializeUpload` → PUT) e vira `thumbnail` do card; falha de upload não bloqueia o post; log registra o `urn:li:share` do post (`x-restli-id`) para validação externa
 - **Regras da API:** sem URL solta no texto (o markdown do LinkedIn corrompe `_` — ver `escape_linkedin_text`); escopo é write-only (GET de posts bloqueado); tokens só como secret — nunca em chat/argv/arquivo
-- **Status:** validado ponta a ponta em 10/11/2026 — post real publicado com sucesso (run 42932473114); suíte `python -m unittest test_update_feed test_linkedin_rss_auto -v` verde na esteira
+- **Status:** validado ponta a ponta em 10/11/2026 — post real com escopo novo publicado com sucesso e **imagem confirmada no card** (republicação forçada do artigo de 09/11 «Do RPA ao Silício — cap. 08», run 42940021919); suíte `python -m unittest test_update_feed test_linkedin_rss_auto -v` verde na esteira
 
 ## Checklist ao adicionar conteúdo
 
