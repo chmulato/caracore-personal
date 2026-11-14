@@ -55,10 +55,18 @@ class ScheduledArticleTests(unittest.TestCase):
             with patch.object(linkedin, "POSTS_DIRECTORY", articles_dir):
                 self.assertEqual(linkedin.scheduled_articles(date(2027, 1, 5)), [])
 
-    def test_pushes_do_not_publish_articles_with_scheduled_dates_early(self) -> None:
-        scheduled = Path("docs/articles/2026_11_16_due.html")
-        unscheduled = Path("docs/articles/2026_11_14_existing.html")
-        self.assertEqual(linkedin.push_articles([scheduled, unscheduled]), [unscheduled])
+    def test_pushes_exclude_all_future_dated_articles(self) -> None:
+        scheduled_2026 = Path("docs/articles/2026_11_16_due.html")
+        dated_2027 = Path("docs/articles/2027_04_20_future.html")
+        today = Path("docs/articles/2026_11_14_current.html")
+        undated = Path("docs/articles/new_article.html")
+        self.assertEqual(
+            linkedin.push_articles(
+                [scheduled_2026, dated_2027, today, undated],
+                today=date(2026, 11, 14),
+            ),
+            [today, undated],
+        )
 
 
 if __name__ == "__main__":

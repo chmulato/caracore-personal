@@ -5,7 +5,7 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Sat, 14 Nov 2026 22:18:40 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 22:36:00 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
@@ -7389,7 +7389,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
       <title><![CDATA[Soberania Operacional no Balcão: continuidade, dados e autonomia possível]]></title>
       <link>https://personal.caracore.com.br/articles/2027_05_16_serie_engenharia_urgencia_ep03.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[Continuidade local, estimativas transparentes e limites de integração: princípios para um ponto de venda resiliente e sem promessas exageradas.]]></description>
+      <description><![CDATA[Continuidade local, estimativas transparentes e limites de integração: princípios para um ponto de venda resiliente, sem confundir autonomia operacional com ausência de dependências externas.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2027_05_16_IMAGE_001.webp" length="37834" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2027_05_16_IMAGE_001.webp" medium="image" type="image/webp" fileSize="37834" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_05_16_serie_engenharia_urgencia_ep03.html</guid>
@@ -7659,7 +7659,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
       <title><![CDATA[O Nevoeiro Tributário: transição, adaptação e capital de giro]]></title>
       <link>https://personal.caracore.com.br/articles/2027_05_06_serie_engenharia_urgencia_ep02.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[O cronograma da reforma tributária do consumo, os limites do split payment e as perguntas concretas sobre adaptação e capital de giro.]]></description>
+      <description><![CDATA[O cronograma da reforma tributária do consumo, os limites do split payment e as perguntas concretas sobre adaptação e capital de giro. O artigo distingue regras legais, efeitos possíveis e afirmações que exigiriam evidência.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2027_05_06_IMAGE_001.webp" length="49916" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2027_05_06_IMAGE_001.webp" medium="image" type="image/webp" fileSize="49916" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_05_06_serie_engenharia_urgencia_ep02.html</guid>
@@ -7963,7 +7963,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
       <title><![CDATA[A Arquitetura da Urgência: quando o gargalo vira mercado]]></title>
       <link>https://personal.caracore.com.br/articles/2027_04_26_serie_engenharia_urgencia_ep01.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[Uma leitura do relatório do National Audit Office sobre a preparação da fronteira britânica e os limites entre gargalo, consequência e intenção.]]></description>
+      <description><![CDATA[Uma leitura do relatório do National Audit Office sobre a preparação da fronteira britânica e os limites entre gargalo, consequência e intenção. O texto separa riscos documentados de hipóteses sobre quem se beneficia da urgência.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2027_04_26_IMAGE_001.webp" length="49046" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2027_04_26_IMAGE_001.webp" medium="image" type="image/webp" fileSize="49046" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_04_26_serie_engenharia_urgencia_ep01.html</guid>
@@ -8040,7 +8040,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
       <title><![CDATA[Série: A Engenharia do Choque Controlado — Chamada e índice]]></title>
       <link>https://personal.caracore.com.br/articles/2027_04_20_serie_engenharia_urgencia_chamada.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[Chamada e índice de uma série sobre crises, complexidade tributária e autonomia operacional, distinguindo evidências de hipóteses.]]></description>
+      <description><![CDATA[Chamada e índice de uma série sobre crises, complexidade tributária e autonomia operacional, distinguindo evidências de hipóteses. Três capítulos conectam o caso britânico, a transição brasileira e a operação do varejo.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2027_04_20_IMAGE_001.webp" length="47790" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2027_04_20_IMAGE_001.webp" medium="image" type="image/webp" fileSize="47790" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2027_04_20_serie_engenharia_urgencia_chamada.html</guid>

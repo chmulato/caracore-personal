@@ -171,13 +171,13 @@ def scheduled_articles(today: date) -> list[Path]:
     )
 
 
-def is_in_schedule_window(path: Path) -> bool:
-    published_on = article_date(path)
-    return published_on is not None and SCHEDULE_START <= published_on <= SCHEDULE_END
-
-
-def push_articles(paths: list[Path]) -> list[Path]:
-    return [path for path in paths if not is_in_schedule_window(path)]
+def push_articles(paths: list[Path], today: date | None = None) -> list[Path]:
+    current_date = today or datetime.now(SCHEDULE_TIMEZONE).date()
+    return [
+        path
+        for path in paths
+        if (published_on := article_date(path)) is None or published_on <= current_date
+    ]
 
 
 def extract_markdown_title(content: str) -> str:
