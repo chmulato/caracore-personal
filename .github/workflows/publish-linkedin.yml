@@ -7,6 +7,11 @@ on:
       - master
     paths:
       - "docs/articles/**"
+  schedule:
+    - cron: "30 7 16,27,30 11 *"
+      timezone: "America/Sao_Paulo"
+    - cron: "30 7 5,10,15,22,29 12 *"
+      timezone: "America/Sao_Paulo"
   workflow_dispatch:
     inputs:
       article_path:
@@ -54,7 +59,7 @@ jobs:
           python -c "import xml.etree.ElementTree as ET; ET.parse('docs/feed.xml')"
           python -c "import xml.etree.ElementTree as ET; ET.parse('docs/sitemap.xml')"
 
-      - name: Publicar artigos alterados
+      - name: Publicar artigos alterados ou previstos para hoje
         env:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           PERSON_URN: ${{ secrets.PERSON_URN }}
@@ -65,7 +70,8 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           ARTICLE_PATH: ${{ github.event.inputs.article_path }}
           FORCE_REPUBLISH: ${{ github.event.inputs.force }}
-          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          PUBLISH_DUE_TODAY: ${{ github.event_name == 'schedule' }}
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || github.event.inputs.dry_run }}
         run: python linkedin_rss_auto.py
 
       - name: Commitar feed.xml, sitemap.xml e registro de publicacoes

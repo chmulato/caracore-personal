@@ -14,10 +14,11 @@ import os
 import re
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -33,6 +34,9 @@ REQUEST_TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 3
 MAX_POST_LENGTH = 3000
 PUBLISHED_LEDGER_PATH = REPOSITORY_ROOT / "linkedin_published.json"
+SCHEDULE_START = date(2026, 11, 15)
+SCHEDULE_END = date(2026, 12, 31)
+SCHEDULE_TIMEZONE = ZoneInfo("America/Sao_Paulo")
 DRY_RUN = os.getenv("DRY_RUN", "").strip().lower() == "true"
 
 
@@ -143,6 +147,37 @@ def git_changed_files() -> list[Path]:
         and not Path(line.strip()).as_posix().startswith(posts_prefix + "assets/")
     }
     return sorted(changed)
+
+
+def article_date(path: Path) -> date | None:
+    match = re.match(r"^(\d{4})_(\d{2})_(\d{2})_", path.name)
+    if not match:
+        return None
+    try:
+        return date(*(int(part) for part in match.groups()))
+    except ValueError:
+        return None
+
+
+def scheduled_articles(today: date) -> list[Path]:
+    if not SCHEDULE_START <= today <= SCHEDULE_END:
+        return []
+    return sorted(
+        path
+        for path in POSTS_DIRECTORY.iterdir()
+        if path.is_file()
+        and path.suffix.lower() in {".html", ".md", ".markdown"}
+        and article_date(path) == today
+    )
+
+
+def is_in_schedule_window(path: Path) -> bool:
+    published_on = article_date(path)
+    return published_on is not None and SCHEDULE_START <= published_on <= SCHEDULE_END
+
+
+def push_articles(paths: list[Path]) -> list[Path]:
+    return [path for path in paths if not is_in_schedule_window(path)]
 
 
 def extract_markdown_title(content: str) -> str:
@@ -378,12 +413,17 @@ def main() -> int:
 
     forced_path = os.getenv("ARTICLE_PATH", "").strip()
     force_republish = os.getenv("FORCE_REPUBLISH", "").strip().lower() == "true"
+    publish_due_today = os.getenv("PUBLISH_DUE_TODAY", "").strip().lower() == "true"
 
     if forced_path:
         changed_files = [Path(forced_path)]
+    elif publish_due_today:
+        today = datetime.now(SCHEDULE_TIMEZONE).date()
+        changed_files = scheduled_articles(today)
+        logging.info("Selecionando artigos editoriais de %s", today.isoformat())
     else:
         try:
-            changed_files = git_changed_files()
+            changed_files = push_articles(git_changed_files())
         except subprocess.CalledProcessError as exc:
             logging.error("Publicacao interrompida: %s", exc)
             return 1
