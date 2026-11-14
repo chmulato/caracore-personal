@@ -266,14 +266,31 @@ O workflow `publish-linkedin.yml` (`39bfebb`) está ativo em `master`, com publi
 
 As oito páginas agendadas responderam HTTP 200. Marcações antigas de 12/09 para esses oito artigos foram removidas de `linkedin_published.json`, para não bloquearem os posts; o ledger é atualizado após publicação bem-sucedida. Ato I e Ato II têm publicação confirmada pelos Actions `43594621070` e `43594730483` e URNs registrados acima.
 
+### Republicações registradas (trilogia A Engenharia do Choque Controlado)
+
+Os quatro artigos foram antecipados para 14/11/2026, com imagens, e publicados no LinkedIn no mesmo dia. O dono determinou que sejam **relançados nas datas editoriais originais**, em abril e maio de 2027. O registro fica em `linkedin_republicacoes.json` (data → arquivos) e é a **única** exceção ao bloqueio de datas fora da janela de 2026: no modo agendado, o script publica os artigos do dia **e** os relançamentos registrados, ignorando o ledger somente para eles.
+
+| Data | Artigo | Estado |
+|---|---|---|
+| 20/04/2027 | `2026_11_14_serie_engenharia_urgencia_chamada.html` | Relançamento registrado |
+| 26/04/2027 | `2026_11_14_serie_engenharia_urgencia_ep01.html` | Relançamento registrado |
+| 06/05/2027 | `2026_11_14_serie_engenharia_urgencia_ep02.html` | Relançamento registrado |
+| 16/05/2027 | `2026_11_14_serie_engenharia_urgencia_ep03.html` | Relançamento registrado |
+
+O workflow `publish-linkedin.yml` ganhou os crons `30 7 20,26 4 *` e `30 7 6,16 5 *` (07h30 `America/Sao_Paulo`). Os endereços antigos (`2027_04_20_*`, `2027_04_26_*`, `2027_05_06_*`, `2027_05_16_*`) são páginas de redirecionamento para os atuais, então links antigos continuam válidos.
+
+**Pré-requisito na data:** o `LINKEDIN_ACCESS_TOKEN` vale cerca de 2 meses. Se estiver vencido em 2027, o relançamento falha e precisa ser feito à mão com `workflow_dispatch` (`force=true`, `dry_run=false`) depois de renovar o Secret. A imagem de capa é a mesma dos artigos (`2026_11_14_IMAGE_001..004.png`).
+
+**Segundo pré-requisito:** o GitHub desativa workflow agendado depois de 60 dias sem atividade no repositório. Como há publicações previstas para dezembro/2026, a agenda chega viva a abril/2027; se o repositório ficar parado mais de 60 dias antes de uma data, reativar em Actions → "Publicar artigo no LinkedIn" → "Enable workflow" e conferir com `workflow_dispatch` (`dry_run=true`).
+
 ## 6. Automação de Publicação no LinkedIn
 
 1. O workflow `.github/workflows/publish-linkedin.yml` é acionado por `push` nas branches `master` ou `main` quando houver alteração em `docs/articles/**`, por `workflow_dispatch` e pelas datas do calendário de 2026.
-2. Às 07h30 `America/Sao_Paulo`, o modo agendado seleciona os artigos cuja data no nome corresponde ao dia atual. O código bloqueia datas fora de 15/11–31/12/2026; o início do job pode atrasar na fila.
+2. Às 07h30 `America/Sao_Paulo`, o modo agendado seleciona os artigos cuja data no nome corresponde ao dia atual. O código bloqueia datas fora de 15/11–31/12/2026, exceto os relançamentos registrados em `linkedin_republicacoes.json`; o início do job pode atrasar na fila.
 3. Em pushes, `linkedin_rss_auto.py` usa `GITHUB_BEFORE` e `GITHUB_SHA` para identificar arquivos adicionados ou modificados e não publica antecipadamente artigos dentro da janela agendada. `workflow_dispatch` é imediato, não é uma ferramenta de agendamento.
 4. **Filtro de Segurança:** O script ignora expressamente arquivos dentro de `docs/articles/assets/` (como `README.html`), garantindo que apenas artigos reais na raiz de `docs/articles/` sejam avaliados.
 5. O script aceita Markdown com frontmatter YAML e também os artigos HTML existentes. Para Markdown, a extensão `.md` é convertida para `.html` na URL pública.
-6. O histórico fica em `linkedin_published.json`. Entradas existentes são ignoradas salvo `force=true`; registros só são gravados após publicação real, não em `DRY_RUN`.
+6. O histórico fica em `linkedin_published.json`. Entradas existentes são ignoradas salvo `force=true` ou relançamento registrado para o dia; registros só são gravados após publicação real, não em `DRY_RUN`.
 7. A publicação usa `POST https://api.linkedin.com/rest/posts`, o escopo `w_member_social` e uma chave de idempotência derivada do commit e da URL.
 
 ## 7. Checklist de Verificação para IAs

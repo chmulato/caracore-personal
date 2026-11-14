@@ -1,7 +1,9 @@
+import json
+import os
 import subprocess
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from unittest.mock import patch
 
@@ -67,6 +69,54 @@ class ScheduledArticleTests(unittest.TestCase):
             ),
             [today, undated],
         )
+
+
+class RepublicationTests(unittest.TestCase):
+    def test_republicacoes_do_dia_le_o_registro_da_data(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            registro = Path(temp_dir) / "linkedin_republicacoes.json"
+            registro.write_text(
+                json.dumps({"2027-04-20": ["docs/articles/a.html"]}),
+                encoding="utf-8",
+            )
+            with patch.object(linkedin, "REPUBLICACOES_PATH", registro):
+                self.assertEqual(
+                    linkedin.republicacoes_do_dia(date(2027, 4, 20)),
+                    [Path("docs/articles/a.html")],
+                )
+                self.assertEqual(linkedin.republicacoes_do_dia(date(2027, 4, 21)), [])
+
+    def test_registro_real_aponta_para_artigos_existentes(self) -> None:
+        registro = json.loads(linkedin.REPUBLICACOES_PATH.read_text(encoding="utf-8"))
+        for caminho in [item for caminhos in registro.values() for item in caminhos]:
+            self.assertTrue((linkedin.REPOSITORY_ROOT / caminho).exists(), caminho)
+
+    def test_relancamento_do_dia_publica_mesmo_ja_estando_no_ledger(self) -> None:
+        hoje = datetime.now(linkedin.SCHEDULE_TIMEZONE).date()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            artigo = Path(temp_dir) / "docs" / "articles" / "artigo.html"
+            artigo.parent.mkdir(parents=True)
+            artigo.write_text(
+                "<html><head><title>Artigo</title></head><body></body></html>",
+                encoding="utf-8",
+            )
+            registro = Path(temp_dir) / "linkedin_republicacoes.json"
+            registro.write_text(
+                json.dumps({hoje.isoformat(): [artigo.as_posix()]}),
+                encoding="utf-8",
+            )
+            ledger = Path(temp_dir) / "ledger.json"
+            ledger.write_text(
+                json.dumps({artigo.as_posix(): "2026-11-14T22:55:41Z"}),
+                encoding="utf-8",
+            )
+            with patch.object(linkedin, "REPUBLICACOES_PATH", registro), \
+                 patch.object(linkedin, "PUBLISHED_LEDGER_PATH", ledger), \
+                 patch.object(linkedin, "scheduled_articles", return_value=[]), \
+                 patch.object(linkedin, "publish") as publish, \
+                 patch.dict(os.environ, {"PUBLISH_DUE_TODAY": "true"}):
+                self.assertEqual(linkedin.main(), 0)
+            publish.assert_called_once()
 
 
 if __name__ == "__main__":

@@ -12,6 +12,10 @@ on:
       timezone: "America/Sao_Paulo"
     - cron: "30 7 5,10,15,22,29 12 *"
       timezone: "America/Sao_Paulo"
+    - cron: "30 7 20,26 4 *"
+      timezone: "America/Sao_Paulo"
+    - cron: "30 7 6,16 5 *"
+      timezone: "America/Sao_Paulo"
   workflow_dispatch:
     inputs:
       article_path:

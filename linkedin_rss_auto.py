@@ -34,6 +34,7 @@ REQUEST_TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 3
 MAX_POST_LENGTH = 3000
 PUBLISHED_LEDGER_PATH = REPOSITORY_ROOT / "linkedin_published.json"
+REPUBLICACOES_PATH = REPOSITORY_ROOT / "linkedin_republicacoes.json"
 SCHEDULE_START = date(2026, 11, 15)
 SCHEDULE_END = date(2026, 12, 31)
 SCHEDULE_TIMEZONE = ZoneInfo("America/Sao_Paulo")
@@ -169,6 +170,14 @@ def scheduled_articles(today: date) -> list[Path]:
         and path.suffix.lower() in {".html", ".md", ".markdown"}
         and article_date(path) == today
     )
+
+
+def republicacoes_do_dia(dia: date) -> list[Path]:
+    """Artigos que devem ser relancados no dia, mesmo ja constando no ledger."""
+    if not REPUBLICACOES_PATH.exists():
+        return []
+    registro = json.loads(REPUBLICACOES_PATH.read_text(encoding="utf-8"))
+    return [Path(caminho) for caminho in registro.get(dia.isoformat(), [])]
 
 
 def push_articles(paths: list[Path], today: date | None = None) -> list[Path]:
@@ -415,12 +424,16 @@ def main() -> int:
     force_republish = os.getenv("FORCE_REPUBLISH", "").strip().lower() == "true"
     publish_due_today = os.getenv("PUBLISH_DUE_TODAY", "").strip().lower() == "true"
 
+    relancamentos: set[Path] = set()
     if forced_path:
         changed_files = [Path(forced_path)]
     elif publish_due_today:
         today = datetime.now(SCHEDULE_TIMEZONE).date()
-        changed_files = scheduled_articles(today)
+        relancamentos = set(republicacoes_do_dia(today))
+        changed_files = sorted(set(scheduled_articles(today)) | relancamentos)
         logging.info("Selecionando artigos editoriais de %s", today.isoformat())
+        if relancamentos:
+            logging.info("Relancamentos registrados para hoje: %d", len(relancamentos))
     else:
         try:
             changed_files = push_articles(git_changed_files())
@@ -436,7 +449,7 @@ def main() -> int:
     had_failure = False
     for path in changed_files:
         key = path.as_posix()
-        if key in ledger and not force_republish:
+        if key in ledger and not force_republish and path not in relancamentos:
             logging.info("Ja publicado em %s; ignorando %s", ledger[key], key)
             continue
         try:
