@@ -12,7 +12,7 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 - **271** HTML em `docs/articles/` (março de 2024 a março de 2029). O acervo completo, o feed RSS e o sitemap acompanham esse total.
 - Ciclo ativo: **jun/2026 – mar/2029** | histórico anterior preservado antes de **04/06/2026**
-- **Última memória:** 12/10/2026 — redesign da home para revista digital moderna, migração para capas WebP otimizadas (960px), blindagem da esteira do LinkedIn contra assets e suíte de testes automatizados (`test_update_feed.py` e `test_linkedin_rss_auto.py`). Em produção no GitHub Pages.
+- **Última memória:** 14/11/2026 — trilogia *A Engenharia do Choque Controlado* antecipada para 14/11/2026 (site + 4 posts com imagem no LinkedIn) e relançamento agendado nas datas editoriais originais (20/04, 26/04, 06/05 e 16/05/2027) via `linkedin_republicacoes.json`; ver § Integração LinkedIn. Antes: redesign da home para revista digital, capas WebP (960px) e blindagem da esteira do LinkedIn contra assets (12/10/2026).
 - **Home de Revista Digital:**
   * Seções: Destaques (3), Últimos Artigos (6), Séries (6 tiles com filtro), Leituras Essenciais (curadoria editorial) e Arquivo (271 artigos em ordem decrescente).
   * **Regra Temporal:** Destaques e Últimos Artigos mostram apenas textos com data `<= hoje` (`America/Sao_Paulo`). O acervo futuro fica integralmente preservado no `#arquivo`, nos filtros e nas buscas.
@@ -91,6 +91,12 @@ Hero do avulso 27/06: `2026_06_27_IMAGE_001.png`. Slug filtro no cartão: `ia me
 - **Thumbnail:** o `og:image` sobe pela Images API (`initializeUpload` → PUT) e vira `thumbnail` do card; falha de upload não bloqueia o post; log registra o `urn:li:share` do post (`x-restli-id`) para validação externa
 - **Regras da API:** sem URL solta no texto (o markdown do LinkedIn corrompe `_` — ver `escape_linkedin_text`); escopo é write-only (GET de posts bloqueado); tokens só como secret — nunca em chat/argv/arquivo
 - **Status:** validado ponta a ponta em 10/11/2026 — post real com escopo novo publicado com sucesso e **imagem confirmada no card** (republicação forçada do artigo de 09/11 «Do RPA ao Silício — cap. 08», run 42940021919); suíte `python -m unittest test_update_feed test_linkedin_rss_auto -v` verde na esteira
+- **Relançamentos 2027 (registrado em 14/11/2026):** a trilogia *A Engenharia do Choque Controlado* (chamada + ep01–ep03) foi antecipada para 14/11/2026 e publicada no LinkedIn no mesmo dia, a pedido do dono; as datas editoriais originais ficaram como **relançamento** — 20/04 (chamada), 26/04 (ep01), 06/05 (ep02) e 16/05/2027 (ep03).
+  * Registro: `linkedin_republicacoes.json` (`data → [arquivos]`), a **única** exceção ao bloqueio de datas fora de 15/11–31/12/2026; no modo agendado o script soma esses arquivos aos do dia e ignora o ledger **somente** para eles.
+  * Crons: `30 7 20,26 4 *` e `30 7 6,16 5 *` (`America/Sao_Paulo`).
+  * Endereços antigos (`2027_04_20_*`, `2027_04_26_*`, `2027_05_06_*`, `2027_05_16_*`) são páginas `noindex` de redirecionamento para os atuais e ficam fora de `feed.xml`, `sitemap.xml` e do validador (`SKIP_NAMES`/`REDIRECTS`).
+  * **Pré-requisitos na data:** renovar `LINKEDIN_ACCESS_TOKEN` antes de abril/2027 (o token de 10/11/2026 expira ~09/01/2027) e conferir se o agendamento não foi desativado pelos 60 dias de inatividade do GitHub (Actions → "Enable workflow"). Se a execução falhar, publicar à mão com `workflow_dispatch` (`force=true`, `dry_run=false`).
+  * Capa: as mesmas imagens dos artigos (`2026_11_14_IMAGE_001..004.png`).
 
 ## Checklist ao adicionar conteúdo
 

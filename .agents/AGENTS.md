@@ -169,6 +169,14 @@ Para garantir que o conteúdo seja perfeitamente exportado e consumido por redes
 4. **Data em RFC-822:** A tag `<pubDate>` de cada post segue o formato clássico RFC-822 (ex: `Mon, 06 Mar 2028 00:00:00 +0000`). A tag `<lastBuildDate>` do canal registra a data e hora real em UTC da execução do script, garantindo integridade nos leitores RSS.
 5. **Geração Atômica e Proteção CDATA:** Todo o conteúdo descritivo e o corpo interno na tag `<content:encoded>` são isolados em `<![CDATA[ ... ]]>`. O XML é validado com `xml.etree.ElementTree` antes de substituir o arquivo `docs/feed.xml`. Se houver erro, o feed anterior permanece intacto.
 
+### Publicação no LinkedIn — onde está a verdade
+
+O agendador é `publish-linkedin.yml` + `linkedin_rss_auto.py`; o estado completo (secrets, token, ledger, regras da API, relançamentos) fica em `AGENTS.md` (raiz) e em `.cursor/rules/blog-personal-workspace.mdc` — **não duplicar aqui**. Três pontos que um agente precisa saber antes de mexer:
+
+1. **Datas fora de 15/11–31/12/2026 são bloqueadas**, com uma única exceção: o arquivo `linkedin_republicacoes.json` (`data → [arquivos]`). Em 14/11/2026 a trilogia *A Engenharia do Choque Controlado* foi antecipada para 14/11 e ficou registrada para relançamento em 20/04, 26/04, 06/05 e 16/05/2027 (crons `30 7 20,26 4 *` e `30 7 6,16 5 *`, `America/Sao_Paulo`). Para esses artigos o script ignora o ledger **somente** na data registrada.
+2. **`workflow_dispatch` publica na hora**, não agenda; `dry_run` tem padrão `true` e `force=true` ignora o ledger — só usar com autorização e depois de conferir o histórico em `linkedin_published.json`.
+3. **Antes de abril/2027:** renovar o `LINKEDIN_ACCESS_TOKEN` (o de 10/11/2026 expira ~09/01/2027) e conferir se o GitHub não desativou o agendamento por 60 dias sem atividade.
+
 ---
 
 ## 🌐 Evitando Câmaras de Eco (Diretrizes de Evolução)
