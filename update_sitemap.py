@@ -15,7 +15,14 @@ ARTICLES_DIR = ROOT / "docs" / "articles"
 SITEMAP_PATH = ROOT / "docs" / "sitemap.xml"
 
 SITE = "https://personal.caracore.com.br"
-SKIP_NAMES = {"README.html"}
+# Redirecionamentos mantidos para links ja publicados; nao entram no sitemap.
+SKIP_NAMES = {
+    "README.html",
+    "2027_04_20_serie_engenharia_urgencia_chamada.html",
+    "2027_04_26_serie_engenharia_urgencia_ep01.html",
+    "2027_05_06_serie_engenharia_urgencia_ep02.html",
+    "2027_05_16_serie_engenharia_urgencia_ep03.html",
+}
 DATE_PREFIX = re.compile(r"^(\d{4})_(\d{2})_(\d{2})_")
 SITEMAP_NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 DAILY_URLS = {f"{SITE}/", f"{SITE}/articles.html"}

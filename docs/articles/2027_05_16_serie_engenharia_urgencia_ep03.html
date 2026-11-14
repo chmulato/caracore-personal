@@ -1,147 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Soberania Operacional no Balcão: continuidade, dados e autonomia possível</title>
     <meta name="description" content="Continuidade local, estimativas transparentes e limites de integração: princípios para um ponto de venda resiliente, sem confundir autonomia operacional com ausência de dependências externas.">
-    <meta name="author" content="Christian Mulato">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://personal.caracore.com.br/articles/2026_11_14_serie_engenharia_urgencia_ep03.html">
+    <meta http-equiv="refresh" content="0; url=/articles/2026_11_14_serie_engenharia_urgencia_ep03.html">
     <meta property="og:title" content="Soberania Operacional no Balcão: continuidade, dados e autonomia possível">
     <meta property="og:description" content="Continuidade local, estimativas transparentes e limites de integração: princípios para um ponto de venda resiliente, sem confundir autonomia operacional com ausência de dependências externas.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://personal.caracore.com.br/articles/2027_05_16_serie_engenharia_urgencia_ep03.html">
-    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2027_05_16_IMAGE_001.png">
+    <meta property="og:url" content="https://personal.caracore.com.br/articles/2026_11_14_serie_engenharia_urgencia_ep03.html">
+    <meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/2026_11_14_IMAGE_004.png">
     <meta property="og:image:width" content="2752">
     <meta property="og:image:height" content="1536">
-    <meta property="og:site_name" content="Christian Mulato Dev Blog">
+    <meta property="og:site_name" content="Christian Mulato">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Soberania Operacional no Balcão: continuidade, dados e autonomia possível">
     <meta name="twitter:description" content="Continuidade local, estimativas transparentes e limites de integração: princípios para um ponto de venda resiliente, sem confundir autonomia operacional com ausência de dependências externas.">
-    <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/2027_05_16_IMAGE_001.png">
-    <link rel="canonical" href="https://personal.caracore.com.br/articles/2027_05_16_serie_engenharia_urgencia_ep03.html">
-    <meta property="article:published_time" content="2027-05-16">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "name": "Christian Mulato Dev Blog",
-      "headline": "Soberania Operacional no Balcão: continuidade, dados e autonomia possível",
-      "description": "Continuidade local, estimativas transparentes e limites de integração: princípios para um ponto de venda resiliente, sem confundir autonomia operacional com ausência de dependências externas.",
-      "image": "https://personal.caracore.com.br/articles/assets/img/2027_05_16_IMAGE_001.png",
-      "author": {
-        "@type": "Person",
-        "name": "Christian Mulato"
-      },
-      "datePublished": "2027-05-16",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://personal.caracore.com.br/articles/2027_05_16_serie_engenharia_urgencia_ep03.html"
-      }
-    }
-    </script>
-    <title>Soberania Operacional no Balcão — A Engenharia do Choque Controlado | Christian Mulato Dev Blog</title>
-    <meta name="keywords" content="PDV, SQLite, offline-first, autonomia operacional, varejo, resiliência, integração fiscal">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/article.css">
+    <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/2026_11_14_IMAGE_004.png">
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" aria-label="Ativar tema escuro"><span id="themeIcon">🌙</span></button>
-<header class="site-header">
-    <div class="container">
-        <h1><a href="../index.html">Christian Mulato Dev Blog</a></h1>
-        <nav class="main-nav"><a href="../index.html">Início</a><a href="#sobre">Sobre</a></nav>
-    </div>
-</header>
-<main class="main-content">
-    <div class="container">
-        <article class="post">
-            <header class="post-header">
-                <p class="post-serie-kicker">A Engenharia do Choque Controlado — Parte III</p>
-                <h1 class="post-title">Soberania Operacional no Balcão: continuidade, dados e autonomia possível</h1>
-                <div class="post-meta"><time datetime="2027-05-16">16/05/2027</time></div>
-            </header>
-            <div class="post-content">
-                <figure class="hero-image-frame">
-                    <img src="assets/img/2027_05_16_IMAGE_001.webp" alt="Balcão de comércio com terminal de ponto de venda e operação local" class="hero-image">
-                    <figcaption class="hero-image-caption">Autonomia no varejo começa por saber o que continua funcionando quando um serviço externo não responde.</figcaption>
-                </figure>
-                <p>O caixa de uma loja é uma fronteira pequena, mas decisiva. Ali se encontram estoque, preço, pagamento, documento fiscal, conexão e atendimento. Quando uma dependência falha, o efeito depende do que parou: o registro local pode continuar enquanto o pagamento ou a emissão fiscal aguardam uma resposta. A fila cresce, e o comerciante precisa decidir se espera, tenta de novo ou segue um procedimento de contingência.</p>
-
-                <p>É tentador responder a esse cenário com uma promessa total: “o sistema nunca para”, “o imposto é calculado automaticamente” ou “tudo funciona offline”. Sistemas reais não eliminam todas as falhas. Uma arquitetura responsável torna explícitos seus limites, preserva o que pode operar localmente e define como reconciliar o que depende de terceiros.</p>
-
-                <h2>O que significa operar localmente</h2>
-                <p>Na CaraCore PDV v4.0.0, o banco operacional SQLite fica na máquina do estabelecimento. No ensaio C2 do Gate E, uma venda local em dinheiro foi concluída com os destinos de atualização e de verificação de conectividade apontados para uma porta local fechada. Em 79 amostras, ao longo de cerca de 24 segundos, não foram observadas conexões TCP externas. É uma evidência de continuidade para esse fluxo e esse cenário delimitado — não uma prova de que todas as funções operam sem internet ou em qualquer tipo de falha de rede.</p>
-
-                <p>Local não significa isolado de tudo. Pagamento eletrônico requer resposta do provedor; autorização fiscal segue regras e serviços próprios; sincronização, cópias de segurança e suporte também precisam de um plano. Uma fila local pode guardar uma tarefa para tentar novamente, mas não transforma uma nota ainda não autorizada em documento válido. Continuidade operacional e conformidade fiscal são objetivos relacionados, não sinônimos.</p>
-
-                <h2>Três controles que valem mais do que um slogan</h2>
-                <p>Os controles a seguir são critérios para projetar e avaliar um sistema; não significam que todos estejam presentes ou homologados na v4.0.0. Ter dados locais é uma parte da autonomia operacional, não uma garantia de resiliência completa.</p>
-                <h3>1. Separar o que pode continuar do que precisa aguardar</h3>
-                <p>O sistema deve informar se o produto foi registrado, se o pagamento foi confirmado e se o documento fiscal foi autorizado. Esses estados não podem ser confundidos. Se a rede cair depois de o cliente pagar, uma repetição cega pode cobrar duas vezes; se a resposta do provedor atrasar, o caixa não deve inventar uma confirmação.</p>
-                <p>Uma operação resiliente usa identificadores idempotentes, estados visíveis, tentativas controladas e reconciliação. O atendente precisa saber o que fazer, e o gerente precisa conseguir revisar o resultado depois.</p>
-                <p>Em um exemplo hipotético, se a conexão cair depois de o cliente iniciar um pagamento, o caixa deve indicar que a operação aguarda confirmação e evitar uma nova cobrança até conferir o resultado da primeira tentativa. É nesse tipo de situação que identificadores idempotentes, estados visíveis e reconciliação fazem diferença.</p>
-
-                <h3>2. Tratar preço e tributo como estimativa rastreável</h3>
-                <p>Para proteger a margem, não basta mostrar faturamento bruto. O lojista precisa relacionar preço, custo, descontos, tributos aplicáveis, taxas do meio de pagamento e prazo de recebimento. Se o sistema exibir IBS ou CBS projetados, deve mostrar a regra e os parâmetros utilizados, identificar a ausência de alíquota e deixar claro quando o número é estimativa. Uma projeção de caixa não substitui a apuração contábil.</p>
-                <p>O mesmo cuidado vale para o capital de giro. O split payment pode alterar o momento em que certos valores ficam disponíveis, mas o efeito depende da operação e da implementação aplicável. A ferramenta deve permitir comparar cenários e conciliar valores recebidos e recolhidos; não deve apresentar o crédito como inevitável nem vender uma solução financeira como única saída.</p>
-
-                <h3>3. Preservar dados, saída e responsabilidade</h3>
-                <p>Autonomia também é poder exportar cadastros e histórico, manter cópias verificáveis e entender quem atende cada falha. Integrações com pagamento e emissão fiscal devem ser desacopladas o bastante para que um problema em um provedor não apague a venda nem deixe o operador sem orientação. Isso exige testes de falha, auditoria, backups restauráveis e contratos claros — não apenas uma tela bonita.</p>
-
-                <h2>O que a v4.0.0 demonstra — e o que não promete</h2>
-                <p>O ensaio C2 não simulou falhas de DNS, rota ou proxy e não prova funcionamento universal sem conexão. Também não demonstra autorização de pagamento eletrônico, emissão fiscal offline, exportação completa dos dados ou restauração de um backup em massa; esses pontos exigem evidências próprias.</p>
-
-                <p>Na fotografia editorial de 14/11/2026, Mercado Pago para pagamentos/PIX e PlugNotas para emissão de NFC-e sob demanda faziam parte do desenvolvimento da v4.1.0, não da versão 4.0.0 lançada. Os fluxos em desenvolvimento tinham sido testados contra contratos e ambientes simulados, mas ainda não havia chamada autenticada aos provedores. A fila fiscal sem internet (P5) e as etapas de XML, DANFCE, cancelamento e inutilização na tela (P4) ainda constavam como trabalho futuro. Um teste contra mock ajuda a verificar o código do PDV; não prova integração real, homologação nem disponibilidade para uma loja.</p>
-
-                <p>Essa distinção importa para qualquer produto: informe a versão, o fluxo e o cenário que foram de fato testados. Este registro retrata o estado conhecido em 14/11/2026 e não deve ser lido como o status da versão em 2027. Roadmap não é homologação, e homologação não prova, por si só, que toda operação continuará disponível durante uma falha.</p>
-
-                <h2>Autonomia sem isolamento</h2>
-                <p>Soberania operacional não é recusar todo serviço externo. É escolher conscientemente onde a dependência é necessária, manter controle sobre os dados que pertencem ao negócio e criar uma rota clara para falhas previsíveis. O caixa pode continuar registrando operações locais enquanto aguarda uma resposta; não pode fingir que recebeu uma confirmação que não recebeu.</p>
-
-                <p>A urgência deixa de ser uma armadilha quando o pequeno negócio consegue fazer perguntas simples e obter respostas auditáveis: o que foi registrado? O que está pendente? Quem precisa agir? Quanto custa continuar? Como saio dessa integração se ela deixar de servir? Software bom não promete eliminar o risco; torna o risco visível e administrável.</p>
-
-                <p>Da fronteira internacional ao sistema tributário e, por fim, ao balcão, a série acompanhou como mudanças e urgências redistribuem custos e dependências. A resposta prática não é eliminar toda dependência, mas saber o que continua local, o que precisa aguardar terceiros e que evidência confirma a recuperação. Autonomia operacional começa quando a urgência deixa de dispensar essas perguntas.</p>
-
-                <h2>Fontes e referências</h2>
-                <ul>
-                    <li><strong>Artigo relacionado:</strong> <a href="2027_05_06_serie_engenharia_urgencia_ep02.html">O Nevoeiro Tributário: transição, adaptação e capital de giro</a> — cronograma legal e cautelas sobre split payment e fluxo de caixa.</li>
-                    <li><strong>Fonte:</strong> <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank" rel="noopener">Lei Complementar nº 214/2025</a> — regras gerais e etapas da transição tributária.</li>
-                </ul>
-
-                <h2>Dicionário de termos técnicos e de negócios</h2>
-                <p>Conceitos de operação e integração:</p>
-                <div class="chalkboard">
-                    <dl>
-                        <dt><strong>Local-first (dados no próprio computador)</strong></dt>
-                        <dd>É quando o sistema guarda os dados e faz tarefas importantes no computador da loja. Algumas coisas continuam funcionando sem internet, mas pagamentos e notas podem depender de serviços externos.</dd>
-                        <dt><strong>SQLite</strong></dt>
-                        <dd>É um tipo de banco de dados que guarda as informações num arquivo no próprio computador, sem precisar de um servidor separado.</dd>
-                        <dt><strong>Idempotência (evitar repetição)</strong></dt>
-                        <dd>É uma proteção para que enviar o mesmo pedido de novo não repita a cobrança ou outra ação.</dd>
-                        <dt><strong>Reconciliação (conferência de valores)</strong></dt>
-                        <dd>É conferir se os valores do caixa, do banco e do sistema de pagamento batem. Diferenças precisam ser investigadas.</dd>
-                        <dt><strong>Homologação (testes antes da liberação)</strong></dt>
-                        <dd>São testes que confirmam se a versão funciona como combinado antes de ser liberada. Ter o código pronto ou passar num teste isolado não basta.</dd>
-                        <dt><strong>Fila de contingência (operações pendentes)</strong></dt>
-                        <dd>É a lista de operações que ficaram pendentes no computador para tentar novamente quando a internet ou o serviço voltar. Algumas precisam de autorização antes de serem repetidas.</dd>
-                    </dl>
-                </div>
-
-                <hr style="margin: 2.5rem 0 1.5rem 0;">
-                <p><em><strong>Nota:</strong> Ensaio de engenharia e análise institucional (Fiction-Based Technical Insights &amp; Engineering Realism). As medições e o estado das versões citados registram o que era conhecido em 14/11/2026; consulte a release e a homologação atuais antes de contratar ou operar.</em></p>
-                <nav aria-label="Navegação da série">
-                    <p><a href="2027_04_20_serie_engenharia_urgencia_chamada.html">Índice da série</a> · Anterior: <a href="2027_05_06_serie_engenharia_urgencia_ep02.html">O Nevoeiro Tributário</a></p>
-                </nav>
-                <div class="author-signature">
-                    <p><strong>Christian Mulato</strong><br>Engenheiro Construtor</p>
-                    <p>&copy; 2027 Christian Mulato. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </article>
-    </div>
-</main>
-<footer class="site-footer"><div class="container"><p><a href="../index.html">Voltar à página inicial</a></p><p>&copy; 2027 Christian Mulato. Todos os direitos reservados.</p></div></footer>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/article.js"></script>
+    <p>Este artigo mudou de endereço. <a href="/articles/2026_11_14_serie_engenharia_urgencia_ep03.html">Continuar para a versão atual</a>.</p>
 </body>
 </html>

@@ -22,7 +22,14 @@ SITE = "https://personal.caracore.com.br"
 ARTICLES_BASE = f"{SITE}/articles/"
 FALLBACK_HERO = f"{ARTICLES_BASE}assets/img/foto_chri.jpg"
 
-SKIP_NAMES = {"README.html"}
+# Redirecionamentos mantidos para links ja publicados; nao sao artigos.
+SKIP_NAMES = {
+    "README.html",
+    "2027_04_20_serie_engenharia_urgencia_chamada.html",
+    "2027_04_26_serie_engenharia_urgencia_ep01.html",
+    "2027_05_06_serie_engenharia_urgencia_ep02.html",
+    "2027_05_16_serie_engenharia_urgencia_ep03.html",
+}
 DATE_PREFIX = re.compile(r"^(\d{4})_(\d{2})_(\d{2})_")
 ATTR_URL = re.compile(
     r"""(?P<attr>src|href|poster|data-src)\s*=\s*(?P<q>['"])(?P<url>.*?)(?P=q)""",

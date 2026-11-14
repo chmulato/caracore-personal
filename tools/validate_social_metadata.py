@@ -8,7 +8,20 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = [ROOT / "docs" / "index.html"] + sorted((ROOT / "docs" / "articles").glob("*.html"))
+REDIRECTS = {
+    "2027_04_20_serie_engenharia_urgencia_chamada.html",
+    "2027_04_26_serie_engenharia_urgencia_ep01.html",
+    "2027_05_06_serie_engenharia_urgencia_ep02.html",
+    "2027_05_16_serie_engenharia_urgencia_ep03.html",
+}
+PAGES = [
+    ROOT / "docs" / "index.html",
+    *(
+        path
+        for path in sorted((ROOT / "docs" / "articles").glob("*.html"))
+        if path.name not in REDIRECTS
+    ),
+]
 META = [
     ("description", "name"), ("author", "name"), ("og:title", "property"),
     ("og:description", "property"), ("og:type", "property"), ("og:url", "property"),
