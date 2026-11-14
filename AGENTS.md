@@ -3,7 +3,7 @@
 > **Destinado a:** Todas as IAs, assistentes de código e agentes autônomos (Antigravity, Cursor, Copilot, Claude Code, Gemini).  
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
-> **Data de Atualização:** 12/10/2026
+> **Data de Atualização:** 14/11/2026
 > **Total de Artigos:** 272 publicações (março de 2024 a março de 2029)
 > **Status de Produção:** Ativo e saudável em `https://personal.caracore.com.br/` (Lighthouse Desktop 99-100, Mobile 95 em CDN/local)
 
@@ -37,7 +37,7 @@ caracore-personal/
 │   └── editorial/            # Páginas institucionais (linha editorial, manifesto, sobre o autor)
 ├── update_feed.py            # Script oficial em Python para validar e regenerar docs/feed.xml atomicamente
 ├── update_sitemap.py         # Script oficial em Python para regenerar docs/sitemap.xml
-├── linkedin_rss_auto.py      # Publica artigos alterados na API REST do LinkedIn (ignora assets/)
+├── linkedin_rss_auto.py      # Publica artigos alterados ou agendados por data editorial
 ├── linkedin_published.json   # Ledger com histórico de artigos já postados no LinkedIn
 ├── test_update_feed.py       # Testes automatizados de integridade, MIME, bytes e atomismo do RSS
 ├── test_linkedin_rss_auto.py # Testes automatizados de filtro de publicação do LinkedIn
@@ -226,21 +226,55 @@ Integrada e publicada em produção em 12/10/2026. Três HTML publicados.
 - Escopos autorizados: `openid`, `profile` e `w_member_social`.
 - Secrets de repositório configurados no GitHub: `LINKEDIN_ACCESS_TOKEN` e `PERSON_URN`. Nunca registrar seus valores nesta memória, em commits ou em logs.
 - Workflows validados com sucesso no GitHub Actions:
-  * **Publicar artigo no LinkedIn:** Executa a suíte de testes (`test_update_feed` e `test_linkedin_rss_auto`), atualiza feed/sitemap e publica artigos modificados. Duração aproximada de 30 segundos.
+  * **Publicar artigo no LinkedIn:** Executa a suíte de testes (`test_update_feed` e `test_linkedin_rss_auto`), atualiza feed/sitemap e publica artigos alterados ou previstos para a data editorial do dia.
   * **Pages Build and Deployment:** Concluído com sucesso no deploy de produção do GitHub Pages.
 - Testes automatizados locais:
-  * `python -m unittest test_update_feed test_linkedin_rss_auto -v` (12 testes passando em ~0.1s).
+  * `python -m unittest test_update_feed test_linkedin_rss_auto -v` (23 testes passando em 14/11/2026).
 - O `LINKEDIN_ACCESS_TOKEN` tem validade limitada (aproximadamente 2 meses). Quando expirar, gerar novo token e substituir somente o Secret no GitHub.
 - O `PERSON_URN` normalmente permanece estável para o mesmo perfil.
 
+### Publicações verificadas em 14/11/2026
+
+O GitHub Pages respondeu HTTP 200 para os dois artigos, e os logs dos workflows confirmam publicação no LinkedIn com `DRY_RUN=false`:
+
+| Artigo | Data editorial | Workflow | LinkedIn |
+|---|---:|---:|---|
+| [Ato I (1990–2012): A Era dos Fundamentos](https://personal.caracore.com.br/articles/2026_11_19_serie_evolucao_ciclica_ti_ato01_passado.html) | 19/11/2026 | `43594621070` | `urn:li:share:7527345675974635520` |
+| [Ato II (2010–2024): A Nuvem e a Ilusão das Camadas](https://personal.caracore.com.br/articles/2026_11_23_serie_evolucao_ciclica_ti_ato02_presente.html) | 23/11/2026 | `43594730483` | `urn:li:share:7527346023921479680` |
+
+Por solicitação do dono, os dois posts foram publicados antecipadamente em 14/11, antes das datas editoriais do blog. O workflow publica imediatamente; não agenda publicações.
+
+**Conferência do ledger:** estas entradas estavam registradas antes como publicadas, mas o dono confirmou que ainda não haviam sido lançadas. A execução antiga `34722217279` (12/09) era `DRY_RUN=true` para outro artigo, portanto não comprovava essas publicações. Os dois lançamentos foram feitos com `force=true` e `DRY_RUN=false`; o ledger foi então atualizado pelo workflow. Para confirmar lançamentos futuros, conferir no log a linha `Artigo publicado no LinkedIn` e o URN; não confiar isoladamente em entradas legadas sem essa evidência.
+
+### Agenda LinkedIn ativa a partir de 14/11/2026
+
+O workflow `publish-linkedin.yml` (`39bfebb`) está ativo em `master`, com publicação agendada às 07h30 `America/Sao_Paulo`. A seleção compara a data editorial do nome do arquivo com a data local e só aceita datas entre 15/11 e 31/12/2026; pushes não publicam antes do dia editorial. O horário de início pode atrasar por fila do GitHub Actions.
+
+| Data editorial | Arquivo | Estado |
+|---|---|---|
+| 16/11/2026 | `2026_11_16_serie_evolucao_ciclica_ti_chamada.html` | Agendado |
+| 19/11/2026 | `2026_11_19_serie_evolucao_ciclica_ti_ato01_passado.html` | Já publicado antecipadamente em 14/11 |
+| 23/11/2026 | `2026_11_23_serie_evolucao_ciclica_ti_ato02_presente.html` | Já publicado antecipadamente em 14/11 |
+| 26/11/2026 | `2026_11_26_o_silencio_na_escala_ep02.html` | Mantido fora da agenda por decisão do dono; ledger indica publicação anterior, mas a evidência do post não foi confirmada |
+| 27/11/2026 | `2026_11_27_serie_evolucao_ciclica_ti_ato03_futuro.html` | Agendado |
+| 30/11/2026 | `2026_11_30_serie_ilusao_informatizada_ep04.html` | Agendado |
+| 05/12/2026 | `2026_12_05_serie_ilusao_informatizada_epilogo.html` | Agendado |
+| 10/12/2026 | `2026_12_10_serie_depois_do_debate_carreira_conclusao.html` | Agendado |
+| 15/12/2026 | `2026_12_15_serie_mito_eficiencia_ia_silicio_index.html` | Agendado |
+| 22/12/2026 | `2026_12_22_serie_mito_eficiencia_ia_silicio_ep01.html` | Agendado |
+| 29/12/2026 | `2026_12_29_serie_mito_eficiencia_ia_silicio_ep02.html` | Agendado |
+
+As oito páginas agendadas responderam HTTP 200. Marcações antigas de 12/09 para esses oito artigos foram removidas de `linkedin_published.json`, para não bloquearem os posts; o ledger é atualizado após publicação bem-sucedida. Ato I e Ato II têm publicação confirmada pelos Actions `43594621070` e `43594730483` e URNs registrados acima.
+
 ## 6. Automação de Publicação no LinkedIn
 
-1. O workflow `.github/workflows/publish-linkedin.yml` é acionado por `push` nas branches `master` ou `main`, somente quando houver alteração em `docs/articles/**`.
-2. O script `linkedin_rss_auto.py` usa `GITHUB_BEFORE` e `GITHUB_SHA` para identificar arquivos adicionados ou modificados no push atual.
-3. **Filtro de Segurança:** O script ignora expressamente arquivos dentro de `docs/articles/assets/` (como `README.html`), garantindo que apenas artigos reais na raiz de `docs/articles/` sejam avaliados.
-4. O script aceita Markdown com frontmatter YAML e também os artigos HTML existentes. Para Markdown, a extensão `.md` é convertida para `.html` na URL pública.
-5. O histórico de artigos publicados fica registrado em `linkedin_published.json`. Arquivos já presentes no ledger não são republicados (evita disparos acidentais em lote em edições de manutenção).
-6. A publicação usa `POST https://api.linkedin.com/rest/posts`, o escopo `w_member_social` e uma chave de idempotência derivada do commit e da URL.
+1. O workflow `.github/workflows/publish-linkedin.yml` é acionado por `push` nas branches `master` ou `main` quando houver alteração em `docs/articles/**`, por `workflow_dispatch` e pelas datas do calendário de 2026.
+2. Às 07h30 `America/Sao_Paulo`, o modo agendado seleciona os artigos cuja data no nome corresponde ao dia atual. O código bloqueia datas fora de 15/11–31/12/2026; o início do job pode atrasar na fila.
+3. Em pushes, `linkedin_rss_auto.py` usa `GITHUB_BEFORE` e `GITHUB_SHA` para identificar arquivos adicionados ou modificados e não publica antecipadamente artigos dentro da janela agendada. `workflow_dispatch` é imediato, não é uma ferramenta de agendamento.
+4. **Filtro de Segurança:** O script ignora expressamente arquivos dentro de `docs/articles/assets/` (como `README.html`), garantindo que apenas artigos reais na raiz de `docs/articles/` sejam avaliados.
+5. O script aceita Markdown com frontmatter YAML e também os artigos HTML existentes. Para Markdown, a extensão `.md` é convertida para `.html` na URL pública.
+6. O histórico fica em `linkedin_published.json`. Entradas existentes são ignoradas salvo `force=true`; registros só são gravados após publicação real, não em `DRY_RUN`.
+7. A publicação usa `POST https://api.linkedin.com/rest/posts`, o escopo `w_member_social` e uma chave de idempotência derivada do commit e da URL.
 
 ## 7. Checklist de Verificação para IAs
 
