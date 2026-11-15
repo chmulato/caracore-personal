@@ -156,6 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
             '2026_12_15': '2026_12_22_IMAGE_001',
             '2027_07_30': '2027_08_05_IMAGE_001'
         };
+        // Cards que dividem a data com outro artigo e têm capa própria (a data sozinha levaria todos ao IMAGE_001)
+        const coverByArticle = {
+            '2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial': '2026_04_23_IMAGE_002',
+            '2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte': '2026_04_30_IMAGE_002',
+            '2026_11_14_serie_engenharia_urgencia_ep01': '2026_11_14_IMAGE_002',
+            '2026_11_14_serie_engenharia_urgencia_ep02': '2026_11_14_IMAGE_003',
+            '2026_11_14_serie_engenharia_urgencia_ep03': '2026_11_14_IMAGE_004'
+        };
         const seriesClasses = [
             'economia-programavel',
             'horizonte-essencial',
@@ -190,9 +198,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!articleLink || !dateMatch || card.querySelector('.article-cover')) return;
 
             const title = articleLink.textContent.trim();
+            const articleHref = articleLink.getAttribute('href');
+            const articleStem = articleHref.split('/').pop().replace(/\.html$/, '');
             const cover = document.createElement('img');
             cover.className = 'article-cover';
-            const coverFile = coverFallbacks[dateMatch[1]] || `${dateMatch[1]}_IMAGE_001`;
+            const coverFile = coverByArticle[articleStem] || coverFallbacks[dateMatch[1]] || `${dateMatch[1]}_IMAGE_001`;
             cover.src = `articles/assets/img/${coverFile}.webp`;
             cover.alt = title;
             cover.loading = 'lazy';
