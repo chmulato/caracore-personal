@@ -61,6 +61,7 @@ Todas as imagens de destaque de artigos seguem o padrão registrado no [README d
   * `NNN` = `001` para imagem de destaque/capa, `002+` para imagens complementares (ex: diagramas de arquitetura, mapas).
 * **Proporção Física:** Sempre **16:9 (Landscape/Paisagem)**, tipicamente 1920×1080 px ou 1024×576 px para PNGs originais.
 * **Otimização WebP (Obrigatória para Produção):** Toda capa `_IMAGE_001.png` deve possuir sua versão otimizada `_IMAGE_001.webp` (máximo 960px de largura, qualidade 78, compressão 6 via FFmpeg) para os cards da home e tags do artigo. O PNG original é mantido para metadados Open Graph (`og:image`) e compartilhamentos sociais.
+* **Capa dos Cards da Home (artigo antes da data):** o card é montado por `docs/articles/assets/js/main.js`, que resolve a capa na ordem `coverByArticle[slug]` → `coverFallbacks[data]` → `<data>_IMAGE_001`. Artigos que dividem a mesma data e têm imagens próprias (`_IMAGE_002`, `_003`…) precisam de entrada em `coverByArticle`; sem ela todos os cards daquela data repetem a `_IMAGE_001`. A capa do card deve ser sempre a mesma imagem que o artigo usa como hero. Defeito corrigido em 15/11/2026 (trilogia de 14/11 e pares de 23/04 e 30/04).
 * **Uso Semântico (Imagem Destaque):** As imagens principais no início de cada artigo devem ser declaradas utilizando a estrutura `<figure>` com o arquivo `.webp`:
   ```html
   <figure class="hero-image-frame">

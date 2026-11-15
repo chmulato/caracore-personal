@@ -143,6 +143,11 @@ A página inicial (`docs/index.html`) foi reprojetada com estética de revista d
    * **Fallback Progressivo:** Caso o navegador ou rede falhe ao carregar o WebP, o evento `error` tenta automaticamente o PNG original (`.src.replace(/\.webp$/, '.png')`). Se o PNG também falhar, a imagem é removida com segurança e o card aplica a classe `.article-card--no-cover`. Todos os clones gerados herdam essa resiliência.
    * **Renderização Eficiente do Arquivo:** O CSS aplica `content-visibility: auto` e `contain-intrinsic-block-size: auto 2000px` nas seções mensais de `#arquivo`, garantindo que 271 cards não bloqueiem a thread principal do navegador.
 
+4. **Resolução da Capa dos Cards — artigo antes da data (regra obrigatória):**
+   * Os cards da home não trazem `<img>` no HTML: `docs/articles/assets/js/main.js` cria a capa derivando o nome do arquivo do artigo. A ordem de resolução é **`coverByArticle[slug]` → `coverFallbacks[data]` → `<data>_IMAGE_001`**.
+   * Quando **dois ou mais artigos dividem a mesma data** e cada um tem imagem própria (`_IMAGE_002`, `_003`…), todos precisam de entrada em `coverByArticle`. A regra por data sozinha manda todos para o `_IMAGE_001` e repete a mesma capa na home — foi o defeito corrigido em 15/11/2026 (trilogia de 14/11 com 001–004 e os dois pares de 23/04 e 30/04; commit `98f57d8`).
+   * Regra de ouro: **a capa do card deve ser a mesma imagem que o artigo usa como hero**. Ao publicar um artigo novo que divide data com outro, inclua a linha em `coverByArticle` antes de commitar.
+
 ### Padrão obrigatório para citações de artigos internos
 Quando um artigo citar outro texto do próprio blog, a referência deve seguir sempre este formato:
 
@@ -309,3 +314,4 @@ Antes de finalizar qualquer tarefa no blog, valide os itens:
   ```
 - [ ] O `python update_feed.py` e `python update_sitemap.py` foram executados e `docs/feed.xml` / `docs/sitemap.xml` foram atualizados com sucesso.
 - [ ] As regras temporais da home foram respeitadas (apenas artigos `<= hoje` nos destaques e últimos dinâmicos).
+- [ ] Se o artigo novo divide a data com outro e usa imagem própria (`_IMAGE_002+`), há entrada em `coverByArticle` no `main.js` e a capa do card confere com o hero do artigo.
