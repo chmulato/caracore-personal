@@ -10,7 +10,7 @@ Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.
 
 ## Status (atualizar ao publicar série ou artigo)
 
-- **271** HTML em `docs/articles/` (março de 2024 a março de 2029). O acervo completo, o feed RSS e o sitemap acompanham esse total.
+- **272** HTML em `docs/articles/` (março de 2024 a março de 2029). O acervo completo, o feed RSS e o sitemap acompanham esse total.
 - Ciclo ativo: **jun/2026 – mar/2029** | histórico anterior preservado antes de **04/06/2026**
 - **Última memória:** 15/11/2026 — capas dos cards da home passam a ser resolvidas **por artigo antes da data** (`coverByArticle` → `coverFallbacks` → `<data>_IMAGE_001`, em `docs/articles/assets/js/main.js`); corrigidas as repetições da trilogia de 14/11 e dos pares de 23/04 e 30/04 (commit `98f57d8`, Pages `built`). Antes desta: 14/11/2026 — trilogia *A Engenharia do Choque Controlado* antecipada para 14/11/2026 (site + 4 posts com imagem no LinkedIn) e relançamento agendado nas datas editoriais originais (20/04, 26/04, 06/05 e 16/05/2027) via `linkedin_republicacoes.json`; ver § Integração LinkedIn. Antes: redesign da home para revista digital, capas WebP (960px) e blindagem da esteira do LinkedIn contra assets (12/10/2026).
 - **Home de Revista Digital:**

@@ -29,7 +29,7 @@ caracore-personal/
 │   ├── sitemap.xml           # Mapa do site para indexação de motores de busca
 │   ├── CNAME                 # personal.caracore.com.br
 │   ├── articles/
-│   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados (271 publicações)
+│   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados (272 publicações)
 │   │   └── assets/
 │   │       ├── css/          # main.css (revista digital responsiva), article.css, highlight.css
 │   │       ├── js/           # main.js (clonagem editorial, fallback de imagens, filtros), article.js, analytics.js
