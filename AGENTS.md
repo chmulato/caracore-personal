@@ -5,7 +5,7 @@
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
 > **Data de Atualização:** 19/11/2026
 > **Total de Artigos:** 277 publicações (março de 2024 a março de 2029)
-> **Status de Produção:** Ativo em `https://personal.caracore.com.br/`; auditoria de 19/11 identificou correção de destaque pendente de publicação.
+> **Status de Produção:** Ativo em `https://personal.caracore.com.br/`; correções de destaques, filtros e RSS implantadas em 19/11/2026. Home, RSS e sitemap verificados em produção.
 
 ---
 
