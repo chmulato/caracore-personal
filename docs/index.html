@@ -20,20 +20,6 @@
     <meta name="twitter:image" content="https://personal.caracore.com.br/articles/assets/img/social-default.png">
     <link rel="canonical" href="https://personal.caracore.com.br/">
     <link rel="preload" as="image" href="articles/assets/img/2026_10_12_IMAGE_001.webp" type="image/webp" fetchpriority="high">
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Christian Mulato Dev Blog",
-    "headline": "Christian Mulato Dev Blog",
-    "description": "Ensaios de Christian Mulato sobre engenharia de software, arquitetura de sistemas, Java, inteligencia artificial, soberania digital e tecnologia aplicada ao mundo real.",
-    "image": "https://personal.caracore.com.br/articles/assets/img/social-default.png",
-    "author": {
-        "@type": "Person",
-        "name": "Christian Mulato"
-    }
-}
-    </script>
     <title>Christian Mulato Dev Blog</title>
     
     <link rel="alternate" type="application/rss+xml" title="Christian Mulato Dev Blog" href="https://personal.caracore.com.br/feed.xml">
@@ -111,6 +97,63 @@
             font-weight: 500;
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@id": "https://personal.caracore.com.br/#website",
+                "@type": "WebSite",
+                "url": "https://personal.caracore.com.br/",
+                "name": "Christian Mulato Dev Blog",
+                "description": "Ensaios de Christian Mulato sobre engenharia de software, arquitetura de sistemas, Java, inteligencia artificial, soberania digital e tecnologia aplicada ao mundo real.",
+                "inLanguage": "pt-BR",
+                "publisher": {
+                    "@id": "https://personal.caracore.com.br/editorial/sobre-o-autor.html#person"
+                },
+                "mainEntity": {
+                    "@id": "https://personal.caracore.com.br/#blog"
+                }
+            },
+            {
+                "@type": "Blog",
+                "name": "Christian Mulato Dev Blog",
+                "headline": "Christian Mulato Dev Blog",
+                "description": "Ensaios de Christian Mulato sobre engenharia de software, arquitetura de sistemas, Java, inteligencia artificial, soberania digital e tecnologia aplicada ao mundo real.",
+                "image": "https://personal.caracore.com.br/articles/assets/img/social-default.png",
+                "author": {
+                    "@id": "https://personal.caracore.com.br/editorial/sobre-o-autor.html#person"
+                },
+                "@id": "https://personal.caracore.com.br/#blog",
+                "url": "https://personal.caracore.com.br/",
+                "inLanguage": "pt-BR",
+                "publisher": {
+                    "@id": "https://personal.caracore.com.br/editorial/sobre-o-autor.html#person"
+                },
+                "isPartOf": {
+                    "@id": "https://personal.caracore.com.br/#website"
+                }
+            },
+            {
+                "@id": "https://personal.caracore.com.br/#webpage",
+                "@type": "WebPage",
+                "url": "https://personal.caracore.com.br/",
+                "name": "Christian Mulato Dev Blog",
+                "description": "Ensaios de Christian Mulato sobre engenharia de software, arquitetura de sistemas, Java, inteligencia artificial, soberania digital e tecnologia aplicada ao mundo real.",
+                "inLanguage": "pt-BR",
+                "isPartOf": {
+                    "@id": "https://personal.caracore.com.br/#website"
+                },
+                "publisher": {
+                    "@id": "https://personal.caracore.com.br/editorial/sobre-o-autor.html#person"
+                },
+                "mainEntity": {
+                    "@id": "https://personal.caracore.com.br/#blog"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <div class="container">

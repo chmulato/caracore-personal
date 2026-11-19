@@ -5,7 +5,7 @@
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
 > **Data de Atualização:** 19/11/2026
 > **Total de Artigos:** 277 publicações (março de 2024 a março de 2029)
-> **Status de Produção:** Ativo em `https://personal.caracore.com.br/`; correções de destaques, filtros e RSS implantadas em 19/11/2026. Home, RSS e sitemap verificados em produção.
+> **Status de Produção:** Ativo em `https://personal.caracore.com.br/`; correções de destaques, filtros e RSS implantadas em 19/11/2026. O alinhamento do JSON-LD ao guia SEO mestre está validado localmente, mas ainda não publicado.
 
 ---
 
@@ -27,6 +27,7 @@ caracore-personal/
 │   ├── ciclo-ativo.html      # Visualização exclusiva da janela do Ciclo Ativo oficial (2026-2029)
 │   ├── feed.xml              # Feed RSS 2.0 completo com CDATA, enclosures exatos e RFC-822 (gerado via script)
 │   ├── sitemap.xml           # Mapa do site para indexação de motores de busca
+│   ├── robots.txt            # Permite rastreamento e anuncia o sitemap canônico
 │   ├── CNAME                 # personal.caracore.com.br
 │   ├── articles/
 │   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados (277 publicações)
@@ -62,6 +63,10 @@ Ao redigir e publicar novos artigos ou séries, toda IA **DEVE** seguir rigorosa
   - `<meta property="og:url" content="https://personal.caracore.com.br/articles/YYYY_MM_DD_nome_do_artigo.html" />`
   - `<meta property="og:image" content="https://personal.caracore.com.br/articles/assets/img/YYYY_MM_DD_IMAGE_001.png" />`
   - `<meta name="author" content="Christian Mulato">`
+  - Open Graph e Twitter Card devem ter título, descrição e imagem coerentes com a página; a descrição deve ter entre 150 e 250 caracteres.
+  - Mantenha exatamente um `<meta property="article:published_time">` e um bloco JSON-LD.
+  - O bloco JSON-LD usa `@graph`: um `WebPage` com `@id` `<canonical>#webpage`, `url` igual ao canonical, `name` igual ao `<title>`, `description` igual à meta description, `inLanguage` igual ao `lang` do HTML, `isPartOf` `https://personal.caracore.com.br/#website` e `publisher` `https://personal.caracore.com.br/editorial/sobre-o-autor.html#person`.
+  - O artigo também declara um `BlogPosting` com `@id` `<canonical>#blogposting`, datas iguais ao nome do arquivo e à meta `article:published_time`, e `mainEntityOfPage` referenciando o `WebPage`. Autor e publisher referenciam a entidade `Person` declarada em `editorial/sobre-o-autor.html`; nunca duplique o bloco JSON-LD.
 
 ### Passo 2: Imagem Hero 16:9 (Paisagem) e Otimização WebP
 * **Padrão visual:** Foto/render editorial cinematográfico, estilo realista de alta sobriedade, iluminação técnica, sem rostos humanos identificáveis e sem marcas comerciais terceiras.
@@ -118,6 +123,7 @@ E no `<footer class="site-footer">`:
    & "D:\onedrive\dev\.venv\Scripts\python.exe" -m unittest test_update_feed test_linkedin_rss_auto -v
    & "D:\onedrive\dev\.venv\Scripts\python.exe" "D:\onedrive\dev\caracore-personal\update_feed.py"
    & "D:\onedrive\dev\.venv\Scripts\python.exe" "D:\onedrive\dev\caracore-personal\update_sitemap.py"
+   & "D:\onedrive\dev\.venv\Scripts\python.exe" "D:\onedrive\dev\caracore-personal\tools\validate_social_metadata.py"
    ```
 
 ---
@@ -313,5 +319,6 @@ Antes de finalizar qualquer tarefa no blog, valide os itens:
   python -m unittest test_update_feed test_linkedin_rss_auto -v
   ```
 - [ ] O `python update_feed.py` e `python update_sitemap.py` foram executados e `docs/feed.xml` / `docs/sitemap.xml` foram atualizados com sucesso.
+- [ ] `python tools/validate_social_metadata.py` passou para todas as URLs do sitemap, sem JSON-LD duplicado, IDs sem nó correspondente ou divergência entre canonical e WebPage.
 - [ ] As regras temporais da home foram respeitadas (apenas artigos `<= hoje` nos destaques e últimos dinâmicos).
 - [ ] Se o artigo novo divide a data com outro e usa imagem própria (`_IMAGE_002+`), há entrada em `coverByArticle` no `main.js` e a capa do card confere com o hero do artigo.
