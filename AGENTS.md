@@ -3,9 +3,9 @@
 > **Destinado a:** Todas as IAs, assistentes de código e agentes autônomos (Antigravity, Cursor, Copilot, Claude Code, Gemini).  
 > **Repositório:** `caracore-personal`  
 > **Domínio Oficial:** `https://personal.caracore.com.br/`  
-> **Data de Atualização:** 14/11/2026
-> **Total de Artigos:** 272 publicações (março de 2024 a março de 2029)
-> **Status de Produção:** Ativo e saudável em `https://personal.caracore.com.br/` (Lighthouse Desktop 99-100, Mobile 95 em CDN/local)
+> **Data de Atualização:** 19/11/2026
+> **Total de Artigos:** 277 publicações (março de 2024 a março de 2029)
+> **Status de Produção:** Ativo em `https://personal.caracore.com.br/`; auditoria de 19/11 identificou correção de destaque pendente de publicação.
 
 ---
 
@@ -29,7 +29,7 @@ caracore-personal/
 │   ├── sitemap.xml           # Mapa do site para indexação de motores de busca
 │   ├── CNAME                 # personal.caracore.com.br
 │   ├── articles/
-│   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados (272 publicações)
+│   │   ├── YYYY_MM_DD_slug.html  # Todos os artigos publicados (277 publicações)
 │   │   └── assets/
 │   │       ├── css/          # main.css (revista digital responsiva), article.css, highlight.css
 │   │       ├── js/           # main.js (clonagem editorial, fallback de imagens, filtros), article.js, analytics.js
@@ -132,7 +132,7 @@ A página inicial (`docs/index.html`) foi reprojetada com estética de revista d
    * **Últimos Artigos (`#ultimos-artigos` / `#latestGrid`):** Grade responsiva com 6 artigos recentes.
    * **Séries (`#series`):** Mosaico visual com as seis principais séries editoriais, fornecendo links diretos que filtram a categoria e rolam a tela suavemente para o acervo.
    * **Leituras Essenciais (`#mais-lidos` / `#popularGrid`):** Curadoria editorial fixa representativa de séries fundamentais (*Horizonte do Essencial*, *Do RPA ao Silício*, *Além do Hype*), rotulada com precisão sem inventar métricas falsas de cliques.
-   * **Arquivo Geral (`#arquivo`):** Catálogo cronológico completo com todos os 271 artigos, filtro dinâmico por categoria/série e busca textual.
+   * **Arquivo Geral (`#arquivo`):** Catálogo cronológico completo com todos os 277 artigos, filtro dinâmico por categoria/série e busca textual.
 
 2. **Regra Temporal Obrigatória (Data Limite de Destaques e Últimos):**
    * Os **Destaques** e **Últimos Artigos** selecionam **estritamente artigos com data no nome do arquivo menor ou igual à data de hoje no fuso `America/Sao_Paulo`** (`YYYY-MM-DD <= today`).

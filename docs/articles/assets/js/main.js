@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         const categoryFilter = document.getElementById('categoryFilter');
         const searchInput = document.getElementById('searchInput');
-        const articles = document.querySelectorAll('.article-card');
         
         // Filtro por categoria
         if (categoryFilter) {
@@ -96,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function filterArticles(category, searchTerm) {
-            articles.forEach(article => {
+            document.querySelectorAll('.article-card').forEach(article => {
                 const categoryEl = article.querySelector('.category');
                 const articleCategory = categoryEl ? categoryEl.textContent.toLowerCase() : '';
                 const articleSlug = article.dataset.categorySlug || slugify(articleCategory);
@@ -225,14 +224,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const popularGrid = document.querySelector('#popularGrid');
         const cloneCards = (target, cards, className) => {
             if (!target) return;
-            // Se o container já possuir cards estáticos pré-renderizados no HTML, apenas anexa fallbacks
             const existingCards = target.querySelectorAll('.article-card');
             if (existingCards.length > 0) {
-                existingCards.forEach(card => {
-                    const cover = card.querySelector('.article-cover');
-                    if (cover) attachCoverFallback(cover, card);
-                });
-                return;
+                if (className !== 'featured-card') {
+                    // Outras grades preservam o HTML pré-renderizado e só recebem o fallback de imagem.
+                    existingCards.forEach(card => {
+                        const cover = card.querySelector('.article-cover');
+                        if (cover) attachCoverFallback(cover, card);
+                    });
+                    return;
+                }
+                target.replaceChildren();
             }
 
             cards.forEach((card, index) => {
