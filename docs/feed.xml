@@ -5,7 +5,7 @@
     <link>https://personal.caracore.com.br/</link>
     <description><![CDATA[Artigos técnicos sobre desenvolvimento Java, arquitetura de software e tecnologia.]]></description>
     <language>pt-BR</language>
-    <lastBuildDate>Tue, 17 Nov 2026 17:42:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 16:10:30 +0000</lastBuildDate>
     <atom:link href="https://personal.caracore.com.br/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Cara Core RSS generator</generator>
 
@@ -9580,6 +9580,7 @@ Mês 3 (Completo):   $6.500 [█████████████████
                 <h2>Fontes e referências</h2>
                 <ul>
                     <li><strong>Artigo relacionado:</strong> <a href="https://personal.caracore.com.br/articles/2026_11_14_serie_engenharia_urgencia_ep02.html">O Nevoeiro Tributário: transição, adaptação e capital de giro</a> — cronograma legal e cautelas sobre split payment e fluxo de caixa.</li>
+                    <li><strong>Artigo relacionado:</strong> <a href="https://retro.caracore.com.br/articles/2026_09_12_article_101.html">O Bunker em Prova: os desafios do CaraCore PDV</a> — reflexão histórica sobre como tornar verificável a continuidade no balcão.</li>
                     <li><strong>Fonte:</strong> <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank" rel="noopener">Lei Complementar nº 214/2025</a> — regras gerais e etapas da transição tributária.</li>
                 </ul>
 
@@ -15637,10 +15638,10 @@ não é lentidão.
     </item>
 
     <item>
-      <title><![CDATA[A Era da IA "Costurada": Por que você não precisa de uma Supermáquina para o Estado da Arte]]></title>
+      <title><![CDATA[A Era da IA "Costurada": possibilidades e limites da IA local]]></title>
       <link>https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</link>
       <dc:creator><![CDATA[Christian Mulato]]></dc:creator>
-      <description><![CDATA[DeepSeek, Ollama e a metáfora da costura: por que o algoritmo e a quantização vencem a corrida só por silício — e como rodar IA de ponta no hardware que você já tem]]></description>
+      <description><![CDATA[DeepSeek, Ollama e quantização ajudam a discutir IA local: possibilidades, limites de desempenho, privacidade e custos que precisam ser avaliados em cada máquina e tarefa.]]></description>
       <enclosure url="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.webp" length="459926" type="image/webp" />
       <media:content url="https://personal.caracore.com.br/articles/assets/img/2026_04_30_IMAGE_002.webp" medium="image" type="image/webp" fileSize="459926" />
       <guid isPermaLink="true">https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html</guid>
@@ -15650,45 +15651,35 @@ não é lentidão.
                     <figcaption class="hero-image-caption">A arte de costurar o futuro com as ferramentas do presente: Onde o código inteligente e o hardware resiliente se encontram para democratizar a IA local</figcaption>
                 </figure>
 
-                <p>Nos últimos anos, fomos condicionados a acreditar que a Inteligência Artificial é um jogo de quem tem mais zeros na conta bancária. Bilhões de dólares em chips NVIDIA H100, data centers do tamanho de estádios e contas de energia elétrica que fariam uma pequena cidade tremer.</p>
-                <p>Mas enquanto o Vale do Silício gritava &quot;Força Bruta&quot;, o resto do mundo — por necessidade ou genialidade — começou a sussurrar: &quot;Eficiência&quot;.</p>
-                <p>Se você acha que precisa trocar seu hardware atual por uma estação de trabalho de R$ 50 mil para rodar IAs que geram código, imagens e automações, este artigo é para você. Vamos falar sobre a arte de costurar a inteligência no hardware que você já tem.</p>
+                <p>A conversa sobre inteligência artificial costuma destacar chips caros e grandes centros de dados. Em abril de 2026, este artigo propunha olhar também para a eficiência: como costurar modelos e software ao equipamento disponível, sem confundir essa possibilidade com garantia de resultado em qualquer máquina.</p>
+                <p>Uma empresa pode testar algumas tarefas localmente antes de comprar uma estação de trabalho. Gerar código, imagens e automações, porém, são trabalhos diferentes: cada um exige modelos, recursos e avaliações próprias.</p>
 
-                <h2>1. O Efeito DeepSeek: a China provou o ponto</h2>
-                <p>O cenário mudou drasticamente em 2025/2026. A China, limitada por sanções de hardware, provou que o algoritmo vence o silício. Com o DeepSeek, eles demonstraram que modelos de código e raciocínio podem ser treinados e rodados com uma fração do custo dos gigantes americanos.</p>
-                <p>A lição aqui é clara: otimização é a nova moeda. Não se trata de quão grande é o seu modelo, mas de quão bem ele &quot;costura&quot; o software com o hardware disponível. É aqui que entra o herói silencioso do desenvolvedor local: o Ollama.</p>
+                <h2>1. O Efeito DeepSeek: eficiência também importa</h2>
+                <p>O <a href="https://arxiv.org/html/2412.19437v1">relatório do DeepSeek-V3</a>, publicado em dezembro de 2024, descreveu otimizações de modelo, software e hardware. O cálculo apresentado para etapas específicas do treinamento exclui pesquisas e experimentos anteriores; não representa o custo total da empresa nem prova uma fração comparável do custo total de concorrentes.</p>
+                <p>A lição não é que o algoritmo dispensa o silício. É que a combinação de modelo, software e hardware importa — e que treinamento de um modelo grande não é a mesma coisa que executar uma versão adequada a um computador local.</p>
 
                 <h2>2. Ollama e a &quot;costura&quot; digital</h2>
-                <p>O Ollama não é apenas um executor de modelos; ele é um mestre alfaiate. Ele permite que você pegue modelos de linguagem de ponta (como Llama 3 e Mistral) e os execute localmente, adaptando-os à realidade da sua máquina.</p>
-                <p><strong>Máquinas potentes:</strong> voam, entregando centenas de palavras por segundo.</p>
-                <p><strong>Máquinas &quot;velhas&quot;:</strong> também costuram. Através da quantização (uma forma inteligente de compressão), o Ollama permite que um PC de cinco anos atrás entregue raciocínio lógico de nível GPT-4. Pode ser um pouco mais lento? Sim. Mas é privado, é seu, e é gratuito no sentido de não depender de assinatura externa para cada token.</p>
+                <p>O Ollama permite executar modelos de linguagem localmente. A <a href="https://github.com/ollama/ollama/blob/6d02a43a75cd3364b3c230e9070f1413e60f0d02/docs/import.mdx">quantização</a> pode reduzir o uso de memória e facilitar a execução, com possível perda de precisão. Modelo, tarefa, memória RAM, GPU e tamanho do contexto influenciam o resultado.</p>
+                <p>Uma máquina mais antiga pode servir para algumas tarefas; para outras, pode não ter memória ou velocidade suficientes. Não há aqui uma medição que permita prometer desempenho equivalente ao GPT-4 ou uma quantidade fixa de palavras por segundo.</p>
+                <p>A execução local pode evitar cobrança por token de um serviço externo, mas hardware, energia e manutenção continuam tendo custo. E privacidade depende da configuração: downloads, integrações, telemetria, sincronização e backups também precisam ser examinados.</p>
 
-                <h2>3. O estudo de caso: do backend ao JavaFX</h2>
-                <p>Recentemente, trabalhamos em um fluxo de modernização de um sistema legado (PDV). O desafio era real: como sair de uma tela de login estática e &quot;burra&quot; para uma interface que entende o contexto de runtime (URL de backend, caminhos de banco SQLite) e ainda garante a segurança do usuário?</p>
-                <p>A solução não foi comprar um servidor novo. Foi engenharia de contexto:</p>
-                <ul>
-                    <li><strong>Runtime real:</strong> fizemos a UI ler o ambiente. Se o backend está em <code>127.0.0.1:8765</code>, a tela mostra isso. Transparência total.</li>
-                    <li><strong>Hibridismo de banco:</strong> o sistema identifica se está usando um SQLite local (para performance em máquinas simples) ou uma base legada pesada via Hibernate.</li>
-                </ul>
+                <h2>3. Um exemplo de modernização: do backend ao JavaFX</h2>
+                <p>A reflexão original usava a modernização de um PDV legado como exemplo: uma tela poderia informar o endereço do serviço e o tipo de base em uso, ajudando o operador a entender o ambiente. Um endereço como <code>127.0.0.1:8765</code> é apenas ilustrativo.</p>
+                <p>Esse recorte descreve uma ideia de engenharia de contexto, não comprova que o PDV atualmente distribuído tenha essa interface ou que a IA tenha executado a modernização sozinha. Cada versão precisa ser conferida em sua própria documentação e em seus testes.</p>
 
                 <h2>4. O ciclo de confiança: automação e QA</h2>
-                <p>Não basta rodar localmente; tem que ser robusto. Para validar essa costura entre IA e código antigo, implementamos um ciclo completo de automação em Python:</p>
-                <ul>
-                    <li><strong>Boas-vindas dinâmicas:</strong> experiência de usuário que comunica o estado do sistema.</li>
-                    <li><strong>Segurança de primeiro acesso:</strong> automação que valida se o sistema força a troca de senha do admin.</li>
-                    <li><strong>Logout e limpeza:</strong> garantir que a sessão local não deixe rastros.</li>
-                </ul>
-                <p>Isso prova que a IA local pode gerenciar todo o ciclo de vida de uma aplicação sem nunca precisar &quot;ligar para casa&quot; em servidores externos.</p>
+                <p>Em um projeto desse tipo, um roteiro de testes pode verificar se a tela comunica o estado do sistema, se o primeiro acesso exige a troca de senha quando prevista e se o logout encerra a sessão.</p>
+                <p>Encerrar a sessão não significa eliminar todos os rastros: registros e arquivos podem permanecer. Revisão humana, testes e inspeção das conexões são necessários antes de afirmar que uma aplicação funciona sem serviços externos.</p>
 
-                <h2>5. Custo-benefício: o retorno em 3 anos</h2>
-                <p>Muitos perguntam: vale a pena investir R$ 3.000 em uma GPU nova para rodar IA local?</p>
-                <p>Se você considerar que uma assinatura de IA custa cerca de US$ 20/mês, em três anos você gastou o valor da placa. Mas há uma diferença fundamental:</p>
-                <p><strong>Na nuvem:</strong> você pagou por um serviço e não possui nada. Seus dados passaram por terceiros.</p>
-                <p><strong>No local:</strong> você possui o hardware. Ele serve para IA, para design, para desenvolvimento e para lazer. E, mais importante: seus dados nunca saíram da sua sala.</p>
+                <h2>5. Custo-benefício: uma comparação em 3 anos</h2>
+                <p>Considere apenas como exemplo uma GPU de R$ 3.000 e um serviço de US$ 20 por mês. Em 36 meses, a assinatura somaria US$ 720. Para comparar com a placa, é preciso escolher o câmbio e considerar energia, manutenção, eventual valor residual e as capacidades diferentes de cada opção.</p>
+                <p><strong>Na nuvem:</strong> a empresa contrata um serviço e deve avaliar quais dados são enviados, como são tratados e quais recursos recebe.</p>
+                <p><strong>No local:</strong> o hardware permanece com a empresa e pode ter outros usos. Isso reduz a necessidade de enviar dados para um serviço externo somente quando a configuração e as integrações forem verificadas para a tarefa em questão.</p>
 
-                <h2>Conclusão: a IA é sobre liberdade</h2>
-                <p>A grande virada de chave de 2026 é entender que a IA se tornou um utilitário, como a eletricidade. Você pode comprar de uma grande usina (nuvem) ou pode ter seus próprios painéis solares (IA local).</p>
-                <p>A máquina velha também costura. O segredo não está no tamanho do seu data center, mas na inteligência da sua integração. Se você é desenvolvedor, gestor ou entusiasta, o convite é este: pare de esperar o hardware perfeito e comece a costurar com o que você tem hoje.</p>
+                <h2>Conclusão: a IA é sobre escolhas</h2>
+                <p>A comparação com energia continua útil: é possível contratar um serviço, usar recursos próprios ou combinar os dois. A melhor escolha depende do trabalho, do custo e do cuidado com os dados.</p>
+                <p>A máquina que já existe pode costurar algumas soluções. O convite é escolher uma tarefa pequena, testar a qualidade e medir a conta antes de ampliar o uso.</p>
+                <p><strong>Leitura relacionada:</strong> <a href="https://personal.caracore.com.br/articles/2026_04_23_a_ressaca_da_ia_em_2026_por_que_a_ficha_finalmente_caiu_para_o_roi_da_inteligencia_artificial.html">A ressaca da IA em 2026 e a cobrança por retorno</a>.</p>
                 <p>Gostou dessa reflexão? Como você tem equilibrado o uso de IAs na nuvem versus local na sua empresa? Vamos debater nos comentários!</p>
                 <p><em>Tags:</em> IA, Ollama, DeepSeek, Java, Python, hardware, privacidade, desenvolvimento de software, open source.</p>]]></content:encoded>
     </item>
@@ -15823,47 +15814,43 @@ não é lentidão.
                     <figcaption class="hero-image-caption">O &quot;Vale da Desilusão&quot; chegou, mas ele não é o fim da linha. É o início da maturidade.</figcaption>
                 </figure>
 
-                <p>Se você atua no mundo corporativo, em tecnologia ou finanças, a cena já não parece estranha. O gráfico na tela com a linha de ganhos esperados subindo vertiginosamente e a linha de valor real despencando virou o retrato fiel do que muitas empresas estão vivendo em 2026.</p>
+                <p>Se você atua em tecnologia, finanças ou gestão, talvez reconheça a cena: as expectativas de ganho com IA sobem depressa, mas o resultado concreto ainda precisa ser medido. Esta é uma leitura de abril de 2026 sobre a distância possível entre entusiasmo e retorno, não um balanço de todas as empresas.</p>
 
-                <p>Depois de quatro anos de entusiasmo quase messiânico, a ressaca da IA chegou. A sensação de que a ficha está caindo se espalhou pelas áreas de tecnologia, produto e finanças, normalmente acompanhada de um silêncio desconfortável quando surge a pergunta que realmente importa: onde está o lucro?</p>
+                <p>Depois de anos de investimentos e expectativas, uma pergunta merece espaço nas áreas de tecnologia, produto e finanças: onde está o resultado? A metáfora do vale da desilusão ajuda a discutir a cobrança por valor, sem determinar que todo projeto seguirá o mesmo caminho.</p>
 
-                <p>Estamos atravessando o clássico vale da desilusão do ciclo de hype tecnológico. É desconfortável, mas também inevitável. E talvez seja justamente esse desconforto que esteja obrigando o mercado a amadurecer.</p>
+                <h2>A Pergunta de US$ 600 Bilhões</h2>
+                <p>Em 2024, uma <a href="https://sequoiacap.com/article/ais-600b-question/">análise da Sequoia</a> estimou que a infraestrutura projetada de IA precisaria sustentar cerca de US$ 600 bilhões em receita anual, dadas as hipóteses adotadas para custo e margem. Não era uma contagem de US$ 600 bilhões já investidos, nem uma perda efetiva medida em 2026.</p>
 
-                <h2>O Abismo de US$ 600 Bilhões</h2>
-                <p>As estimativas globais apontam para um desequilíbrio brutal: cerca de US$ 600 bilhões foram investidos em infraestrutura de IA, incluindo chips de última geração, novos data centers e consumo massivo de energia, sem que uma receita proporcional tenha aparecido do outro lado.</p>
+                <p>A pergunta continua útil: como transformar infraestrutura poderosa em aplicações que resolvam problemas reais? Uma Ferrari para entregar pizza pode ser uma boa metáfora para um recurso desproporcional à tarefa — mas cada projeto precisa fazer sua própria conta.</p>
 
-                <p>As Big Techs construíram motores cada vez mais poderosos, mas grande parte das empresas ainda não descobriu como colocar um carro rentável em movimento com eles. Em termos práticos, estamos pagando por Ferraris e usando essas Ferraris para entregar pizza.</p>
+                <h2>Três Pontos para Examinar o Retorno</h2>
 
-                <h2>Os Três Motivos do Acerto de Contas</h2>
+                <h3>1. Pessoas, processos e tecnologia</h3>
+                <p>Escolher entre GPT, Gemini ou Claude não resolve, por si só, a organização do trabalho. É preciso definir responsabilidades, reformular processos quando necessário e preparar as pessoas que vão usar e revisar as respostas.</p>
 
-                <h3>1. O erro de foco: 80% pessoas, 20% tecnologia</h3>
-                <p>Muitas organizações gastaram energia demais na escolha do modelo mais poderoso do momento e energia de menos em reformular processos, responsabilidades e capacitação interna. GPT, Gemini ou Claude viraram o centro da conversa, mas não o centro do valor.</p>
-
-                <p>Relatórios de mercado já reforçam a mesma tese: a parte técnica é apenas uma fração do problema. Sem requalificação, mudança operacional e revisão de fluxo de trabalho, a IA vira um apêndice caro, vistoso e subutilizado.</p>
+                <p>Sem capacitação, mudança operacional e revisão do fluxo de trabalho, uma ferramenta pode virar um apêndice caro, vistoso e subutilizado. A proporção entre esses esforços depende de cada projeto.</p>
 
                 <h3>2. Lixo entra, lixo sai: o retorno aos dados</h3>
-                <p>A descoberta mais dolorosa de 2026 talvez tenha sido esta: IA não corrige dado ruim. Em muitas empresas, a promessa de inteligência esbarrou em bases inconsistentes, governança frouxa, cadastros incompletos e informação duplicada.</p>
+                <p>IA não corrige automaticamente dado ruim. Bases inconsistentes, cadastros incompletos e informação duplicada podem comprometer respostas e análises; mesmo com bons dados, modelos também podem produzir erros.</p>
 
-                <p>O resultado foi previsível: respostas inúteis, alucinações, inferências equivocadas e, em alguns casos, decisões de negócio prejudiciais. Em vez de mágica, a IA entregou um espelho das fragilidades já existentes. Por isso 2026 virou também o ano do retorno à disciplina de dados, à governança e ao saneamento básico da informação.</p>
+                <p>Por isso, qualidade dos dados, governança e conferência humana precisam acompanhar a adoção. Não há mágica que dispense conhecer a informação usada na operação.</p>
 
-                <h3>3. Do modelo gigante ao modelo especializado</h3>
-                <p>Outra virada importante foi abandonar a ideia de usar modelos gigantes para todo e qualquer problema corporativo. Manter modelos massivos em escala custa caro em tokens, energia, tempo de resposta e controle operacional.</p>
+                <h3>3. Do modelo gigante ao modelo adequado</h3>
+                <p>Nem todo problema exige o maior modelo disponível. Modelos menores, incluindo os chamados Small Language Models (SLMs), podem ser uma alternativa para determinadas tarefas.</p>
 
-                <p>O movimento mais pragmático agora aponta para Small Language Models (SLMs): modelos menores, mais rápidos, mais baratos e treinados com foco em contextos específicos da empresa. Há menos brilho na apresentação, mas muito mais coerência no custo-benefício.</p>
+                <p>O custo, o tempo de resposta e a qualidade variam conforme o modelo, o equipamento, o contexto e a tarefa. Alguns modelos são adaptados a uma área específica; outros são gerais. A escolha só faz sentido depois de comparada com uma necessidade e uma medição reais.</p>
 
-                <h2>O Fim do Cheque em Branco</h2>
-                <p>A queda da ficha não significa que a IA morreu. Significa algo mais relevante: ela deixou de ser uma promessa quase religiosa e começou a ser tratada como software que precisa justificar orçamento.</p>
+                <h2>Da Expectativa ao Critério de Negócio</h2>
+                <p>A cobrança por retorno não significa que a IA morreu. Significa que um projeto pode ser avaliado como qualquer outro investimento: pelo problema que resolve, pelo custo completo e pelo resultado que entrega.</p>
 
-                <p>O medo de ficar para trás foi substituído pelo medo de queimar caixa. Em 2026, projetos de IA já não recebem autorização apenas com base em entusiasmo ou pressão competitiva. Agora precisam de business cases, indicadores claros, metas objetivas e critérios de medição menos infantis.</p>
-
-                <p>Em outras palavras, a IA está saindo das mãos dos evangelistas de tecnologia e migrando para o escrutínio dos CFOs. E isso, no longo prazo, pode ser saudável.</p>
+                <p>Para uma loja de Curitiba ou Campo Largo, por exemplo, o ponto de partida pode ser medir quanto tempo a equipe gasta organizando cadastros e comparar esse tempo antes e depois de uma ajuda automatizada. O teste precisa incluir revisão das respostas, custo da ferramenta e tempo de treinamento; o ganho não deve ser presumido.</p>
 
                 <h2>Conclusão: A IA Precisa Virar Engenharia</h2>
-                <p>Se você hoje ocupa a cadeira do executivo pressionado por resultado, não há razão para desespero, mas há urgência para reenquadrar a conversa. O vale da desilusão pode, sim, anteceder o planalto da produtividade, mas esse caminho exige pragmatismo.</p>
+                <p>O primeiro passo é cuidar dos dados. O segundo é escolher um problema real: reduzir retrabalho, acelerar uma tarefa ou diminuir erros. O terceiro é envolver as pessoas e definir como o resultado será medido.</p>
 
-                <p>O primeiro passo é sanear os dados, porque dado ruim destrói qualquer motor analítico. O segundo é focar no problema real, não na tecnologia da moda: reduzir custo, acelerar operação, ampliar receita ou diminuir erro humano. O terceiro é treinar pessoas, porque o maior retorno costuma vir do profissional potencializado, não da substituição precipitada.</p>
+                <p>A pergunta não é apenas quem tem acesso ao modelo mais impressionante, mas quem consegue gerar valor com disciplina, contexto e engenharia.</p>
 
-                <p>O hype acabou. A fase da utilidade real está começando agora. A pergunta deixou de ser quem tem acesso ao modelo mais impressionante e passou a ser quem consegue gerar valor com disciplina, contexto e engenharia.</p>
+                <p><strong>Leitura relacionada, acrescentada depois da publicação:</strong> <a href="https://personal.caracore.com.br/articles/2026_04_30_a_era_da_ia_costurada_por_que_voce_nao_precisa_de_uma_supermaquina_para_o_estado_da_arte.html">IA local: possibilidades e limites da IA costurada</a>.</p>
 
                 <p><strong>Gostou da análise?</strong> Deixe sua opinião nos comentários. Como a sua empresa está lidando com a cobrança por ROI em IA?</p>]]></content:encoded>
     </item>

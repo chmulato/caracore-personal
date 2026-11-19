@@ -1,21 +1,17 @@
-"""Gera docs/sitemap.xml a partir da home, articles.html e docs/articles/.
-
-Datas de <lastmod> vem do prefixo AAAA_MM_DD do nome do arquivo do artigo.
-"""
+"""Gera e verifica o sitemap das páginas canônicas do blog."""
 from __future__ import annotations
 
 import argparse
+from datetime import date
+from html import escape
+from html.parser import HTMLParser
+from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
-from datetime import date
-from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-ARTICLES_DIR = ROOT / "docs" / "articles"
 SITEMAP_PATH = ROOT / "docs" / "sitemap.xml"
-
 SITE = "https://personal.caracore.com.br"
-# Redirecionamentos mantidos para links ja publicados; nao entram no sitemap.
 SKIP_NAMES = {
     "README.html",
     "2027_04_20_serie_engenharia_urgencia_chamada.html",
@@ -24,75 +20,77 @@ SKIP_NAMES = {
     "2027_05_16_serie_engenharia_urgencia_ep03.html",
 }
 DATE_PREFIX = re.compile(r"^(\d{4})_(\d{2})_(\d{2})_")
-SITEMAP_NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
-DAILY_URLS = {f"{SITE}/", f"{SITE}/articles.html"}
 
 
-def render_url(loc: str, lastmod: date, changefreq: str, priority: str) -> str:
-    return "\n".join(
-        [
-            "  <url>",
-            f"    <loc>{loc}</loc>",
-            f"    <lastmod>{lastmod.isoformat()}</lastmod>",
-            f"    <changefreq>{changefreq}</changefreq>",
-            f"    <priority>{priority}</priority>",
-            "  </url>",
-        ]
+class SitemapPageParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.canonicals: list[str] = []
+        self.noindex = False
+        self.redirect = False
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = dict(attrs)
+        if tag == "link" and "canonical" in (attributes.get("rel") or "").lower().split():
+            self.canonicals.append(attributes.get("href") or "")
+        if tag == "meta":
+            name = (attributes.get("name") or "").lower()
+            content = (attributes.get("content") or "").lower()
+            if name in {"robots", "googlebot"} and re.search(r"\bnoindex\b", content):
+                self.noindex = True
+            if (attributes.get("http-equiv") or "").lower() == "refresh":
+                self.redirect = True
+
+
+def build_sitemap(docs: Path) -> str:
+    pages = [(docs / "index.html", f"{SITE}/")]
+    pages.extend(
+        (path, f"{SITE}/editorial/{path.name}")
+        for path in sorted((docs / "editorial").glob("*.html"))
     )
-
-
-def without_daily_lastmod(sitemap: str) -> str:
-    root = ET.fromstring(sitemap)
-    for url in root.findall(f"{SITEMAP_NS}url"):
-        if url.findtext(f"{SITEMAP_NS}loc") not in DAILY_URLS:
+    for path in sorted((docs / "articles").glob("*.html")):
+        match = DATE_PREFIX.match(path.name)
+        if path.name in SKIP_NAMES or not match:
             continue
-        lastmods = url.findall(f"{SITEMAP_NS}lastmod")
-        if len(lastmods) != 1 or not lastmods[0].text:
-            raise ValueError("Sitemap invalido: lastmod diario ausente ou duplicado")
-        date.fromisoformat(lastmods[0].text)
-        lastmods[0].text = "DAILY_LASTMOD"
-    return ET.tostring(root, encoding="unicode")
+        try:
+            date(*(int(part) for part in match.groups()))
+        except ValueError as error:
+            raise ValueError(f"Data inválida no nome do artigo: {path}") from error
+        pages.append((path, f"{SITE}/articles/{path.name}"))
+
+    for path, url in pages:
+        page = SitemapPageParser()
+        page.feed(path.read_text(encoding="utf-8-sig"))
+        page.close()
+        if page.canonicals != [url] or page.noindex or page.redirect:
+            raise ValueError(f"Página não canônica ou não indexável: {path}")
+
+    entries = [f"  <url><loc>{escape(url)}</loc></url>" for _, url in pages]
+    return "\n".join([
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        *entries,
+        "</urlset>",
+        "",
+    ])
 
 
 def main(check: bool = False) -> None:
-    today = date.today()
-    entries = [
-        render_url(f"{SITE}/", today, "daily", "1.0"),
-        render_url(f"{SITE}/articles.html", today, "daily", "0.8"),
-    ]
-
-    for path in sorted(ARTICLES_DIR.glob("*.html")):
-        if path.name in SKIP_NAMES:
-            continue
-        match = DATE_PREFIX.match(path.name)
-        if not match:
-            continue
-        article_date = date(int(match.group(1)), int(match.group(2)), int(match.group(3)))
-        entries.append(render_url(f"{SITE}/articles/{path.name}", article_date, "monthly", "0.6"))
-
-    body = "\n".join(
-        [
-            '<?xml version="1.0" encoding="UTF-8"?>',
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-            "\n".join(entries),
-            "</urlset>",
-            "",
-        ]
-    )
-    ET.fromstring(body)
-    if check:
-        if not SITEMAP_PATH.exists():
-            raise SystemExit(f"Sitemap ausente: {SITEMAP_PATH}")
-        current = SITEMAP_PATH.read_text(encoding="utf-8")
-        if without_daily_lastmod(current) != without_daily_lastmod(body):
-            raise SystemExit(
-                "docs/sitemap.xml desatualizado; execute python update_sitemap.py"
-            )
-        print("docs/sitemap.xml atualizado (lastmod diario validado separadamente).")
-        return
+    try:
+        body = build_sitemap(ROOT / "docs")
+        ET.fromstring(body)
+        if check:
+            current = SITEMAP_PATH.read_text(encoding="utf-8")
+            ET.fromstring(current)
+            if current != body:
+                raise SystemExit("docs/sitemap.xml desatualizado; execute python update_sitemap.py")
+            print("docs/sitemap.xml atualizado.")
+            return
+    except (OSError, UnicodeError, ValueError, ET.ParseError) as error:
+        raise SystemExit(f"Sitemap inválido: {error}") from error
 
     SITEMAP_PATH.write_text(body, encoding="utf-8", newline="\n")
-    print(f"URLs gravadas: {len(entries)}")
+    print(f"URLs gravadas: {len(ET.fromstring(body))}")
     print(f"gravado: {SITEMAP_PATH}")
 
 
@@ -101,6 +99,6 @@ if __name__ == "__main__":
     parser.add_argument(
         "--check",
         action="store_true",
-        help="valida o sitemap sem gravar e ignora apenas lastmod diarios",
+        help="valida o sitemap sem gravar",
     )
     main(check=parser.parse_args().check)
