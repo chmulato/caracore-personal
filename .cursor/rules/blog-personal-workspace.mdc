@@ -6,6 +6,13 @@ alwaysApply: true
 
 # Blog personal — memória do workspace
 
+## SEO publicado — 19/11/2026
+
+- Alinhamento publicado no commit `3a847a3`; o workflow do LinkedIn (`44611249599`) e o de saúde (`44611249753`) passaram sem novos posts.
+- O Pages (`44611391102`) foi reconstruído com sucesso após o commit automático do feed `3257f0e`.
+- No ar: sitemap com 284 URLs, RSS com 277 artigos e JSON-LD validado. Os sitemaps dos blogs ainda não foram enviados ao Search Console.
+- Evidências: `caracore-site/docs/INDEXACAO_SEO.md`.
+
 Repositório: blog estático em `docs/` (site matriz `https://personal.caracore.com.br/`).
 
 ## Status (atualizar ao publicar série ou artigo)
